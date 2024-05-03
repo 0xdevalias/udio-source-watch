@@ -12,7 +12,7 @@ const { once } = require("events");
 const changelogFilenames = ["CHANGELOG.md", "CHANGELOG-2023.md"];
 
 // URL Prefixes
-const urlPrefixes = ["https://chat.openai.com/", "https://cdn.oaistatic.com/"];
+const urlPrefixes = ["https://www.udio.com/"];
 
 // Define a set to store all output URLs for de-duplication
 const processedUrls = new Set();

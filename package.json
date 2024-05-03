@@ -1,19 +1,19 @@
 {
-  "name": "chatgpt-source-watch",
+  "name": "udio-source-watch",
   "version": "0.0.1",
-  "description": "Analyzing the evolution of ChatGPT's codebase through time with curated archives and scripts",
+  "description": "Analyzing the evolution of Udio's codebase through time with curated archives and scripts",
   "author": "Glenn 'devalias' Grant (https://devalias.net/)",
   "license": "MIT",
-  "homepage": "https://github.com/0xdevalias/chatgpt-source-watch#readme",
+  "homepage": "https://github.com/0xdevalias/udio-source-watch#readme",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/0xdevalias/chatgpt-source-watch.git"
+    "url": "git+ssh://git@github.com/0xdevalias/udio-source-watch.git"
   },
   "bugs": {
-    "url": "https://github.com/0xdevalias/chatgpt-source-watch/issues"
+    "url": "https://github.com/0xdevalias/udio-source-watch/issues"
   },
   "keywords": [
-    "chatgpt",
+    "udio",
     "webpack",
     "archive"
   ],

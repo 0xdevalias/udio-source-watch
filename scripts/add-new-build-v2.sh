@@ -470,7 +470,7 @@ unpack_and_format_files() {
 # Function to extract the app release version from a specified file
 extract_app_version() {
   # Define the file to search in, going one level up from CURRENT_SCRIPT_DIR
-  local search_file="${CURRENT_SCRIPT_DIR}/../unpacked/_next/static/chunks/pages/_app.js"
+  local search_file="${CURRENT_SCRIPT_DIR}/../unpacked/_next/static/chunks/main-app.js"
 
   # Check if the file exists
   if [[ ! -f "$search_file" ]]; then
@@ -478,8 +478,8 @@ extract_app_version() {
     return 1
   fi
 
-  # Use grep to find the 'version:' line and extract the app version
-  local app_version=$(grep -C 5 'service: "chatgpt-web",' "$search_file" | grep 'version:' | awk -F '"' '{print $2}')
+  # Use grep to find the 'SENTRY_RELEASE' line and extract the release version
+  local app_version=$(grep 'SENTRY_RELEASE = ' "$search_file" | awk -F '"' '{print $2}')
 
   # Check if the app version was found
   if [[ -z $app_version ]]; then
@@ -833,7 +833,7 @@ generate_changelog_and_commit_message() {
   fi
 
   changelog_notes+="- App release version (Git SHA?): \`${app_release_version:-TODO}\`\n"
-  changelog_notes+="  - Extracted with \`grep -C 3 'service: \"chatgpt-web\",' unpacked/_next/static/chunks/pages/_app.js\`\n"
+  changelog_notes+="  - Extracted with \`grep 'SENTRY_RELEASE = ' \"unpacked/_next/static/chunks/main-app.js\"\`\n"
 
   if ! $historical_build; then
     changelog_notes+="- New Chunks:\n"
