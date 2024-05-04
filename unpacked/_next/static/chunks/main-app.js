@@ -15,7 +15,7 @@
         r = t(11585),
         s = window;
       (s.__sentryRewritesTunnelPath__ = "/monitoring"),
-        (s.SENTRY_RELEASE = { id: "3d8885076e5292622ef42ffa53832f3dbc27c755" }),
+        (s.SENTRY_RELEASE = { id: "7d446865240a3ecf4b314b2ff8f279a65ef638ad" }),
         (s.__sentryBasePath = void 0),
         (s.__rewriteFramesAssetPrefixPath__ = ""),
         i.S1({

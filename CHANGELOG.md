@@ -15,11 +15,41 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
     https://github.com/naokazuterada/MarkdownTOC/pull/170
 -->
 <!-- TOC start (generated with https://derlin.github.io/bitdowntoc/) -->
+- [2024-05-04Z \(`r-k67N5ZDs6RpJSgiiCzp`\)](#2024-05-04z-r-k67n5zds6rpjsgiiczp)
 - [2024-05-03Z \(`04b53XHMU9RxeQZNlppSH`\)](#2024-05-03z-04b53xhmu9rxeqznlppsh)
 <!-- TOC end -->
 <!-- DISABLEDMarkdownTOC levels="1,2" style="unordered" bullets="-" indent="  " -->
 <!-- TODO: Reinstate this after this bug is fixed: https://github.com/naokazuterada/MarkdownTOC/pull/170 -->
 <!-- /MarkdownTOC -->
+
+## 2024-05-04Z (`r-k67N5ZDs6RpJSgiiCzp`)
+
+### Notes
+
+The following notes are not necessarily comprehensive, but just things of potential interest that I noted while reviewing the diffs. If you want to see everything that changed, you can look at the diffs of the changed files in the `unpacked/` folder:
+
+- **tl;dr**
+  - NOTE: This build's diff was not analysed
+- App release version (Git SHA?): `7d446865240a3ecf4b314b2ff8f279a65ef638ad`
+  - Extracted with `grep 'SENTRY_RELEASE = ' "unpacked/_next/static/chunks/main-app.js"`
+
+### Not From Build Manifest
+
+#### Archived
+
+```
+https://www.udio.com/_next/static/chunks/2435-3ed987ab7c737c1d.js
+https://www.udio.com/_next/static/chunks/2938-0eee520ce51dd5ea.js
+https://www.udio.com/_next/static/chunks/3458-46d63a7aeba7f569.js
+https://www.udio.com/_next/static/chunks/7073-c7838aa4da27a70f.js
+https://www.udio.com/_next/static/chunks/8519-cbc886743bf58d0e.js
+https://www.udio.com/_next/static/chunks/app/(app)/(home)/page-30eaa2051f71eb74.js
+https://www.udio.com/_next/static/chunks/app/(app)/layout-4b694d9871fee8af.js
+https://www.udio.com/_next/static/chunks/app/error-849ed28264027bff.js
+https://www.udio.com/_next/static/chunks/app/global-error-6058795eee3f70f6.js
+https://www.udio.com/_next/static/chunks/app/layout-9187f6059b123a75.js
+https://www.udio.com/_next/static/chunks/main-app-983c33cd23afd89c.js
+```
 
 ## 2024-05-03Z (`04b53XHMU9RxeQZNlppSH`)
 
