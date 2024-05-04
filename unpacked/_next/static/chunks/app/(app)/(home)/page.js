@@ -891,97 +891,87 @@
             mobileHeight: m = 175,
             maxAgeInHours: f,
             displayAgeSelector: h = !1,
+            randomize: x = !1,
           } = e,
-          [x, v] = (0, l.useState)("w"),
+          [v, p] = (0, l.useState)("w"),
           {
-            results: p,
-            isLoading: g,
-            isFetching: j,
-            hasNextPage: b,
-            fetchNextPage: N,
+            results: g,
+            isLoading: j,
+            isFetching: b,
+            hasNextPage: N,
+            fetchNextPage: w,
           } = (0, i.Z)({
             searchQuery: {
               sort: t,
               searchTerm: "",
               containsTags: d,
-              maxAgeInHours: h ? o(x) : f,
+              maxAgeInHours: h ? o(v) : f,
             },
             limit: 20,
             initialData: r,
           }),
-          { ref: w, inViewport: y } = (0, a.N)();
-        return (
-          (0, l.useEffect)(() => {
-            y && b && N();
-          }, [y, b]),
-          (0, s.jsxs)(s.Fragment, {
-            children: [
-              h
-                ? (0, s.jsx)(n.Tabs, {
-                    value: x,
-                    className: "mt-4",
-                    onValueChange: (e) => {
-                      v(e);
-                    },
-                    children: (0, s.jsxs)(n.TabsList, {
-                      children: [
-                        (0, s.jsx)(n.TabsTrigger, {
-                          value: "d",
-                          children: "Today",
-                        }),
-                        (0, s.jsx)(n.TabsTrigger, {
-                          value: "w",
-                          children: "This week",
-                        }),
-                        (0, s.jsx)(n.TabsTrigger, {
-                          value: "m",
-                          children: "This month",
-                        }),
-                        (0, s.jsx)(n.TabsTrigger, {
-                          value: "a",
-                          children: "All time",
-                        }),
-                      ],
-                    }),
-                  })
-                : null,
-              (0, s.jsx)(c.default, {
-                tracks: p,
-                height: u,
-                mobileHeight: m,
-                isLoading: g || j,
-              }),
-            ],
-          })
-        );
+          { ref: y, inViewport: k } = (0, a.N)();
+        (0, l.useEffect)(() => {
+          k && N && w();
+        }, [k, N]);
+        let T = (0, l.useMemo)(() => {
+          var e;
+          return x
+            ? null === (e = r || g) || void 0 === e
+              ? void 0
+              : e.sort(() => Math.random() - 0.5).slice(0, 6)
+            : g;
+        }, [r, g, x]);
+        return (0, s.jsxs)(s.Fragment, {
+          children: [
+            h
+              ? (0, s.jsx)(n.Tabs, {
+                  value: v,
+                  className: "mt-4",
+                  onValueChange: (e) => {
+                    p(e);
+                  },
+                  children: (0, s.jsxs)(n.TabsList, {
+                    children: [
+                      (0, s.jsx)(n.TabsTrigger, {
+                        value: "d",
+                        children: "Today",
+                      }),
+                      (0, s.jsx)(n.TabsTrigger, {
+                        value: "w",
+                        children: "This week",
+                      }),
+                      (0, s.jsx)(n.TabsTrigger, {
+                        value: "m",
+                        children: "This month",
+                      }),
+                      (0, s.jsx)(n.TabsTrigger, {
+                        value: "a",
+                        children: "All time",
+                      }),
+                    ],
+                  }),
+                })
+              : null,
+            (0, s.jsx)(c.default, {
+              tracks: T,
+              height: u,
+              mobileHeight: m,
+              isLoading: j || b,
+            }),
+          ],
+        });
       };
     },
     10159: function (e, r, t) {
       "use strict";
       t.r(r);
       var s = t(57437),
-        a = t(68828),
-        l = t(94111),
-        i = t(38519);
+        a = t(94111),
+        l = t(38519);
       r.default = (e) => {
-        let r,
-          { initialSongs: t } = e,
-          { trendingType: n } = (0, l.Z)();
-        switch (n) {
-          case "popular":
-            r = "likes";
-            break;
-          case "recent":
-            r = "created_at";
-            break;
-          default:
-            r = "trending_score";
-        }
-        let { results: c } = (0, a.Z)({
-          searchQuery: { sort: r },
-          limit: 6,
-          initialData: t,
-        });
+        let { initialSongs: r } = e,
+          { trendingType: t } = (0, a.Z)();
         return (0, s.jsx)(s.Fragment, {
           children: (0, s.jsx)("div", {
             className: "flex flex-col",
@@ -990,12 +980,12 @@
               children: (0, s.jsx)("div", {
                 className: "compact-track-grid relative mt-3 gap-0",
                 children:
-                  null == c
+                  null == r
                     ? void 0
-                    : c.map((e) =>
+                    : r.map((e) =>
                         (0, s.jsx)(
-                          i.default,
-                          { track: e, trackContext: c },
+                          l.default,
+                          { track: e, trackContext: r },
                           e.id
                         )
                       ),

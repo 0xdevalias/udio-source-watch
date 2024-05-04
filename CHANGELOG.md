@@ -15,12 +15,80 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
     https://github.com/naokazuterada/MarkdownTOC/pull/170
 -->
 <!-- TOC start (generated with https://derlin.github.io/bitdowntoc/) -->
+- [2024-05-04Z \(`Mx_Mw2rnP2Og87wKo_EJk`\)](#2024-05-04z-mx_mw2rnp2og87wko_ejk)
 - [2024-05-04Z \(`r-k67N5ZDs6RpJSgiiCzp`\)](#2024-05-04z-r-k67n5zds6rpjsgiiczp)
 - [2024-05-03Z \(`04b53XHMU9RxeQZNlppSH`\)](#2024-05-03z-04b53xhmu9rxeqznlppsh)
 <!-- TOC end -->
 <!-- DISABLEDMarkdownTOC levels="1,2" style="unordered" bullets="-" indent="  " -->
 <!-- TODO: Reinstate this after this bug is fixed: https://github.com/naokazuterada/MarkdownTOC/pull/170 -->
 <!-- /MarkdownTOC -->
+
+## 2024-05-04Z (`Mx_Mw2rnP2Og87wKo_EJk`)
+
+### Notes
+
+The following notes are not necessarily comprehensive, but just things of potential interest that I noted while reviewing the diffs. If you want to see everything that changed, you can look at the diffs of the changed files in the `unpacked/` folder:
+
+- **tl;dr**
+  - NOTE: This build's diff was only minimally analysed
+  - **Twitter thread:** https://twitter.com/_devalias/status/1786594933987832293
+- App release version (Git SHA?): `8859910553d801c4d6c282206ba3631c32d23e7a`
+  - Extracted with `grep 'SENTRY_RELEASE = ' "unpacked/_next/static/chunks/main-app.js"`
+- `unpacked/_next/static/chunks/1793.js`
+  - ```js
+    (0, p.useEffect)(() => {
+      n({ ...s, audio_context_length_seconds: t });
+    }, [t]),
+    ```
+  - ```js
+    children: [
+      (0, o.jsx)("h1", {
+        className:
+          "mr-2 whitespace-nowrap text-sm text-muted-foreground ",
+        children: "Context Length",
+      }),
+      (0, o.jsx)(X.Z, {
+        width: 600,
+        children: (0, o.jsx)("div", {
+          children:
+            "The context length determines how much of the current track the model considers when generating the output. Longer context lengths can improve the coherence of the output, and make it easier to create consistent verses and choruses, but also make it more difficult to change genres, or styles. Shorter context lengths are more flexible, but can lead to less coherent output.",
+        }),
+      }),
+    ],
+    ```
+  - ```js
+    children: [
+      (0, o.jsx)("div", {
+        className: "text-sm text-muted-foreground",
+        children: "Shorter",
+      }),
+      (0, o.jsx)("div", {
+        className: "text-sm text-muted-foreground",
+        children: "Longer",
+      }),
+    ],
+    ```
+  - ```js
+    (0, p.useEffect)(() => {
+      k || y("audio_context_length_seconds", 130);
+    }, [k]),
+    ```
+- ?etc?
+
+### Not From Build Manifest
+
+#### Archived
+
+```
+https://www.udio.com/_next/static/chunks/1793-06889656577dc80e.js
+https://www.udio.com/_next/static/chunks/2435-c6d40888100f0661.js
+https://www.udio.com/_next/static/chunks/3458-af3000ba2a240e90.js
+https://www.udio.com/_next/static/chunks/app/(app)/(home)/page-af5b01af57ec6b20.js
+https://www.udio.com/_next/static/chunks/app/(app)/layout-e09517774c7e7f6d.js
+https://www.udio.com/_next/static/chunks/app/layout-716ea164f33ccaba.js
+https://www.udio.com/_next/static/chunks/main-app-faa6664e6fa7f63b.js
+https://www.udio.com/_next/static/chunks/webpack-57aca66d8ac48d45.js
+```
 
 ## 2024-05-04Z (`r-k67N5ZDs6RpJSgiiCzp`)
 

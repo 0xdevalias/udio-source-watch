@@ -10,13 +10,13 @@
         a = s(45722);
       l.Z = (e) => {
         let { href: l, children: s, className: c } = e,
-          o = (0, n.Z)(),
-          { openAuthModal: d } = (0, a.fI)(),
+          d = (0, n.Z)(),
+          { openAuthModal: o } = (0, a.fI)(),
           u = (0, i.useCallback)(() => {
-            (null == o ? void 0 : o.id) || d(l);
-          }, [null == o ? void 0 : o.id, l]);
+            (null == d ? void 0 : d.id) || o(l);
+          }, [null == d ? void 0 : d.id, l]);
         return (0, t.jsx)(r.default, {
-          href: o ? l : "#",
+          href: d ? l : "#",
           className: c,
           onClick: u,
           children: s,
@@ -60,7 +60,7 @@
         n = s(83387),
         a = s(41100),
         c = s(38980),
-        o = () => {
+        d = () => {
           let {
             activeTrack: e,
             playTrackOrPause: l,
@@ -107,7 +107,7 @@
             );
           }, [e, s, l]);
         },
-        d = s(68062),
+        o = s(68062),
         u = s(68203),
         x = s(13581),
         m = s(1657),
@@ -123,8 +123,8 @@
               seeker: r,
               duration: a,
               currentTime: c,
-              playProgress: o,
-              onPlayPause: d,
+              playProgress: d,
+              onPlayPause: o,
               seek: u,
             } = e,
             { activeTrack: x, isPlaying: f } = (0, n.x)();
@@ -191,7 +191,7 @@
                       className: "controls flex space-x-4",
                       children: [
                         (0, t.jsx)("button", {
-                          onClick: d,
+                          onClick: o,
                           className:
                             "player-button relative flex flex-shrink-0 items-center justify-center bg-brand-accent",
                           children: f
@@ -217,7 +217,7 @@
                                 "w-full rounded-lg accent-brand-accent",
                               type: "range",
                               ref: r,
-                              value: o,
+                              value: d,
                               min: "0",
                               max: "1",
                               step: "0.001",
@@ -249,20 +249,20 @@
             r = (0, y.cC)("bottom-banner"),
             a = (0, y.aS)("bottom-banner-type", "info"),
             c = (0, y.aS)("bottom-banner-text", ""),
-            { showBottomBanner: o, setShowBottomBanner: d } = (0, b.R)(),
-            u = (0, i.useCallback)(() => d(!1), [d]);
+            { showBottomBanner: d, setShowBottomBanner: o } = (0, b.R)(),
+            u = (0, i.useCallback)(() => o(!1), [o]);
           return r && (null == c ? void 0 : c.length) && !s
             ? (0, t.jsx)(t.Fragment, {
                 children: (0, t.jsxs)("div", {
                   style: {
-                    transform: o ? "translateY(0)" : "translateY(100%)",
+                    transform: d ? "translateY(0)" : "translateY(100%)",
                   },
                   className: (0, m.cn)([
                     "relative z-20 w-full px-8 py-1 transition-transform duration-300",
                     "info" === a && "bg-white text-black",
                     "warning" === a && "bg-yellow-500 text-black",
                     "error" === a && "bg-red-500 text-white",
-                    o ? "" : "hidden md:block",
+                    d ? "" : "hidden md:block",
                     l,
                   ]),
                   children: [
@@ -287,7 +287,7 @@
         T = s(47907),
         S = s(6771),
         P = s(32708),
-        F = s(87073),
+        F = s(21793),
         L = () => {
           let e = (0, T.usePathname)(),
             { isMediumDevice: l } = (0, a.Z)();
@@ -407,7 +407,7 @@
             min: n = "0",
             max: a = "1",
             step: c = "0.001",
-            className: o,
+            className: d,
           } = e;
           return (
             (0, i.useEffect)(() => {
@@ -417,7 +417,7 @@
             (0, t.jsx)("input", {
               className: (0, m.cn)(
                 "range-slider w-full rounded-lg accent-brand-accent",
-                o
+                d
               ),
               type: "range",
               ref: l,
@@ -435,19 +435,19 @@
       let $ = { type: "spring", stiffness: 300, damping: 40 };
       function J(e) {
         let { children: l, width: s, height: r, showMotion: n, onClick: a } = e,
-          [c, o] = (0, i.useState)(!1),
-          [d, u] = (0, i.useState)(0),
+          [c, d] = (0, i.useState)(!1),
+          [o, u] = (0, i.useState)(0),
           [x, m] = (0, i.useState)(0),
           f = (0, i.useRef)(null),
           h = (0, K.q)(0, $),
           v = (0, K.q)(0, $);
         return (
           (0, i.useEffect)(() => {
-            h.set(-d), v.set(x);
-          }, [d, x]),
+            h.set(-o), v.set(x);
+          }, [o, x]),
           (0, t.jsx)(X.E.div, {
             onClick: () => {
-              a && a(), o((e) => !e);
+              a && a(), d((e) => !e);
             },
             transition: $,
             style: {
@@ -517,7 +517,7 @@
             toggleShuffle: n,
             toggleLoop: a,
             playNextTrack: c,
-            playPrevTrack: o,
+            playPrevTrack: d,
           } = e;
           return (0, t.jsx)(t.Fragment, {
             children: (0, t.jsx)("div", {
@@ -540,7 +540,7 @@
                           }),
                     }),
                     (0, t.jsx)(f.z, {
-                      onClick: o,
+                      onClick: d,
                       variant: "ghost",
                       size: "icon",
                       children: (0, t.jsx)(ee.Z, { size: 25, fill: "white" }),
@@ -590,13 +590,13 @@
               shufflePlaylist: a,
             } = (0, n.x)(),
             c = r ? a : s,
-            o = c.findIndex((e) => e.id === (null == l ? void 0 : l.id)),
-            d = (0, i.useMemo)(
+            d = c.findIndex((e) => e.id === (null == l ? void 0 : l.id)),
+            o = (0, i.useMemo)(
               () => [
-                ...(o !== c.length - 1 ? c.slice(o + 1, c.length) : []),
-                ...("all" === e ? c.slice(0, o) : []),
+                ...(d !== c.length - 1 ? c.slice(d + 1, c.length) : []),
+                ...("all" === e ? c.slice(0, d) : []),
               ],
-              [o, c, e]
+              [d, c, e]
             );
           return l
             ? (0, t.jsxs)(t.Fragment, {
@@ -606,16 +606,16 @@
                     track: l,
                     trackContext: c,
                   }),
-                  (null == d ? void 0 : d.length)
+                  (null == o ? void 0 : o.length)
                     ? (0, t.jsxs)(t.Fragment, {
                         children: [
                           (0, t.jsx)("div", {
                             className: "mt-4 font-bold md:ml-2",
                             children: " Up Next",
                           }),
-                          null == d
+                          null == o
                             ? void 0
-                            : d.map((e) =>
+                            : o.map((e) =>
                                 (0, t.jsx)(
                                   en.default,
                                   {
@@ -688,16 +688,16 @@
               })
             : null;
         };
-      let eo = (0, p.I)(),
-        ed = 7 / 12;
+      let ed = (0, p.I)(),
+        eo = 7 / 12;
       var eu = (e) => {
           var l, s;
           let {
               setOpen: n,
               track: a,
               seeker: c,
-              isPlaying: o,
-              currentTime: d,
+              isPlaying: d,
+              currentTime: o,
               duration: u,
               onPlayPause: x,
               seek: v,
@@ -720,7 +720,7 @@
                 e.stopPropagation(),
                 F.current &&
                   (F.current.scrollTop = Math.max(
-                    F.current.scrollTop - F.current.clientHeight * ed,
+                    F.current.scrollTop - F.current.clientHeight * eo,
                     0
                   ));
             }, []),
@@ -728,7 +728,7 @@
               if ((e.preventDefault(), e.stopPropagation(), F.current)) {
                 let { scrollHeight: e, clientHeight: l } = F.current;
                 F.current.scrollTop = Math.min(
-                  F.current.scrollTop + l * ed,
+                  F.current.scrollTop + l * eo,
                   e - l
                 );
               }
@@ -823,7 +823,7 @@
                                       E(!1);
                                     },
                                     children: (0, t.jsx)(j.default, {
-                                      src: a.image_path || eo,
+                                      src: a.image_path || ed,
                                       alt: a.title || "Track",
                                       layout: "fill",
                                       objectFit: "cover",
@@ -944,7 +944,7 @@
                                     (0, t.jsx)("div", {
                                       className:
                                         "mr-2 flex items-center font-mono text-sm text-muted-foreground",
-                                      children: (0, m.mr)(d || 0),
+                                      children: (0, m.mr)(o || 0),
                                     }),
                                     (0, t.jsx)("div", {
                                       className:
@@ -970,7 +970,7 @@
                         }),
                         (0, t.jsx)(ei, {
                           track: a,
-                          isPlaying: o,
+                          isPlaying: d,
                           loop: g,
                           shuffle: p,
                           onPlayPause: x,
@@ -1012,8 +1012,8 @@
               currentTime: i,
               shuffle: a,
               loop: c,
-              playProgress: o,
-              playNextTrack: d,
+              playProgress: d,
+              playNextTrack: o,
               playPrevTrack: u,
               toggleLoop: x,
               toggleShuffle: m,
@@ -1057,7 +1057,7 @@
                           (0, t.jsx)("div", {
                             className:
                               "absolute bottom-0 left-0 z-20 h-[2px] w-full bg-brand-accent",
-                            style: { width: "".concat(100 * (o || 0), "%") },
+                            style: { width: "".concat(100 * (d || 0), "%") },
                           }),
                           (0, t.jsx)("div", {
                             className:
@@ -1114,9 +1114,9 @@
                             seek: p,
                             track: g,
                             duration: r,
-                            playProgress: o,
+                            playProgress: d,
                             currentTime: i,
-                            playNextTrack: d,
+                            playNextTrack: o,
                             playPrevTrack: u,
                             toggleShuffle: m,
                             toggleLoop: x,
@@ -1138,8 +1138,8 @@
               duration: i,
               currentTime: a,
               seeker: c,
-              playProgress: o,
-              toggleShuffle: d,
+              playProgress: d,
+              toggleShuffle: o,
               toggleLoop: u,
               playNextTrack: x,
               playPrevTrack: j,
@@ -1158,7 +1158,7 @@
                     (0, t.jsx)(f.z, {
                       variant: "ghost",
                       size: "sm",
-                      onClick: d,
+                      onClick: o,
                       title: "Shuffle",
                       children: l
                         ? (0, t.jsx)(G.Z, { size: 15 })
@@ -1236,7 +1236,7 @@
                           className: "flex items-center",
                           children: (0, t.jsx)(U, {
                             seeker: c,
-                            value: o,
+                            value: d,
                             onChange: g,
                           }),
                         }),
@@ -1390,10 +1390,10 @@
               muted: r,
               setMuted: a,
               volume: c,
-              setVolume: o,
+              setVolume: d,
             } = (0, n.x)(),
-            [d, u] = (0, i.useState)(0),
-            [x] = (0, ej.c)(d, 100),
+            [o, u] = (0, i.useState)(0),
+            [x] = (0, ej.c)(o, 100),
             m = (0, i.useRef)(null),
             { data: h } = (0, ey.Z)({
               id: null == s ? void 0 : s.id,
@@ -1404,7 +1404,7 @@
               null !== l.current && ((l.current.volume = c), u(c));
             }, [s]),
             (0, i.useEffect)(() => {
-              o(x || c);
+              d(x || c);
             }, [x]),
             (0, t.jsxs)("div", {
               className:
@@ -1439,7 +1439,7 @@
                         (0, t.jsx)(U, {
                           className: "hidden w-[100px] sm:block",
                           seeker: m,
-                          value: d,
+                          value: o,
                           onChange: () => {
                             let e = parseFloat(m.current.value);
                             null !== l.current && (l.current.volume = e), u(e);
@@ -1485,7 +1485,7 @@
             } = (0, n.x)(),
             { removeCompletedTrack: X } = (0, c.QY)(),
             $ = (0, i.useRef)(W);
-          ($.current = W), o();
+          ($.current = W), d();
           let J = () => {
               var e;
               if (!E.current) return;
@@ -1565,7 +1565,11 @@
             },
             er = () => {
               if (!D) return;
-              let e = { description: "play", song_id: D.id };
+              let e = {
+                description: "play",
+                song_id: D.id,
+                detail: { activeTrack: D },
+              };
               u.bL.post("/api/log-action", { action: e });
             },
             ei = async (e) => {
@@ -1575,7 +1579,7 @@
                   song_id: D.id,
                   detail: { event: e, activeTrack: D },
                 },
-                s = await (0, d.QF)([D.id]);
+                s = await (0, o.QF)([D.id]);
               s &&
                 (U(s[0], V),
                 I(!0),
@@ -1621,7 +1625,7 @@
                 currentSongId: null == D ? void 0 : D.id,
               });
             }, [null == D ? void 0 : D.id, k, Y]),
-            eo = (0, i.useCallback)(() => {
+            ed = (0, i.useCallback)(() => {
               if (
                 ((0, x.L9)("Complete Song", {
                   currentSongId: null == D ? void 0 : D.id,
@@ -1641,7 +1645,7 @@
                   en(!0)
                 : (I(!1), en());
             }, [Y, D]),
-            ed = (0, i.useCallback)(() => {
+            eo = (0, i.useCallback)(() => {
               let e = "none";
               if (q) {
                 if ("all" === Y) (e = "track"), M(!0);
@@ -1691,7 +1695,7 @@
               (k || 0) - Z > 10 &&
               (null == D ? void 0 : D.id) &&
               ((0, x.L9)("Listen Song", { songId: D.id }),
-              (0, d.jU)(D),
+              (0, o.jU)(D),
               er(),
               P(!0));
           }, [k, Z, S, null == D ? void 0 : D.id]),
@@ -1709,15 +1713,15 @@
               return (
                 null === (e = p.current) ||
                   void 0 === e ||
-                  e.addEventListener("ended", eo),
+                  e.addEventListener("ended", ed),
                 () => {
                   var e;
                   null === (e = p.current) ||
                     void 0 === e ||
-                    e.removeEventListener("ended", eo);
+                    e.removeEventListener("ended", ed);
                 }
               );
-          }, [eo]),
+          }, [ed]),
           (0, i.useEffect)(() => {
             var e, s;
             let t = () => {
@@ -1836,7 +1840,7 @@
                                         loop: Y,
                                         shuffle: Q,
                                         playProgress: v,
-                                        toggleLoop: ed,
+                                        toggleLoop: eo,
                                         toggleShuffle: eu,
                                         playNextTrack: ea,
                                         playPrevTrack: ec,
@@ -1880,7 +1884,7 @@
                         loop: Y,
                         shuffle: Q,
                         playProgress: v,
-                        toggleLoop: ed,
+                        toggleLoop: eo,
                         toggleShuffle: eu,
                         playNextTrack: ea,
                         playPrevTrack: ec,
@@ -1902,15 +1906,15 @@
         n = s(98075),
         a = s(42773),
         c = s(23642),
-        o = s(45722),
-        d = s(6771),
+        d = s(45722),
+        o = s(6771),
         u = s(85754),
         x = s(93930);
       l.Z = (e) => {
         let { track: l, size: s = 25, className: m } = e,
           { createPlaylistMutation: f, addToPlaylistMutation: h } = (0, n.Z)(),
           v = (0, c.Z)(),
-          { openAuthModal: j } = (0, o.fI)(),
+          { openAuthModal: j } = (0, d.fI)(),
           p = async () => {
             if (!v) {
               j();
@@ -1969,12 +1973,12 @@
                           (0, t.jsxs)(
                             x.Xi,
                             {
-                              disabled: e.song_list.length >= d.yd,
+                              disabled: e.song_list.length >= o.yd,
                               onClick: () => g(e.id),
                               children: [
                                 (0, t.jsx)(i.Z, { className: "mr-2 h-4 w-4" }),
                                 e.name,
-                                e.song_list.length >= d.yd ? " - FULL" : "",
+                                e.song_list.length >= o.yd ? " - FULL" : "",
                               ],
                             },
                             e.id
@@ -2000,8 +2004,8 @@
         n = s(40110),
         a = s(26638),
         c = s(8792),
-        o = s(2265),
-        d = s(42773),
+        d = s(2265),
+        o = s(42773),
         u = s(85754),
         x = s(49030),
         m = s(29194),
@@ -2014,8 +2018,8 @@
               fetchNextPage: h,
               isLoading: v,
               isFetching: j,
-            } = (0, d.Z)({ limit: 20, byOthers: !0 });
-          (0, o.useEffect)(() => {
+            } = (0, o.Z)({ limit: 20, byOthers: !0 });
+          (0, d.useEffect)(() => {
             i && f && h();
           }, [i, f]);
           let p = () => {
@@ -2080,8 +2084,8 @@
               fetchNextPage: h,
               isLoading: v,
               isFetching: j,
-            } = (0, d.Z)({ limit: 20 });
-          return ((0, o.useEffect)(() => {
+            } = (0, o.Z)({ limit: 20 });
+          return ((0, d.useEffect)(() => {
             i && f && h();
           }, [i, f]),
           s && !v && (null == n ? void 0 : n.length) === 0)
@@ -2177,8 +2181,8 @@
         n = s(2265),
         a = s(79740),
         c = s(13581),
-        o = s(1657);
-      let d = (0, a.I)();
+        d = s(1657);
+      let o = (0, a.I)();
       l.Z = (e) => {
         let { playlist: l } = e,
           s = (0, n.useCallback)(
@@ -2190,7 +2194,7 @@
         return (0, t.jsx)(t.Fragment, {
           children: (0, t.jsx)(i.default, {
             onClick: s(l.id),
-            href: "/playlists/".concat((0, o.Y)(l.id)),
+            href: "/playlists/".concat((0, d.Y)(l.id)),
             children: (0, t.jsxs)("div", {
               className:
                 "flex items-center rounded-lg bg-transparent p-2 text-foreground",
@@ -2198,7 +2202,7 @@
                 (0, t.jsx)("div", {
                   className: "mr-4 flex-shrink-0",
                   children: (0, t.jsx)(r.default, {
-                    src: (null == l ? void 0 : l.image_path) || d,
+                    src: (null == l ? void 0 : l.image_path) || o,
                     alt: l.name || "",
                     width: 64,
                     height: 64,
@@ -2235,8 +2239,8 @@
         let {
             track: l,
             trackContext: s = [l],
-            size: o = 25,
-            variant: d = "default",
+            size: d = 25,
+            variant: o = "default",
             className: u = "",
             onClick: x,
           } = e,
@@ -2249,17 +2253,17 @@
                 ? (0, t.jsx)(c.z, {
                     className: (0, a.cn)("rounded-full p-2", u),
                     onClick: () => (x ? x() : h(l, s)()),
-                    variant: d,
+                    variant: o,
                     size: "custom",
-                    children: (0, t.jsx)(r.Z, { size: o, fill: "black" }),
+                    children: (0, t.jsx)(r.Z, { size: d, fill: "black" }),
                   })
                 : (0, t.jsx)(c.z, {
                     className: (0, a.cn)("rounded-full p-2", u),
                     onClick: () => (x ? x() : h(l, s)()),
-                    variant: d,
+                    variant: o,
                     size: "custom",
                     children: (0, t.jsx)(i.Z, {
-                      size: o,
+                      size: d,
                       className: "translate-x-[2px]",
                       fill: "black",
                     }),
@@ -2275,7 +2279,7 @@
             return a;
           },
           AvatarFallback: function () {
-            return o;
+            return d;
           },
           AvatarImage: function () {
             return c;
@@ -2306,7 +2310,7 @@
         });
       });
       c.displayName = r.Ee.displayName;
-      let o = i.forwardRef((e, l) => {
+      let d = i.forwardRef((e, l) => {
         let { className: s, ...i } = e;
         return (0, t.jsx)(r.NY, {
           ref: l,
@@ -2317,7 +2321,7 @@
           ...i,
         });
       });
-      o.displayName = r.NY.displayName;
+      d.displayName = r.NY.displayName;
     },
     49030: function (e, l, s) {
       s.r(l),
@@ -2378,13 +2382,13 @@
             return a;
           },
           TabsContent: function () {
-            return d;
+            return o;
           },
           TabsList: function () {
             return c;
           },
           TabsTrigger: function () {
-            return o;
+            return d;
           },
         });
       var t = s(57437),
@@ -2404,7 +2408,7 @@
           });
         });
       c.displayName = r.aV.displayName;
-      let o = i.forwardRef((e, l) => {
+      let d = i.forwardRef((e, l) => {
         let { className: s, ...i } = e;
         return (0, t.jsx)(r.xz, {
           ref: l,
@@ -2415,8 +2419,8 @@
           ...i,
         });
       });
-      o.displayName = r.xz.displayName;
-      let d = i.forwardRef((e, l) => {
+      d.displayName = r.xz.displayName;
+      let o = i.forwardRef((e, l) => {
         let { className: s, ...i } = e;
         return (0, t.jsx)(r.VY, {
           ref: l,
@@ -2427,7 +2431,7 @@
           ...i,
         });
       });
-      d.displayName = r.VY.displayName;
+      o.displayName = r.VY.displayName;
     },
     42531: function (e, l, s) {
       var t = s(73667),

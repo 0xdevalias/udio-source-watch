@@ -1,13 +1,13 @@
 "use strict";
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [7073],
+  [1793],
   {
     92299: function (e, a, t) {
       var o = t(57437),
         s = t(28814),
         n = t(2265),
-        i = t(1657),
-        r = t(55322);
+        r = t(1657),
+        i = t(55322);
       a.Z = (e) => {
         let {
             size: a = 20,
@@ -15,23 +15,24 @@
             className: l,
             contentClassName: u,
             children: c,
+            width: d = 400,
           } = e,
-          [g, d] = (0, n.useState)(!1),
-          h = (0, n.useCallback)(() => {
-            d(!g);
+          [g, h] = (0, n.useState)(!1),
+          f = (0, n.useCallback)(() => {
+            h(!g);
           }, [g]);
-        return (0, o.jsx)(r.pn, {
+        return (0, o.jsx)(i.pn, {
           delayDuration: 300,
-          children: (0, o.jsxs)(r.u, {
+          children: (0, o.jsxs)(i.u, {
             open: g,
-            onOpenChange: d,
+            onOpenChange: h,
             children: [
-              (0, o.jsx)(r.aJ, {
-                onClick: h,
+              (0, o.jsx)(i.aJ, {
+                onClick: f,
                 children: (0, o.jsx)(s.Z, { className: l, size: a, color: t }),
               }),
-              (0, o.jsx)(r._v, {
-                className: (0, i.cn)(["w-[400px] max-w-[75%]", u]),
+              (0, o.jsx)(i._v, {
+                className: (0, r.cn)(["w-[".concat(d, "px] max-w-[75%]"), u]),
                 children: c,
               }),
             ],
@@ -39,17 +40,17 @@
         });
       };
     },
-    87073: function (e, a, t) {
+    21793: function (e, a, t) {
       t.r(a),
         t.d(a, {
           VISIBLE_TAG_INCREMENT: function () {
-            return eS;
+            return eT;
           },
           default: function () {
-            return eL;
+            return eP;
           },
           defaultPromptPlaceholder: function () {
-            return eT;
+            return eZ;
           },
         });
       var o = t(57437);
@@ -757,17 +758,17 @@
           "ballad",
           "reggae",
         ],
-        i = () => s[Math.floor(Math.random() * s.length)],
-        r = () => n[Math.floor(Math.random() * n.length)],
-        l = () => ({ prompt: i(), tags: [r()] });
+        r = () => s[Math.floor(Math.random() * s.length)],
+        i = () => n[Math.floor(Math.random() * n.length)],
+        l = () => ({ prompt: r(), tags: [i()] });
       var u = t(19213),
         c = t(18746),
-        g = t(47281),
-        d = t(53334),
+        d = t(47281),
+        g = t(53334),
         h = t(47082),
         f = t(97404),
-        b = t(91980),
-        m = t(24232),
+        m = t(91980),
+        b = t(24232),
         p = t(2265),
         x = t(56288),
         y = t(36408),
@@ -802,27 +803,27 @@
             placeholderData: (e) => e || { predictions: s, completions: [] },
           });
         },
-        k = t(23642),
-        N = t(68062),
+        N = t(23642),
+        k = t(68062),
         _ = function () {
           let e =
               arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
-            a = (0, k.Z)();
+            a = (0, N.Z)();
           return (0, v.a)({
             queryKey: y.YN.currentUserApiUsage(),
-            queryFn: async () => (await (0, N.L9)()).data,
+            queryFn: async () => (await (0, k.L9)()).data,
             refetchOnWindowFocus: !1,
             enabled: !!(null == a ? void 0 : a.id) && e,
           });
         },
         C = t(41100),
-        z = t(38980),
-        F = t(45722),
-        S = t(76798),
+        F = t(38980),
+        S = t(45722),
+        z = t(76798),
         T = t(6771),
         Z = t(13581),
         L = () => {
-          let { showOptions: e, setShowOptions: a } = (0, S.F)();
+          let { showOptions: e, setShowOptions: a } = (0, z.F)();
           return (0, o.jsx)(o.Fragment, {
             children: e
               ? (0, o.jsx)("div", {
@@ -836,19 +837,20 @@
         P = t(98998),
         D = t(37501),
         M = t(28814),
-        I = t(77929),
-        E = t(81805),
+        E = t(77929),
+        I = t(81805),
         A = (e) => {
           let {
-            toastId: a,
-            userApiUsage: t,
-            toastType: s = "warning",
-            toastMessage: n = "Amazing music is seconds away!",
-          } = e;
-          return (0, o.jsxs)(E.Z, {
+              toastId: a,
+              userApiUsage: t,
+              toastType: s = "warning",
+              toastMessage: n = "Amazing music is seconds away!",
+            } = e,
+            r = (0, u.cC)("show-quota");
+          return (0, o.jsxs)(I.Z, {
             toastId: a,
             children: [
-              (0, o.jsxs)(I.Cd, {
+              (0, o.jsxs)(E.Cd, {
                 className: "flex items-center space-x-2 text-lg",
                 children: [
                   "error" === s
@@ -873,10 +875,11 @@
                 className:
                   "flex flex-col items-center justify-between md:flex-row",
                 children: [
-                  (0, o.jsx)(I.X, { className: "md:ml-6", children: n }),
+                  (0, o.jsx)(E.X, { className: "md:ml-6", children: n }),
                   t &&
+                    r &&
                     "new" !== t.tier &&
-                    (0, o.jsx)(I.X, {
+                    (0, o.jsx)(E.X, {
                       className: "mt-2 md:mt-0",
                       children: (0, o.jsxs)("div", {
                         className: "flex flex-col space-y-1",
@@ -917,11 +920,11 @@
         },
         q = t(85754),
         R = t(45179),
-        O = t(78798),
-        Y = t(47934),
+        Y = t(78798),
+        O = t(47934),
         U = t(94845),
         G = t(1657);
-      let W = p.forwardRef((e, a) => {
+      let Q = p.forwardRef((e, a) => {
         let { className: t, ...s } = e;
         return (0, o.jsx)(U.fC, {
           className: (0, G.cn)(
@@ -937,15 +940,15 @@
           }),
         });
       });
-      W.displayName = U.fC.displayName;
-      var Q = t(49108),
+      Q.displayName = U.fC.displayName;
+      var W = t(49108),
         B = t(37805),
         H = t(31478);
       let K = 7 / 12;
       var V = (e) => {
           let { tagType: a, tagList: t, addSuggestedTags: s } = e,
             n = (0, p.useRef)(null),
-            [i, r] = (0, p.useState)(!1),
+            [r, i] = (0, p.useState)(!1),
             [l, u] = (0, p.useState)(!0),
             c = (0, p.useCallback)(() => {
               if (n.current) {
@@ -956,7 +959,7 @@
                 );
               }
             }, []),
-            g = (0, p.useCallback)(() => {
+            d = (0, p.useCallback)(() => {
               n.current &&
                 (n.current.scrollLeft = Math.max(
                   n.current.scrollLeft - n.current.clientWidth * K,
@@ -971,7 +974,7 @@
                   scrollWidth: a,
                   clientWidth: t,
                 } = n.current;
-                0 === e ? r(!1) : r(!0), e + t === a ? u(!1) : u(!0);
+                0 === e ? i(!1) : i(!0), e + t === a ? u(!1) : u(!0);
               },
               a = n.current;
             return (
@@ -983,29 +986,29 @@
             ? (0, o.jsxs)("div", {
                 className: "relative flex max-w-full flex-grow items-center",
                 children: [
-                  i
+                  r
                     ? (0, o.jsxs)(o.Fragment, {
                         children: [
                           (0, o.jsx)("div", {
                             className: (0, G.cn)([
                               "pointer-events-none absolute left-0 hidden h-[40px] w-[200px] bg-gradient-to-l from-transparent to-black md:block",
                               "transition-opacity duration-500",
-                              i ? "opacity-100" : "opacity-0",
+                              r ? "opacity-100" : "opacity-0",
                             ]),
                           }),
                           (0, o.jsx)("div", {
                             className: (0, G.cn)([
                               "absolute left-0 top-0 bg-gradient-to-l from-transparent to-black",
                               "transition-opacity duration-500",
-                              i ? "opacity-100" : "opacity-0",
+                              r ? "opacity-100" : "opacity-0",
                             ]),
                             children: (0, o.jsx)(H.C, {
                               className:
                                 "mr-2 hidden cursor-pointer bg-gray-light py-0 text-foreground hover:text-muted-foreground md:inline-flex",
                               onMouseDown: (e) => {
-                                e.preventDefault(), g();
+                                e.preventDefault(), d();
                               },
-                              children: (0, o.jsx)(Q.Z, { className: "w-4" }),
+                              children: (0, o.jsx)(W.Z, { className: "w-4" }),
                             }),
                           }),
                         ],
@@ -1073,23 +1076,115 @@
               })
             : null;
         },
-        X = t(91942),
-        J = t(98642),
-        $ = t(57976),
-        ee = t(50661),
-        ea = t(49578),
-        et = t(23416),
-        eo = t(20703);
-      let es = (0, t(79740).I)();
-      var en = (e) => {
+        X = t(92299),
+        J = t(26579);
+      let $ = p.forwardRef((e, a) => {
+        let { className: t, ...s } = e;
+        return (0, o.jsxs)(J.fC, {
+          ref: a,
+          className: (0, G.cn)(
+            "relative flex w-full touch-none select-none items-center",
+            t
+          ),
+          ...s,
+          children: [
+            (0, o.jsx)(J.fQ, {
+              className:
+                "relative h-2 w-full grow overflow-hidden rounded-full bg-secondary",
+              children: (0, o.jsx)(J.e6, {
+                className: "absolute h-full bg-primary",
+              }),
+            }),
+            (0, o.jsx)(J.bU, {
+              className:
+                "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+            }),
+          ],
+        });
+      });
+      $.displayName = J.fC.displayName;
+      var ee = () => {
+          let [e, a] = (0, p.useState)(120),
+            [t] = (0, d.c)(e, 100),
+            { samplerOptions: s, setSamplerOptions: n } = (0, F.QY)();
+          return (
+            (0, p.useEffect)(() => {
+              n({ ...s, audio_context_length_seconds: t });
+            }, [t]),
+            (0, o.jsx)(o.Fragment, {
+              children: (0, o.jsxs)("div", {
+                className: "flex items-center space-x-4 px-6 pt-3",
+                children: [
+                  (0, o.jsxs)("div", {
+                    className: "flex w-full flex-grow flex-col space-y-2  ",
+                    children: [
+                      (0, o.jsxs)("div", {
+                        className: "flex items-center",
+                        children: [
+                          (0, o.jsx)("h1", {
+                            className:
+                              "mr-2 whitespace-nowrap text-sm text-muted-foreground ",
+                            children: "Context Length",
+                          }),
+                          (0, o.jsx)(X.Z, {
+                            width: 600,
+                            children: (0, o.jsx)("div", {
+                              children:
+                                "The context length determines how much of the current track the model considers when generating the output. Longer context lengths can improve the coherence of the output, and make it easier to create consistent verses and choruses, but also make it more difficult to change genres, or styles. Shorter context lengths are more flexible, but can lead to less coherent output.",
+                            }),
+                          }),
+                        ],
+                      }),
+                      (0, o.jsx)($, {
+                        min: 1,
+                        max: 130,
+                        step: 1,
+                        className: "w-full",
+                        color: "bg-brand-accent",
+                        value: [e],
+                        onValueChange: (e) => a(e[0]),
+                      }),
+                      (0, o.jsxs)("div", {
+                        className: "flex items-center justify-between",
+                        children: [
+                          (0, o.jsx)("div", {
+                            className: "text-sm text-muted-foreground",
+                            children: "Shorter",
+                          }),
+                          (0, o.jsx)("div", {
+                            className: "text-sm text-muted-foreground",
+                            children: "Longer",
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  (0, o.jsx)("div", {
+                    className: "font-mono text-base",
+                    children: (0, G.mr)(e),
+                  }),
+                ],
+              }),
+            })
+          );
+        },
+        ea = t(91942),
+        et = t(98642),
+        eo = t(57976),
+        es = t(50661),
+        en = t(49578),
+        er = t(23416),
+        ei = t(20703);
+      let el = (0, t(79740).I)();
+      var eu = (e) => {
           let { size: a = 48 } = e,
-            t = (0, ee.V)(),
+            t = (0, es.V)(),
             {
               baseTrack: s,
               setBaseTrack: n,
-              setSamplerOptionsItem: i,
-            } = (0, z.QY)(),
-            [r, l] = (0, p.useState)((null == s ? void 0 : s.prompt) || "");
+              setSamplerOptionsItem: r,
+            } = (0, F.QY)(),
+            [i, l] = (0, p.useState)((null == s ? void 0 : s.prompt) || "");
           return (
             (0, p.useEffect)(() => {
               l((null == s ? void 0 : s.prompt) || "");
@@ -1108,18 +1203,18 @@
                       className:
                         "absolute -top-1 right-0 flex h-8 flex-row py-0",
                       onClick: () => {
-                        n(null), i("crop_start_time", void 0);
+                        n(null), r("crop_start_time", void 0);
                       },
                       children: [
-                        (0, o.jsx)(ea.Z, { className: "mr-2", size: 16 }),
+                        (0, o.jsx)(en.Z, { className: "mr-2", size: 16 }),
                         "Create New",
                       ],
                     }),
                     (0, o.jsx)("div", {
                       className: "relative flex-shrink-0",
-                      children: (0, o.jsx)(eo.default, {
+                      children: (0, o.jsx)(ei.default, {
                         className: "rounded-sm",
-                        src: (null == s ? void 0 : s.image_path) || es,
+                        src: (null == s ? void 0 : s.image_path) || el,
                         alt:
                           (null == s ? void 0 : s.title) || "base track icon",
                         width: a,
@@ -1133,18 +1228,18 @@
                       children: [
                         (0, o.jsx)("div", {
                           className: "truncate-1-line flex-grow ",
-                          children: r,
+                          children: i,
                         }),
                         (0, o.jsx)("div", {
                           className: "ml-4 flex-shrink-0",
                           onClick: () => {
-                            t.copy(r),
+                            t.copy(i),
                               l("Copied!"),
                               setTimeout(() => {
-                                l(r);
+                                l(i);
                               }, 1500);
                           },
-                          children: (0, o.jsx)(et.Z, {
+                          children: (0, o.jsx)(er.Z, {
                             size: 16,
                             className: "cursor-pointer",
                           }),
@@ -1157,34 +1252,33 @@
             })
           );
         },
-        ei = t(92299),
-        er = t(14270),
-        el = t(29691),
-        eu = () => {
+        ec = t(14270),
+        ed = t(29691),
+        eg = () => {
           let e = (0, u.cC)("extension-trim"),
             [a, t] = (0, p.useState)(!1),
             {
               baseTrack: s,
               samplerOptions: n,
-              setSamplerOptionsItem: i,
-            } = (0, z.QY)();
+              setSamplerOptionsItem: r,
+            } = (0, F.QY)();
           return (
             (0, p.useEffect)(() => {
-              a || i("audio_conditioning_crop_seconds", void 0);
+              a || r("audio_conditioning_crop_seconds", void 0);
             }, [a]),
             (0, o.jsx)(o.Fragment, {
               children:
                 e &&
                 s &&
                 (0, o.jsx)(o.Fragment, {
-                  children: (0, o.jsxs)(el.zF, {
+                  children: (0, o.jsxs)(ed.zF, {
                     onOpenChange: (e) => t(e),
                     children: [
-                      (0, o.jsx)(el.wy, {
+                      (0, o.jsx)(ed.wy, {
                         children: (0, o.jsxs)("div", {
                           className: " mt-2 flex items-center justify-between",
                           children: [
-                            (0, o.jsx)(W, {
+                            (0, o.jsx)(Q, {
                               id: "bypass-settings",
                               checked: a,
                               onCheckedChange: (e) => {
@@ -1198,22 +1292,22 @@
                                 "mr-2 whitespace-nowrap text-sm text-muted-foreground",
                               children: "Select Section",
                             }),
-                            (0, o.jsx)(ei.Z, {
+                            (0, o.jsx)(X.Z, {
                               children:
                                 "Select a section of the song to crop before the extension process occurs. This is a non destructive operation that will not affect the original song.",
                             }),
                           ],
                         }),
                       }),
-                      (0, o.jsx)(el.Fw, {
+                      (0, o.jsx)(ed.Fw, {
                         children: (0, o.jsx)("div", {
                           className: "mt-2",
-                          children: (0, o.jsx)(er.Z, {
+                          children: (0, o.jsx)(ec.Z, {
                             useTrim: !0,
                             height: 50,
                             track: s,
                             setPoints: (e, a) => {
-                              i("audio_conditioning_crop_seconds", [e, a]);
+                              r("audio_conditioning_crop_seconds", [e, a]);
                             },
                           }),
                         }),
@@ -1224,12 +1318,12 @@
             })
           );
         },
-        ec = () => {
+        eh = () => {
           let {
               baseTrack: e,
               samplerOptions: a,
               setSamplerOptions: t,
-            } = (0, z.QY)(),
+            } = (0, F.QY)(),
             [s, n] = (0, p.useState)("middle");
           if (
             !e ||
@@ -1237,9 +1331,9 @@
               "continuation" !== a.audio_conditioning_type)
           )
             return null;
-          let i = [
+          let r = [
             {
-              arrow: (0, o.jsx)(X.Z, { className: "mr-2 h-5 w-5" }),
+              arrow: (0, o.jsx)(ea.Z, { className: "mr-2 h-5 w-5" }),
               title: "Before",
               placement: "Add Intro",
               checked: "precede" === a.audio_conditioning_type && "intro" === s,
@@ -1257,7 +1351,7 @@
               },
             },
             {
-              arrow: (0, o.jsx)(X.Z, { className: "mr-2 h-5 w-5" }),
+              arrow: (0, o.jsx)(ea.Z, { className: "mr-2 h-5 w-5" }),
               title: "Before",
               placement: "Add Section",
               checked:
@@ -1276,7 +1370,7 @@
               },
             },
             {
-              arrow: (0, o.jsx)(J.Z, { className: "mr-2 h-5 w-5" }),
+              arrow: (0, o.jsx)(et.Z, { className: "mr-2 h-5 w-5" }),
               title: "After",
               placement: "Add Section",
               checked:
@@ -1295,7 +1389,7 @@
               },
             },
             {
-              arrow: (0, o.jsx)(J.Z, { className: "mr-2 h-5 w-5" }),
+              arrow: (0, o.jsx)(et.Z, { className: "mr-2 h-5 w-5" }),
               title: "After",
               placement: "Add Outro",
               checked:
@@ -1317,9 +1411,9 @@
           return (0, o.jsxs)("div", {
             className: "relative my-2",
             children: [
-              (0, o.jsx)(en, { size: 40 }),
-              (0, o.jsx)(eu, {}),
-              (0, o.jsx)(Y.Z, { className: "mb-3 mt-3 " }),
+              (0, o.jsx)(eu, { size: 40 }),
+              (0, o.jsx)(eg, {}),
+              (0, o.jsx)(O.Z, { className: "mb-3 mt-3 " }),
               (0, o.jsx)("div", {
                 className: "relative my-3 flex w-full flex-col",
                 children: (0, o.jsx)("div", {
@@ -1341,7 +1435,7 @@
                   className: "flex w-full items-center space-x-2",
                   children: (0, o.jsx)("div", {
                     className: "grid w-full grid-cols-2 gap-4 lg:grid-cols-4",
-                    children: i.map((e) =>
+                    children: r.map((e) =>
                       (0, o.jsxs)(
                         "div",
                         {
@@ -1376,7 +1470,7 @@
                               ],
                             }),
                             e.checked
-                              ? (0, o.jsx)($.Z, {
+                              ? (0, o.jsx)(eo.Z, {
                                   className: "",
                                   size: 16,
                                   color: "black",
@@ -1398,25 +1492,25 @@
             ],
           });
         },
-        eg = t(95200),
-        ed = t(23444);
-      let eh = [
+        ef = t(95200),
+        em = t(23444);
+      let eb = [
         "Write lyrics suitable for a 30s clip — about 6 lines for most genres, fewer for slower songs, and more for faster ones.",
         "Add [Verse], [Bridge], and [Chorus] tags for additional control.",
         "[Drop] and [guitar solo] [sax solo] all do interesting things.",
         "If the model mispronounces a word, you can split it up into easier phonemes.",
         "Use between 200 and 350 characters for best results.",
       ];
-      var ef = (e) => {
+      var ep = (e) => {
           let {
               settings: a,
               setSettings: t,
               lyricsType: s,
               setLyricsType: n,
             } = e,
-            [i, r] = (0, p.useState)(0),
+            [r, i] = (0, p.useState)(0),
             { isMediumDevice: l } = (0, C.Z)(),
-            { setLyricsFocus: u } = (0, S.F)(),
+            { setLyricsFocus: u } = (0, z.F)(),
             c = (0, p.useCallback)(
               (e) => () => {
                 n(e), (0, Z.L9)("Select Lyric Type", { lyricType: e });
@@ -1424,14 +1518,14 @@
               [n]
             );
           (0, p.useEffect)(() => {
-            "lyricInput" === s && r(Math.floor(Math.random() * eh.length));
+            "lyricInput" === s && i(Math.floor(Math.random() * eb.length));
           }, [s]);
-          let g = (0, p.useCallback)(() => {
-              r((i + 1) % eh.length);
-            }, [i]),
-            d = (0, p.useCallback)(() => {
-              r((i - 1 + eh.length) % eh.length);
-            }, [i]);
+          let d = (0, p.useCallback)(() => {
+              i((r + 1) % eb.length);
+            }, [r]),
+            g = (0, p.useCallback)(() => {
+              i((r - 1 + eb.length) % eb.length);
+            }, [r]);
           return (0, o.jsxs)("div", {
             children: [
               (0, o.jsx)("h1", {
@@ -1482,7 +1576,7 @@
                           ],
                         }),
                         s === e.value
-                          ? (0, o.jsx)($.Z, {
+                          ? (0, o.jsx)(eo.Z, {
                               className: "hidden lg:block",
                               size: 16,
                               color: "black",
@@ -1506,7 +1600,7 @@
                       className:
                         "relative flex w-full flex-col items-start space-y-2 lg:flex-row lg:space-x-2",
                       children: [
-                        (0, o.jsx)(ed.g, {
+                        (0, o.jsx)(em.g, {
                           placeholder: "Write custom lyrics here",
                           className:
                             "min-h-[125px] w-full px-4 text-[16px] md:min-h-[150px] md:text-[14px] lg:w-2/3",
@@ -1531,15 +1625,15 @@
                               className:
                                 "absolute right-4 top-2 flex items-center space-x-4",
                               children: [
-                                (0, o.jsx)(Q.Z, {
+                                (0, o.jsx)(W.Z, {
                                   size: 16,
                                   className: "cursor-pointer",
-                                  onClick: d,
+                                  onClick: g,
                                 }),
                                 (0, o.jsx)(B.Z, {
                                   size: 16,
                                   className: "cursor-pointer",
-                                  onClick: g,
+                                  onClick: d,
                                 }),
                               ],
                             }),
@@ -1547,7 +1641,7 @@
                               className:
                                 "my-2 flex flex-row items-center text-base text-muted-foreground",
                               children: [
-                                (0, o.jsx)(eg.Z, {
+                                (0, o.jsx)(ef.Z, {
                                   className: "mr-2",
                                   size: 16,
                                 }),
@@ -1556,7 +1650,7 @@
                             }),
                             (0, o.jsx)("div", {
                               className: "text-base text-muted-foreground",
-                              children: eh[i],
+                              children: eb[r],
                             }),
                           ],
                         }),
@@ -1574,36 +1668,55 @@
             ],
           });
         },
-        eb = () =>
-          (0, o.jsx)(ei.Z, {
+        ex = () =>
+          (0, o.jsx)(X.Z, {
             children: (0, o.jsx)("div", {
               children:
                 "Manual mode allows you to directly prompt the model without any prompt rewriting. By default, our system rewrites your prompts to improve the average output quality. If you are seeking specific sounds and want to interact directly with the model interface, we recommend using manual mode.",
             }),
           }),
-        em = t(29456),
-        ep = (e) => {
+        ey = t(29456),
+        ev = (e) => {
           let { userApiUsageData: a } = e;
           return (0, o.jsx)(o.Fragment, {
             children:
               a &&
-              (0, o.jsxs)(em.zs, {
+              (0, o.jsxs)(ey.zs, {
                 openDelay: 200,
                 children: [
-                  (0, o.jsx)(em.Yi, {
-                    children: (0, o.jsxs)("span", {
-                      className:
-                        "mr-5 flex cursor-pointer items-center text-xs",
-                      children: [
-                        a.monthly_used,
-                        " / ",
-                        a.monthly_limit,
-                        " ",
-                        "Monthly Generations",
-                      ],
-                    }),
+                  (0, o.jsxs)(ey.Yi, {
+                    className: "flex",
+                    children: [
+                      (0, o.jsxs)("span", {
+                        className: "flex cursor-pointer items-center text-xs",
+                        children: [
+                          a.monthly_used,
+                          " / ",
+                          a.monthly_limit,
+                          " ",
+                          "Monthly Generations",
+                        ],
+                      }),
+                      a.discretionary > 0 &&
+                        (0, o.jsxs)(o.Fragment, {
+                          children: [
+                            (0, o.jsx)(O.Z, {
+                              className: "mx-2 h-[20px] w-[2px]",
+                              orientation: "vertical",
+                            }),
+                            (0, o.jsxs)("span", {
+                              className:
+                                "ml-1 flex cursor-pointer items-center text-xs",
+                              children: [
+                                a.discretionary,
+                                " Additional Generations",
+                              ],
+                            }),
+                          ],
+                        }),
+                    ],
                   }),
-                  (0, o.jsx)(em.bZ, {
+                  (0, o.jsx)(ey.bZ, {
                     side: "top",
                     className: "w-80",
                     children: (0, o.jsxs)("div", {
@@ -1643,38 +1756,12 @@
               }),
           });
         },
-        ex = t(26579);
-      let ey = p.forwardRef((e, a) => {
-        let { className: t, ...s } = e;
-        return (0, o.jsxs)(ex.fC, {
-          ref: a,
-          className: (0, G.cn)(
-            "relative flex w-full touch-none select-none items-center",
-            t
-          ),
-          ...s,
-          children: [
-            (0, o.jsx)(ex.fQ, {
-              className:
-                "relative h-2 w-full grow overflow-hidden rounded-full bg-secondary",
-              children: (0, o.jsx)(ex.e6, {
-                className: "absolute h-full bg-primary",
-              }),
-            }),
-            (0, o.jsx)(ex.bU, {
-              className:
-                "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-            }),
-          ],
-        });
-      });
-      ey.displayName = ex.fC.displayName;
-      var ev = () => {
+        ew = () => {
           let {
               samplerOptions: e,
               baseTrack: a,
               setSamplerOptions: t,
-            } = (0, z.QY)(),
+            } = (0, F.QY)(),
             { isMediumDevice: s } = (0, C.Z)();
           return "variation" === e.audio_conditioning_type && a
             ? (0, o.jsx)("div", {
@@ -1689,7 +1776,7 @@
                       (0, o.jsx)("div", {
                         className:
                           "relative flex w-full flex-shrink-0 flex-col items-start md:w-1/2",
-                        children: (0, o.jsx)(en, { size: s ? 57 : 40 }),
+                        children: (0, o.jsx)(eu, { size: s ? 57 : 40 }),
                       }),
                       (0, o.jsxs)("div", {
                         className:
@@ -1700,7 +1787,7 @@
                               "whitespace-nowrap text-sm text-muted-foreground",
                             children: "Variance",
                           }),
-                          (0, o.jsx)(ey, {
+                          (0, o.jsx)($, {
                             min: 0,
                             max: 1,
                             step: 0.01,
@@ -1738,8 +1825,8 @@
               })
             : null;
         },
-        ew = t(52235);
-      let ej = 7 / 12;
+        ej = t(52235);
+      let eN = 7 / 12;
       var ek = (e) => {
           let {
               partialTag: a = "",
@@ -1747,45 +1834,45 @@
               addSuggestedTags: s,
               containerStyle: n,
             } = e,
-            i = (0, p.useRef)(null),
-            [r, l] = (0, p.useState)(!1),
+            r = (0, p.useRef)(null),
+            [i, l] = (0, p.useState)(!1),
             [u, c] = (0, p.useState)(!0),
-            { setShowTagCompletions: g } = (0, S.F)(),
-            { isMediumDevice: d } = (0, C.Z)(),
+            { setShowTagCompletions: d } = (0, z.F)(),
+            { isMediumDevice: g } = (0, C.Z)(),
             h = (0, p.useCallback)(() => {
-              if (i.current) {
-                let { scrollWidth: e, clientWidth: a } = i.current;
-                i.current.scrollLeft = Math.min(
-                  i.current.scrollLeft + a * ej,
+              if (r.current) {
+                let { scrollWidth: e, clientWidth: a } = r.current;
+                r.current.scrollLeft = Math.min(
+                  r.current.scrollLeft + a * eN,
                   e - a
                 );
               }
             }, []),
             f = (0, p.useCallback)(() => {
-              i.current &&
-                (i.current.scrollLeft = Math.max(
-                  i.current.scrollLeft - i.current.clientWidth * ej,
+              r.current &&
+                (r.current.scrollLeft = Math.max(
+                  r.current.scrollLeft - r.current.clientWidth * eN,
                   0
                 ));
             }, []);
           (0, p.useEffect)(() => {
             let e = () => {
-                if (!i.current) return;
+                if (!r.current) return;
                 let {
                   scrollLeft: e,
                   scrollWidth: a,
                   clientWidth: t,
-                } = i.current;
+                } = r.current;
                 0 === e ? l(!1) : l(!0), e + t === a ? c(!1) : c(!0);
               },
-              a = i.current;
+              a = r.current;
             return (
               null == a || a.addEventListener("scroll", e),
               () => (null == a ? void 0 : a.removeEventListener("scroll", e))
             );
-          }, [null == i ? void 0 : i.current]);
-          let b = null == t ? void 0 : t.filter((e) => e.value !== a);
-          return (null == b ? void 0 : b.length)
+          }, [null == r ? void 0 : r.current]);
+          let m = null == t ? void 0 : t.filter((e) => e.value !== a);
+          return (null == m ? void 0 : m.length)
             ? (0, o.jsxs)("div", {
                 className:
                   "absolute z-10 flex w-full items-center overflow-x-auto bg-background pb-1",
@@ -1802,29 +1889,29 @@
                     children: (0, o.jsx)("div", {
                       className:
                         "my-1 cursor-pointer rounded-full border border-input bg-black p-1",
-                      onClick: () => g(!1),
-                      children: (0, o.jsx)(ew.Z, { size: 16, fill: "white" }),
+                      onClick: () => d(!1),
+                      children: (0, o.jsx)(ej.Z, { size: 16, fill: "white" }),
                     }),
                   }),
                   (0, o.jsxs)("div", {
                     className:
                       "relative flex max-w-full flex-grow items-center",
                     children: [
-                      r
+                      i
                         ? (0, o.jsxs)(o.Fragment, {
                             children: [
                               (0, o.jsx)("div", {
                                 className: (0, G.cn)([
                                   "pointer-events-none absolute left-0 hidden h-[40px] w-[250px] bg-gradient-to-l from-transparent to-black md:block",
                                   "transition-opacity duration-500",
-                                  r ? "opacity-100" : "opacity-0",
+                                  i ? "opacity-100" : "opacity-0",
                                 ]),
                               }),
                               (0, o.jsx)("div", {
                                 className: (0, G.cn)([
                                   "absolute left-[46px] top-[2px] py-1 pl-1 pr-4",
                                   "transition-opacity duration-500",
-                                  r ? "opacity-100" : "opacity-0",
+                                  i ? "opacity-100" : "opacity-0",
                                 ]),
                                 children: (0, o.jsx)(H.C, {
                                   className:
@@ -1832,21 +1919,21 @@
                                   onMouseDown: (e) => {
                                     e.preventDefault(), f();
                                   },
-                                  children: (0, o.jsx)(Q.Z, { size: 16 }),
+                                  children: (0, o.jsx)(W.Z, { size: 16 }),
                                 }),
                               }),
                             ],
                           })
                         : null,
                       (0, o.jsx)("div", {
-                        ref: i,
+                        ref: r,
                         className:
                           "ml-[48px] flex max-h-[40px] w-full items-center gap-y-10 space-x-2 overflow-hidden overflow-x-auto scroll-smooth py-2 pr-5 md:mr-[48px]",
                         style: {
                           scrollbarWidth: "none",
-                          width: d ? "calc(100% - 96px)" : "calc(100% - 48px)",
+                          width: g ? "calc(100% - 96px)" : "calc(100% - 48px)",
                         },
-                        children: b.slice(0, 10).map((e) =>
+                        children: m.slice(0, 10).map((e) =>
                           (0, o.jsx)(
                             "button",
                             {
@@ -1919,167 +2006,208 @@
               })
             : null;
         },
-        eN = (e) => {
+        e_ = (e) => {
           let {
               partialTag: a,
               showOptions: t,
               tagPredictions: s,
               tagCompletions: n,
-              settings: i,
-              setSettings: r,
+              settings: r,
+              setSettings: i,
               options: l,
               setOptions: c,
-              addSuggestedTags: g,
-              lyricsType: d,
+              addSuggestedTags: d,
+              lyricsType: g,
               setLyricsType: h,
               resetAll: f,
-              refocusPromptBar: b,
-              userApiUsageData: m,
+              refocusPromptBar: m,
+              userApiUsageData: b,
             } = e,
-            { samplerOptions: p, setSamplerOptionsItem: x } = (0, z.QY)(),
-            { showTagCompletions: y } = (0, S.F)(),
-            { isLargeDevice: v } = (0, C.Z)(),
-            w = (0, u.cC)("show-quota");
-          return (0, o.jsxs)("div", {
-            className:
-              "absolute left-0 -mt-1 w-full rounded-b-lg bg-background transition duration-300 ease-in-out "
-                .concat(t ? "opacity-100" : "opacity-0", " ")
-                .concat(
-                  t ? "block" : "hidden",
-                  "  border-x border-b border-[var(--ring)] pb-4"
-                ),
-            children: [
-              (null == n ? void 0 : n.length) && y
-                ? (0, o.jsx)("div", {
-                    className:
-                      "absolute left-0 top-5 z-20 flex w-full items-center",
-                    children: (0, o.jsx)(ek, {
-                      partialTag: a,
-                      tagList: n,
-                      addSuggestedTags: (e) => {
-                        g(e), b();
-                      },
-                    }),
-                  })
-                : null,
-              (0, o.jsx)("div", {
-                className:
-                  "relative right-0 top-3 z-10 flex w-full flex-row justify-end px-4",
-                children: (0, o.jsxs)("div", {
-                  className: "flex items-center space-x-2",
-                  children: [
-                    (0, o.jsx)(W, {
-                      id: "bypass-settings",
-                      checked: p.bypass_prompt_optimization,
-                      onCheckedChange: (e) => {
-                        x("bypass_prompt_optimization", e),
-                          (0, Z.L9)("Select Manual Mode", { value: e });
-                      },
-                      title: p.bypass_prompt_optimization
-                        ? "Infer musical style from prompt"
-                        : "Use prompt exactly as given",
-                    }),
-                    (0, o.jsx)("label", {
-                      htmlFor: "bypass-settings",
-                      className: "text-sm text-muted-foreground",
-                      children: "Manual Mode",
-                    }),
-                    (0, o.jsx)(eb, {}),
-                    (0, o.jsx)("div", {}),
-                  ],
-                }),
-              }),
-              (0, o.jsxs)("div", {
-                className: "relative w-full items-center px-4",
-                children: [
-                  (0, o.jsx)("div", {
-                    className:
-                      "truncate-1-line mb-2 max-w-[45%] text-sm text-muted-foreground",
-                    children: v
-                      ? (0, o.jsx)(o.Fragment, { children: "Suggested tags" })
-                      : (0, o.jsx)("span", { children: "\xa0" }),
-                  }),
-                  (0, o.jsx)("div", {
-                    className: "relative mb-3 mt-2 flex w-full items-center",
-                    children: (null == s ? void 0 : s.length)
-                      ? (0, o.jsx)(o.Fragment, {
-                          children: (0, o.jsx)(V, {
-                            tagType: "Prediction",
-                            tagList: s,
-                            addSuggestedTags: g,
-                          }),
-                        })
-                      : null,
-                  }),
-                  (0, o.jsxs)("div", {
-                    className:
-                      "flex flex-row items-center justify-between space-x-2",
-                    children: [
-                      (0, o.jsx)(ev, {}),
-                      ("continuation" === p.audio_conditioning_type ||
-                        "precede" === p.audio_conditioning_type) &&
-                        (0, o.jsx)("div", {
-                          className: "w-full",
-                          children: (0, o.jsx)(ec, {}),
-                        }),
-                    ],
-                  }),
-                  (0, o.jsx)("div", {
-                    className: "mt-4",
-                    children: (0, o.jsx)(ef, {
-                      settings: i,
-                      setSettings: r,
-                      lyricsType: d,
-                      setLyricsType: h,
-                    }),
-                  }),
-                ],
-              }),
-              (0, o.jsx)("div", {
-                className: "px-4",
-                children: (0, o.jsx)(Y.Z, { className: "mb-3 mt-4 " }),
-              }),
-              (0, o.jsxs)("div", {
-                className: "flex w-full justify-between px-4",
-                children: [
-                  (0, o.jsxs)("div", {
+            { samplerOptions: x, setSamplerOptionsItem: y } = (0, F.QY)(),
+            { showTagCompletions: v } = (0, z.F)(),
+            { isLargeDevice: w } = (0, C.Z)(),
+            j = (0, u.cC)("show-quota"),
+            N = (0, u.cC)("advanced-controls"),
+            [k, _] = (0, p.useState)(!1);
+          return (
+            (0, p.useEffect)(() => {
+              k || y("audio_context_length_seconds", 130);
+            }, [k]),
+            (0, o.jsxs)("div", {
+              className:
+                "absolute left-0 -mt-1 w-full rounded-b-lg bg-background transition duration-300 ease-in-out "
+                  .concat(t ? "opacity-100" : "opacity-0", " ")
+                  .concat(
+                    t ? "block" : "hidden",
+                    "  border-x border-b border-[var(--ring)] pb-4"
+                  ),
+              children: [
+                (null == n ? void 0 : n.length) && v
+                  ? (0, o.jsx)("div", {
+                      className:
+                        "absolute left-0 top-5 z-20 flex w-full items-center",
+                      children: (0, o.jsx)(ek, {
+                        partialTag: a,
+                        tagList: n,
+                        addSuggestedTags: (e) => {
+                          d(e), m();
+                        },
+                      }),
+                    })
+                  : null,
+                (0, o.jsx)("div", {
+                  className:
+                    "relative right-0 top-3 z-10 flex w-full flex-row justify-end px-4",
+                  children: (0, o.jsxs)("div", {
                     className: "flex items-center space-x-2",
                     children: [
-                      (0, o.jsx)("div", {}),
-                      w && m && (0, o.jsx)(ep, { userApiUsageData: m }),
-                    ],
-                  }),
-                  (0, o.jsxs)(q.z, {
-                    variant: "default",
-                    onClick: f,
-                    className:
-                      "flex w-[105px] flex-row items-center space-x-2 bg-[#FFFFFF]/5 px-0 hover:bg-[#FFFFFF]/10",
-                    children: [
-                      (0, o.jsx)(O.Z, { size: 16, color: "white" }),
-                      (0, o.jsx)("div", {
-                        className: " text-sm text-white",
-                        children: "Reset All",
+                      (0, o.jsx)(Q, {
+                        id: "bypass-settings",
+                        checked: x.bypass_prompt_optimization,
+                        onCheckedChange: (e) => {
+                          y("bypass_prompt_optimization", e),
+                            (0, Z.L9)("Select Manual Mode", { value: e });
+                        },
+                        title: x.bypass_prompt_optimization
+                          ? "Infer musical style from prompt"
+                          : "Use prompt exactly as given",
                       }),
+                      (0, o.jsx)("label", {
+                        htmlFor: "bypass-settings",
+                        className: "text-sm text-muted-foreground",
+                        children: "Manual Mode",
+                      }),
+                      (0, o.jsx)(ex, {}),
+                      (0, o.jsx)("div", {}),
                     ],
                   }),
-                ],
-              }),
-            ],
-          });
+                }),
+                (0, o.jsxs)("div", {
+                  className: "relative w-full items-center px-4",
+                  children: [
+                    (0, o.jsx)("div", {
+                      className:
+                        "truncate-1-line mb-2 max-w-[45%] text-sm text-muted-foreground",
+                      children: w
+                        ? (0, o.jsx)(o.Fragment, { children: "Suggested tags" })
+                        : (0, o.jsx)("span", { children: "\xa0" }),
+                    }),
+                    (0, o.jsx)("div", {
+                      className: "relative mb-3 mt-2 flex w-full items-center",
+                      children: (null == s ? void 0 : s.length)
+                        ? (0, o.jsx)(o.Fragment, {
+                            children: (0, o.jsx)(V, {
+                              tagType: "Prediction",
+                              tagList: s,
+                              addSuggestedTags: d,
+                            }),
+                          })
+                        : null,
+                    }),
+                    (0, o.jsxs)("div", {
+                      className:
+                        "flex flex-row items-center justify-between space-x-2",
+                      children: [
+                        (0, o.jsx)(ew, {}),
+                        ("continuation" === x.audio_conditioning_type ||
+                          "precede" === x.audio_conditioning_type) &&
+                          (0, o.jsx)("div", {
+                            className: "w-full",
+                            children: (0, o.jsx)(eh, {}),
+                          }),
+                      ],
+                    }),
+                    (0, o.jsx)("div", {
+                      className: "mt-4",
+                      children: (0, o.jsx)(ep, {
+                        settings: r,
+                        setSettings: i,
+                        lyricsType: g,
+                        setLyricsType: h,
+                      }),
+                    }),
+                  ],
+                }),
+                (0, o.jsx)("div", {
+                  className: "px-4",
+                  children: (0, o.jsx)(O.Z, { className: "mb-3 mt-4 " }),
+                }),
+                (0, o.jsxs)("div", {
+                  className: "flex w-full justify-between px-4",
+                  children: [
+                    (0, o.jsxs)("div", {
+                      className: "flex items-center space-x-2",
+                      children: [
+                        (0, o.jsx)("div", {}),
+                        j && b && (0, o.jsx)(ev, { userApiUsageData: b }),
+                      ],
+                    }),
+                    (0, o.jsxs)("div", {
+                      className: "flex space-x-2",
+                      children: [
+                        N &&
+                          (0, o.jsxs)("div", {
+                            className: "mr-2 flex items-center space-x-2",
+                            children: [
+                              (0, o.jsx)(Q, {
+                                id: "advanced-controls",
+                                checked: k,
+                                onCheckedChange: (e) => {
+                                  _(e);
+                                },
+                                title: "Toggle advanced controls",
+                              }),
+                              (0, o.jsx)("label", {
+                                htmlFor: "advanced-controls",
+                                className: "text-sm text-muted-foreground",
+                                children: "Advanced Controls",
+                              }),
+                            ],
+                          }),
+                        (0, o.jsxs)(q.z, {
+                          variant: "default",
+                          onClick: f,
+                          className:
+                            "flex w-[125px] flex-row items-center space-x-2 bg-[#FFFFFF]/5 px-0 hover:bg-[#FFFFFF]/10",
+                          children: [
+                            (0, o.jsx)(Y.Z, { size: 16, color: "white" }),
+                            (0, o.jsx)("div", {
+                              className: " text-sm text-white",
+                              children: "Reset Prompt",
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                k &&
+                  (0, o.jsxs)(o.Fragment, {
+                    children: [
+                      (0, o.jsx)("div", {
+                        className: "px-4",
+                        children: (0, o.jsx)(O.Z, { className: "mb-2 mt-2 " }),
+                      }),
+                      (0, o.jsx)(ee, {}),
+                    ],
+                  }),
+              ],
+            })
+          );
         },
-        e_ = t(23441),
-        eC = t(88584),
-        ez = (e) => {
+        eC = t(23441),
+        eF = t(88584),
+        eS = (e) => {
           let {
               tagPredictions: a,
               settings: t,
               setSettings: s,
               addSuggestedTags: n,
-              lyricsType: i,
-              setLyricsType: r,
+              lyricsType: r,
+              setLyricsType: i,
               userApiUsageData: l,
             } = e,
-            { samplerOptions: u, setSamplerOptionsItem: c } = (0, z.QY)();
+            { samplerOptions: u, setSamplerOptionsItem: c } = (0, F.QY)();
           return (
             u.crop_start_time && (u.crop_start_time < 0.1 || u.crop_start_time),
             (0, o.jsx)("div", {
@@ -2110,7 +2238,7 @@
                             (0, o.jsxs)("span", {
                               className: "flex items-center space-x-2",
                               children: [
-                                (0, o.jsx)(W, {
+                                (0, o.jsx)(Q, {
                                   id: "bypass-settings",
                                   checked: u.bypass_prompt_optimization,
                                   onCheckedChange: (e) => {
@@ -2125,7 +2253,7 @@
                                   className: "text-sm ",
                                   children: "Manual Mode",
                                 }),
-                                (0, o.jsx)(eb, {}),
+                                (0, o.jsx)(ex, {}),
                               ],
                             }),
                           ],
@@ -2152,68 +2280,68 @@
                         : null,
                     ],
                   }),
-                  (0, o.jsx)(ev, {}),
+                  (0, o.jsx)(ew, {}),
                   ("continuation" === u.audio_conditioning_type ||
                     "precede" === u.audio_conditioning_type) &&
                     (0, o.jsx)("div", {
                       className: "my-5 w-full",
-                      children: (0, o.jsx)(ec, {}),
+                      children: (0, o.jsx)(eh, {}),
                     }),
-                  (0, o.jsx)(ef, {
+                  (0, o.jsx)(ep, {
                     settings: t,
                     setSettings: s,
-                    lyricsType: i,
-                    setLyricsType: r,
+                    lyricsType: r,
+                    setLyricsType: i,
                   }),
                 ],
               }),
             })
           );
         },
-        eF = (e) => {
+        ez = (e) => {
           let {
               partialTag: a,
               promptSuggestion: t,
               settings: s,
               setSettings: n,
-              inputCursorLocation: i,
-              setInputCursorLocation: r,
+              inputCursorLocation: r,
+              setInputCursorLocation: i,
               handleGenerate: l,
               generatePromptSuggestions: u,
               imageWidth: c,
-              createText: g,
-              createDisabled: d,
+              createText: d,
+              createDisabled: g,
               addSuggestedTags: h,
-              tagPredictions: m,
+              tagPredictions: b,
               tagCompletions: x,
               lyricsType: y,
               setLyricsType: v,
               resetAll: w,
             } = e,
-            { openAuthModal: j } = (0, F.fI)(),
-            N = (0, k.Z)(),
+            { openAuthModal: j } = (0, S.fI)(),
+            k = (0, N.Z)(),
             C = (0, p.useRef)(null),
-            z = (0, p.useRef)(null),
+            F = (0, p.useRef)(null),
             {
               mobileDrawerOpen: T,
               setMobileDrawerOpen: L,
               lyricsFocus: P,
               showTagCompletions: D,
-            } = (0, S.F)(),
+            } = (0, z.F)(),
             { data: M } = _(T),
-            I = async () => {
+            E = async () => {
               await l(!0), L(!1);
             },
-            E = (0, p.useCallback)(() => {
+            I = (0, p.useCallback)(() => {
               L(!1);
             }, [L]);
           (0, p.useEffect)(() => {
             P &&
               setTimeout(() => {
-                if (z.current) {
+                if (F.current) {
                   let e =
-                    z.current.scrollHeight / 2 - z.current.clientHeight / 2;
-                  z.current.scrollTo(0, e);
+                    F.current.scrollHeight / 2 - F.current.clientHeight / 2;
+                  F.current.scrollTo(0, e);
                 }
               }, 200);
           }, [P]);
@@ -2229,7 +2357,7 @@
             children: [
               (0, o.jsx)("div", {
                 onClick: () => {
-                  if (!N) {
+                  if (!k) {
                     j();
                     return;
                   }
@@ -2239,12 +2367,12 @@
                 children: (0, o.jsx)("div", {
                   className: (0, G.cn)(
                     "absolute bottom-1 cursor-pointer rounded-full bg-brand-accent p-3",
-                    N ? "" : "opacity-70"
+                    k ? "" : "opacity-70"
                   ),
                   children: (0, o.jsx)("div", {
                     className: "cursor-pointer",
                     onClick: () => (0, Z.L9)("Click Mobile Create Button", {}),
-                    children: (0, o.jsx)(eo.default, {
+                    children: (0, o.jsx)(ei.default, {
                       src: "/icons/create-icon.svg",
                       width: 32,
                       height: 32,
@@ -2253,14 +2381,14 @@
                   }),
                 }),
               }),
-              (0, o.jsx)(eC.Z, {
+              (0, o.jsx)(eF.Z, {
                 detent: "full-height",
                 isOpen: T,
-                onClose: E,
-                children: (0, o.jsxs)(eC.Z.Container, {
+                onClose: I,
+                children: (0, o.jsxs)(eF.Z.Container, {
                   children: [
-                    (0, o.jsx)(eC.Z.Header, { className: "bg-create" }),
-                    (0, o.jsxs)(eC.Z.Content, {
+                    (0, o.jsx)(eF.Z.Header, { className: "bg-create" }),
+                    (0, o.jsxs)(eF.Z.Content, {
                       disableDrag: !0,
                       className: "bg-create",
                       children: [
@@ -2271,7 +2399,7 @@
                             (0, o.jsxs)("div", {
                               className: "flex items-center space-x-4",
                               children: [
-                                (0, o.jsx)(e_.Z, {
+                                (0, o.jsx)(eC.Z, {
                                   size: 24,
                                   onClick: () => L(!1),
                                   className: "z-10 cursor-pointer",
@@ -2298,7 +2426,7 @@
                                       n({ ...s, prompt: a }),
                                       (0, Z.L9)("Randomize Prompt", {});
                                   },
-                                  children: (0, o.jsx)(b.Z, {
+                                  children: (0, o.jsx)(m.Z, {
                                     className: "h-6 w-6",
                                   }),
                                 }),
@@ -2307,7 +2435,7 @@
                                   onClick: w,
                                   className:
                                     "flexflex-row items-center space-x-2 px-0",
-                                  children: (0, o.jsx)(O.Z, { size: 24 }),
+                                  children: (0, o.jsx)(Y.Z, { size: 24 }),
                                 }),
                               ],
                             }),
@@ -2316,31 +2444,31 @@
                         (0, o.jsxs)("div", {
                           className: "relative w-full",
                           children: [
-                            (0, o.jsx)(ed.g, {
+                            (0, o.jsx)(em.g, {
                               enterKeyHint: "send",
                               ref: C,
                               placeholder:
-                                (null == t ? void 0 : t.prompt) || eT,
+                                (null == t ? void 0 : t.prompt) || eZ,
                               className:
                                 "m-auto mb-1 h-full w-11/12 bg-gray-light px-2 py-2 text-[16px] md:text-[14px]",
                               value: s.prompt,
                               onDrag: (e) => e.stopPropagation(),
                               onSelect: (e) => {
-                                r(e.target.selectionStart);
+                                i(e.target.selectionStart);
                               },
                               onChange: (e) => {
                                 n({ ...s, prompt: e.target.value }),
-                                  r(e.target.selectionStart);
+                                  i(e.target.selectionStart);
                               },
                               onKeyDown: (e) => {
-                                "Enter" === e.key && I(),
+                                "Enter" === e.key && E(),
                                   "Tab" === e.key &&
                                     "" === s.prompt &&
                                     (e.preventDefault(),
                                     n({
                                       ...s,
                                       prompt:
-                                        (null == t ? void 0 : t.prompt) || eT,
+                                        (null == t ? void 0 : t.prompt) || eZ,
                                     }));
                               },
                             }),
@@ -2360,9 +2488,9 @@
                               : null,
                           ],
                         }),
-                        (0, o.jsx)(Y.Z, { className: "mb-5 mt-2 px-4" }),
-                        (0, o.jsx)(eC.Z.Scroller, {
-                          ref: z,
+                        (0, o.jsx)(O.Z, { className: "mb-5 mt-2 px-4" }),
+                        (0, o.jsx)(eF.Z.Scroller, {
+                          ref: F,
                           children: (0, o.jsx)("div", {
                             className: "flex justify-between",
                             children: (0, o.jsxs)("div", {
@@ -2370,9 +2498,9 @@
                               children: [
                                 (0, o.jsx)("div", {
                                   className: "px-4",
-                                  children: (0, o.jsx)(ez, {
+                                  children: (0, o.jsx)(eS, {
                                     partialTag: a,
-                                    tagPredictions: m,
+                                    tagPredictions: b,
                                     settings: s,
                                     setSettings: n,
                                     addSuggestedTags: h,
@@ -2394,9 +2522,9 @@
                                         "w-full rounded-[4px] bg-brand-accent py-4 text-white disabled:opacity-75",
                                       variant: "create",
                                       size: "custom",
-                                      disabled: d || !N,
-                                      onClick: I,
-                                      children: g,
+                                      disabled: g || !k,
+                                      onClick: E,
+                                      children: d,
                                     }),
                                   }),
                                 }),
@@ -2412,26 +2540,26 @@
             ],
           });
         };
-      let eS = 16,
-        eT = "a song about...",
-        eZ = (e) => {
+      let eT = 16,
+        eZ = "a song about...",
+        eL = (e) => {
           var a;
           let { drawer: t } = e,
-            s = (0, k.Z)(),
-            [n, i] = (0, p.useState)(!1),
-            [r, m] = (0, p.useState)("infer"),
+            s = (0, N.Z)(),
+            [n, r] = (0, p.useState)(!1),
+            [i, b] = (0, p.useState)("infer"),
             [v, w] = (0, p.useState)(!1),
-            [N, P] = (0, p.useState)(void 0),
+            [k, P] = (0, p.useState)(void 0),
             [D, M] = (0, p.useState)(Date.now()),
-            { data: I, refetch: E } = _((0, u.cC)("show-quota")),
+            { data: E, refetch: I } = _((0, u.cC)("show-quota")),
             {
-              mobileDrawerOpen: O,
-              showOptions: Y,
+              mobileDrawerOpen: Y,
+              showOptions: O,
               setShowOptions: U,
               setShowTagCompletions: G,
-            } = (0, S.F)(),
-            W = (0, p.useRef)(!1),
-            Q = (0, p.useRef)(null),
+            } = (0, z.F)(),
+            Q = (0, p.useRef)(!1),
+            W = (0, p.useRef)(null),
             B = (0, p.useRef)(null),
             {
               resetPromptBar: H,
@@ -2440,28 +2568,28 @@
               generationSettings: X,
               setGenerationSettings: J,
               setSamplerOptions: $,
-            } = (0, z.QY)(),
+            } = (0, F.QY)(),
             ee = (0, h.NL)(),
             [ea, et] = (0, p.useState)(X),
             [eo, es] = (0, p.useState)(V),
-            { openAuthModal: en } = (0, F.fI)(),
-            { openWaitlistModal: ei } = (0, F.wc)(),
-            [er] = (0, g.c)(ea, 200),
-            [el] = (0, g.c)(eo, 200),
+            { openAuthModal: en } = (0, S.fI)(),
+            { openWaitlistModal: er } = (0, S.wc)(),
+            [ei] = (0, d.c)(ea, 200),
+            [el] = (0, d.c)(eo, 200),
             [eu, ec] = (0, p.useState)(null),
-            [eg] = (0, g.c)(eu, 200),
-            { isMediumDevice: ed, isLargeDevice: eh } = (0, C.Z)(),
+            [ed] = (0, d.c)(eu, 200),
+            { isMediumDevice: eg, isLargeDevice: eh } = (0, C.Z)(),
             ef = (0, u.cC)("disable-generations"),
-            eb = (0, u.aS)("waitlist-iso-time-stamp-utc", ""),
-            em = (0, p.useMemo)(() => {
-              let e = new Date(eb);
+            em = (0, u.aS)("waitlist-iso-time-stamp-utc", ""),
+            eb = (0, p.useMemo)(() => {
+              let e = new Date(em);
               return (
                 (null == s ? void 0 : s.created_at) &&
                 "Invalid Date" !== e.toString() &&
                 new Date(s.created_at) > e
               );
-            }, [null == s ? void 0 : s.created_at, eb]),
-            ep = () => (s ? !em || (ei(), !1) : (en(), !1)),
+            }, [null == s ? void 0 : s.created_at, em]),
+            ep = () => (s ? !eb || (er(), !1) : (en(), !1)),
             ex = "2.75rem",
             ey = (0, p.useMemo)(() => {
               let e;
@@ -2479,14 +2607,14 @@
               return e;
             }, [eo.audio_conditioning_type]),
             ev = () => {
-              let e = Q.current;
+              let e = W.current;
               e &&
                 setTimeout(() => {
                   e.focus();
                 }, 100);
             },
             ew = async (e) => {
-              i(!0), U(!1);
+              r(!0), U(!1);
               try {
                 var a;
                 let t = ea.prompt;
@@ -2496,11 +2624,11 @@
                 }
                 let s = { prompt: t };
                 if (
-                  ("instrumental" === r && (s.lyricInput = ""),
-                  "lyricPrompt" === r &&
+                  ("instrumental" === i && (s.lyricInput = ""),
+                  "lyricPrompt" === i &&
                     ea.lyricPrompt &&
                     (s.lyricPrompt = ea.lyricPrompt),
-                  "lyricInput" === r && (s.lyricInput = ea.lyricInput),
+                  "lyricInput" === i && (s.lyricInput = ea.lyricInput),
                   (s.samplerOptions = V),
                   v)
                 ) {
@@ -2522,16 +2650,16 @@
                             (0, o.jsxs)("p", { children: [t, ": ", a] }, t)
                           );
                         }),
-                        (0, o.jsxs)("p", { children: ["Lyrics Type: ", r] }),
+                        (0, o.jsxs)("p", { children: ["Lyrics Type: ", i] }),
                       ],
                     })
                   );
                   return;
                 }
                 let n = "success",
-                  i = "Amazing music is seconds away!",
+                  r = "Amazing music is seconds away!",
                   l = !1,
-                  { data: u } = await E();
+                  { data: u } = await I();
                 if (ef) {
                   x.toast.custom(
                     (e) =>
@@ -2553,10 +2681,10 @@
                           }
                         : {
                             top: "44px",
-                            left: ed ? "268px" : "-8px",
+                            left: eg ? "268px" : "-8px",
                             width: eh
                               ? "calc(0.75 * (100vw - 20.85rem))"
-                              : ed
+                              : eg
                                 ? "calc(0.6 * (100vw - 19.9rem))"
                                 : "calc((100vw - 1rem))",
                           },
@@ -2568,7 +2696,7 @@
                   (u &&
                     Number(u.concurrent_used || 0) >=
                       Number(u.concurrent_limit || 0) &&
-                    ((i = "You can only make ".concat(
+                    ((r = "You can only make ".concat(
                       u.concurrent_limit,
                       " generations simultaneously. Please wait a few seconds and try again."
                     )),
@@ -2578,7 +2706,7 @@
                     0 >= Number(u.discretionary || 0) &&
                     Number(u.monthly_used || 0) >=
                       Number(u.monthly_limit || 0) &&
-                    ((i =
+                    ((r =
                       "You have reached your monthly generation limit of ".concat(
                         u.monthly_limit,
                         "."
@@ -2590,7 +2718,7 @@
                       (null == u ? void 0 : u.daily_throttle_limit) || 0
                     ) ||
                     (null == u ? void 0 : u.daily_throttled)) &&
-                    ((i =
+                    ((r =
                       "You have reached your daily priority generation limit of ".concat(
                         null == u ? void 0 : u.daily_throttle_limit,
                         ". You can still generate tracks, but they may take longer to complete."
@@ -2602,7 +2730,7 @@
                         toastId: e,
                         userApiUsage: u,
                         toastType: n,
-                        toastMessage: i,
+                        toastMessage: r,
                       }),
                     {
                       position: "top-left",
@@ -2615,10 +2743,10 @@
                           }
                         : {
                             top: "44px",
-                            left: ed ? "268px" : "-8px",
+                            left: eg ? "268px" : "-8px",
                             width: eh
                               ? "calc(0.75 * (100vw - 20.85rem))"
-                              : ed
+                              : eg
                                 ? "calc(0.6 * (100vw - 19.9rem))"
                                 : "calc((100vw - 1rem))",
                           },
@@ -2646,9 +2774,9 @@
                     T.TQ
                   ),
                   console.error(e),
-                  d.Tb(e);
+                  g.Tb(e);
               } finally {
-                i(!1);
+                r(!1);
               }
             },
             ej = (0, p.useMemo)(
@@ -2658,35 +2786,35 @@
                     o = [],
                     s = null,
                     n = 0,
-                    i = 0,
-                    r = "",
+                    r = 0,
+                    i = "",
                     l = 0,
                     u = (e, a) => {
-                      let r = e.length;
+                      let i = e.length;
                       !",;.".includes(e) &&
                         (o.push(e.trim().toLowerCase()),
                         a <= t &&
-                          a + r >= t &&
-                          ((s = e.trim().toLowerCase()), (n = a), (i = r)));
+                          a + i >= t &&
+                          ((s = e.trim().toLowerCase()), (n = a), (r = i)));
                     };
                   for (let a = 0; a <= e.length; a++) {
                     let t = e[a] || "";
                     ",;.".includes(t) || a === e.length
-                      ? ("" !== r && (u(r, l - r.length), (r = "")),
+                      ? ("" !== i && (u(i, l - i.length), (i = "")),
                         t && u(t, l))
-                      : (r += t),
+                      : (i += t),
                       l++;
                   }
                   return {
                     parts: o,
                     cursorPart: s,
                     cursorPartPos: n,
-                    cursorPartLen: i,
+                    cursorPartLen: r,
                   };
                 })(ea.prompt, eu),
-              [er.prompt, eg]
+              [ei.prompt, ed]
             ),
-            ek = (e) => {
+            eN = (e) => {
               let a = ea.prompt,
                 t = ej.cursorPart || "",
                 o = e.join(", ") + ", ";
@@ -2705,22 +2833,22 @@
               }
               et({ ...ea, prompt: a });
             },
-            { data: e_ } = j({
+            { data: ek } = j({
               partialTag: ej.cursorPart || "",
               currentTags: ej.parts.filter((e) => e !== ej.cursorPart),
             }),
             eC = async () => {
               ep() && (await ew());
             },
-            ez = (0, p.useCallback)(() => {
-              H(), m("infer");
+            eF = (0, p.useCallback)(() => {
+              H(), b("infer");
             }, [H]);
           (0, p.useEffect)(() => {
-            W.current || (P(l()), (W.current = !0));
+            Q.current || (P(l()), (Q.current = !0));
           }, []),
             (0, p.useEffect)(() => {
-              J(er);
-            }, [er]),
+              J(ei);
+            }, [ei]),
             (0, p.useEffect)(() => {
               et(X);
             }, [X]),
@@ -2731,28 +2859,28 @@
               es(V);
             }, [V]),
             (0, p.useEffect)(() => {
-              "variation" === V.audio_conditioning_type && m("lyricInput");
+              "variation" === V.audio_conditioning_type && b("lyricInput");
             }, [V.audio_conditioning_type]),
             (0, p.useEffect)(() => {
-              Y && ev();
-            }, [Y]),
+              O && ev();
+            }, [O]),
             (0, p.useEffect)(() => {
               var e;
-              (null == e_
+              (null == ek
                 ? void 0
-                : null === (e = e_.completions) || void 0 === e
+                : null === (e = ek.completions) || void 0 === e
                   ? void 0
                   : e.length) && G(!0);
-            }, [null == e_ ? void 0 : e_.completions]);
+            }, [null == ek ? void 0 : ek.completions]);
           let eS = (0, p.useMemo)(() => {
             var e, a, t;
             return (
               (!(null === (e = ea.prompt) || void 0 === e
                 ? void 0
                 : e.length) &&
-                (Y || O)) ||
+                (O || Y)) ||
               n ||
-              ("lyricInput" === r &&
+              ("lyricInput" === i &&
                 !(null === (t = ea.lyricInput) || void 0 === t
                   ? void 0
                   : null === (a = t.trim()) || void 0 === a
@@ -2762,10 +2890,10 @@
           }, [
             null === (a = ea.prompt) || void 0 === a ? void 0 : a.length,
             ea.lyricInput,
-            Y,
             O,
+            Y,
             n,
-            r,
+            i,
           ]);
           return (0, o.jsxs)(o.Fragment, {
             children: [
@@ -2785,24 +2913,24 @@
                 }),
               }),
               t
-                ? (0, o.jsx)(eF, {
+                ? (0, o.jsx)(ez, {
                     partialTag: ej.cursorPart || "",
                     createText: ey,
                     createDisabled: eS,
                     imageWidth: ex,
-                    promptSuggestion: N,
-                    addSuggestedTags: ek,
-                    tagCompletions: null == e_ ? void 0 : e_.completions,
-                    tagPredictions: null == e_ ? void 0 : e_.predictions,
+                    promptSuggestion: k,
+                    addSuggestedTags: eN,
+                    tagCompletions: null == ek ? void 0 : ek.completions,
+                    tagPredictions: null == ek ? void 0 : ek.predictions,
                     settings: ea,
                     setSettings: et,
                     handleGenerate: ew,
                     inputCursorLocation: eu,
                     setInputCursorLocation: ec,
                     generatePromptSuggestions: l,
-                    lyricsType: r,
-                    setLyricsType: m,
-                    resetAll: ez,
+                    lyricsType: i,
+                    setLyricsType: b,
+                    resetAll: eF,
                   })
                 : (0, o.jsxs)(o.Fragment, {
                     children: [
@@ -2823,13 +2951,13 @@
                             (0, o.jsx)(R.I, {
                               id: "prompt",
                               autoComplete: "off",
-                              ref: Q,
+                              ref: W,
                               type: "prompt",
                               placeholder:
-                                (null == N ? void 0 : N.prompt) || eT,
+                                (null == k ? void 0 : k.prompt) || eZ,
                               className:
                                 "h-full border-b border-l border-r border-t border-[#3b82f67f] py-6 pr-[130px] text-[16px] shadow-ring-2 disabled:opacity-50\n          ".concat(
-                                  Y &&
+                                  O &&
                                     "rounded-t-md rounded-bl-none rounded-br-none border-[var(--ring)] border-b-transparent ",
                                   "\n          ",
                                   "\n          ring-0 ring-transparent ring-offset-0 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
@@ -2852,15 +2980,15 @@
                                 ) {
                                   var a;
                                   if (
-                                    null == e_
+                                    null == ek
                                       ? void 0
-                                      : null === (a = e_.completions) ||
+                                      : null === (a = ek.completions) ||
                                           void 0 === a
                                         ? void 0
                                         : a.length
                                   ) {
                                     e.preventDefault(),
-                                      ek([e_.completions[0].value]),
+                                      eN([ek.completions[0].value]),
                                       G(!1);
                                     return;
                                   }
@@ -2869,7 +2997,7 @@
                                     et({
                                       ...ea,
                                       prompt:
-                                        (null == N ? void 0 : N.prompt) || eT,
+                                        (null == k ? void 0 : k.prompt) || eZ,
                                     }));
                                 }
                               },
@@ -2888,7 +3016,7 @@
                                       et({ ...ea, prompt: a }),
                                       (0, Z.L9)("Randomize Prompt", {});
                                   },
-                                  children: (0, o.jsx)(b.Z, {
+                                  children: (0, o.jsx)(m.Z, {
                                     className: "mr-3 h-5 w-5",
                                   }),
                                 }),
@@ -2901,23 +3029,23 @@
                                 }),
                               ],
                             }),
-                            (0, o.jsx)(eN, {
+                            (0, o.jsx)(e_, {
                               refocusPromptBar: ev,
                               partialTag: ej.cursorPart || "",
-                              resetAll: ez,
-                              showOptions: Y,
+                              resetAll: eF,
+                              showOptions: O,
                               tagPredictions:
-                                null == e_ ? void 0 : e_.predictions,
+                                null == ek ? void 0 : ek.predictions,
                               tagCompletions:
-                                null == e_ ? void 0 : e_.completions,
+                                null == ek ? void 0 : ek.completions,
                               settings: ea,
                               setSettings: et,
                               options: eo,
                               setOptions: es,
-                              addSuggestedTags: ek,
-                              lyricsType: r,
-                              setLyricsType: m,
-                              userApiUsageData: I,
+                              addSuggestedTags: eN,
+                              lyricsType: i,
+                              setLyricsType: b,
+                              userApiUsageData: E,
                             }),
                           ],
                         }),
@@ -2927,34 +3055,34 @@
             ],
           });
         };
-      var eL = (0, m.default)(() => Promise.resolve(eZ), { ssr: !1 });
+      var eP = (0, b.default)(() => Promise.resolve(eL), { ssr: !1 });
     },
     14270: function (e, a, t) {
       var o = t(57437),
         s = t(47281),
         n = t(41943),
-        i = t(86210),
-        r = t(43081),
+        r = t(86210),
+        i = t(43081),
         l = t(2265),
         u = t(5201),
         c = t(41100),
-        g = t(1657),
-        d = t(85754);
+        d = t(1657),
+        g = t(85754);
       a.Z = (e) => {
         let { track: a, useTrim: t = !1, height: h = 100, setPoints: f } = e,
-          b = (0, l.useRef)(null),
-          [m, p] = (0, l.useState)(2),
+          m = (0, l.useRef)(null),
+          [b, p] = (0, l.useState)(2),
           [x, y] = (0, l.useState)(31),
-          [v] = (0, s.c)(m, 300),
+          [v] = (0, s.c)(b, 300),
           [w] = (0, s.c)(x, 300),
           { isMediumDevice: j } = (0, c.Z)(),
           {
-            wavesurfer: k,
-            isReady: N,
+            wavesurfer: N,
+            isReady: k,
             isPlaying: _,
             currentTime: C,
           } = (0, n.o)({
-            container: b,
+            container: m,
             url: null == a ? void 0 : a.song_path,
             waveColor: "#333",
             progressColor: "#e30b5d",
@@ -2964,9 +3092,9 @@
             barRadius: 2,
           });
         (0, l.useEffect)(() => {
-          if (k && t) {
-            let e = k.registerPlugin(u.Z.create());
-            k.on("decode", () => {
+          if (N && t) {
+            let e = N.registerPlugin(u.Z.create());
+            N.on("decode", () => {
               e.addRegion({
                 start: 2,
                 end: 31,
@@ -2977,7 +3105,7 @@
             }),
               e.on("region-in", (e) => {}),
               e.on("region-out", (e) => {
-                k.pause();
+                N.pause();
               }),
               e.on("region-updated", (a) => {
                 let t = a.start;
@@ -2996,16 +3124,16 @@
                   y(a.end);
               });
           }
-        }, [k]),
+        }, [N]),
           (0, l.useEffect)(() => {
             f && f(v, w);
           }, [v, w]);
-        let z = Math.min(h / 4, 40);
+        let F = Math.min(h / 4, 40);
         return (0, o.jsx)(o.Fragment, {
           children: a
             ? (0, o.jsxs)("div", {
                 className: "w-full",
-                onBlur: () => (null == k ? void 0 : k.pause()),
+                onBlur: () => (null == N ? void 0 : N.pause()),
                 style: { touchAction: "none" },
                 children: [
                   (0, o.jsxs)("div", {
@@ -3013,22 +3141,22 @@
                     children: [
                       (0, o.jsx)("div", {
                         className: "mr-3",
-                        children: (null == k ? void 0 : k.isPlaying())
-                          ? (0, o.jsx)(d.z, {
+                        children: (null == N ? void 0 : N.isPlaying())
+                          ? (0, o.jsx)(g.z, {
                               className: "rounded-full p-2",
-                              onClick: () => (null == k ? void 0 : k.pause()),
+                              onClick: () => (null == N ? void 0 : N.pause()),
                               size: "custom",
-                              children: (0, o.jsx)(i.Z, {
-                                size: z,
+                              children: (0, o.jsx)(r.Z, {
+                                size: F,
                                 fill: "black",
                               }),
                             })
-                          : (0, o.jsx)(d.z, {
+                          : (0, o.jsx)(g.z, {
                               className: "rounded-full p-2",
-                              onClick: () => (null == k ? void 0 : k.play()),
+                              onClick: () => (null == N ? void 0 : N.play()),
                               size: "custom",
-                              children: (0, o.jsx)(r.Z, {
-                                size: z,
+                              children: (0, o.jsx)(i.Z, {
+                                size: F,
                                 className: "translate-x-[2px]",
                                 fill: "black",
                               }),
@@ -3037,10 +3165,10 @@
                       (0, o.jsx)("div", {
                         className: "w-full",
                         children: (0, o.jsx)("div", {
-                          ref: b,
+                          ref: m,
                           className: "h-full w-full",
                           onClick: () => {
-                            k && k.play();
+                            N && N.play();
                           },
                         }),
                       }),
@@ -3058,7 +3186,7 @@
                               className: "font-bold",
                               children: "Start: ",
                             }),
-                            (0, g.mr)(m, j),
+                            (0, d.mr)(b, j),
                           ],
                         }),
                         (0, o.jsxs)("div", {
@@ -3068,7 +3196,7 @@
                               className: "font-bold",
                               children: "Current: ",
                             }),
-                            (0, g.mr)(C, j),
+                            (0, d.mr)(C, j),
                           ],
                         }),
                         (0, o.jsxs)("div", {
@@ -3078,7 +3206,7 @@
                               className: "font-bold",
                               children: "End: ",
                             }),
-                            (0, g.mr)(x, j),
+                            (0, d.mr)(x, j),
                           ],
                         }),
                       ],
@@ -3095,7 +3223,7 @@
     29691: function (e, a, t) {
       t.d(a, {
         Fw: function () {
-          return i;
+          return r;
         },
         wy: function () {
           return n;
@@ -3107,19 +3235,19 @@
       var o = t(78019);
       let s = o.fC,
         n = o.wy,
-        i = o.Fw;
+        r = o.Fw;
     },
     45179: function (e, a, t) {
       t.d(a, {
         I: function () {
-          return i;
+          return r;
         },
       });
       var o = t(57437),
         s = t(2265),
         n = t(1657);
-      let i = s.forwardRef((e, a) => {
-        let { className: t, type: s, ...i } = e;
+      let r = s.forwardRef((e, a) => {
+        let { className: t, type: s, ...r } = e;
         return (0, o.jsx)("input", {
           type: s,
           className: (0, n.cn)(
@@ -3127,33 +3255,33 @@
             t
           ),
           ref: a,
-          ...i,
+          ...r,
         });
       });
-      i.displayName = "Input";
+      r.displayName = "Input";
     },
     47934: function (e, a, t) {
       t.d(a, {
         Z: function () {
-          return r;
+          return i;
         },
       });
       var o = t(57437),
         s = t(51014),
         n = t(2265),
-        i = t(1657);
-      let r = n.forwardRef((e, a) => {
+        r = t(1657);
+      let i = n.forwardRef((e, a) => {
         let {
           className: t,
           orientation: n = "horizontal",
-          decorative: r = !0,
+          decorative: i = !0,
           ...l
         } = e;
         return (0, o.jsx)(s.f, {
           ref: a,
-          decorative: r,
+          decorative: i,
           orientation: n,
-          className: (0, i.cn)(
+          className: (0, r.cn)(
             "shrink-0 bg-border",
             "horizontal" === n ? "h-[1px] w-full" : "h-full w-[1px]",
             t
@@ -3161,18 +3289,18 @@
           ...l,
         });
       });
-      r.displayName = s.f.displayName;
+      i.displayName = s.f.displayName;
     },
     23444: function (e, a, t) {
       t.d(a, {
         g: function () {
-          return i;
+          return r;
         },
       });
       var o = t(57437),
         s = t(2265),
         n = t(1657);
-      let i = s.forwardRef((e, a) => {
+      let r = s.forwardRef((e, a) => {
         let { className: t, ...s } = e;
         return (0, o.jsx)("textarea", {
           className: (0, n.cn)(
@@ -3183,7 +3311,7 @@
           ...s,
         });
       });
-      i.displayName = "Textarea";
+      r.displayName = "Textarea";
     },
   },
 ]);

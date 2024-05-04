@@ -15,14 +15,15 @@
         r = t(11585),
         s = window;
       (s.__sentryRewritesTunnelPath__ = "/monitoring"),
-        (s.SENTRY_RELEASE = { id: "7d446865240a3ecf4b314b2ff8f279a65ef638ad" }),
+        (s.SENTRY_RELEASE = { id: "8859910553d801c4d6c282206ba3631c32d23e7a" }),
         (s.__sentryBasePath = void 0),
         (s.__rewriteFramesAssetPrefixPath__ = ""),
         i.S1({
           dsn: "https://1dbee0ad22c14f97ee922e8b6d478b55@o4506762969219072.ingest.sentry.io/4506768079126528",
           environment: "production",
-          tracesSampleRate: 0.05,
-          profilesSampleRate: 1,
+          tracesSampleRate: 0.01,
+          profilesSampleRate: 0.5,
+          sampleRate: 0.25,
           debug: !1,
           integrations: [new r._()],
         });

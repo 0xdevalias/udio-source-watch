@@ -282,23 +282,21 @@
                             }),
                             (0, s.jsx)("div", {
                               className: "flex flex-wrap space-x-2",
-                              children: e.tags
-                                .slice(0, 6)
-                                .map((e, t) =>
-                                  (0, s.jsx)(
-                                    "div",
-                                    {
+                              children: e.tags.slice(0, 6).map((e, t) =>
+                                (0, s.jsx)(
+                                  "div",
+                                  {
+                                    className:
+                                      "my-1 inline-flex h-5 items-center justify-center gap-2 space-x-4 rounded-[22px] bg-zinc-900 px-2 py-1.5",
+                                    children: (0, s.jsx)("div", {
                                       className:
-                                        "my-1 inline-flex h-5 items-center justify-center gap-2 space-x-4 rounded-[22px] bg-zinc-900 px-2 py-1.5",
-                                      children: (0, s.jsx)("div", {
-                                        className:
-                                          "text-center text-base font-normal text-zinc-500",
-                                        children: e,
-                                      }),
-                                    },
-                                    t
-                                  )
-                                ),
+                                        "text-center text-base font-normal text-zinc-500",
+                                      children: e,
+                                    }),
+                                  },
+                                  t
+                                )
+                              ),
                             }),
                           ],
                         },
