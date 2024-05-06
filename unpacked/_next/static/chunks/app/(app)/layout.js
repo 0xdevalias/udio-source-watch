@@ -456,7 +456,7 @@
         c = r(1657),
         o = r(81568),
         u = r(26114),
-        d = r(21793),
+        d = r(14178),
         f = r(8031),
         m = r(91763),
         h = r(28670),
@@ -472,7 +472,7 @@
               })
             : null,
         b = (0, x.default)(() => Promise.resolve(p), { ssr: !1 });
-      var v = r(17036),
+      var v = r(5671),
         y = (e) => {
           let { children: t } = e,
             { isMediumDevice: r } = (0, l.Z)(),
@@ -535,63 +535,50 @@
           });
         };
     },
-    17036: function (e, t, r) {
+    5671: function (e, t, r) {
       "use strict";
       r.d(t, {
         Z: function () {
-          return z;
+          return M;
         },
       });
       var n = r(57437),
         a = r(19213),
         i = r(24232),
-        s = r(73667),
-        l = r(68062),
-        c = r(36408),
-        o = (e) => {
-          let { enabled: t } = e;
-          return (0, s.a)({
-            queryKey: c.YN.currentUserSubscriptionStatus(),
-            queryFn: async () => {
-              let { plan: e, status: t } = await (0, l.pI)();
-              return { plan: e, status: t };
-            },
-            enabled: t,
-          });
-        },
-        u = r(23642),
-        d = r(96569),
-        f = r(45722),
-        m = r(85754),
-        h = r(93930),
-        x = r(35802),
-        g = r(2265),
-        p = r(53334),
-        b = r(47082),
-        v = r(20568),
-        y = r(47907),
-        j = r(68203),
-        k = r(13581),
-        w = () => {
-          let e = (0, b.NL)(),
-            t = (0, y.useRouter)();
-          return (0, v.D)({
+        s = r(48779),
+        l = r(23642),
+        c = r(96569),
+        o = r(45722),
+        u = r(85754),
+        d = r(93930),
+        f = r(35802),
+        m = r(2265),
+        h = r(53334),
+        x = r(47082),
+        g = r(20568),
+        p = r(47907),
+        b = r(68203),
+        v = r(13581),
+        y = () => {
+          let e = (0, x.NL)(),
+            t = (0, p.useRouter)();
+          return (0, g.D)({
             mutationFn: async () => {
-              await j.bL.post("/auth/signout");
+              await b.bL.post("/auth/signout");
             },
             mutationKey: ["signOut"],
             onSettled: async () => {
-              (0, k.L9)("Sign Out"), (0, k.lk)(), e.clear(), t.refresh();
+              (0, v.L9)("Sign Out"), (0, v.lk)(), e.clear(), t.refresh();
             },
             onError: (e) => {
-              p.Tb(e), console.error("Error signing out", e);
+              h.Tb(e), console.error("Error signing out", e);
             },
           });
         },
-        N = function () {
-          let e = w();
+        j = function () {
+          let e = y();
           return (
-            (0, g.useEffect)(() => {
+            (0, m.useEffect)(() => {
               let t = (t) => {
                 "Q" === t.key && t.shiftKey && e.mutate();
               };
@@ -602,35 +589,35 @@
                 }
               );
             }, []),
-            (0, n.jsxs)(h.Xi, {
+            (0, n.jsxs)(d.Xi, {
               onClick: () => e.mutate(),
               className: "cursor-pointer",
-              children: ["Log out", (0, n.jsx)(h.KM, { children: "⇧Q" })],
+              children: ["Log out", (0, n.jsx)(d.KM, { children: "⇧Q" })],
             })
           );
         },
-        Z = () => {
-          let { openProfileModal: e } = (0, f.aN)();
-          return (0, n.jsx)(h.Xi, {
+        k = () => {
+          let { openProfileModal: e } = (0, o.aN)();
+          return (0, n.jsx)(d.Xi, {
             onClick: () => e(),
             className: "cursor-pointer",
             children: "Edit Profile",
           });
         },
-        I = r(56288),
-        M = r(6771),
-        C = (e) => {
+        w = r(56288),
+        N = r(6771),
+        Z = (e) => {
           let { subscriptionData: t } = e,
-            { openSubscriptionModal: r } = (0, f.We)(),
-            a = (0, y.usePathname)(),
+            { openSubscriptionModal: r } = (0, o.We)(),
+            a = (0, p.usePathname)(),
             i = async () => {
               try {
-                let e = (await j.bL.get("/api/stripe/stripe-portal")).data;
+                let e = (await b.bL.get("/api/stripe/stripe-portal")).data;
                 window.location.href = e.url;
               } catch (e) {
-                I.toast.error(
+                w.toast.error(
                   "Error connecting to Stripe. Please try again later.",
-                  M.TQ
+                  N.TQ
                 );
               } finally {
               }
@@ -638,13 +625,13 @@
           return (0, n.jsx)(n.Fragment, {
             children:
               (null == t ? void 0 : t.status) === "active"
-                ? (0, n.jsx)(h.Xi, {
+                ? (0, n.jsx)(d.Xi, {
                     onClick: i,
                     className: "cursor-pointer",
                     children: "Manage Subscription",
                   })
                 : "/pricing" !== a
-                  ? (0, n.jsx)(h.Xi, {
+                  ? (0, n.jsx)(d.Xi, {
                       onClick: () => r(),
                       className: "cursor-pointer",
                       children: "Subscribe",
@@ -652,38 +639,38 @@
                   : null,
           });
         };
-      let S = () => {
+      let I = () => {
         var e;
-        let t = (0, u.Z)(),
+        let t = (0, l.Z)(),
           r = (0, a.cC)("subscriptions"),
-          { data: i } = (0, d.Z)({ id: null == t ? void 0 : t.id }),
-          { openAuthModal: s } = (0, f.fI)(),
-          { openGeneralFeedbackModal: l } = (0, f.jh)(),
-          { data: c, isLoading: g } = o({
+          { data: i } = (0, c.Z)({ id: null == t ? void 0 : t.id }),
+          { openAuthModal: m } = (0, o.fI)(),
+          { openGeneralFeedbackModal: h } = (0, o.jh)(),
+          { data: x, isLoading: g } = (0, s.Z)({
             enabled: !!(null == t ? void 0 : t.id) && r,
           });
         return t
-          ? (0, n.jsxs)(h.h_, {
+          ? (0, n.jsxs)(d.h_, {
               children: [
-                (0, n.jsx)(h.$F, {
+                (0, n.jsx)(d.$F, {
                   asChild: !0,
                   children: g
                     ? null
-                    : (0, n.jsx)(m.z, {
+                    : (0, n.jsx)(u.z, {
                         variant: "ghost",
                         className: "relative h-8 w-8 rounded-full",
-                        children: (0, n.jsx)(x.Z, {
+                        children: (0, n.jsx)(f.Z, {
                           profile: i,
                           className: "h-9 w-9",
                         }),
                       }),
                 }),
-                (0, n.jsxs)(h.AW, {
+                (0, n.jsxs)(d.AW, {
                   className: "w-56",
                   align: "end",
                   forceMount: !0,
                   children: [
-                    (0, n.jsx)(h.Ju, {
+                    (0, n.jsx)(d.Ju, {
                       className: "font-normal",
                       children: (0, n.jsxs)("div", {
                         className: "flex flex-col space-y-1",
@@ -705,32 +692,32 @@
                         ],
                       }),
                     }),
-                    (0, n.jsx)(h.VD, {}),
-                    (0, n.jsxs)(h.Qk, {
+                    (0, n.jsx)(d.VD, {}),
+                    (0, n.jsxs)(d.Qk, {
                       children: [
-                        r && !g && (0, n.jsx)(C, { subscriptionData: c }),
-                        (0, n.jsx)(Z, {}),
+                        r && !g && (0, n.jsx)(Z, { subscriptionData: x }),
+                        (0, n.jsx)(k, {}),
                       ],
                     }),
-                    (0, n.jsx)(h.VD, {}),
-                    (0, n.jsx)(h.Xi, {
-                      onClick: l,
+                    (0, n.jsx)(d.VD, {}),
+                    (0, n.jsx)(d.Xi, {
+                      onClick: h,
                       children: "Submit Feedback",
                     }),
-                    (0, n.jsx)(h.VD, {}),
-                    (0, n.jsx)(N, {}),
+                    (0, n.jsx)(d.VD, {}),
+                    (0, n.jsx)(j, {}),
                   ],
                 }),
               ],
             })
-          : (0, n.jsx)(m.z, {
+          : (0, n.jsx)(u.z, {
               variant: "create",
               className: "relative",
-              onClick: () => s(),
+              onClick: () => m(),
               children: "Sign In",
             });
       };
-      var z = (0, i.default)(() => Promise.resolve(S), { ssr: !1 });
+      var M = (0, i.default)(() => Promise.resolve(I), { ssr: !1 });
     },
     85754: function (e, t, r) {
       "use strict";
@@ -826,8 +813,14 @@
         eS: function () {
           return a;
         },
+        hX: function () {
+          return x;
+        },
         i6: function () {
           return c;
+        },
+        nq: function () {
+          return h;
         },
         yd: function () {
           return u;
@@ -856,7 +849,9 @@
           foreground: "#f9f9f9",
           brandAccent: "#E30B5D",
           mutedForeground: "#71717a",
-        };
+        },
+        h = ["pro", "standard"],
+        x = ["trialing", "active"];
     },
     11109: function (e, t, r) {
       "use strict";
@@ -979,6 +974,7 @@
           "Create Song",
           "Remix Song",
           "Extend Song",
+          "Inpaint Song",
           "Publish Song",
           "Unpublish Song",
           "Listen Song",
@@ -2109,8 +2105,8 @@
       0,
       [
         6603, 1866, 2420, 6288, 9892, 5250, 1880, 1749, 9731, 9213, 2408, 3555,
-        4481, 6395, 8830, 8794, 2569, 1632, 9346, 8329, 4768, 3074, 8140, 9675,
-        2938, 8519, 1793, 2435, 2971, 4872, 1744,
+        4481, 6395, 8830, 8794, 2569, 1632, 9346, 3902, 4768, 7401, 8140, 9675,
+        2938, 8519, 4178, 2435, 2971, 4872, 1744,
       ],
       function () {
         return e((e.s = 6174));

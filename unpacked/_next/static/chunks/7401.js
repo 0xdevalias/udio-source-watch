@@ -1,6 +1,6 @@
 "use strict";
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [3074],
+  [7401],
   {
     18746: function (t, e, n) {
       let r, i, s;
@@ -1109,7 +1109,7 @@
       function t1(t, e) {
         return (e || new TextEncoder()).encode(t);
       }
-      var t3 = {
+      var t2 = {
         session: "session",
         sessions: "session",
         attachment: "attachment",
@@ -1122,7 +1122,7 @@
         replay_recording: "replay",
         check_in: "monitor",
       };
-      function t2(t) {
+      function t3(t) {
         if (!t || !t.sdk) return;
         let { name: e, version: n } = t.sdk;
         return { name: e, version: n };
@@ -2510,7 +2510,7 @@
               ((n = this._dsn),
               (r = this._options._metadata),
               (i = this._options.tunnel),
-              (a = t2(r)),
+              (a = t3(r)),
               (o = t.type && "replay_event" !== t.type ? t.type : "event"),
               (s = r && r.sdk) &&
                 ((t.sdk = t.sdk || {}),
@@ -2573,7 +2573,7 @@
               ((e = this._dsn),
               (n = this._options._metadata),
               (r = this._options.tunnel),
-              (i = t2(n)),
+              (i = t3(n)),
               tQ(
                 g(
                   g({ sent_at: new Date().toISOString() }, i && { sdk: i }),
@@ -2970,7 +2970,7 @@ Reason: ${t}`));
           let s = [];
           if (
             (t0(i, (e, n) => {
-              let i = t3[n];
+              let i = t2[n];
               if (
                 (function (t, e, n = Date.now()) {
                   return (t[e] || t.all || 0) > n;
@@ -2987,7 +2987,7 @@ Reason: ${t}`));
             o = (e) => {
               t0(a, (n, r) => {
                 let i = eO(n, r);
-                t.recordDroppedEvent(e, t3[r], i);
+                t.recordDroppedEvent(e, t2[r], i);
               });
             };
           return n
@@ -3631,7 +3631,7 @@ ${JSON.stringify(e)}
                     let t = eG.exec(e[2]);
                     t && ((e[2] = t[1]), (e[3] = t[2]), (e[4] = t[3]));
                   }
-                  let [t, n] = e3(e[1] || "?", e[2]);
+                  let [t, n] = e2(e[1] || "?", e[2]);
                   return eZ(n, t, e[3] ? +e[3] : void 0, e[4] ? +e[4] : void 0);
                 }
               },
@@ -3652,7 +3652,7 @@ ${JSON.stringify(e)}
                   let t = e[3],
                     n = e[1] || "?";
                   return (
-                    ([n, t] = e3(n, t)),
+                    ([n, t] = e2(n, t)),
                     eZ(t, n, e[4] ? +e[4] : void 0, e[5] ? +e[5] : void 0)
                   );
                 }
@@ -3669,7 +3669,7 @@ ${JSON.stringify(e)}
             ],
           ]
         ),
-        e3 = (t, e) => {
+        e2 = (t, e) => {
           let n = -1 !== t.indexOf("safari-extension"),
             r = -1 !== t.indexOf("safari-web-extension");
           return n || r
@@ -3679,12 +3679,12 @@ ${JSON.stringify(e)}
               ]
             : [t, e];
         },
-        e2 = class {
+        e3 = class {
           static __initStatic() {
             this.id = "GlobalHandlers";
           }
           constructor(t) {
-            (this.name = e2.id),
+            (this.name = e3.id),
               (this._options = g({ onerror: !0, onunhandledrejection: !0 }, t)),
               (this._installFunc = { onerror: e4, onunhandledrejection: e5 });
           }
@@ -3703,7 +3703,7 @@ ${JSON.stringify(e)}
             n,
             r,
             [i, s, a] = e8();
-          if (!i.getIntegration(e2)) return;
+          if (!i.getIntegration(e3)) return;
           let { msg: o, url: c, line: u, column: l, error: h } = t;
           if (eM > 0 || (h && h.__sentry_own_request__)) return;
           let p =
@@ -3722,7 +3722,7 @@ ${JSON.stringify(e)}
         tg("unhandledrejection", (t) => {
           var e;
           let [n, r, i] = e8();
-          if (!n.getIntegration(e2)) return;
+          if (!n.getIntegration(e3)) return;
           let s = t;
           try {
             "reason" in t
@@ -3791,7 +3791,7 @@ ${JSON.stringify(e)}
           };
         return [t, n.stackParser, n.attachStacktrace];
       }
-      e2.__initStatic();
+      e3.__initStatic();
       var e7 = [
           "EventTarget",
           "Window",
@@ -4282,7 +4282,7 @@ ${JSON.stringify(e)}
       b(ny, {
         Breadcrumbs: () => ns,
         Dedupe: () => nd,
-        GlobalHandlers: () => e2,
+        GlobalHandlers: () => e3,
         HttpContext: () => np,
         LinkedErrors: () => nh,
         TryCatch: () => nt,
@@ -5288,10 +5288,10 @@ ${JSON.stringify(e)}
       var n0 = null;
       function n1(t, e) {
         return !1 === t
-          ? n3(t)
+          ? n2(t)
           : n0
-            ? n3(n0, e)
-            : n3(
+            ? n2(n0, e)
+            : n2(
                 (n0 = new ee(
                   new eW({
                     dsn: "https://d233059272824702afc8c43834c4912d@sentry.hcaptcha.com/6",
@@ -5299,7 +5299,7 @@ ${JSON.stringify(e)}
                     stackParser: e1,
                     integrations: [
                       new ns(),
-                      new e2(),
+                      new e3(),
                       new nh(),
                       new nd(),
                       new np(),
@@ -5310,7 +5310,7 @@ ${JSON.stringify(e)}
                 e
               );
       }
-      function n3(t, e = { key: "source", value: "@hCaptcha/loader" }) {
+      function n2(t, e = { key: "source", value: "@hCaptcha/loader" }) {
         return {
           addBreadcrumb: (e) => {
             t && t.addBreadcrumb(e);
@@ -5330,7 +5330,7 @@ ${JSON.stringify(e)}
           },
         };
       }
-      var n2 = [];
+      var n3 = [];
       function n4(t) {
         var e = (t && t.ownerDocument) || document,
           n = e.defaultView || e.parentWindow || window;
@@ -5464,7 +5464,7 @@ ${JSON.stringify(e)}
                               });
                               let n = T(t.scriptLocation),
                                 r = E(n),
-                                i = n2.find(({ scope: t }) => t === r.window);
+                                i = n3.find(({ scope: t }) => t === r.window);
                               if (i)
                                 return (
                                   e.addBreadcrumb({
@@ -5554,17 +5554,17 @@ ${JSON.stringify(e)}
                                       message: "hCaptcha failed to load",
                                       data: n,
                                     });
-                                    let t = n2.findIndex(
+                                    let t = n3.findIndex(
                                       (t) => t.scope === r.window
                                     );
-                                    -1 !== t && n2.splice(t, 1),
+                                    -1 !== t && n3.splice(t, 1),
                                       e.captureException(n),
                                       s(Error(k));
                                   }
                                 })
                               );
                               return (
-                                n2.push({ promise: s, scope: r.window }), s
+                                n3.push({ promise: s, scope: r.window }), s
                               );
                             } catch (t) {
                               return (
@@ -5818,6 +5818,38 @@ ${JSON.stringify(e)}
           return i;
         },
       });
+    },
+    47281: function (t, e, n) {
+      n.d(e, {
+        c: function () {
+          return i;
+        },
+      });
+      var r = n(2265);
+      function i(t, e) {
+        let n =
+            arguments.length > 2 && void 0 !== arguments[2]
+              ? arguments[2]
+              : { leading: !1 },
+          [i, s] = (0, r.useState)(t),
+          a = (0, r.useRef)(!1),
+          o = (0, r.useRef)(null),
+          c = (0, r.useRef)(!1),
+          u = () => window.clearTimeout(o.current);
+        return (
+          (0, r.useEffect)(() => {
+            a.current &&
+              (!c.current && n.leading
+                ? ((c.current = !0), s(t))
+                : (u(),
+                  (o.current = window.setTimeout(() => {
+                    (c.current = !1), s(t);
+                  }, e))));
+          }, [t, n.leading, e]),
+          (0, r.useEffect)(() => ((a.current = !0), u), []),
+          [i, u]
+        );
+      }
     },
   },
 ]);

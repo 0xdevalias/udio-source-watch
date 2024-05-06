@@ -101,8 +101,14 @@
         eS: function () {
           return o;
         },
+        hX: function () {
+          return g;
+        },
         i6: function () {
           return i;
+        },
+        nq: function () {
+          return m;
         },
         yd: function () {
           return l;
@@ -131,7 +137,9 @@
           foreground: "#f9f9f9",
           brandAccent: "#E30B5D",
           mutedForeground: "#71717a",
-        };
+        },
+        m = ["pro", "standard"],
+        g = ["trialing", "active"];
     },
     1657: function (n, t, e) {
       "use strict";

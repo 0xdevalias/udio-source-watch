@@ -97,18 +97,18 @@
         Z = a(1657),
         D = a(31478),
         C = a(85754),
-        S = a(29655),
-        P = a(93930),
+        P = a(29655),
+        S = a(93930),
         _ = a(29456),
         z = a(55322),
         L = a(10647),
-        R = a(65687);
-      let F = R.fC;
-      R.xz;
-      let K = R.h_,
+        F = a(65687);
+      let R = F.fC;
+      F.xz;
+      let K = F.h_,
         T = h.forwardRef((e, t) => {
           let { className: a, ...l } = e;
-          return (0, s.jsx)(R.aV, {
+          return (0, s.jsx)(F.aV, {
             className: (0, Z.cn)(
               "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
               a
@@ -117,13 +117,13 @@
             ref: t,
           });
         });
-      T.displayName = R.aV.displayName;
+      T.displayName = F.aV.displayName;
       let A = h.forwardRef((e, t) => {
         let { className: a, ...l } = e;
         return (0, s.jsxs)(K, {
           children: [
             (0, s.jsx)(T, {}),
-            (0, s.jsx)(R.VY, {
+            (0, s.jsx)(F.VY, {
               ref: t,
               className: (0, Z.cn)(
                 "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
@@ -134,8 +134,8 @@
           ],
         });
       });
-      A.displayName = R.VY.displayName;
-      let U = (e) => {
+      A.displayName = F.VY.displayName;
+      let q = (e) => {
         let { className: t, ...a } = e;
         return (0, s.jsx)("div", {
           className: (0, Z.cn)(
@@ -145,8 +145,8 @@
           ...a,
         });
       };
-      U.displayName = "AlertDialogHeader";
-      let q = (e) => {
+      q.displayName = "AlertDialogHeader";
+      let U = (e) => {
         let { className: t, ...a } = e;
         return (0, s.jsx)("div", {
           className: (0, Z.cn)(
@@ -156,36 +156,36 @@
           ...a,
         });
       };
-      q.displayName = "AlertDialogFooter";
-      let I = h.forwardRef((e, t) => {
+      U.displayName = "AlertDialogFooter";
+      let Q = h.forwardRef((e, t) => {
         let { className: a, ...l } = e;
-        return (0, s.jsx)(R.Dx, {
+        return (0, s.jsx)(F.Dx, {
           ref: t,
           className: (0, Z.cn)("text-lg font-semibold", a),
           ...l,
         });
       });
-      (I.displayName = R.Dx.displayName),
+      (Q.displayName = F.Dx.displayName),
         (h.forwardRef((e, t) => {
           let { className: a, ...l } = e;
-          return (0, s.jsx)(R.dk, {
+          return (0, s.jsx)(F.dk, {
             ref: t,
             className: (0, Z.cn)("text-sm text-muted-foreground", a),
             ...l,
           });
-        }).displayName = R.dk.displayName);
-      let Q = h.forwardRef((e, t) => {
+        }).displayName = F.dk.displayName);
+      let I = h.forwardRef((e, t) => {
         let { className: a, ...l } = e;
-        return (0, s.jsx)(R.aU, {
+        return (0, s.jsx)(F.aU, {
           ref: t,
           className: (0, Z.cn)((0, C.d)(), a),
           ...l,
         });
       });
-      Q.displayName = R.aU.displayName;
+      I.displayName = F.aU.displayName;
       let V = h.forwardRef((e, t) => {
         let { className: a, ...l } = e;
-        return (0, s.jsx)(R.$j, {
+        return (0, s.jsx)(F.$j, {
           ref: t,
           className: (0, Z.cn)(
             (0, C.d)({ variant: "outline" }),
@@ -195,26 +195,26 @@
           ...l,
         });
       });
-      V.displayName = R.$j.displayName;
+      V.displayName = F.$j.displayName;
       var Y = (e) => {
           let { track: t, deleteAlertOpen: a, closeAlert: l } = e,
             n = (0, L.Z)(),
             i = async () => {
               l(), await n.mutateAsync(t.id);
             };
-          return (0, s.jsx)(F, {
+          return (0, s.jsx)(R, {
             open: a,
             children: (0, s.jsxs)(A, {
               children: [
-                (0, s.jsx)(U, {
-                  children: (0, s.jsx)(I, {
+                (0, s.jsx)(q, {
+                  children: (0, s.jsx)(Q, {
                     children: "Are you sure you want to delete this track?",
                   }),
                 }),
-                (0, s.jsxs)(q, {
+                (0, s.jsxs)(U, {
                   children: [
                     (0, s.jsx)(V, { onClick: l, children: "Cancel" }),
-                    (0, s.jsx)(Q, {
+                    (0, s.jsx)(I, {
                       onClick: i,
                       className:
                         "hover:bg-destructive/90 bg-destructive text-destructive-foreground",
@@ -227,20 +227,20 @@
           });
         },
         M = a(51510),
-        E = a(20428),
-        G = a(90161),
-        O = a(37501),
-        W = a(77929),
-        X = a(81805),
+        X = a(20428),
+        E = a(90161),
+        G = a(37501),
+        O = a(77929),
+        W = a(81805),
         B = (e) => {
           let { toastId: t, replacements: a } = e;
-          return (0, s.jsxs)(X.Z, {
+          return (0, s.jsxs)(W.Z, {
             toastId: t,
             children: [
               (0, s.jsx)(r.Z, {
                 className: "my-auto h-4 w-4 stroke-brand-accent",
               }),
-              (0, s.jsxs)(W.Cd, {
+              (0, s.jsxs)(O.Cd, {
                 className: "text-lg",
                 children: [
                   "Artist",
@@ -254,7 +254,7 @@
                   }),
                 ],
               }),
-              (0, s.jsx)(W.X, {
+              (0, s.jsx)(O.X, {
                 children: a.map((e, t) =>
                   Array.isArray(e.tags) &&
                   e.tags.every((e) => "string" == typeof e) &&
@@ -266,7 +266,7 @@
                             (0, s.jsxs)("div", {
                               className: "flex items-center space-x-2 ",
                               children: [
-                                (0, s.jsx)(O.Z, {
+                                (0, s.jsx)(G.Z, {
                                   className: "animate-pulse text-brand-accent",
                                 }),
                                 (0, s.jsxs)("span", {
@@ -467,19 +467,19 @@
         var t, a, r, z;
         let {
             track: L,
-            selectedTracks: R,
-            trackContext: F,
+            selectedTracks: F,
+            trackContext: R,
             allowMobileDelete: K = !1,
             showInProgress: T = !1,
             showReplacements: A = !1,
-            showNowPlaying: U = !1,
-            showPublish: q = !1,
-            showDuration: I = !1,
-            status: Q = null,
+            showNowPlaying: q = !1,
+            showPublish: U = !1,
+            showDuration: Q = !1,
+            status: I = null,
             showIcons: V = !1,
-            iconsLocation: O = "right",
-            location: W = "",
-            containerClassName: X,
+            iconsLocation: G = "right",
+            location: O = "",
+            containerClassName: W,
             buttonClassName: H,
           } = e,
           J = (0, l.cC)("song-feedback-button"),
@@ -495,10 +495,10 @@
           [eN, ek] = (0, h.useState)(!1),
           [eb, eZ] = (0, h.useState)(!1),
           [eD, eC] = (0, h.useState)(0),
-          [eS, eP] = (0, h.useState)(!1),
+          [eP, eS] = (0, h.useState)(!1),
           [e_, ez] = (0, h.useState)(0),
           eL = (e) => Math.min(e / 150, 1),
-          eR = (e) => {
+          eF = (e) => {
             let t = Math.sign(e) * Math.min(Math.abs(e), 150);
             return (
               Math.abs(e) > 150 &&
@@ -509,26 +509,26 @@
         (0, p.QS)({
           onSwiping: (e) => {
             if (K) {
-              eP(!0), e.event.stopPropagation(), e.event.preventDefault();
-              let t = eR(e.deltaX);
+              eS(!0), e.event.stopPropagation(), e.event.preventDefault();
+              let t = eF(e.deltaX);
               eC(t), ez(eL(Math.abs(t)));
             }
           },
           onSwiped: (e) => {
-            K && (eP(!1), e.event.stopPropagation(), eC(0), ez(0));
+            K && (eS(!1), e.event.stopPropagation(), eC(0), ez(0));
           },
           trackMouse: !0,
         });
-        let eF = !!(null === (t = L.song_path) || void 0 === t
+        let eR = !!(null === (t = L.song_path) || void 0 === t
             ? void 0
             : t.length),
           eK = null !== L.error_id || null !== L.error_type,
-          eT = T || eF,
+          eT = T || eR,
           eA = [];
         if (L.replaced_tags)
           for (let [e, t] of Object.entries(L.replaced_tags))
             "artist" === t.type && eA.push({ artist: e, tags: t.tags });
-        let eU = (0, h.useMemo)(
+        let eq = (0, h.useMemo)(
             () =>
               eA.reduce(
                 (e, t) =>
@@ -540,7 +540,7 @@
               ),
             [eA]
           ),
-          eq = (0, h.useMemo)(() => {
+          eU = (0, h.useMemo)(() => {
             var e, t;
             return null == L
               ? void 0
@@ -553,30 +553,30 @@
                   ? void 0
                   : e.join(", ");
           }, [null == L ? void 0 : L.tags]),
-          eI = (0, f.useRouter)();
-        eK && (Q = "error");
-        let eQ =
-          "completed" === Q
+          eQ = (0, f.useRouter)();
+        eK && (I = "error");
+        let eI =
+          "completed" === I
             ? "bg-green-400"
-            : "generating" === Q
+            : "generating" === I
               ? "bg-purple-400"
-              : "error" === Q
+              : "error" === I
                 ? "bg-red-400"
                 : null;
         (0, h.useEffect)(() => {
           eD < -150 ? ek(!0) : ek(!1), eD > 150 && !eg ? eZ(!0) : eZ(!1);
         }, [eD]),
           (0, h.useEffect)(() => {
-            if (!eS && (eN && ew(!0), eb)) {
+            if (!eP && (eN && ew(!0), eb)) {
               var e;
               (null === (e = L.song_path) || void 0 === e
                 ? void 0
-                : e.length) && eI.push("/songs/".concat((0, Z.Y)(L.id)));
+                : e.length) && eQ.push("/songs/".concat((0, Z.Y)(L.id)));
             }
-          }, [eS]),
+          }, [eP]),
           (0, h.useEffect)(() => {
-            eU > 0 &&
-              "generating" == Q &&
+            eq > 0 &&
+              "generating" == I &&
               !ex.includes(
                 "".concat(L.generation_id, "-artist-replace-modal")
               ) &&
@@ -600,7 +600,7 @@
                 }
               ),
               eu("".concat(L.generation_id, "-artist-replace-modal")));
-          }, [eA, Q, ex, eU, ep, ey]),
+          }, [eA, I, ex, eq, ep, ey]),
           (0, h.useEffect)(() => {
             null !== L.song_path &&
               (em("".concat(L.generation_id, "-artist-replace-modal")),
@@ -626,7 +626,7 @@
             L &&
               eT &&
               (0, s.jsxs)("div", {
-                className: (0, Z.cn)("relative ml-1 mr-1 py-1 sm:p-2", X),
+                className: (0, Z.cn)("relative ml-1 mr-1 py-1 sm:p-2", W),
                 children: [
                   !ep &&
                     K &&
@@ -659,20 +659,20 @@
                     }),
                   (0, s.jsx)("div", {
                     className: "select-none",
-                    children: (0, s.jsxs)(S.xV, {
+                    children: (0, s.jsxs)(P.xV, {
                       modal: !1,
                       children: [
-                        (0, s.jsx)(S.W4, {
+                        (0, s.jsx)(P.W4, {
                           children: (0, s.jsxs)("div", {
                             tabIndex: 0,
                             style: { animationDuration: "2000ms" },
                             className:
                               "relative flex justify-between overflow-hidden bg-gray-medium transition-colors focus:opacity-[0.9] md:bg-inherit ".concat(
-                                "generating" === Q
+                                "generating" === I
                                   ? "animate-pulse ring-2"
-                                  : "error" === Q
+                                  : "error" === I
                                     ? "ring-2 ring-gray-500"
-                                    : "completed" === Q
+                                    : "completed" === I
                                       ? "ring-2 ring-green-500"
                                       : ""
                               ),
@@ -681,20 +681,20 @@
                               (null === (t = L.song_path) || void 0 === t
                                 ? void 0
                                 : t.length) &&
-                                eI.push("/songs/".concat((0, Z.Y)(L.id)));
+                                eQ.push("/songs/".concat((0, Z.Y)(L.id)));
                             },
                             children: [
                               (0, s.jsx)("span", {
                                 className: "absolute right-3 top-3",
                                 children: (0, s.jsx)(ea.Z, {
-                                  baseColor: eQ,
-                                  pulseColor: eQ,
+                                  baseColor: eI,
+                                  pulseColor: eI,
                                   width: "3",
                                 }),
                               }),
                               (0, s.jsxs)(_.zs, {
                                 children: [
-                                  "error" === Q &&
+                                  "error" === I &&
                                     (0, s.jsx)("div", {
                                       className:
                                         "absolute bottom-2 right-2 z-40 transform md:bottom-1/3 md:left-1/2   md:translate-y-1/2",
@@ -733,21 +733,21 @@
                                   eK ? "opacity-45" : ""
                                 ),
                                 children: [
-                                  (0, s.jsx)(G.Z, {
+                                  (0, s.jsx)(E.Z, {
                                     track: L,
-                                    trackContext: F,
+                                    trackContext: R,
                                     onPlay: () => {
-                                      "completed" === Q && eo(L.id);
+                                      "completed" === I && eo(L.id);
                                     },
-                                    status: Q,
+                                    status: I,
                                     className:
                                       "relative mt-1 h-[90px] w-[90px] flex-shrink-0 select-none sm:mt-0 sm:block ".concat(
-                                        eF ? "cursor-pointer" : ""
+                                        eR ? "cursor-pointer" : ""
                                       ),
                                     width: 90,
                                     height: 90,
                                     children:
-                                      "generating" === Q &&
+                                      "generating" === I &&
                                       (0, s.jsx)(s.Fragment, {
                                         children: (0, s.jsx)("div", {
                                           className:
@@ -773,16 +773,16 @@
                                           (0, s.jsx)(x.default, {
                                             className:
                                               "flex items-center ".concat(
-                                                eF
+                                                eR
                                                   ? "cursor-pointer hover:underline"
                                                   : ""
                                               ),
-                                            href: eF
+                                            href: eR
                                               ? "/songs/".concat((0, Z.Y)(L.id))
                                               : "",
                                             children: (0, s.jsx)(es, {
                                               track: L,
-                                              tagString: eq,
+                                              tagString: eU,
                                               showPrompt:
                                                 (null === (a = L.prompt) ||
                                                 void 0 === a
@@ -800,8 +800,8 @@
                                                     children: L.title,
                                                   }),
                                                   L.parent_id &&
-                                                    "generating" !== Q &&
-                                                    "error" !== Q &&
+                                                    "generating" !== I &&
+                                                    "error" !== I &&
                                                     L.duration &&
                                                     (0, s.jsx)(x.default, {
                                                       href: "/songs/".concat(
@@ -887,7 +887,7 @@
                                           }),
                                         ],
                                       }),
-                                      U &&
+                                      q &&
                                       (null == en ? void 0 : en.id) === L.id &&
                                       ei
                                         ? (0, s.jsxs)("div", {
@@ -917,7 +917,7 @@
                                               ed(L),
                                             ],
                                           }),
-                                      q
+                                      U
                                         ? (0, s.jsx)(et.Z, {
                                             track: L,
                                             size: "custom",
@@ -926,7 +926,7 @@
                                           })
                                         : null,
                                       V &&
-                                        "under" === O &&
+                                        "under" === G &&
                                         (0, s.jsxs)("div", {
                                           children: [
                                             (0, s.jsx)($.Z, {
@@ -950,26 +950,26 @@
                                 className: "flex items-center sm:m-3",
                                 children: [
                                   !eK &&
-                                    "generating" !== Q &&
+                                    "generating" !== I &&
                                     (0, s.jsxs)(s.Fragment, {
                                       children: [
                                         ep &&
-                                          I &&
+                                          Q &&
                                           L.duration > 0 &&
                                           (0, s.jsx)("div", {
                                             className: (0, Z.cn)(
                                               "mr-[100px] flex items-center font-mono text-muted-foreground",
                                               (null !==
                                                 (z =
-                                                  null == R
+                                                  null == F
                                                     ? void 0
-                                                    : R.length) && void 0 !== z
+                                                    : F.length) && void 0 !== z
                                                 ? z
                                                 : 0) > 0 && "select-none"
                                             ),
                                             children: (0, Z.mr)(L.duration),
                                           }),
-                                        q && er
+                                        U && er
                                           ? (0, s.jsx)(s.Fragment, {
                                               children:
                                                 ep &&
@@ -1048,7 +1048,7 @@
                                             })
                                           : null,
                                         V &&
-                                          "right" === O &&
+                                          "right" === G &&
                                           (0, s.jsxs)("div", {
                                             className: "hidden sm:flex",
                                             children: [
@@ -1065,13 +1065,13 @@
                                           }),
                                       ],
                                     }),
-                                  "generating" !== Q &&
+                                  "generating" !== I &&
                                     0 === Math.abs(eD) &&
-                                    (0, s.jsxs)(P.h_, {
+                                    (0, s.jsxs)(S.h_, {
                                       open: eg,
                                       modal: !1,
                                       children: [
-                                        (0, s.jsx)(P.$F, {
+                                        (0, s.jsx)(S.$F, {
                                           asChild: !0,
                                           onClick: () => ev(!eg),
                                           children: (0, s.jsx)(C.z, {
@@ -1083,9 +1083,10 @@
                                             }),
                                           }),
                                         }),
-                                        (0, s.jsx)(E.Z, {
+                                        (0, s.jsx)(X.Z, {
                                           track: L,
-                                          trackContext: F,
+                                          trackContext: R,
+                                          setIsDropdownOpen: ev,
                                         }),
                                       ],
                                     }),
@@ -1094,7 +1095,7 @@
                             ],
                           }),
                         }),
-                        (0, s.jsx)(M.Z, { track: L, selectedTracks: R }),
+                        (0, s.jsx)(M.Z, { track: L, selectedTracks: F }),
                       ],
                     }),
                   }),
@@ -1176,8 +1177,9 @@
                 e.id
               ),
               mutationKey: ["likeSong"],
-              onSettled: async () => {
-                await e.invalidateQueries({ queryKey: m.ed.likedList });
+              onSettled: async (t) => {
+                await e.invalidateQueries({ queryKey: m.ed.single(t) }),
+                  await e.invalidateQueries({ queryKey: m.ed.likedList });
               },
             }),
             i = (0, o.D)({
@@ -1188,8 +1190,9 @@
                 e.id
               ),
               mutationKey: ["removeLikeSong"],
-              onSettled: async () => {
-                await e.invalidateQueries({ queryKey: m.ed.likedList });
+              onSettled: async (t) => {
+                await e.invalidateQueries({ queryKey: m.ed.single(t) }),
+                  await e.invalidateQueries({ queryKey: m.ed.likedList });
               },
             }),
             r = (0, o.D)({
@@ -1200,8 +1203,9 @@
                 e.id
               ),
               mutationKey: ["removeDislikeSong"],
-              onSettled: async () => {
-                await e.invalidateQueries({ queryKey: m.ed.likedList });
+              onSettled: async (t) => {
+                await e.invalidateQueries({ queryKey: m.ed.single(t) }),
+                  await e.invalidateQueries({ queryKey: m.ed.likedList });
               },
             });
           return {
@@ -1215,8 +1219,9 @@
                 e.id
               ),
               mutationKey: ["dislikeSong"],
-              onSettled: async () => {
-                await e.invalidateQueries({ queryKey: m.ed.likedList });
+              onSettled: async (t) => {
+                await e.invalidateQueries({ queryKey: m.ed.single(t) }),
+                  await e.invalidateQueries({ queryKey: m.ed.likedList });
               },
             }),
             removeDislikeSongMutation: r,
@@ -1266,7 +1271,7 @@
                 await N.mutateAsync(a);
               }
             },
-            S = async () => {
+            P = async () => {
               if (a) {
                 if (!c) {
                   g();
@@ -1303,7 +1308,7 @@
                             variant: "ghost",
                             className: o,
                             size: "sm",
-                            onClick: j(a) ? S : C,
+                            onClick: j(a) ? P : C,
                             children: (0, s.jsx)(r.Z, {
                               size: d,
                               fill: j(a) ? "red" : "white",
@@ -1458,98 +1463,116 @@
         o = a(81573),
         c = a(98075),
         u = a(42773),
-        m = a(23642),
-        x = a(41100),
-        f = a(38980),
-        h = a(45722),
-        p = a(76798),
-        y = a(6771),
-        g = a(1657),
-        v = a(85754),
-        j = a(29655),
-        w = a(42706);
+        m = a(48779),
+        x = a(23642),
+        f = a(41100),
+        h = a(38980),
+        p = a(45722),
+        y = a(76798),
+        g = a(6771),
+        v = a(1657),
+        j = a(85754),
+        w = a(29655),
+        N = a(42706);
       t.Z = (e) => {
         var t;
-        let { track: a, selectedTracks: N } = e,
-          k = (0, m.Z)(),
-          { setBaseTrack: b } = (0, f.QY)(),
-          { setShareModalTrack: Z, openShareModal: D } = (0, h.K8)(),
-          C = (0, d.Z)(),
+        let { track: a, selectedTracks: k } = e,
+          b = (0, x.Z)(),
+          { setBaseTrack: Z } = (0, h.QY)(),
+          { setShareModalTrack: D, openShareModal: C } = (0, p.K8)(),
+          P = (0, d.Z)(),
           S = (0, o.Z)(),
-          { createPlaylistMutation: P, addToPlaylistMutation: _ } = (0, c.Z)(),
+          { createPlaylistMutation: _, addToPlaylistMutation: z } = (0, c.Z)(),
           {
-            openReportTrackModal: z,
-            openReportTrackDrawer: L,
+            openReportTrackModal: L,
+            openReportTrackDrawer: F,
             setTrack: R,
-          } = (0, h.g4)(),
-          F = (0, l.cC)("enable-tree-view"),
-          { setShowOptions: K, setMobileDrawerOpen: T } = (0, p.F)(),
-          { isMediumDevice: A } = (0, x.Z)(),
-          { results: U } = (0, u.Z)({ limit: 100 }),
-          q = (e) => {
+          } = (0, p.g4)(),
+          K = (0, l.cC)("enable-tree-view"),
+          { setShowOptions: T, setMobileDrawerOpen: A } = (0, y.F)(),
+          { isMediumDevice: q } = (0, f.Z)(),
+          U = (0, l.cC)("enable-inpainting"),
+          Q = (0, l.cC)("subscriptions"),
+          { data: I } = (0, m.Z)({
+            enabled: !!(null == b ? void 0 : b.id) && Q,
+          }),
+          V = null == I ? void 0 : I.paidPlan,
+          { results: Y } = (0, u.Z)({ limit: 40 }),
+          M = (e) => {
             e.preventDefault(),
-              b(a, "edit", () => {
-                A ? K(!0) : T(!0);
+              Z(a, "edit", () => {
+                q ? T(!0) : A(!0);
               });
           },
-          I = (e) => {
+          X = (e) => {
             e.preventDefault(),
-              b(a, "extend", () => {
-                A ? K(!0) : T(!0);
+              Z(a, "extend", () => {
+                q ? T(!0) : A(!0);
               });
           },
-          Q = async () => {
-            let e = await P.mutateAsync(void 0);
-            e && (await _.mutateAsync({ song: a, playlistId: e.id }));
+          E = async () => {
+            let e = await _.mutateAsync(void 0);
+            e && (await z.mutateAsync({ song: a, playlistId: e.id }));
           },
-          V = async (e) => {
-            await _.mutateAsync({ song: a, playlistId: e });
+          G = async (e) => {
+            await z.mutateAsync({ song: a, playlistId: e });
           };
         return (null == a ? void 0 : a.song_path) ||
           (null == a ? void 0 : a.error_type)
-          ? k
-            ? (null !== (t = null == N ? void 0 : N.length) && void 0 !== t
+          ? b
+            ? (null !== (t = null == k ? void 0 : k.length) && void 0 !== t
                 ? t
                 : 0) <= 1
-              ? (0, s.jsxs)(w.Vq, {
+              ? (0, s.jsxs)(N.Vq, {
                   children: [
                     a.song_path
-                      ? (0, s.jsxs)(j.h_, {
+                      ? (0, s.jsxs)(w.h_, {
                           className: "w-40",
                           children: [
-                            (0, s.jsx)(j.Zo, {
-                              onClick: (e) => q(e),
+                            (0, s.jsx)(w.Zo, {
+                              onClick: (e) => M(e),
                               children: "Remix",
                             }),
-                            (0, s.jsx)(j.Zo, {
-                              onClick: (e) => I(e),
+                            (0, s.jsx)(w.Zo, {
+                              onClick: (e) => X(e),
                               children: "Extend Track",
                             }),
-                            (0, s.jsx)(j.uP, {}),
+                            U &&
+                              V &&
+                              a.user_id === (null == b ? void 0 : b.id) &&
+                              (0, s.jsx)(w.Zo, {
+                                onClick: () => {
+                                  Z(a, "inpaint", () => {
+                                    q ? T(!0) : A(!0);
+                                  });
+                                },
+                                children: "Inpaint Track",
+                              }),
+                            (0, s.jsx)(w.uP, {}),
                             (0, s.jsx)(r.default, {
-                              href: "/songs/".concat((0, g.Y)(a.id)),
-                              children: (0, s.jsx)(j.Zo, {
+                              href: "/songs/".concat((0, v.Y)(a.id)),
+                              children: (0, s.jsx)(w.Zo, {
                                 children: "View Track",
                               }),
                             }),
-                            a.user_id === (null == k ? void 0 : k.id) &&
-                              F &&
+                            a.user_id === (null == b ? void 0 : b.id) &&
+                              K &&
                               (0, s.jsx)(r.default, {
-                                href: "/tree/".concat((0, g.Y)(a.id)),
-                                children: (0, s.jsx)(j.Zo, {
+                                href: "/tree/".concat((0, v.Y)(a.id)),
+                                children: (0, s.jsx)(w.Zo, {
                                   children: "Show Track History",
                                 }),
                               }),
-                            (0, s.jsxs)(j.qu, {
+                            (0, s.jsxs)(w.qu, {
                               children: [
-                                (0, s.jsx)(j.xx, {
+                                (0, s.jsx)(w.xx, {
                                   children: "Add to Playlist",
                                 }),
-                                (0, s.jsxs)(j.dp, {
+                                (0, s.jsxs)(w.dp, {
                                   className: "w-48",
                                   children: [
-                                    (0, s.jsxs)(j.Zo, {
-                                      onClick: () => Q(),
+                                    (0, s.jsxs)(w.Zo, {
+                                      onClick: () => E(),
                                       children: [
                                         (0, s.jsx)(n.Z, {
                                           className: "mr-2 h-4 w-4",
@@ -1557,22 +1580,22 @@
                                         "New Playlist",
                                       ],
                                     }),
-                                    (null == U ? void 0 : U.length)
-                                      ? (0, s.jsx)(j.uP, {})
+                                    (null == Y ? void 0 : Y.length)
+                                      ? (0, s.jsx)(w.uP, {})
                                       : null,
-                                    null == U
+                                    null == Y
                                       ? void 0
-                                      : U.map((e) => {
+                                      : Y.map((e) => {
                                           var t, a;
                                           return (0, s.jsxs)(
-                                            j.Zo,
+                                            w.Zo,
                                             {
                                               disabled:
                                                 (null === (t = e.song_list) ||
                                                 void 0 === t
                                                   ? void 0
-                                                  : t.length) >= y.yd,
-                                              onClick: () => V(e.id),
+                                                  : t.length) >= g.yd,
+                                              onClick: () => G(e.id),
                                               children: [
                                                 (0, s.jsx)(i.Z, {
                                                   className: "mr-2 h-4 w-4",
@@ -1581,7 +1604,7 @@
                                                 (null === (a = e.song_list) ||
                                                 void 0 === a
                                                   ? void 0
-                                                  : a.length) >= y.yd
+                                                  : a.length) >= g.yd
                                                   ? " - FULL"
                                                   : "",
                                               ],
@@ -1593,66 +1616,66 @@
                                 }),
                               ],
                             }),
-                            (0, s.jsx)(j.Zo, {
+                            (0, s.jsx)(w.Zo, {
                               onClick: () => {
-                                Z(a), D();
+                                D(a), C();
                               },
                               children: "Share",
                             }),
-                            a.user_id === (null == k ? void 0 : k.id) &&
-                              (0, s.jsx)(w.hg, {
+                            a.user_id === (null == b ? void 0 : b.id) &&
+                              (0, s.jsx)(N.hg, {
                                 className: "w-full",
-                                children: (0, s.jsx)(j.Zo, {
+                                children: (0, s.jsx)(w.Zo, {
                                   children: "Delete",
                                 }),
                               }),
-                            (0, s.jsx)(j.Zo, {
+                            (0, s.jsx)(w.Zo, {
                               children: (0, s.jsx)("a", {
                                 href: a.song_path || void 0,
                                 download: !0,
                                 children: "Download",
                               }),
                             }),
-                            (0, s.jsx)(j.uP, {}),
-                            (0, s.jsx)(j.Zo, {
+                            (0, s.jsx)(w.uP, {}),
+                            (0, s.jsx)(w.Zo, {
                               onClick: () => {
-                                R(a), A ? z() : L();
+                                R(a), q ? L() : F();
                               },
                               children: "Report Song",
                             }),
                           ],
                         })
-                      : (0, s.jsx)(j.h_, {
+                      : (0, s.jsx)(w.h_, {
                           className: "w-40",
                           children:
-                            a.user_id === (null == k ? void 0 : k.id) &&
-                            (0, s.jsx)(w.hg, {
+                            a.user_id === (null == b ? void 0 : b.id) &&
+                            (0, s.jsx)(N.hg, {
                               className: "w-full",
-                              children: (0, s.jsx)(j.Zo, {
+                              children: (0, s.jsx)(w.Zo, {
                                 children: "Delete",
                               }),
                             }),
                         }),
-                    (0, s.jsxs)(w.cZ, {
+                    (0, s.jsxs)(N.cZ, {
                       children: [
-                        (0, s.jsx)(w.$N, { children: "Delete Track" }),
-                        (0, s.jsx)(w.Be, {
+                        (0, s.jsx)(N.$N, { children: "Delete Track" }),
+                        (0, s.jsx)(N.Be, {
                           children: "Are you sure you want to delete?",
                         }),
-                        (0, s.jsxs)(w.cN, {
+                        (0, s.jsxs)(N.cN, {
                           children: [
-                            (0, s.jsx)(w.GG, {
+                            (0, s.jsx)(N.GG, {
                               asChild: !0,
-                              children: (0, s.jsx)(v.z, {
+                              children: (0, s.jsx)(j.z, {
                                 type: "button",
                                 variant: "secondary",
                                 children: "Cancel",
                               }),
                             }),
-                            (0, s.jsx)(w.GG, {
+                            (0, s.jsx)(N.GG, {
                               asChild: !0,
-                              children: (0, s.jsx)(v.z, {
-                                onClick: async () => await C.mutateAsync(a.id),
+                              children: (0, s.jsx)(j.z, {
+                                onClick: async () => await P.mutateAsync(a.id),
                                 variant: "destructive",
                                 children: "Delete",
                               }),
@@ -1663,44 +1686,44 @@
                     }),
                   ],
                 })
-              : (0, s.jsxs)(w.Vq, {
+              : (0, s.jsxs)(N.Vq, {
                   children: [
-                    (0, s.jsx)(j.h_, {
+                    (0, s.jsx)(w.h_, {
                       className: "w-40",
                       children:
-                        a.user_id === (null == k ? void 0 : k.id) &&
-                        (0, s.jsx)(w.hg, {
+                        a.user_id === (null == b ? void 0 : b.id) &&
+                        (0, s.jsx)(N.hg, {
                           className: "w-full",
-                          children: (0, s.jsx)(j.Zo, { children: "Delete" }),
+                          children: (0, s.jsx)(w.Zo, { children: "Delete" }),
                         }),
                     }),
-                    (0, s.jsxs)(w.cZ, {
+                    (0, s.jsxs)(N.cZ, {
                       children: [
-                        (0, s.jsx)(w.$N, { children: "Delete Tracks" }),
-                        (0, s.jsx)(w.Be, {
+                        (0, s.jsx)(N.$N, { children: "Delete Tracks" }),
+                        (0, s.jsx)(N.Be, {
                           children: "Are you sure you want to delete?",
                         }),
-                        (0, s.jsxs)(w.cN, {
+                        (0, s.jsxs)(N.cN, {
                           children: [
-                            (0, s.jsx)(w.GG, {
+                            (0, s.jsx)(N.GG, {
                               asChild: !0,
-                              children: (0, s.jsx)(v.z, {
+                              children: (0, s.jsx)(j.z, {
                                 type: "button",
                                 variant: "secondary",
                                 children: "Cancel",
                               }),
                             }),
-                            (0, s.jsx)(w.GG, {
+                            (0, s.jsx)(N.GG, {
                               asChild: !0,
-                              children: (0, s.jsx)(v.z, {
+                              children: (0, s.jsx)(j.z, {
                                 onClick: async () => {
                                   var e;
                                   return await S.mutateAsync(
                                     null !==
                                       (e =
-                                        null == N
+                                        null == k
                                           ? void 0
-                                          : N.map((e) => e.id)) && void 0 !== e
+                                          : k.map((e) => e.id)) && void 0 !== e
                                       ? e
                                       : []
                                   );
@@ -1715,12 +1738,12 @@
                     }),
                   ],
                 })
-            : (0, s.jsx)(w.Vq, {
-                children: (0, s.jsx)(j.h_, {
+            : (0, s.jsx)(N.Vq, {
+                children: (0, s.jsx)(w.h_, {
                   className: "w-40",
                   children: (0, s.jsx)(r.default, {
-                    href: "/songs/".concat((0, g.Y)(a.id)),
-                    children: (0, s.jsx)(j.Zo, { children: "View Track" }),
+                    href: "/songs/".concat((0, v.Y)(a.id)),
+                    children: (0, s.jsx)(w.Zo, { children: "View Track" }),
                   }),
                 }),
               })
@@ -1734,97 +1757,122 @@
         i = a(3526),
         r = a(24232),
         d = a(8792),
-        o = a(10647),
-        c = a(98075),
-        u = a(42773),
-        m = a(23642),
-        x = a(41100),
-        f = a(38980),
-        h = a(45722),
-        p = a(76798),
-        y = a(6771),
-        g = a(1657),
-        v = a(85754),
-        j = a(42706),
-        w = a(93930);
-      let N = (e) => {
-          let { track: t, className: a } = e,
-            { setBaseTrack: r } = (0, f.QY)(),
-            { setShareModalTrack: N, openShareModal: k } = (0, h.K8)(),
-            b = (0, o.Z)(),
-            { createPlaylistMutation: Z, addToPlaylistMutation: D } = (0,
-            c.Z)(),
+        o = a(56288),
+        c = a(10647),
+        u = a(98075),
+        m = a(42773),
+        x = a(48779),
+        f = a(23642),
+        h = a(41100),
+        p = a(38980),
+        y = a(45722),
+        g = a(76798),
+        v = a(6771),
+        j = a(1657),
+        w = a(85754),
+        N = a(42706),
+        k = a(93930);
+      let b = (e) => {
+          let { track: t, className: a, setIsDropdownOpen: r } = e,
+            { setBaseTrack: b } = (0, p.QY)(),
+            { setShareModalTrack: Z, openShareModal: D } = (0, y.K8)(),
+            C = (0, c.Z)(),
+            { createPlaylistMutation: P, addToPlaylistMutation: S } = (0,
+            u.Z)(),
             {
-              openReportTrackModal: C,
-              openReportTrackDrawer: S,
-              setTrack: P,
-            } = (0, h.g4)(),
-            _ = (0, l.cC)("enable-tree-view"),
-            { setShowOptions: z, setMobileDrawerOpen: L } = (0, p.F)(),
-            { isMediumDevice: R } = (0, x.Z)(),
-            F = (0, m.Z)(),
-            { results: K } = (0, u.Z)({ limit: 100 }),
-            T = (e) => {
+              openReportTrackModal: _,
+              openReportTrackDrawer: z,
+              setTrack: L,
+            } = (0, y.g4)(),
+            F = (0, l.cC)("enable-tree-view"),
+            R = (0, l.cC)("enable-inpainting"),
+            K = (0, l.cC)("subscriptions"),
+            { setShowOptions: T, setMobileDrawerOpen: A } = (0, g.F)(),
+            { isMediumDevice: q } = (0, h.Z)(),
+            U = (0, f.Z)(),
+            { data: Q } = (0, x.Z)({
+              enabled: !!(null == U ? void 0 : U.id) && K,
+            }),
+            I = null == Q ? void 0 : Q.paidPlan,
+            { results: V } = (0, m.Z)({ limit: 40 }),
+            Y = (e) => {
               e.preventDefault(),
-                r(t, "edit", () => {
-                  R ? z(!0) : L(!0);
-                });
+                b(t, "edit", () => {
+                  q ? T(!0) : A(!0);
+                }),
+                null == r || r(!1);
             },
-            A = (e) => {
+            M = (e) => {
               e.preventDefault(),
-                r(t, "extend", () => {
-                  R ? z(!0) : L(!0);
-                });
+                b(t, "extend", () => {
+                  q ? T(!0) : A(!0);
+                }),
+                null == r || r(!1);
             },
-            U = async () => {
-              let e = await Z.mutateAsync(void 0);
-              e && (await D.mutateAsync({ song: t, playlistId: e.id }));
+            X = async () => {
+              null == r || r(!1);
+              let e = await P.mutateAsync(void 0);
+              e && (await S.mutateAsync({ song: t, playlistId: e.id })),
+                o.toast.success("Playlist created", v.TQ);
             },
-            q = async (e) => {
-              await D.mutateAsync({ song: t, playlistId: e });
+            E = async (e) => {
+              null == r || r(!1),
+                await S.mutateAsync({ song: t, playlistId: e }),
+                o.toast.success("Added to playlist", v.TQ);
             };
           return (null == t ? void 0 : t.song_path) ||
             (null == t ? void 0 : t.error_type)
-            ? F
-              ? (0, s.jsxs)(j.Vq, {
+            ? U
+              ? (0, s.jsxs)(N.Vq, {
                   children: [
                     t.song_path
-                      ? (0, s.jsxs)(w.AW, {
-                          className: (0, g.cn)(["w-40", a]),
+                      ? (0, s.jsxs)(k.AW, {
+                          className: (0, j.cn)(["w-40", a]),
                           children: [
-                            (0, s.jsx)(w.Xi, {
-                              onClick: (e) => T(e),
+                            (0, s.jsx)(k.Xi, {
+                              onClick: (e) => Y(e),
                               children: "Remix",
                             }),
-                            (0, s.jsx)(w.Xi, {
-                              onClick: (e) => A(e),
+                            (0, s.jsx)(k.Xi, {
+                              onClick: (e) => M(e),
                               children: "Extend Track",
                             }),
-                            (0, s.jsx)(w.VD, {}),
+                            R &&
+                              I &&
+                              t.user_id === (null == U ? void 0 : U.id) &&
+                              (0, s.jsx)(k.Xi, {
+                                onClick: () => {
+                                  b(t, "inpaint", () => {
+                                    q ? T(!0) : A(!0);
+                                  });
+                                },
+                                children: "Inpaint Track",
+                              }),
+                            (0, s.jsx)(k.VD, {}),
                             (0, s.jsx)(d.default, {
-                              href: "/songs/".concat((0, g.Y)(t.id)),
-                              children: (0, s.jsx)(w.Xi, {
+                              href: "/songs/".concat((0, j.Y)(t.id)),
+                              children: (0, s.jsx)(k.Xi, {
                                 children: "View Track",
                               }),
                             }),
-                            t.user_id === (null == F ? void 0 : F.id) &&
-                              _ &&
+                            t.user_id === (null == U ? void 0 : U.id) &&
+                              F &&
                               (0, s.jsx)(d.default, {
-                                href: "/tree/".concat((0, g.Y)(t.id)),
-                                children: (0, s.jsx)(w.Xi, {
+                                href: "/tree/".concat((0, j.Y)(t.id)),
+                                children: (0, s.jsx)(k.Xi, {
                                   children: "Show Track History",
                                 }),
                               }),
-                            (0, s.jsxs)(w.Ph, {
+                            (0, s.jsxs)(k.Ph, {
                               children: [
-                                (0, s.jsx)(w.kt, {
+                                (0, s.jsx)(k.kt, {
                                   children: "Add to Playlist",
                                 }),
-                                (0, s.jsxs)(w.TG, {
+                                (0, s.jsxs)(k.TG, {
                                   className: "w-48",
                                   children: [
-                                    (0, s.jsxs)(w.Xi, {
-                                      onClick: () => U(),
+                                    (0, s.jsxs)(k.Xi, {
+                                      onClick: () => X(),
                                       children: [
                                         (0, s.jsx)(n.Z, {
                                           className: "mr-2 h-4 w-4",
@@ -1832,22 +1880,22 @@
                                         "New Playlist",
                                       ],
                                     }),
-                                    (null == K ? void 0 : K.length)
-                                      ? (0, s.jsx)(w.VD, {})
+                                    (null == V ? void 0 : V.length)
+                                      ? (0, s.jsx)(k.VD, {})
                                       : null,
-                                    null == K
+                                    null == V
                                       ? void 0
-                                      : K.map((e) => {
+                                      : V.map((e) => {
                                           var t, a;
                                           return (0, s.jsxs)(
-                                            w.Xi,
+                                            k.Xi,
                                             {
                                               disabled:
                                                 (null === (t = e.song_list) ||
                                                 void 0 === t
                                                   ? void 0
-                                                  : t.length) >= y.yd,
-                                              onClick: () => q(e.id),
+                                                  : t.length) >= v.yd,
+                                              onClick: () => E(e.id),
                                               children: [
                                                 (0, s.jsx)(i.Z, {
                                                   className: "mr-2 h-4 w-4",
@@ -1856,7 +1904,7 @@
                                                 (null === (a = e.song_list) ||
                                                 void 0 === a
                                                   ? void 0
-                                                  : a.length) >= y.yd
+                                                  : a.length) >= v.yd
                                                   ? " - FULL"
                                                   : "",
                                               ],
@@ -1868,66 +1916,66 @@
                                 }),
                               ],
                             }),
-                            (0, s.jsx)(w.Xi, {
+                            (0, s.jsx)(k.Xi, {
                               onClick: () => {
-                                N(t), k();
+                                Z(t), D(), null == r || r(!1);
                               },
                               children: "Share",
                             }),
-                            (0, s.jsx)(w.Xi, {
+                            (0, s.jsx)(k.Xi, {
                               children: (0, s.jsx)("a", {
                                 href: t.song_path || void 0,
                                 download: !0,
                                 children: "Download",
                               }),
                             }),
-                            t.user_id === (null == F ? void 0 : F.id) &&
-                              (0, s.jsx)(j.hg, {
+                            t.user_id === (null == U ? void 0 : U.id) &&
+                              (0, s.jsx)(N.hg, {
                                 className: "w-full",
-                                children: (0, s.jsx)(w.Xi, {
+                                children: (0, s.jsx)(k.Xi, {
                                   children: "Delete",
                                 }),
                               }),
-                            (0, s.jsx)(w.VD, {}),
-                            (0, s.jsx)(w.Xi, {
+                            (0, s.jsx)(k.VD, {}),
+                            (0, s.jsx)(k.Xi, {
                               onClick: () => {
-                                P(t), R ? C() : S();
+                                L(t), q ? _() : z(), null == r || r(!1);
                               },
                               children: "Report Song",
                             }),
                           ],
                         })
-                      : (0, s.jsx)(w.AW, {
+                      : (0, s.jsx)(k.AW, {
                           className: "w-40",
                           children:
-                            t.user_id === (null == F ? void 0 : F.id) &&
-                            (0, s.jsx)(j.hg, {
+                            t.user_id === (null == U ? void 0 : U.id) &&
+                            (0, s.jsx)(N.hg, {
                               className: "w-full",
-                              children: (0, s.jsx)(w.Xi, {
+                              children: (0, s.jsx)(k.Xi, {
                                 children: "Delete",
                               }),
                             }),
                         }),
-                    (0, s.jsxs)(j.cZ, {
+                    (0, s.jsxs)(N.cZ, {
                       children: [
-                        (0, s.jsx)(j.$N, { children: "Delete Track" }),
-                        (0, s.jsx)(j.Be, {
+                        (0, s.jsx)(N.$N, { children: "Delete Track" }),
+                        (0, s.jsx)(N.Be, {
                           children: "Are you sure you want to delete?",
                         }),
-                        (0, s.jsxs)(j.cN, {
+                        (0, s.jsxs)(N.cN, {
                           children: [
-                            (0, s.jsx)(j.GG, {
+                            (0, s.jsx)(N.GG, {
                               asChild: !0,
-                              children: (0, s.jsx)(v.z, {
+                              children: (0, s.jsx)(w.z, {
                                 type: "button",
                                 variant: "secondary",
                                 children: "Cancel",
                               }),
                             }),
-                            (0, s.jsx)(j.GG, {
+                            (0, s.jsx)(N.GG, {
                               asChild: !0,
-                              children: (0, s.jsx)(v.z, {
-                                onClick: async () => await b.mutateAsync(t.id),
+                              children: (0, s.jsx)(w.z, {
+                                onClick: async () => await C.mutateAsync(t.id),
                                 variant: "destructive",
                                 children: "Delete",
                               }),
@@ -1938,19 +1986,19 @@
                     }),
                   ],
                 })
-              : (0, s.jsx)(j.Vq, {
-                  children: (0, s.jsx)(w.AW, {
+              : (0, s.jsx)(N.Vq, {
+                  children: (0, s.jsx)(k.AW, {
                     className: "w-40",
                     children: (0, s.jsx)(d.default, {
-                      href: "/songs/".concat((0, g.Y)(t.id)),
-                      children: (0, s.jsx)(w.Xi, { children: "View Track" }),
+                      href: "/songs/".concat((0, j.Y)(t.id)),
+                      children: (0, s.jsx)(k.Xi, { children: "View Track" }),
                     }),
                   }),
                 })
             : null;
         },
-        k = (0, r.default)(() => Promise.resolve(N), { ssr: !1 });
-      t.Z = k;
+        Z = (0, r.default)(() => Promise.resolve(b), { ssr: !1 });
+      t.Z = Z;
     },
     29655: function (e, t, a) {
       a.d(t, {
@@ -2670,7 +2718,7 @@
             data: f,
             ...h
           } = (0, s.N)({
-            queryKey: i.C3.currentUser(t, a),
+            queryKey: i.C3.currentUser(t, a, r),
             queryFn: async (e) => {
               let { pageParam: s } = e;
               return await (0, n.Z8)({
@@ -2684,6 +2732,8 @@
             getNextPageParam: (e) => e.nextCursor,
             getPreviousPageParam: (e) => e.prevCursor,
             refetchOnWindowFocus: !1,
+            staleTime: 18e5,
+            gcTime: 21e5,
           });
         return {
           results: (0, l.useMemo)(
@@ -2698,6 +2748,26 @@
           isFetchingPreviousPage: x,
           ...h,
         };
+      };
+    },
+    48779: function (e, t, a) {
+      var s = a(73667),
+        l = a(6771),
+        n = a(68062),
+        i = a(36408);
+      t.Z = (e) => {
+        let { enabled: t } = e;
+        return (0, s.a)({
+          queryKey: i.YN.currentUserSubscriptionStatus(),
+          queryFn: async () => {
+            let { plan: e, status: t } = await (0, n.pI)(),
+              a = l.hX.includes(t),
+              s = l.nq.includes(e),
+              i = "pro" === e && a;
+            return { plan: e, status: t, paidPlan: s && a, proPlan: i };
+          },
+          enabled: t,
+        });
       };
     },
     83387: function (e, t, a) {

@@ -287,7 +287,7 @@
         T = s(47907),
         S = s(6771),
         P = s(32708),
-        F = s(21793),
+        F = s(14178),
         L = () => {
           let e = (0, T.usePathname)(),
             { isMediumDevice: l } = (0, a.Z)();
@@ -1935,7 +1935,7 @@
               await h.mutateAsync({ song: l, playlistId: e });
             }
           },
-          { results: y } = (0, a.Z)({ limit: 50 });
+          { results: y } = (0, a.Z)({ limit: 40 });
         return (0, t.jsx)(t.Fragment, {
           children:
             l &&
@@ -2018,7 +2018,7 @@
               fetchNextPage: h,
               isLoading: v,
               isFetching: j,
-            } = (0, o.Z)({ limit: 20, byOthers: !0 });
+            } = (0, o.Z)({ limit: 40, byOthers: !0 });
           (0, d.useEffect)(() => {
             i && f && h();
           }, [i, f]);
@@ -2084,7 +2084,7 @@
               fetchNextPage: h,
               isLoading: v,
               isFetching: j,
-            } = (0, o.Z)({ limit: 20 });
+            } = (0, o.Z)({ limit: 40 });
           return ((0, d.useEffect)(() => {
             i && f && h();
           }, [i, f]),
@@ -2445,6 +2445,8 @@
           queryFn: async () => await (0, r.lQ)(l),
           initialData: () => s,
           refetchOnWindowFocus: !1,
+          staleTime: 3e5,
+          gcTime: 6e5,
         });
       };
     },

@@ -11,21 +11,21 @@
     },
     85982: function (e, n, t) {
       "use strict";
-      var i = t(4909),
-        r = t(11585),
-        s = window;
-      (s.__sentryRewritesTunnelPath__ = "/monitoring"),
-        (s.SENTRY_RELEASE = { id: "8859910553d801c4d6c282206ba3631c32d23e7a" }),
-        (s.__sentryBasePath = void 0),
-        (s.__rewriteFramesAssetPrefixPath__ = ""),
-        i.S1({
+      var s = t(4909),
+        i = t(11585),
+        r = window;
+      (r.__sentryRewritesTunnelPath__ = void 0),
+        (r.SENTRY_RELEASE = { id: "6ab7b58a274fa34962f3be0bf0b40faf023e8319" }),
+        (r.__sentryBasePath = void 0),
+        (r.__rewriteFramesAssetPrefixPath__ = ""),
+        s.S1({
           dsn: "https://1dbee0ad22c14f97ee922e8b6d478b55@o4506762969219072.ingest.sentry.io/4506768079126528",
           environment: "production",
           tracesSampleRate: 0.01,
           profilesSampleRate: 0.5,
           sampleRate: 0.25,
           debug: !1,
-          integrations: [new r._()],
+          integrations: [new i._()],
         });
     },
   },

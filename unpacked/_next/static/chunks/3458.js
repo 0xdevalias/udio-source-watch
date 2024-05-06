@@ -2,8 +2,8 @@
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
   [3458],
   {
-    85754: function (t, e, n) {
-      n.d(e, {
+    85754: function (t, n, e) {
+      e.d(n, {
         d: function () {
           return u;
         },
@@ -11,12 +11,12 @@
           return d;
         },
       });
-      var r = n(57437),
-        o = n(59143),
-        c = n(57742),
-        i = n(2265),
-        a = n(1657);
-      let u = (0, c.j)(
+      var r = e(57437),
+        o = e(59143),
+        i = e(57742),
+        c = e(2265),
+        a = e(1657);
+      let u = (0, i.j)(
           "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
           {
             variants: {
@@ -54,19 +54,19 @@
             defaultVariants: { variant: "default", size: "default" },
           }
         ),
-        d = i.forwardRef((t, e) => {
-          let { className: n, variant: c, size: i, asChild: d = !1, ...s } = t,
+        d = c.forwardRef((t, n) => {
+          let { className: e, variant: i, size: c, asChild: d = !1, ...s } = t,
             l = d ? o.g7 : "button";
           return (0, r.jsx)(l, {
-            className: (0, a.cn)(u({ variant: c, size: i, className: n })),
-            ref: e,
+            className: (0, a.cn)(u({ variant: i, size: c, className: e })),
+            ref: n,
             ...s,
           });
         });
       d.displayName = "Button";
     },
-    6771: function (t, e, n) {
-      n.d(e, {
+    6771: function (t, n, e) {
+      e.d(n, {
         DM: function () {
           return f;
         },
@@ -83,10 +83,10 @@
           return g;
         },
         Zc: function () {
-          return c;
+          return i;
         },
         bw: function () {
-          return i;
+          return c;
         },
         cc: function () {
           return l;
@@ -94,8 +94,14 @@
         eS: function () {
           return o;
         },
+        hX: function () {
+          return h;
+        },
         i6: function () {
           return u;
+        },
+        nq: function () {
+          return b;
         },
         yd: function () {
           return s;
@@ -103,8 +109,8 @@
       });
       let r = 2,
         o = 5e3,
-        c = "anonymous-user-id",
-        i =
+        i = "anonymous-user-id",
+        c =
           "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJibGFjayIgLz48ZmlsdGVyIGlkPSJnYXVzc2lhbi1ibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIwLjUiIC8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJibGFjayIgZmlsdGVyPSJ1cmwoI2dhdXNzaWFuLWJsdXIpIiAvPjwvc3ZnPg==",
         a = 30,
         u = 5,
@@ -124,21 +130,23 @@
           foreground: "#f9f9f9",
           brandAccent: "#E30B5D",
           mutedForeground: "#71717a",
-        };
+        },
+        b = ["pro", "standard"],
+        h = ["trialing", "active"];
     },
-    11109: function (t, e, n) {
-      var r = n(17300),
-        o = n.n(r),
-        c = n(1657);
-      e.Z = {
+    11109: function (t, n, e) {
+      var r = e(17300),
+        o = e.n(r),
+        i = e(1657);
+      n.Z = {
         identify: (t) => {
           o().identify(t);
         },
         register: (t) => {
           o().init("c67825f586087d7adfce6052f087cadb", {
-            api_host: (0, c.KB)("/mp"),
+            api_host: (0, i.KB)("/mp"),
             track_pageview: !1,
-            debug: !(0, c.Bl)(),
+            debug: !(0, i.Bl)(),
             persistence: "localStorage",
           }),
             o().register(t);
@@ -146,11 +154,11 @@
         alias: (t) => {
           o().alias(t);
         },
-        track: (t, e) => {
-          o().track(t, e);
+        track: (t, n) => {
+          o().track(t, n);
         },
-        trackLinks: (t, e) => {
-          o().track_links(t, e, { referrer: document.referrer });
+        trackLinks: (t, n) => {
+          o().track_links(t, n, { referrer: document.referrer });
         },
         reset: () => {
           o().reset();
@@ -169,13 +177,13 @@
         },
       };
     },
-    34599: function (t, e, n) {
-      n.d(e, {
+    34599: function (t, n, e) {
+      e.d(n, {
         v: function () {
           return o;
         },
       });
-      var r = n(51880);
+      var r = e(51880);
       let o = () =>
         (0, r.AY)(
           "https://api.udio.com",
@@ -185,16 +193,16 @@
           }
         );
     },
-    13581: function (t, e, n) {
-      n.d(e, {
+    13581: function (t, n, e) {
+      e.d(n, {
         $A: function () {
-          return c;
+          return i;
         },
         L9: function () {
           return d;
         },
         au: function () {
-          return i;
+          return c;
         },
         g6: function () {
           return u;
@@ -203,16 +211,16 @@
           return a;
         },
       });
-      var r = n(53334),
-        o = n(11109);
-      let c = (t) => {
+      var r = e(53334),
+        o = e(11109);
+      let i = (t) => {
           try {
             o.Z.identify(t);
           } catch (t) {
             r.Tb(t);
           }
         },
-        i = (t) => {
+        c = (t) => {
           try {
             o.Z.register(t);
           } catch (t) {
@@ -233,9 +241,9 @@
             r.Tb(t);
           }
         },
-        d = (t, e) => {
+        d = (t, n) => {
           try {
-            s.includes(t) && o.Z.track(t, e);
+            s.includes(t) && o.Z.track(t, n);
           } catch (t) {
             r.Tb(t);
           }
@@ -244,22 +252,23 @@
           "Create Song",
           "Remix Song",
           "Extend Song",
+          "Inpaint Song",
           "Publish Song",
           "Unpublish Song",
           "Listen Song",
           "Complete Song",
         ];
     },
-    1657: function (t, e, n) {
-      n.d(e, {
+    1657: function (t, n, e) {
+      e.d(n, {
         Bl: function () {
           return w;
         },
         KB: function () {
-          return v;
+          return y;
         },
         NY: function () {
-          return y;
+          return p;
         },
         Y: function () {
           return b;
@@ -274,7 +283,7 @@
           return s;
         },
         h0: function () {
-          return p;
+          return v;
         },
         mr: function () {
           return f;
@@ -289,74 +298,74 @@
           return h;
         },
       });
-      var r = n(75504),
-        o = n(15423),
-        c = n.n(o),
-        i = n(56288),
-        a = n(51367),
-        u = n(6771);
-      let d = c()();
+      var r = e(75504),
+        o = e(15423),
+        i = e.n(o),
+        c = e(56288),
+        a = e(51367),
+        u = e(6771);
+      let d = i()();
       function s() {
-        for (var t = arguments.length, e = Array(t), n = 0; n < t; n++)
-          e[n] = arguments[n];
-        return (0, a.m6)((0, r.W)(e));
+        for (var t = arguments.length, n = Array(t), e = 0; e < t; e++)
+          n[e] = arguments[e];
+        return (0, a.m6)((0, r.W)(n));
       }
       let l = (t) => {
-          let e = new Date(t),
-            n = Math.abs((new Date().getTime() - e.getTime()) / 1e3) / 60,
-            r = n / 60,
+          let n = new Date(t),
+            e = Math.abs((new Date().getTime() - n.getTime()) / 1e3) / 60,
+            r = e / 60,
             o = r / 24,
-            c = o / 30;
-          return c >= 1
-            ? "".concat(Math.round(c), " Month ago")
+            i = o / 30;
+          return i >= 1
+            ? "".concat(Math.round(i), " Month ago")
             : o >= 1
               ? "".concat(Math.round(o), "d ago")
               : r >= 1
                 ? "".concat(Math.round(r), "h ago")
-                : n >= 1
-                  ? "".concat(Math.round(n), "m ago")
+                : e >= 1
+                  ? "".concat(Math.round(e), "m ago")
                   : "< 1m ago";
         },
         g = (t) => /^[a-zA-Z0-9]+$/.test(t),
         f = function (t) {
-          let e =
+          let n =
               arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-            n = Math.floor(t),
-            r = "0".concat(n % 60).slice(-2),
+            e = Math.floor(t),
+            r = "0".concat(e % 60).slice(-2),
             o = "00".concat(Math.round((t % 1) * 1e3)).slice(-3),
-            c = "".concat(Math.floor(n / 60), ":").concat(r);
-          return e && (c += ":".concat(o)), c;
+            i = "".concat(Math.floor(e / 60), ":").concat(r);
+          return n && (i += ":".concat(o)), i;
         },
         b = (t) => (t ? d.fromUUID(t) : t),
         h = (t) => (t && g(t) ? d.toUUID(t) : t),
-        m = (t, e) => (1 === t ? e : e + "s"),
-        y = (t) => {
+        m = (t, n) => (1 === t ? n : n + "s"),
+        p = (t) => {
           if (!(null == t ? void 0 : t.length)) return "";
-          let [e, n] = t.toUpperCase().split(" ");
-          return n ? "".concat(e[0]).concat(n[0]) : "".concat(e[0]);
+          let [n, e] = t.toUpperCase().split(" ");
+          return e ? "".concat(n[0]).concat(e[0]) : "".concat(n[0]);
         },
-        p = () => {
-          i.toast.warning(
+        v = () => {
+          c.toast.warning(
             "Song is not ready yet. Please try again soon!",
             u.TQ
           );
         },
-        v = (t) => "".concat("https://www.udio.com").concat(t),
+        y = (t) => "".concat("https://www.udio.com").concat(t),
         I = (t) => {
           if (!t.user_id) return "/";
           if (!t.artist) return "/users/".concat(b(t.user_id));
-          let e = t.artist,
-            n = e ? e.length - e.trimEnd().length : 0,
-            r = encodeURIComponent(e.trimEnd()) + "%20".repeat(n);
+          let n = t.artist,
+            e = n ? n.length - n.trimEnd().length : 0,
+            r = encodeURIComponent(n.trimEnd()) + "%20".repeat(e);
           return "/creators/".concat(r);
         },
         w = () => !0,
         x = function (t) {
-          let e =
+          let n =
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
               : 350;
-          return t.replace(/\[(verse|bridge|chorus)\]/gi, "").length > e;
+          return t.replace(/\[(verse|bridge|chorus)\]/gi, "").length > n;
         };
     },
   },

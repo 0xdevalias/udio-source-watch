@@ -915,7 +915,7 @@
           );
         }
       }
-      let q = { "X-Client-Info": "realtime-js/2.9.4" };
+      let q = { "X-Client-Info": "realtime-js/2.9.5" };
       ((k = u || (u = {}))[(k.connecting = 0)] = "connecting"),
         (k[(k.open = 1)] = "open"),
         (k[(k.closing = 2)] = "closing"),
@@ -2816,7 +2816,7 @@
                 "ReactNative" === navigator.product
               ? "react-native"
               : "node";
-      let eO = { headers: { "X-Client-Info": `supabase-js-${eE}/2.42.7` } },
+      let eO = { headers: { "X-Client-Info": `supabase-js-${eE}/2.43.0` } },
         e$ = { schema: "public" },
         eP = {
           autoRefreshToken: !0,

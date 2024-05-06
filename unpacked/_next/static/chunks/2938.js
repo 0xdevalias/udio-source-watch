@@ -227,7 +227,7 @@
           single: (e) => ["playlist", e],
           list: ["playlists"],
           forUser: (e, t) => [...i.list, e, t],
-          currentUser: (e, t) => [...i.list, "current", t, e],
+          currentUser: (e, t, n) => [...i.list, "current", t, e, n],
         },
         a = {
           list: ["tag-predictions"],
@@ -271,6 +271,7 @@
               return null;
             }
           },
+          staleTime: 12e4,
         });
         return e;
       };
@@ -408,22 +409,42 @@
                   },
                 }),
                 (0, u.L9)("Remix Song", { songId: n.id }))
-              : "extend" === i &&
-                (e({
-                  baseTrack: n,
-                  generationSettings: {
-                    ...t().generationSettings,
-                    prompt: n.prompt || "",
-                    lyricInput: "",
-                  },
-                  samplerOptions: {
-                    ...t().samplerOptions,
-                    audio_conditioning_path: n.song_path ? n.song_path : void 0,
-                    audio_conditioning_song_id: n.id,
-                    audio_conditioning_type: "continuation",
-                  },
-                }),
-                (0, u.L9)("Extend Song", { songId: n.id })),
+              : "extend" === i
+                ? (e({
+                    baseTrack: n,
+                    generationSettings: {
+                      ...t().generationSettings,
+                      prompt: n.prompt || "",
+                      lyricInput: "",
+                    },
+                    samplerOptions: {
+                      ...t().samplerOptions,
+                      audio_conditioning_path: n.song_path
+                        ? n.song_path
+                        : void 0,
+                      audio_conditioning_song_id: n.id,
+                      audio_conditioning_type: "continuation",
+                    },
+                  }),
+                  (0, u.L9)("Extend Song", { songId: n.id }))
+                : "inpaint" === i &&
+                  (e({
+                    baseTrack: n,
+                    generationSettings: {
+                      ...t().generationSettings,
+                      prompt: n.prompt || "",
+                      lyricInput: n.lyrics || "",
+                    },
+                    samplerOptions: {
+                      ...t().samplerOptions,
+                      audio_conditioning_path: n.song_path
+                        ? n.song_path
+                        : void 0,
+                      audio_conditioning_song_id: n.id,
+                      audio_conditioning_type: "inpaint",
+                    },
+                  }),
+                  (0, u.L9)("Inpaint Song", { songId: n.id })),
               a && a();
           },
           resetPromptBar: () => {
@@ -604,7 +625,7 @@
             try {
               n = setInterval(async () => {
                 await t().fetchTrackInfo(n);
-              }, 3e3);
+              }, 5e3);
             } catch (e) {
               console.error(e);
             }
@@ -689,44 +710,47 @@
     },
     45722: function (e, t, n) {
       n.d(t, {
-        K8: function () {
-          return u;
+        Dv: function () {
+          return o;
         },
-        Q_: function () {
+        K8: function () {
           return c;
         },
+        Q_: function () {
+          return d;
+        },
         V9: function () {
-          return y;
+          return h;
         },
         We: function () {
-          return l;
+          return u;
         },
         Xm: function () {
-          return f;
+          return g;
         },
         aN: function () {
           return a;
         },
         dG: function () {
-          return d;
-        },
-        f7: function () {
           return p;
         },
+        f7: function () {
+          return f;
+        },
         fI: function () {
-          return o;
-        },
-        g4: function () {
-          return m;
-        },
-        jh: function () {
-          return g;
-        },
-        ot: function () {
           return s;
         },
-        wc: function () {
+        g4: function () {
           return v;
+        },
+        jh: function () {
+          return m;
+        },
+        ot: function () {
+          return l;
+        },
+        wc: function () {
+          return y;
         },
       });
       var r = n(22020),
@@ -737,36 +761,41 @@
           closeProfileModal: () => e({ isProfileOpen: !1 }),
         })),
         o = (0, r.Ue)((e) => ({
+          isAvatarModalOpen: !1,
+          openAvatarModal: () => e({ isAvatarModalOpen: !0 }),
+          closeAvatarModal: () => e({ isAvatarModalOpen: !1 }),
+        })),
+        s = (0, r.Ue)((e) => ({
           isAuthOpen: !1,
           redirect: void 0,
           openAuthModal: (t) => e({ isAuthOpen: !0, redirect: t }),
           closeAuthModal: () => e({ isAuthOpen: !1 }),
         })),
-        s = (0, r.Ue)((e) => ({
+        l = (0, r.Ue)((e) => ({
           isSignUpOpen: !1,
           openSignUpModal: () => e({ isSignUpOpen: !0 }),
           closeSignUpModal: () => e({ isSignUpOpen: !1 }),
         })),
-        l = (0, r.Ue)((e) => ({
+        u = (0, r.Ue)((e) => ({
           isSubscriptionOpen: !1,
           openSubscriptionModal: () => e({ isSubscriptionOpen: !0 }),
           closeSubscriptionModal: () => e({ isSubscriptionOpen: !1 }),
         })),
-        u = (0, r.Ue)((e) => ({
+        c = (0, r.Ue)((e) => ({
           isShareOpen: !1,
           openShareModal: () => e({ isShareOpen: !0 }),
           closeShareModal: () => e({ isShareOpen: !1 }),
           track: void 0,
           setShareModalTrack: (t) => e({ track: t }),
         })),
-        c = (0, r.Ue)((e) => ({
+        d = (0, r.Ue)((e) => ({
           isLyricsOpen: !1,
           openLyricsModal: () => e({ isLyricsOpen: !0 }),
           closeLyricsModal: () => e({ isLyricsOpen: !1 }),
           track: void 0,
           setLyricsModalTrack: (t) => e({ track: t }),
         })),
-        d = (0, r.Ue)((e) => ({
+        p = (0, r.Ue)((e) => ({
           isCoverOpen: !1,
           openCoverModal: () => e({ isCoverOpen: !0 }),
           closeCoverModal: () => e({ isCoverOpen: !1 }),
@@ -782,26 +811,26 @@
           imageGenerateStatus: "idle",
           setImageGenerateStatus: (t) => e({ imageGenerateStatus: t }),
         })),
-        p = (0, r.Ue)((e) => ({
+        f = (0, r.Ue)((e) => ({
           isTrimOpen: !1,
           openTrimModal: () => e({ isTrimOpen: !0 }),
           closeTrimModal: () => e({ isTrimOpen: !1 }),
           track: void 0,
           setTrimModalTrack: (t) => e({ track: t }),
         })),
-        f = (0, r.Ue)((e) => ({
+        g = (0, r.Ue)((e) => ({
           isFeedbackOpen: !1,
           track: void 0,
           openFeedbackModal: () => e({ isFeedbackOpen: !0 }),
           closeFeedbackModal: () => e({ isFeedbackOpen: !1 }),
           setFeedbackModalTrack: (t) => e({ track: t }),
         })),
-        g = (0, r.Ue)((e) => ({
+        m = (0, r.Ue)((e) => ({
           isGeneralFeedbackOpen: !1,
           openGeneralFeedbackModal: () => e({ isGeneralFeedbackOpen: !0 }),
           closeGeneralFeedbackModal: () => e({ isGeneralFeedbackOpen: !1 }),
         })),
-        m = (0, r.Ue)((e) => ({
+        v = (0, r.Ue)((e) => ({
           isReportTrackModalOpen: !1,
           openReportTrackModal: () => e({ isReportTrackModalOpen: !0 }),
           closeReportTrackModal: () => e({ isReportTrackModalOpen: !1 }),
@@ -811,7 +840,7 @@
           track: void 0,
           setTrack: (t) => e({ track: t }),
         })),
-        v = (0, r.Ue)()(
+        y = (0, r.Ue)()(
           (0, i.mW)(
             (0, i.tJ)(
               (e) => ({
@@ -823,7 +852,7 @@
             )
           )
         ),
-        y = (0, r.Ue)()(
+        h = (0, r.Ue)()(
           (0, i.mW)(
             (0, i.tJ)(
               (e) => ({
@@ -891,7 +920,7 @@
           return h;
         },
         CE: function () {
-          return R;
+          return D;
         },
         IC: function () {
           return Z;
@@ -912,7 +941,7 @@
           return O;
         },
         QF: function () {
-          return M;
+          return x;
         },
         Uz: function () {
           return L;
@@ -922,6 +951,9 @@
         },
         _e: function () {
           return y;
+        },
+        b4: function () {
+          return B;
         },
         bL: function () {
           return g;
@@ -938,6 +970,12 @@
         hT: function () {
           return U;
         },
+        iL: function () {
+          return J;
+        },
+        is: function () {
+          return V;
+        },
         jU: function () {
           return v;
         },
@@ -951,10 +989,10 @@
           return p;
         },
         l8: function () {
-          return D;
+          return R;
         },
         lQ: function () {
-          return x;
+          return M;
         },
         lu: function () {
           return j;
@@ -973,6 +1011,9 @@
         },
         uB: function () {
           return f;
+        },
+        ue: function () {
+          return q;
         },
         x8: function () {
           return b;
@@ -1057,14 +1098,14 @@
           await l.bL.post("/api/playlists/unfollow", { playlistId: e }), !0
         );
       }
-      async function x(e) {
+      async function M(e) {
         if (!e) return;
         let { songs: t } = (
           await l.bL.get("/api/songs", { params: { songIds: e } })
         ).data;
         return null == t ? void 0 : t[0];
       }
-      async function M(e) {
+      async function x(e) {
         if (!(null == e ? void 0 : e.length)) return [];
         let t = a()
           .chunk(e, 20)
@@ -1161,10 +1202,10 @@
       async function F(e, t) {
         await l.bL.put("/api/playlists/".concat(t), { songIdToAdd: e });
       }
-      async function R(e, t) {
+      async function D(e, t) {
         await l.bL.put("/api/playlists/".concat(e), { songList: t });
       }
-      async function D(e) {
+      async function R(e) {
         await l.bL.delete("/api/playlists/".concat(e));
       }
       async function G(e, t) {
@@ -1238,6 +1279,24 @@
       async function z(e) {
         let { attributesToUpdate: t } = e;
         return await l.bL.post("/api/profiles", t);
+      }
+      async function B(e) {
+        let { formData: t } = e;
+        return await l.bL.put("/api/profiles/upload-image", t, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+      }
+      async function J(e, t) {
+        return await l.bL.put("/api/songs/".concat(e, "/uploaded-cover"), t, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+      }
+      async function V(e) {
+        let { songId: t, payload: n } = e;
+        return l.bL.put("/api/songs/".concat(t, "/generated-cover"), n);
+      }
+      async function q(e) {
+        return l.bL.post("/api/cover", e);
       }
     },
     79740: function (e, t, n) {
