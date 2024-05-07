@@ -15,6 +15,7 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
     https://github.com/naokazuterada/MarkdownTOC/pull/170
 -->
 <!-- TOC start (generated with https://derlin.github.io/bitdowntoc/) -->
+- [2024-05-07Z \(`pmsN1K108Cn8QGT0rRiiv`\)](#2024-05-07z-pmsn1k108cn8qgt0rriiv)
 - [2024-05-06Z \(`KXv3skDdS71Ts-yWowFQD`\)](#2024-05-06z-kxv3skdds71ts-ywowfqd)
 - [2024-05-04Z \(`Mx_Mw2rnP2Og87wKo_EJk`\)](#2024-05-04z-mx_mw2rnp2og87wko_ejk)
 - [2024-05-04Z \(`r-k67N5ZDs6RpJSgiiCzp`\)](#2024-05-04z-r-k67n5zds6rpjsgiiczp)
@@ -23,6 +24,93 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
 <!-- DISABLEDMarkdownTOC levels="1,2" style="unordered" bullets="-" indent="  " -->
 <!-- TODO: Reinstate this after this bug is fixed: https://github.com/naokazuterada/MarkdownTOC/pull/170 -->
 <!-- /MarkdownTOC -->
+
+## 2024-05-07Z (`pmsN1K108Cn8QGT0rRiiv`)
+
+### Notes
+
+The following notes are not necessarily comprehensive, but just things of potential interest that I noted while reviewing the diffs. If you want to see everything that changed, you can look at the diffs of the changed files in the `unpacked/` folder:
+
+- **tl;dr**
+  - NOTE: This build's diff was only minimally analysed
+- App release version (Git SHA?): `19dc2e35c42acdde6cadf6d25fd446653856ea13`
+  - Extracted with `grep 'SENTRY_RELEASE = ' "unpacked/_next/static/chunks/main-app.js"`
+- Feature flags in newly added (or churned) code:
+  - `caching-songs`
+  - `subscriptions`
+- `unpacked/_next/static/chunks/4178.js`
+  - ```diff
+    - Number(u.concurrent_used || 0) >=
+    -   Number(u.concurrent_limit || 0) &&
+    - ((i = "You can only make ".concat(
+    -   u.concurrent_limit,
+    -   " generations simultaneously. Please wait a few seconds and try again."
+    - )),
+    - (s = "error"),
+    - (l = !0)),
+    ```
+- `unpacked/_next/static/chunks/app/(app)/(home)/page.js`
+  - ```diff
+    - searchQuery: { sort: "trending_score", searchTerm: "" },
+    + searchQuery: { sort: "cache_trending_score", searchTerm: "" },
+    ```
+  - ```js
+    let d = (0, t(22020).Ue)((e, r) => ({
+      trendingTags: ["Rock", "Pop", "Hip Hop", "Jazz", "Country"],
+      trendingType: "trending",
+      setTrendingTags: (r) => e({ trendingTags: r }),
+      setTrendingType: (r) => e({ trendingType: r }),
+    }));
+    ```
+  - ```diff
+    +   N = (0, a.cC)("caching-songs");
+    + switch (g) {
+        case "popular":
+    -     (r = "likes"), (t = 24);
+    +     (r = N ? "cache_popular" : "likes"), (t = 24);
+          break;
+        case "recent":
+    -     (r = "created_at"), (t = 24);
+    +     (r = "cache_recent"), (t = 24);
+          break;
+        default:
+    -     (r = "trending_score"), (t = void 0);
+    +     (r = "cache_trending_score"), (t = void 0);
+      }
+    ```
+- `unpacked/_next/static/chunks/app/layout.js`
+  - ```js
+    children: [
+      "By clicking 'Sign in', you acknowledge that you (i) agree to the",
+      " ",
+      (0, a.jsx)(n.default, {
+        href: "/terms-of-service",
+        className: "underline",
+        children: "Terms of Service",
+      }),
+      " ",
+      "and (ii) have read and understood our",
+      " ",
+      (0, a.jsx)(n.default, {
+        href: "/privacy-policy",
+        className: "underline",
+        children: "Privacy Policy",
+      }),
+      ".",
+    ],
+    ```
+
+### Not From Build Manifest
+
+#### Archived
+
+```
+https://www.udio.com/_next/static/chunks/4178-04d980215f32941f.js
+https://www.udio.com/_next/static/chunks/app/(app)/(home)/page-20841c59c3b70554.js
+https://www.udio.com/_next/static/chunks/app/layout-f9c9aeea6b896c1c.js
+https://www.udio.com/_next/static/chunks/main-app-2e2b20a773145fe4.js
+https://www.udio.com/_next/static/chunks/webpack-3dc88bd83d498bcc.js
+```
 
 ## 2024-05-06Z (`KXv3skDdS71Ts-yWowFQD`)
 

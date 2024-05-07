@@ -3058,15 +3058,6 @@
                 }
                 if (
                   (u &&
-                    Number(u.concurrent_used || 0) >=
-                      Number(u.concurrent_limit || 0) &&
-                    ((i = "You can only make ".concat(
-                      u.concurrent_limit,
-                      " generations simultaneously. Please wait a few seconds and try again."
-                    )),
-                    (s = "error"),
-                    (l = !0)),
-                  u &&
                     0 >= Number(u.discretionary || 0) &&
                     Number(u.monthly_used || 0) >=
                       Number(u.monthly_limit || 0) &&

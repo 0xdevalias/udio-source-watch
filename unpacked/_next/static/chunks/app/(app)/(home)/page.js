@@ -6,7 +6,7 @@
         Promise.resolve().then(t.bind(t, 45666)),
         Promise.resolve().then(t.bind(t, 66636)),
         Promise.resolve().then(t.bind(t, 93804)),
-        Promise.resolve().then(t.bind(t, 29319)),
+        Promise.resolve().then(t.bind(t, 42758)),
         Promise.resolve().then(t.bind(t, 23113)),
         Promise.resolve().then(t.bind(t, 89296)),
         Promise.resolve().then(t.bind(t, 10159)),
@@ -500,7 +500,7 @@
       r.default = (e) => {
         let { initialSongs: r } = e,
           t = (0, n.Z)({
-            searchQuery: { sort: "trending_score", searchTerm: "" },
+            searchQuery: { sort: "cache_trending_score", searchTerm: "" },
             limit: 18,
             initialData: r,
           }),
@@ -573,80 +573,95 @@
         );
       };
     },
-    29319: function (e, r, t) {
+    42758: function (e, r, t) {
       "use strict";
       t.r(r),
         t.d(r, {
           default: function () {
-            return h;
+            return x;
           },
         });
       var s = t(57437),
-        a = t(26638),
-        l = t(18994),
-        i = t(2265),
-        n = t(68828),
-        c = t(31089),
-        o = t(94111),
-        d = t(38519),
-        u = t(40110),
-        m = () => {
-          let { trendingType: e, setTrendingType: r } = (0, o.Z)();
+        a = t(19213),
+        l = t(26638),
+        i = t(18994),
+        n = t(2265),
+        c = t(68828),
+        o = t(31089);
+      let d = (0, t(22020).Ue)((e, r) => ({
+        trendingTags: ["Rock", "Pop", "Hip Hop", "Jazz", "Country"],
+        trendingType: "trending",
+        setTrendingTags: (r) => e({ trendingTags: r }),
+        setTrendingType: (r) => e({ trendingType: r }),
+      }));
+      var u = t(38519),
+        m = t(40110),
+        f = () => {
+          let { trendingType: e, setTrendingType: r } = d(),
+            t = (0, a.cC)("caching-songs");
           return (0, s.jsx)(s.Fragment, {
-            children: (0, s.jsx)(u.Tabs, {
+            children: (0, s.jsx)(m.Tabs, {
               value: e,
               onValueChange: r,
-              children: (0, s.jsxs)(u.TabsList, {
+              children: (0, s.jsxs)(m.TabsList, {
                 children: [
-                  (0, s.jsx)(u.TabsTrigger, {
+                  (0, s.jsx)(m.TabsTrigger, {
                     value: "trending",
                     children: "Trending",
                   }),
-                  (0, s.jsx)(u.TabsTrigger, {
+                  (0, s.jsx)(m.TabsTrigger, {
                     value: "popular",
                     children: "Popular",
                   }),
+                  t
+                    ? (0, s.jsx)(m.TabsTrigger, {
+                        value: "recent",
+                        children: "Recent",
+                      })
+                    : null,
                 ],
               }),
             }),
           });
         },
-        f = t(49801),
-        h = (e) => {
+        h = t(49801),
+        x = (e) => {
           let r,
             t,
-            { initialSongs: u } = e,
+            { initialSongs: m } = e,
             {
-              newTracksSearchTerm: h,
-              setNewTracksSearchTerm: x,
-              focusDiscoverSearch: v,
-            } = (0, c.S)(),
-            { trendingType: p } = (0, o.Z)(),
-            { ref: g, inViewport: j } = (0, a.N)();
-          switch (p) {
+              newTracksSearchTerm: x,
+              setNewTracksSearchTerm: v,
+              focusDiscoverSearch: p,
+            } = (0, o.S)(),
+            { trendingType: g } = d(),
+            { ref: j, inViewport: b } = (0, l.N)(),
+            N = (0, a.cC)("caching-songs");
+          switch (g) {
             case "popular":
-              (r = "likes"), (t = 24);
+              (r = N ? "cache_popular" : "likes"), (t = 24);
               break;
             case "recent":
-              (r = "created_at"), (t = 24);
+              (r = "cache_recent"), (t = 24);
               break;
             default:
-              (r = "trending_score"), (t = void 0);
+              (r = "cache_trending_score"), (t = void 0);
           }
           let {
-            results: b,
-            fetchNextPage: N,
-            hasNextPage: w,
-            isLoading: y,
-          } = (0, n.Z)({
-            searchQuery: { sort: r, searchTerm: h, maxAgeInHours: t },
+            results: w,
+            fetchNextPage: y,
+            hasNextPage: k,
+            isLoading: T,
+          } = (0, c.Z)({
+            searchQuery: { sort: r, searchTerm: x, maxAgeInHours: t },
             limit: 30,
-            initialData: u,
+            ...((null == m ? void 0 : m.length) &&
+              "cache_trending_score" === r && { initialData: m }),
           });
           return (
-            (0, i.useEffect)(() => {
-              j && w && N();
-            }, [j, w]),
+            (0, n.useEffect)(() => {
+              b && k && y();
+            }, [b, k]),
             (0, s.jsxs)("div", {
               className: "mt-4 w-full",
               children: [
@@ -665,17 +680,17 @@
                       children: [
                         (0, s.jsx)("div", {
                           className: "w-full sm:w-1/2 2xl:w-1/2",
-                          children: (0, s.jsx)(f.Z, {
-                            searchTerm: h,
-                            setSearchTerm: x,
+                          children: (0, s.jsx)(h.Z, {
+                            searchTerm: x,
+                            setSearchTerm: v,
                             keepOpen: !0,
-                            focusTerm: v,
+                            focusTerm: p,
                           }),
                         }),
                         (0, s.jsx)("div", {
                           className:
                             " mb-2 mt-2 flex justify-start sm:mb-0 sm:mt-0 sm:justify-end",
-                          children: (0, s.jsx)(m, {}),
+                          children: (0, s.jsx)(f, {}),
                         }),
                       ],
                     }),
@@ -689,13 +704,13 @@
                       className: "overflow flex flex-col overflow-hidden",
                       children: (0, s.jsx)("div", {
                         className: "compact-track-grid relative mt-3",
-                        children: y
+                        children: T
                           ? (0, s.jsxs)("div", {
                               className:
                                 "m-4 flex items-center justify-center text-white",
                               children: [
                                 "Loading ",
-                                (0, s.jsx)(l.Z, {
+                                (0, s.jsx)(i.Z, {
                                   className: "ml-2 animate-spin",
                                   size: 20,
                                 }),
@@ -703,18 +718,18 @@
                             })
                           : (0, s.jsxs)(s.Fragment, {
                               children: [
-                                null == b
+                                null == w
                                   ? void 0
-                                  : b.map((e) =>
+                                  : w.map((e) =>
                                       (0, s.jsx)(
-                                        d.default,
-                                        { track: e, trackContext: b },
+                                        u.default,
+                                        { track: e, trackContext: w },
                                         e.id
                                       )
                                     ),
                                 (0, s.jsx)("div", {
                                   id: "scroll-trigger",
-                                  ref: g,
+                                  ref: j,
                                   className: "absolute bottom-[200px]",
                                 }),
                               ],
@@ -885,7 +900,7 @@
       r.default = (e) => {
         let {
             initialSongs: r,
-            sort: t = "trending_score",
+            sort: t = "cache_trending_score",
             containsTags: d,
             height: u = 200,
             mobileHeight: m = 175,
@@ -967,11 +982,9 @@
       "use strict";
       t.r(r);
       var s = t(57437),
-        a = t(94111),
-        l = t(38519);
+        a = t(38519);
       r.default = (e) => {
-        let { initialSongs: r } = e,
-          { trendingType: t } = (0, a.Z)();
+        let { initialSongs: r } = e;
         return (0, s.jsx)(s.Fragment, {
           children: (0, s.jsx)("div", {
             className: "flex flex-col",
@@ -984,7 +997,7 @@
                     ? void 0
                     : r.map((e) =>
                         (0, s.jsx)(
-                          l.default,
+                          a.default,
                           { track: e, trackContext: r },
                           e.id
                         )
@@ -1609,20 +1622,6 @@
         setTopTracksSearchTerm: (r) => e({ topTracksSearchTerm: r }),
         setLikedTracksSearchTerm: (r) => e({ likedTracksSearchTerm: r }),
         setFocusDiscoverSearch: (r) => e({ focusDiscoverSearch: r }),
-      }));
-    },
-    94111: function (e, r, t) {
-      "use strict";
-      t.d(r, {
-        Z: function () {
-          return s;
-        },
-      });
-      let s = (0, t(22020).Ue)((e, r) => ({
-        trendingTags: ["Rock", "Pop", "Hip Hop", "Jazz", "Country"],
-        trendingType: "trending",
-        setTrendingTags: (r) => e({ trendingTags: r }),
-        setTrendingType: (r) => e({ trendingType: r }),
       }));
     },
   },
