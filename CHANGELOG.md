@@ -15,6 +15,7 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
     https://github.com/naokazuterada/MarkdownTOC/pull/170
 -->
 <!-- TOC start (generated with https://derlin.github.io/bitdowntoc/) -->
+- [2024-05-09Z \(`o1gyhglvcLJ7fzg5w6AaH`\)](#2024-05-09z-o1gyhglvclj7fzg5w6aah)
 - [2024-05-07Z \(`pmsN1K108Cn8QGT0rRiiv`\)](#2024-05-07z-pmsn1k108cn8qgt0rriiv)
 - [2024-05-06Z \(`KXv3skDdS71Ts-yWowFQD`\)](#2024-05-06z-kxv3skdds71ts-ywowfqd)
 - [2024-05-04Z \(`Mx_Mw2rnP2Og87wKo_EJk`\)](#2024-05-04z-mx_mw2rnp2og87wko_ejk)
@@ -24,6 +25,444 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
 <!-- DISABLEDMarkdownTOC levels="1,2" style="unordered" bullets="-" indent="  " -->
 <!-- TODO: Reinstate this after this bug is fixed: https://github.com/naokazuterada/MarkdownTOC/pull/170 -->
 <!-- /MarkdownTOC -->
+
+## 2024-05-09Z (`o1gyhglvcLJ7fzg5w6AaH`)
+
+### Notes
+
+The following notes are not necessarily comprehensive, but just things of potential interest that I noted while reviewing the diffs. If you want to see everything that changed, you can look at the diffs of the changed files in the `unpacked/` folder:
+
+- **tl;dr**
+  - Further refinements around audio inpainting, subscriptions, etc; as announced today:
+    - https://twitter.com/udiomusic/status/1788243716676759668
+  - ?maybe other bits and pieces lost in the noise?
+- App release version (Git SHA?): `cfabb25245a4854792b2e17ac934d982befaf34f`
+  - Extracted with `grep 'SENTRY_RELEASE = ' "unpacked/_next/static/chunks/main-app.js"`
+- `unpacked/_next/static/chunks/4178.js`
+  - ```js
+    "free" === t.tier
+      ? (0, o.jsx)(o.Fragment, {
+          children: (0, o.jsxs)("span", {
+            className: "flex items-center",
+            children: [
+              (0, o.jsx)(M.Z, {
+                className: "my-auto mr-2 h-4 w-4",
+              }),
+              t.daily_used,
+              " /",
+              " ",
+              t.daily_throttle_limit,
+              " Daily Credits",
+            ],
+          }),
+        })
+      : null,
+    "pro" === t.tier || "standard" === t.tier
+      ? (0, o.jsx)(o.Fragment, {
+          children: (0, o.jsxs)("span", {
+            className: "flex items-center",
+            children: [
+              (0, o.jsx)(M.Z, {
+                className: "my-auto mr-2 h-4 w-4",
+              }),
+              t.monthly_used,
+              " / ",
+              t.monthly_limit,
+              " ",
+              "Monthly Credits",
+            ],
+          }),
+        })
+      : null,
+    ```
+  - ```js
+    Number(t.monthly_discretionary || 0) +
+      Number(t.discretionary || 0),
+    ```
+  - ```js
+    "Additional Credits",
+    ```
+  - ```diff
+    +   children: [
+    +     (0, o.jsx)("h1", {
+    +       className:
+    +         "mr-2 whitespace-nowrap text-sm text-muted-foreground",
+    +       children: "Select Inpainting Sections",
+    +     }),
+    +     (0, o.jsx)(J.Z, {
+    +       children:
+    +         "Select sections to inpaint. These shaded sections will be re-generated based on your prompt. You may inpaint four sections at a time within a maximum window of 28 seconds. Any sections outside of the range displayed in the top waveform will be ignored.",
+    +     }),
+    +   ],
+    + }),
+      (0, o.jsx)("h1", {
+    -   className:
+    -     "mr-2 whitespace-nowrap text-sm text-muted-foreground",
+    -   children: "Select Inpainting Sections",
+    - }),
+    - (0, o.jsx)(X.Z, {
+    +   className: "text-sm text-muted-foreground md:ml-2",
+        children:
+    -     "Select selections to inpaint. These sections will be replaced with new genertions based on your prompt. You may only inpaint with 4 sections at a time within a maximum of a 32 second range within your track.",
+    +     "Note: Only selected shaded regions that are visible within the top waveform will be inpainted.",
+      }),
+    ```
+  - ```js
+    children:
+      "Inpainting is currently only availble on desktop",
+    ```
+  - ```js
+      h = "inpaint" === d.audio_conditioning_type,
+      f = [
+        {
+          title: "Custom",
+          description: "Write your own lyrics",
+          value: "lyricInput",
+        },
+        { title: "Instrumental", value: "instrumental" },
+        { title: l ? "Auto-generated" : "Auto", value: "infer" },
+      ];
+    h &&
+      (f = [
+        {
+          title: "Region",
+          description: "Lyrics for the visible region of the song",
+          value: "lyricInput",
+        },
+        { title: "Instrumental", value: "instrumental" },
+      ]),
+      (0, p.useEffect)(() => {
+        "lyricInput" === n && r(Math.floor(Math.random() * eS.length));
+      }, [n]);
+    ```
+  - ```js
+    (0, o.jsx)("div", {
+      className: "text-base ",
+      children:
+        "When inpainting, use “***” to enclose the section of the lyrics that correspond to the top waveform. Any lyrics changes should match sections selected for inpainting.",
+    }),
+    ```
+  - ```js
+    let { userApiUsageData: a } = e,
+      t = (0, p.useMemo)(
+        () =>
+          Number((null == a ? void 0 : a.monthly_discretionary) || 0) +
+          Number((null == a ? void 0 : a.discretionary) || 0),
+        [a]
+      );
+    ```
+  - ```js
+      [s, i] = (0, p.useState)(
+        void 0 !== e.audio_conditioning_similarity
+          ? 1 - e.audio_conditioning_similarity
+          : 0.1
+      ),
+      [r] = (0, d.c)(s, 100);
+    return (
+      (0, p.useEffect)(() => {
+        t({ ...e, audio_conditioning_similarity: 1 - s });
+      }, [r]),
+      "variation" === e.audio_conditioning_type && a
+        ? (0, o.jsx)("div", {
+    ```
+  - ```js
+    children: [
+      (0, o.jsx)("h1", {
+        className:
+          "whitespace-nowrap text-sm text-muted-foreground",
+        children: "Variance",
+      }),
+      (0, o.jsx)($, {
+        min: 0.1,
+        max: 1,
+        step: 0.01,
+        className: "w-full",
+        color: "bg-brand-accent",
+        value: [s],
+        onValueChange: (e) => i(e[0]),
+      }),
+      (0, o.jsxs)("div", {
+        className: "flex items-center justify-between",
+        children: [
+          (0, o.jsx)("div", {
+            className: "text-sm text-muted-foreground",
+            children: "Similar",
+          }),
+          (0, o.jsx)("div", {
+            className: "text-sm text-muted-foreground",
+            children: "Different",
+          }),
+        ],
+      }),
+    ],
+    ```
+  - ```js
+    c.crop_start_time && (c.crop_start_time < 0.1 || c.crop_start_time);
+    let g =
+      "continuation" === c.audio_conditioning_type ||
+      "precede" === c.audio_conditioning_type;
+    ```
+  - ```js
+    (0, u.cC)("advanced-controls"),
+    ```
+  - ```js
+    R = (0, u.cC)("show-quota"),
+    ```
+  - ```js
+      "inpaint" === X.audio_conditioning_type &&
+      !n.hasSelector &&
+      "lyricInput" === r
+    ) {
+      x.toast.error(
+        n.warning || "The lyrics is missing the *** selector",
+        T.TQ
+      );
+      return;
+    }
+    if (
+      "inpaint" === X.audio_conditioning_type &&
+      (!X.inpainting_conditioning_crop_seconds ||
+        !X.inpainting_working_region ||
+        0 === X.inpainting_conditioning_crop_seconds.length)
+    ) {
+      x.toast.error(
+        "Please select a region of the song to inpaint",
+        T.TQ
+      );
+      return;
+    }
+    ```
+  - ```js
+    ((l =
+      "You have reached your creation limits. You can subscribe, purchase more credits, or wait for your credit usage to reset."),
+    ```
+  - ```js
+      "variation" === X.audio_conditioning_type && b("lyricInput"),
+        "inpaint" === X.audio_conditioning_type && b("lyricInput");
+    }, [X.audio_conditioning_type]),
+    ```
+- `unpacked/_next/static/chunks/6144.js`
+  - ```diff
+        (n = "PresubmitChecks"))
+      : (null == e ? void 0 : e.status) === 403
+        ? (r.toast.error(
+    -       "Your account has been disabled. Please reach out if you have any questions.",
+    +       "Your account is not authorized for this action.",
+    ```
+- `unpacked/_next/static/chunks/8519.js`
+  - ```js
+    if (!(null == V ? void 0 : V.paidPlan)) {
+      d.toast.error(
+        "Inpainting is currently only available for subscribers.",
+        v.TQ
+      );
+      return;
+    }
+    I
+      ? D(a, "inpaint", () => {
+          A(!0);
+        })
+      : d.toast.error(
+          "Inpainting is currently only available on desktop.",
+          v.TQ
+        );
+    ```
+- `unpacked/_next/static/chunks/app/(app)/(home)/page.js`
+  - ```diff
+    - setShowDiscoverBanner: (r) => e({ showDiscoverBanner: r }),
+    + setShowDiscoverBanner: (t) => e({ showDiscoverBanner: t }),
+    + lastAnnouncementSeen: "",
+    + setLastAnnouncementSeen: (t) => e({ lastAnnouncementSeen: t }),
+    ```
+- `unpacked/_next/static/chunks/app/(app)/layout.js`
+  - ```js
+    (0, n.jsx)(i.default, {
+      href: "/pricing",
+      target: "_blank",
+      children: (0, n.jsx)(c.Xi, { children: "Pricing" }),
+    }),
+    (0, n.jsx)(i.default, {
+      href: "/announcements",
+      target: "_blank",
+      children: (0, n.jsx)(c.Xi, {
+        children: "Announcements",
+      }),
+    }),
+    ```
+- `unpacked/_next/static/chunks/app/layout.js`
+  - ```js
+    return (
+      f.toast.promise(a, {
+        loading: "Uploading Cover... ",
+        success: "Cover updated successfully!",
+        error: (e) => {
+          var t, r;
+          switch (
+            null === (t = e.response) || void 0 === t
+              ? void 0
+              : t.status
+          ) {
+            case 403:
+              return "Image cannot be uploaded due to content restrictions. Please try a different image.";
+            case 413:
+              return "Image file is too large. Please try a smaller image.";
+            case 422:
+              return "Image could not be processed by the server. Check your image format.";
+            default:
+              return (
+                (null === (r = e.response) || void 0 === r
+                  ? void 0
+                  : r.statusText) ||
+                "An error occurred while uploading the image."
+              );
+          }
+        },
+        duration: b.eS,
+        dismissible: !0,
+      }),
+    ```
+  - ```js
+    return i
+      ? (P && URL.revokeObjectURL(P),
+        {
+          croppedImageUrl: (P = URL.createObjectURL(i)),
+          croppedImageBlob: i,
+        })
+      : (console.error("Failed to create blob"),
+        { croppedImageUrl: "", croppedImageBlob: i });
+    ```
+  - ```js
+    if (!ea) {
+      f.toast.error(
+        "Custom cover art changes are only available to subscribers",
+        b.TQ
+      ),
+        U("generate");
+      return;
+    }
+    ```
+  - ```diff
+      ? "Album cover for a song about..."
+    - : "Upload an image from your device.",
+    + : "Upload an image from your device under 5 MB.",
+    ```
+  - ```js
+    if (!C) {
+      f.toast.error(
+        "Avatar changes are only available to subscribers",
+        b.TQ
+      );
+      return;
+    }
+    ```
+  - ```js
+    return (
+      f.toast.promise(r, {
+        loading: "Uploading Avatar... ",
+        success: "Avatar updated successfully!",
+        error: (e) => {
+          var t, r;
+          switch (
+            null === (t = e.response) || void 0 === t
+              ? void 0
+              : t.status
+          ) {
+            case 403:
+              return "Image cannot be uploaded due to content restrictions. Please try a different image.";
+            case 413:
+              return "Image file is too large. Please try a smaller image.";
+            case 422:
+              return "Image could not be processed by the server. Check your image format.";
+            default:
+              return (
+                (null === (r = e.response) || void 0 === r
+                  ? void 0
+                  : r.statusText) ||
+                "An error occurred while uploading the image."
+              );
+          }
+        },
+        duration: b.eS,
+        dismissible: !0,
+      }),
+    ```
+  - ```js
+    try {
+      j(!0);
+      let r = await u.bL.post("/api/stripe/checkout", {
+        redirect: window.location.pathname + window.location.search,
+        type: e,
+        ...("credits" !== e
+          ? {
+              timePeriod: "1" === t.timePeriod ? "monthly" : "annually",
+            }
+          : { amount: t.amount }),
+      });
+      window.location.href = r.data.url;
+    ```
+  - ```js
+    d = [
+      "Create Song",
+      "Remix Song",
+      "Extend Song",
+      "Inpaint Song",
+      "Publish Song",
+      "Unpublish Song",
+      "Listen Song",
+      "Complete Song",
+    ];
+    ```
+  - ```js
+    k = (e) => {
+      if (!e) return { hasSelector: !0, warning: "" };
+      let t = (e.match(/\*\*\*/g) || []).length;
+      return 2 === t
+        ? { hasSelector: !0, warning: "" }
+        : t > 2
+          ? {
+              hasSelector: !1,
+              warning: "You have too many *** selector in your lyrics.",
+            }
+          : 1 === t
+            ? {
+                hasSelector: !1,
+                warning: "You only have one *** selector in your lyrics.",
+              }
+            : {
+                hasSelector: !1,
+                warning:
+                  "You are missing *** selectors from your text, which are required for inpainting.",
+              };
+    },
+    ```
+
+### Not From Build Manifest
+
+#### Archived
+
+```
+https://www.udio.com/_next/static/chunks/131-08f47d70d562b6e8.js
+https://www.udio.com/_next/static/chunks/2435-7c2c3b02df8e679e.js
+https://www.udio.com/_next/static/chunks/2694-4263dd793ad2d9f8.js
+https://www.udio.com/_next/static/chunks/2722-2903c2cc09fbad12.js
+https://www.udio.com/_next/static/chunks/4178-b354b0baee0ec1ef.js
+https://www.udio.com/_next/static/chunks/4749-9d6542749ff2a417.js
+https://www.udio.com/_next/static/chunks/4778-7db27baeca9ff2fc.js
+https://www.udio.com/_next/static/chunks/4872-cc7fecd54ee51eec.js
+https://www.udio.com/_next/static/chunks/4950-ab190b8105bbd910.js
+https://www.udio.com/_next/static/chunks/5211-3d4a7204c67eb1ea.js
+https://www.udio.com/_next/static/chunks/6144-baa0fdf3ccafbe43.js
+https://www.udio.com/_next/static/chunks/8519-93215e00cabc7d63.js
+https://www.udio.com/_next/static/chunks/8600-82e70756aeff0fc2.js
+https://www.udio.com/_next/static/chunks/9731-244483d71486ca49.js
+https://www.udio.com/_next/static/chunks/app/(app)/(home)/page-a42e8e4a9f0b19de.js
+https://www.udio.com/_next/static/chunks/app/(app)/layout-5d9f26b183c89e71.js
+https://www.udio.com/_next/static/chunks/app/error-27754fd8da947d5f.js
+https://www.udio.com/_next/static/chunks/app/global-error-8846a410bb0dce4a.js
+https://www.udio.com/_next/static/chunks/app/layout-8cf2eeb1a519506b.js
+https://www.udio.com/_next/static/chunks/main-app-0596d5dde995c96d.js
+https://www.udio.com/_next/static/chunks/webpack-6044a3998bd36c62.js
+```
 
 ## 2024-05-07Z (`pmsN1K108Cn8QGT0rRiiv`)
 

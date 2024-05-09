@@ -44,13 +44,13 @@
       t.r(a),
         t.d(a, {
           VISIBLE_TAG_INCREMENT: function () {
-            return eR;
+            return eO;
           },
           default: function () {
-            return eY;
+            return eQ;
           },
           defaultPromptPlaceholder: function () {
-            return eq;
+            return eY;
           },
         });
       var o = t(57437);
@@ -806,7 +806,7 @@
         },
         N = t(23642),
         k = t(68062),
-        C = function () {
+        _ = function () {
           let e =
               arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
             a = (0, N.Z)();
@@ -817,14 +817,15 @@
             enabled: !!(null == a ? void 0 : a.id) && e,
           });
         },
-        _ = t(41100),
+        C = t(41100),
         S = t(38980),
         z = t(45722),
-        T = t(76798),
-        Z = t(6771),
+        Z = t(76798),
+        T = t(6771),
         F = t(13581),
-        P = () => {
-          let { showOptions: e, setShowOptions: a } = (0, T.F)();
+        P = t(1657),
+        L = () => {
+          let { showOptions: e, setShowOptions: a } = (0, Z.F)();
           return (0, o.jsx)(o.Fragment, {
             children: e
               ? (0, o.jsx)("div", {
@@ -835,80 +836,99 @@
               : null,
           });
         },
-        L = t(98998),
-        E = t(37501),
+        E = t(98998),
+        I = t(37501),
         M = t(28814),
-        D = t(77929),
-        I = t(81805),
-        A = (e) => {
+        R = t(77929),
+        A = t(81805),
+        D = (e) => {
           let {
-              toastId: a,
-              userApiUsage: t,
-              toastType: n = "warning",
-              toastMessage: s = "Amazing music is seconds away!",
-            } = e,
-            i = (0, u.cC)("show-quota");
-          return (0, o.jsxs)(I.Z, {
+            toastId: a,
+            userApiUsage: t,
+            showQuotaInfo: n,
+            toastType: s = "warning",
+            toastMessage: i = "Amazing music is seconds away!",
+          } = e;
+          return (0, o.jsxs)(A.Z, {
             toastId: a,
             children: [
-              (0, o.jsxs)(D.Cd, {
+              (0, o.jsxs)(R.Cd, {
                 className: "flex items-center space-x-2 text-lg",
                 children: [
-                  "error" === n
-                    ? (0, o.jsx)(L.Z, {
+                  "error" === s
+                    ? (0, o.jsx)(E.Z, {
                         className:
                           "my-auto mr-2 h-4 w-4 animate-pulse text-red-500",
                       })
-                    : "warning" === n
-                      ? (0, o.jsx)(L.Z, {
+                    : "warning" === s
+                      ? (0, o.jsx)(E.Z, {
                           className:
                             "my-auto mr-2 h-4 w-4 animate-pulse text-orange-500",
                         })
-                      : (0, o.jsx)(E.Z, {
+                      : (0, o.jsx)(I.Z, {
                           className:
                             "my-auto mr-2 h-4 w-4 animate-pulse stroke-green-500",
                         }),
                   " ",
-                  "error" === n ? "Error Generating" : "Creating Your Tracks",
+                  "error" === s ? "Error Generating" : "Creating Your Tracks",
                 ],
               }),
               (0, o.jsxs)("div", {
                 className:
                   "flex flex-col items-center justify-between md:flex-row",
                 children: [
-                  (0, o.jsx)(D.X, { className: "md:ml-6", children: s }),
+                  (0, o.jsx)(R.X, { className: "md:ml-6", children: i }),
                   t &&
-                    i &&
-                    "new" !== t.tier &&
-                    (0, o.jsx)(D.X, {
+                    n &&
+                    (0, o.jsx)(R.X, {
                       className: "mt-2 md:mt-0",
                       children: (0, o.jsxs)("div", {
                         className: "flex flex-col space-y-1",
                         children: [
+                          "free" === t.tier
+                            ? (0, o.jsx)(o.Fragment, {
+                                children: (0, o.jsxs)("span", {
+                                  className: "flex items-center",
+                                  children: [
+                                    (0, o.jsx)(M.Z, {
+                                      className: "my-auto mr-2 h-4 w-4",
+                                    }),
+                                    t.daily_used,
+                                    " /",
+                                    " ",
+                                    t.daily_throttle_limit,
+                                    " Daily Credits",
+                                  ],
+                                }),
+                              })
+                            : null,
+                          "pro" === t.tier || "standard" === t.tier
+                            ? (0, o.jsx)(o.Fragment, {
+                                children: (0, o.jsxs)("span", {
+                                  className: "flex items-center",
+                                  children: [
+                                    (0, o.jsx)(M.Z, {
+                                      className: "my-auto mr-2 h-4 w-4",
+                                    }),
+                                    t.monthly_used,
+                                    " / ",
+                                    t.monthly_limit,
+                                    " ",
+                                    "Monthly Credits",
+                                  ],
+                                }),
+                              })
+                            : null,
                           (0, o.jsxs)("span", {
                             className: "flex items-center",
                             children: [
                               (0, o.jsx)(M.Z, {
                                 className: "my-auto mr-2 h-4 w-4",
                               }),
-                              t.daily_used,
-                              " / ",
-                              t.daily_throttle_limit,
+                              Number(t.monthly_discretionary || 0) +
+                                Number(t.discretionary || 0),
                               " ",
-                              "Daily Priority Generations",
-                            ],
-                          }),
-                          (0, o.jsxs)("span", {
-                            className: "flex items-center",
-                            children: [
-                              (0, o.jsx)(M.Z, {
-                                className: "my-auto mr-2 h-4 w-4",
-                              }),
-                              t.monthly_used,
-                              " / ",
-                              t.monthly_limit,
-                              " ",
-                              "Monthly Generations",
+                              "Additional Credits",
                             ],
                           }),
                         ],
@@ -919,34 +939,33 @@
             ],
           });
         },
-        R = t(85754),
-        q = t(45179),
-        O = t(78798),
-        Y = t(47934),
-        W = t(94845),
-        U = t(1657);
-      let G = p.forwardRef((e, a) => {
+        q = t(85754),
+        O = t(45179),
+        Y = t(78798),
+        W = t(47934),
+        Q = t(94845);
+      let U = p.forwardRef((e, a) => {
         let { className: t, ...n } = e;
-        return (0, o.jsx)(W.fC, {
-          className: (0, U.cn)(
+        return (0, o.jsx)(Q.fC, {
+          className: (0, P.cn)(
             "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
             t
           ),
           ...n,
           ref: a,
-          children: (0, o.jsx)(W.bU, {
-            className: (0, U.cn)(
+          children: (0, o.jsx)(Q.bU, {
+            className: (0, P.cn)(
               "pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
             ),
           }),
         });
       });
-      G.displayName = W.fC.displayName;
-      var Q = t(49108),
-        B = t(37805),
-        H = t(31478);
-      let K = 7 / 12;
-      var V = (e) => {
+      U.displayName = Q.fC.displayName;
+      var B = t(49108),
+        H = t(37805),
+        G = t(31478);
+      let V = 7 / 12;
+      var K = (e) => {
           let { tagType: a, tagList: t, addSuggestedTags: n } = e,
             s = (0, p.useRef)(null),
             [i, r] = (0, p.useState)(!1),
@@ -955,7 +974,7 @@
               if (s.current) {
                 let { scrollWidth: e, clientWidth: a } = s.current;
                 s.current.scrollLeft = Math.min(
-                  s.current.scrollLeft + a * K,
+                  s.current.scrollLeft + a * V,
                   e - a
                 );
               }
@@ -963,7 +982,7 @@
             d = (0, p.useCallback)(() => {
               s.current &&
                 (s.current.scrollLeft = Math.max(
-                  s.current.scrollLeft - s.current.clientWidth * K,
+                  s.current.scrollLeft - s.current.clientWidth * V,
                   0
                 ));
             }, []);
@@ -991,25 +1010,25 @@
                     ? (0, o.jsxs)(o.Fragment, {
                         children: [
                           (0, o.jsx)("div", {
-                            className: (0, U.cn)([
+                            className: (0, P.cn)([
                               "pointer-events-none absolute left-0 hidden h-[40px] w-[200px] bg-gradient-to-l from-transparent to-black md:block",
                               "transition-opacity duration-500",
                               i ? "opacity-100" : "opacity-0",
                             ]),
                           }),
                           (0, o.jsx)("div", {
-                            className: (0, U.cn)([
+                            className: (0, P.cn)([
                               "absolute left-0 top-0 bg-gradient-to-l from-transparent to-black",
                               "transition-opacity duration-500",
                               i ? "opacity-100" : "opacity-0",
                             ]),
-                            children: (0, o.jsx)(H.C, {
+                            children: (0, o.jsx)(G.C, {
                               className:
                                 "mr-2 hidden cursor-pointer bg-gray-light py-0 text-foreground hover:text-muted-foreground md:inline-flex",
                               onMouseDown: (e) => {
                                 e.preventDefault(), d();
                               },
-                              children: (0, o.jsx)(Q.Z, { className: "w-4" }),
+                              children: (0, o.jsx)(B.Z, { className: "w-4" }),
                             }),
                           }),
                         ],
@@ -1024,7 +1043,7 @@
                       style: { scrollbarWidth: "none" },
                       children: t.map((e) =>
                         (0, o.jsx)(
-                          H.C,
+                          G.C,
                           {
                             className:
                               "mr-2 cursor-pointer bg-[#FFFFFF]/5 px-3 py-3 text-muted-foreground hover:text-muted-foreground md:bg-gray-light md:px-2.5 md:py-1",
@@ -1049,25 +1068,25 @@
                     ? (0, o.jsxs)(o.Fragment, {
                         children: [
                           (0, o.jsx)("div", {
-                            className: (0, U.cn)([
+                            className: (0, P.cn)([
                               "pointer-events-none absolute right-0 hidden h-[40px] w-[200px] bg-gradient-to-r from-transparent to-black md:block",
                               "transition-opacity duration-500",
                               l ? "opacity-100" : "opacity-0",
                             ]),
                           }),
                           (0, o.jsx)("div", {
-                            className: (0, U.cn)([
+                            className: (0, P.cn)([
                               "absolute right-0 top-0 bg-gradient-to-r from-transparent to-black pl-8",
                               "transition-opacity duration-500",
                               l ? "opacity-100" : "opacity-0",
                             ]),
-                            children: (0, o.jsx)(H.C, {
+                            children: (0, o.jsx)(G.C, {
                               className:
                                 "ml-3 hidden cursor-pointer bg-gray-light py-0 text-foreground hover:text-muted-foreground md:inline-flex",
                               onMouseDown: (e) => {
                                 e.preventDefault(), c();
                               },
-                              children: (0, o.jsx)(B.Z, { className: "w-4" }),
+                              children: (0, o.jsx)(H.Z, { className: "w-4" }),
                             }),
                           }),
                         ],
@@ -1077,33 +1096,33 @@
               })
             : null;
         },
-        X = t(92299),
-        J = t(26579);
+        J = t(92299),
+        X = t(26579);
       let $ = p.forwardRef((e, a) => {
         let { className: t, ...n } = e;
-        return (0, o.jsxs)(J.fC, {
+        return (0, o.jsxs)(X.fC, {
           ref: a,
-          className: (0, U.cn)(
+          className: (0, P.cn)(
             "relative flex w-full touch-none select-none items-center",
             t
           ),
           ...n,
           children: [
-            (0, o.jsx)(J.fQ, {
+            (0, o.jsx)(X.fQ, {
               className:
                 "relative h-2 w-full grow overflow-hidden rounded-full bg-secondary",
-              children: (0, o.jsx)(J.e6, {
+              children: (0, o.jsx)(X.e6, {
                 className: "absolute h-full bg-primary",
               }),
             }),
-            (0, o.jsx)(J.bU, {
+            (0, o.jsx)(X.bU, {
               className:
                 "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
             }),
           ],
         });
       });
-      $.displayName = J.fC.displayName;
+      $.displayName = X.fC.displayName;
       var ee = () => {
           let [e, a] = (0, p.useState)(120),
             [t] = (0, d.c)(e, 100),
@@ -1127,8 +1146,8 @@
                               "mr-2 whitespace-nowrap text-sm text-muted-foreground ",
                             children: "Context Length",
                           }),
-                          (0, o.jsx)(X.Z, {
-                            width: 600,
+                          (0, o.jsx)(J.Z, {
+                            contentClassName: "w-[400px] md:w-[600px]",
                             children: (0, o.jsx)("div", {
                               children:
                                 "The context length determines how much of the current track the model considers when generating the output. Longer context lengths can improve the coherence of the output, and make it easier to create consistent verses and choruses, but also make it more difficult to change genres, or styles. Shorter context lengths are more flexible, but can lead to less coherent output.",
@@ -1162,7 +1181,7 @@
                   }),
                   (0, o.jsx)("div", {
                     className: "font-mono text-base",
-                    children: (0, U.mr)(e),
+                    children: (0, P.mr)(e),
                   }),
                 ],
               }),
@@ -1199,7 +1218,7 @@
                 (0, o.jsxs)("div", {
                   className: "flex w-full py-2",
                   children: [
-                    (0, o.jsxs)(R.z, {
+                    (0, o.jsxs)(q.z, {
                       variant: "ghost",
                       className:
                         "absolute -top-1 right-0 flex h-8 flex-row py-0",
@@ -1279,7 +1298,7 @@
                         children: (0, o.jsxs)("div", {
                           className: " mt-2 flex items-center justify-between",
                           children: [
-                            (0, o.jsx)(G, {
+                            (0, o.jsx)(U, {
                               id: "bypass-settings",
                               checked: a,
                               onCheckedChange: (e) => {
@@ -1293,7 +1312,7 @@
                                 "mr-2 whitespace-nowrap text-sm text-muted-foreground",
                               children: "Select Section",
                             }),
-                            (0, o.jsx)(X.Z, {
+                            (0, o.jsx)(J.Z, {
                               children:
                                 "Select a section of the song to crop before the extension process occurs. This is a non destructive operation that will not affect the original song.",
                             }),
@@ -1414,7 +1433,7 @@
             children: [
               (0, o.jsx)(eu, { size: 40 }),
               (0, o.jsx)(eg, {}),
-              (0, o.jsx)(Y.Z, { className: "mb-3 mt-3 " }),
+              (0, o.jsx)(W.Z, { className: "mb-3 mt-3 " }),
               (0, o.jsx)("div", {
                 className: "relative my-3 flex w-full flex-col",
                 children: (0, o.jsx)("div", {
@@ -1477,7 +1496,7 @@
                                   color: "black",
                                   fill: "white",
                                 })
-                              : (0, o.jsx)(E.Z, {
+                              : (0, o.jsx)(I.Z, {
                                   className: "",
                                   size: 16,
                                   color: "white",
@@ -1493,14 +1512,16 @@
             ],
           });
         },
-        ef = t(41943),
-        em = t(77778),
-        eb = t(86210),
-        ep = t(43081),
-        ex = t(74332),
-        ey = t(78398),
-        ev = t(5201),
-        ew = (e) => {
+        ef = t(48779),
+        em = t(41943),
+        eb = t(77778),
+        ep = t(86210),
+        ex = t(43081),
+        ey = t(74332),
+        ev = t(78398),
+        ew = t(5201);
+      let ej = "hsla(0, 0%, 5%, 0.75)";
+      var eN = (e) => {
           var a;
           let {
               track: t,
@@ -1518,21 +1539,23 @@
             [x, y] = (0, p.useState)(null),
             [v, w] = (0, p.useState)(null),
             [j, N] = (0, p.useState)(null),
-            { isMediumDevice: k } = (0, _.Z)(),
-            C = (null == t ? void 0 : t.duration) > 33,
-            S = C ? (window.innerWidth - 600) / 28 : 2,
+            { isMediumDevice: k } = (0, C.Z)(),
+            _ = k
+              ? (window.innerWidth - 540) / 28
+              : (window.innerWidth - 100) / 28,
+            S = "#e30b5d",
             {
               wavesurfer: z,
-              isReady: T,
-              isPlaying: Z,
+              isReady: Z,
+              isPlaying: T,
               currentTime: F,
-            } = (0, ef.o)({
+            } = (0, em.o)({
               container: u,
               url: null == t ? void 0 : t.song_path,
-              waveColor: "#333",
-              progressColor: "#e30b5d",
+              waveColor: "#7b7d7e",
+              progressColor: S,
               height: i,
-              minPxPerSec: S,
+              minPxPerSec: _,
               barWidth: 3,
               barGap: 1,
               barRadius: 2,
@@ -1540,17 +1563,18 @@
               autoCenter: !1,
               autoScroll: !1,
             }),
-            { wavesurfer: P } = (0, ef.o)({
+            { wavesurfer: L, isReady: E } = (0, em.o)({
               container: c,
               url: null == t ? void 0 : t.song_path,
               height: 30,
               barWidth: 3,
+              barHeight: 0.5,
               barGap: 1,
               barRadius: 2,
               waveColor: "#333",
-              progressColor: "#b1b3b5",
+              progressColor: S,
             }),
-            L = () => {
+            I = () => {
               let e = u.current,
                 a = null == e ? void 0 : e.firstChild,
                 t = null == a ? void 0 : a.shadowRoot,
@@ -1580,8 +1604,8 @@
                 return (
                   (a.className =
                     "icon-container" + ("right" === e ? "-right" : "-left")),
-                  (a.innerHTML = ex.renderToString(
-                    (0, o.jsx)(em.Z, { color: "black", size: 16 })
+                  (a.innerHTML = ey.renderToString(
+                    (0, o.jsx)(eb.Z, { color: "black", size: 16 })
                   )),
                   a
                 );
@@ -1598,45 +1622,49 @@
                 });
             };
           (0, p.useEffect)(() => {
-            if (z && (n || s)) {
-              let e = z.registerPlugin(ev.Z.create());
-              z.registerPlugin(ey.Z.create()),
-                y(e),
-                r && r([0, 15]),
-                z.on("decode", () => {
-                  let a = e.addRegion({
-                    start: 0,
-                    end: 15,
-                    content: "",
-                    color: "hsla(337, 91%, 47%, 0.4)",
-                    resize: !0,
-                  });
-                  a.on("update", () => {
-                    a.end - a.start < 1 && (a.end = a.start + 1);
+            r && r([5, 10]), l && l([0, 28]);
+          }, []),
+            (0, p.useEffect)(() => {
+              if (z && !Z) {
+                let e = z.registerPlugin(ew.Z.create());
+                k && z.registerPlugin(ev.Z.create()),
+                  y(e),
+                  r && r([5, 10]),
+                  z.on("decode", () => {
+                    let a = e.addRegion({
+                      start: 5,
+                      end: 10,
+                      content: "",
+                      color: ej,
+                      resize: !0,
+                    });
+                    a.on("update", () => {
+                      a.end - a.start < 1 && (a.end = a.start + 1);
+                    }),
+                      I();
                   }),
-                    L();
-                }),
-                e.on("region-in", (e) => {}),
-                e.on("region-out", (e) => {
-                  z.pause();
-                }),
-                e.on("region-updated", (a) => {
-                  let t = Object.values(e.getRegions()).flatMap((e) => [
-                    e.start,
-                    e.end,
-                  ]);
-                  g(a.start), f(a.end), r && r(t);
-                });
-            }
-            if (s && C && P && z) {
-              let e = P.registerPlugin(ev.Z.create());
-              l && l([0, 28]), w(e);
-              let a = !1;
-              P.on("ready", () => {
+                  e.on("region-in", (e) => {}),
+                  e.on("region-updated", (a) => {
+                    let t = Object.values(e.getRegions()).flatMap((e) => [
+                      e.start,
+                      e.end,
+                    ]);
+                    g(a.start), f(a.end), r && r(t);
+                  });
+              }
+              if (s && L && z && Z && E) {
+                let e = L.registerPlugin(ew.Z.create());
+                L.setVolume(0),
+                  null == L ||
+                    L.setMediaElement(null == z ? void 0 : z.getMediaElement()),
+                  l && l([0, 28]),
+                  w(e);
+                let a = !1;
+                e.clearRegions();
                 let t = e.addRegion({
                   start: 0,
                   end: 28,
-                  color: "rgba(155, 155, 155, 0.5)",
+                  color: "hsla(0, 100%, 100%, 0.2)",
                   resize: !1,
                 });
                 t.on("update", () => {
@@ -1644,7 +1672,7 @@
                 }),
                   N(t),
                   z.on("scroll", (t) => {
-                    if ((console.log("Scrolling", t), a)) {
+                    if (a) {
                       a = !1;
                       return;
                     }
@@ -1653,44 +1681,44 @@
                       l && l([t, t + 28]),
                       N(o);
                   });
-              }),
-                z.on("timeupdate", () => {
-                  let e = z.getCurrentTime();
-                  P.seekTo(e / (null == t ? void 0 : t.duration));
-                });
-            }
-          }, [z, n, s]),
+              }
+              return () => {
+                null == v || v.clearRegions();
+              };
+            }, [z, t, L, Z, E]),
             null === (a = u.current) || void 0 === a || a.clientWidth,
             null == t || t.duration;
-          let E = Math.min(i / 4, 40);
+          let M = Math.min(i / 4, 40);
           return (0, o.jsx)(o.Fragment, {
             children: t
               ? (0, o.jsxs)("div", {
                   className: "w-[95%]",
-                  onBlur: () => (null == z ? void 0 : z.pause()),
+                  onBlur: () => {
+                    null == z || z.pause(), null == L || L.pause();
+                  },
                   style: { touchAction: "none" },
                   children: [
                     (0, o.jsxs)("div", {
-                      className: "relative flex w-full items-center",
+                      className: "relative flex w-full",
                       children: [
                         (0, o.jsx)("div", {
-                          className: "mr-3",
+                          className: "mr-3 mt-[10px]",
                           children: (null == z ? void 0 : z.isPlaying())
-                            ? (0, o.jsx)(R.z, {
+                            ? (0, o.jsx)(q.z, {
                                 className: "rounded-full p-2",
                                 onClick: () => (null == z ? void 0 : z.pause()),
                                 size: "custom",
-                                children: (0, o.jsx)(eb.Z, {
-                                  size: E,
+                                children: (0, o.jsx)(ep.Z, {
+                                  size: M,
                                   fill: "black",
                                 }),
                               })
-                            : (0, o.jsx)(R.z, {
+                            : (0, o.jsx)(q.z, {
                                 className: "rounded-full p-2",
                                 onClick: () => (null == z ? void 0 : z.play()),
                                 size: "custom",
-                                children: (0, o.jsx)(ep.Z, {
-                                  size: E,
+                                children: (0, o.jsx)(ex.Z, {
+                                  size: M,
                                   className: "translate-x-[2px]",
                                   fill: "black",
                                 }),
@@ -1706,11 +1734,14 @@
                               onClick: () => {
                                 z && z.play();
                               },
+                              onBlur: () => {
+                                null == z || z.pause(), null == L || L.pause();
+                              },
                             }),
                             (0, o.jsx)("div", {
                               ref: c,
                               id: "waveform-minimap",
-                              className: "h-full w-full ",
+                              className: "mt-2 h-full w-full",
                             }),
                           ],
                         }),
@@ -1728,7 +1759,7 @@
                                 className: "font-bold",
                                 children: "Start: ",
                               }),
-                              (0, U.mr)(d, k),
+                              (0, P.mr)(d, k),
                             ],
                           }),
                           (0, o.jsxs)("div", {
@@ -1738,7 +1769,7 @@
                                 className: "font-bold",
                                 children: "Current: ",
                               }),
-                              (0, U.mr)(F, k),
+                              (0, P.mr)(F, k),
                             ],
                           }),
                           (0, o.jsxs)("div", {
@@ -1748,7 +1779,7 @@
                                 className: "font-bold",
                                 children: "End: ",
                               }),
-                              (0, U.mr)(h, k),
+                              (0, P.mr)(h, k),
                             ],
                           }),
                         ],
@@ -1757,7 +1788,7 @@
                       (0, o.jsxs)("div", {
                         className: "mt-2 flex",
                         children: [
-                          (0, o.jsx)(R.z, {
+                          (0, o.jsx)(q.z, {
                             onClick: () => {
                               if (x) {
                                 if (x.getRegions().length > 3) return;
@@ -1765,20 +1796,20 @@
                                   start: F,
                                   end: F + 3,
                                   content: "",
-                                  color: "hsla(337, 91%, 47%, 0.4)",
+                                  color: ej,
                                   resize: !0,
                                 });
                                 e.on("update", () => {
                                   e.end - e.start < 1 && (e.end = e.start + 1);
                                 });
                               }
-                              L();
+                              I();
                             },
                             variant: "outline",
                             className: "mr-2 text-xs md:text-base",
                             children: "Add Region",
                           }),
-                          (0, o.jsx)(R.z, {
+                          (0, o.jsx)(q.z, {
                             onClick: () => {
                               x && x.clearRegions();
                             },
@@ -1796,38 +1827,52 @@
                 }),
           });
         },
-        ej = () => {
+        ek = () => {
           let e = (0, u.cC)("enable-inpainting"),
             {
               baseTrack: a,
               samplerOptions: t,
               setSamplerOptionsItem: n,
-            } = (0, S.QY)();
+            } = (0, S.QY)(),
+            s = (0, N.Z)(),
+            { data: i } = (0, ef.Z)({ enabled: !!(null == s ? void 0 : s.id) }),
+            r = null == i ? void 0 : i.paidPlan;
           return (0, o.jsxs)("div", {
             className: "relative my-2",
             children: [
               (0, o.jsx)(eu, { size: 40 }),
               e &&
                 a &&
+                r &&
                 (0, o.jsxs)(o.Fragment, {
                   children: [
                     (0, o.jsxs)("div", {
-                      className: " mt-2 flex items-center ",
+                      className: " mt-2 flex flex-col md:flex-row ",
                       children: [
-                        (0, o.jsx)("h1", {
-                          className:
-                            "mr-2 whitespace-nowrap text-sm text-muted-foreground",
-                          children: "Select Inpainting Sections",
+                        (0, o.jsxs)("div", {
+                          className: "flex items-center",
+                          children: [
+                            (0, o.jsx)("h1", {
+                              className:
+                                "mr-2 whitespace-nowrap text-sm text-muted-foreground",
+                              children: "Select Inpainting Sections",
+                            }),
+                            (0, o.jsx)(J.Z, {
+                              children:
+                                "Select sections to inpaint. These shaded sections will be re-generated based on your prompt. You may inpaint four sections at a time within a maximum window of 28 seconds. Any sections outside of the range displayed in the top waveform will be ignored.",
+                            }),
+                          ],
                         }),
-                        (0, o.jsx)(X.Z, {
+                        (0, o.jsx)("h1", {
+                          className: "text-sm text-muted-foreground md:ml-2",
                           children:
-                            "Select selections to inpaint. These sections will be replaced with new genertions based on your prompt. You may only inpaint with 4 sections at a time within a maximum of a 32 second range within your track.",
+                            "Note: Only selected shaded regions that are visible within the top waveform will be inpainted.",
                         }),
                       ],
                     }),
                     (0, o.jsx)("div", {
                       className: "mt-2",
-                      children: (0, o.jsx)(ew, {
+                      children: (0, o.jsx)(eN, {
                         multipleSections: !0,
                         height: 50,
                         track: a,
@@ -1839,22 +1884,27 @@
                         },
                       }),
                     }),
+                    (0, o.jsx)(W.Z, { className: "mt-3 " }),
+                    (0, o.jsx)("h1", {
+                      className: "md:hidden",
+                      children:
+                        "Inpainting is currently only availble on desktop",
+                    }),
                   ],
                 }),
-              (0, o.jsx)(Y.Z, { className: "mt-3 " }),
             ],
           });
         },
-        eN = t(95200),
-        ek = t(23444);
-      let eC = [
+        e_ = t(95200),
+        eC = t(23444);
+      let eS = [
         "Write lyrics suitable for a 30s clip — about 6 lines for most genres, fewer for slower songs, and more for faster ones.",
         "Add [Verse], [Bridge], and [Chorus] tags for additional control.",
         "[Drop] and [guitar solo] [sax solo] all do interesting things.",
         "If the model mispronounces a word, you can split it up into easier phonemes.",
         "Use between 200 and 350 characters for best results.",
       ];
-      var e_ = (e) => {
+      var ez = (e) => {
           let {
               settings: a,
               setSettings: t,
@@ -1862,22 +1912,42 @@
               setLyricsType: s,
             } = e,
             [i, r] = (0, p.useState)(0),
-            { isMediumDevice: l } = (0, _.Z)(),
-            { setLyricsFocus: u } = (0, T.F)(),
+            { isMediumDevice: l } = (0, C.Z)(),
+            { setLyricsFocus: u } = (0, Z.F)(),
             c = (0, p.useCallback)(
               (e) => () => {
                 s(e), (0, F.L9)("Select Lyric Type", { lyricType: e });
               },
               [s]
-            );
-          (0, p.useEffect)(() => {
-            "lyricInput" === n && r(Math.floor(Math.random() * eC.length));
-          }, [n]);
-          let d = (0, p.useCallback)(() => {
-              r((i + 1) % eC.length);
+            ),
+            { samplerOptions: d, setSamplerOptionsItem: g } = (0, S.QY)(),
+            h = "inpaint" === d.audio_conditioning_type,
+            f = [
+              {
+                title: "Custom",
+                description: "Write your own lyrics",
+                value: "lyricInput",
+              },
+              { title: "Instrumental", value: "instrumental" },
+              { title: l ? "Auto-generated" : "Auto", value: "infer" },
+            ];
+          h &&
+            (f = [
+              {
+                title: "Region",
+                description: "Lyrics for the visible region of the song",
+                value: "lyricInput",
+              },
+              { title: "Instrumental", value: "instrumental" },
+            ]),
+            (0, p.useEffect)(() => {
+              "lyricInput" === n && r(Math.floor(Math.random() * eS.length));
+            }, [n]);
+          let m = (0, p.useCallback)(() => {
+              r((i + 1) % eS.length);
             }, [i]),
-            g = (0, p.useCallback)(() => {
-              r((i - 1 + eC.length) % eC.length);
+            b = (0, p.useCallback)(() => {
+              r((i - 1 + eS.length) % eS.length);
             }, [i]);
           return (0, o.jsxs)("div", {
             children: [
@@ -1886,23 +1956,15 @@
                 children: "Lyrics",
               }),
               (0, o.jsx)("div", {
-                className: (0, U.cn)(
-                  "grid grid-cols-3 items-center gap-x-4",
+                className: (0, P.cn)(
+                  "grid grid-cols-".concat(f.length, " items-center gap-x-4"),
                   "lyricInput" === n ? "mb-3" : "mb-0 "
                 ),
-                children: [
-                  {
-                    title: "Custom",
-                    description: "Write your own lyrics",
-                    value: "lyricInput",
-                  },
-                  { title: "Instrumental", value: "instrumental" },
-                  { title: l ? "Auto-generated" : "Auto", value: "infer" },
-                ].map((e) =>
+                children: f.map((e) =>
                   (0, o.jsxs)(
                     "div",
                     {
-                      className: (0, U.cn)([
+                      className: (0, P.cn)([
                         "relative flex h-[49px] cursor-pointer flex-row items-center justify-center overflow-hidden rounded-md border border-input px-4 md:justify-between",
                         n === e.value
                           ? "border-[var(--ring)] bg-create"
@@ -1935,7 +1997,7 @@
                               color: "black",
                               fill: "white",
                             })
-                          : (0, o.jsx)(E.Z, {
+                          : (0, o.jsx)(I.Z, {
                               className: "hidden lg:block",
                               size: 16,
                               color: "white",
@@ -1953,7 +2015,7 @@
                       className:
                         "relative flex w-full flex-col items-start space-y-2 lg:flex-row lg:space-x-2",
                       children: [
-                        (0, o.jsx)(ek.g, {
+                        (0, o.jsx)(eC.g, {
                           placeholder: "Write custom lyrics here",
                           className:
                             "min-h-[125px] w-full px-4 text-[16px] md:min-h-[150px] md:text-[14px] lg:w-2/3",
@@ -1964,143 +2026,204 @@
                           onChange: (e) =>
                             t({ ...a, lyricInput: e.target.value }),
                         }),
-                        (0, U.wb)(a.lyricInput || "") &&
+                        (0, P.wb)(a.lyricInput || "") &&
                           (0, o.jsx)("p", {
                             className:
                               "mt-2 px-1 text-sm font-medium text-destructive md:hidden",
                             children:
                               "Use less than 350 characters for best results",
                           }),
-                        (0, o.jsxs)("div", {
+                        (0, o.jsx)("div", {
                           className: "relative w-full px-4 lg:w-1/3",
-                          children: [
-                            (0, o.jsxs)("div", {
-                              className:
-                                "absolute right-4 top-2 flex items-center space-x-4",
-                              children: [
-                                (0, o.jsx)(Q.Z, {
-                                  size: 16,
-                                  className: "cursor-pointer",
-                                  onClick: g,
-                                }),
-                                (0, o.jsx)(B.Z, {
-                                  size: 16,
-                                  className: "cursor-pointer",
-                                  onClick: d,
-                                }),
-                              ],
-                            }),
-                            (0, o.jsxs)("div", {
-                              className:
-                                "my-2 flex flex-row items-center text-base text-muted-foreground",
-                              children: [
-                                (0, o.jsx)(eN.Z, {
-                                  className: "mr-2",
-                                  size: 16,
-                                }),
-                                "Lyrics Tip",
-                              ],
-                            }),
-                            (0, o.jsx)("div", {
-                              className: "text-base text-muted-foreground",
-                              children: eC[i],
-                            }),
-                          ],
+                          children: h
+                            ? (0, o.jsxs)(o.Fragment, {
+                                children: [
+                                  (0, o.jsxs)("div", {
+                                    className:
+                                      "my-2 flex flex-row items-center text-base ",
+                                    children: [
+                                      (0, o.jsx)(M.Z, {
+                                        className: "mr-2",
+                                        size: 16,
+                                      }),
+                                      "Region Lyrics Note",
+                                    ],
+                                  }),
+                                  (0, o.jsx)("div", {
+                                    className: "text-base ",
+                                    children:
+                                      "When inpainting, use “***” to enclose the section of the lyrics that correspond to the top waveform. Any lyrics changes should match sections selected for inpainting.",
+                                  }),
+                                  " ",
+                                ],
+                              })
+                            : (0, o.jsxs)(o.Fragment, {
+                                children: [
+                                  (0, o.jsxs)("div", {
+                                    className:
+                                      "absolute right-4 top-2 flex items-center space-x-4",
+                                    children: [
+                                      (0, o.jsx)(B.Z, {
+                                        size: 16,
+                                        className: "cursor-pointer",
+                                        onClick: b,
+                                      }),
+                                      (0, o.jsx)(H.Z, {
+                                        size: 16,
+                                        className: "cursor-pointer",
+                                        onClick: m,
+                                      }),
+                                    ],
+                                  }),
+                                  (0, o.jsxs)("div", {
+                                    className:
+                                      "my-2 flex flex-row items-center text-base text-muted-foreground",
+                                    children: [
+                                      (0, o.jsx)(e_.Z, {
+                                        className: "mr-2",
+                                        size: 16,
+                                      }),
+                                      "Lyrics Tip",
+                                    ],
+                                  }),
+                                  (0, o.jsx)("div", {
+                                    className:
+                                      "text-base text-muted-foreground",
+                                    children: eS[i],
+                                  }),
+                                  " ",
+                                ],
+                              }),
                         }),
                       ],
                     }),
                   })
                 : null,
-              (0, U.wb)(a.lyricInput || "") &&
+              (0, P.wb)(a.lyricInput || "") &&
                 (0, o.jsx)("p", {
                   className:
-                    "mt-2 hidden px-1 text-sm font-medium text-destructive md:block",
+                    "mt-2 hidden px-1 text-sm font-medium text-brand-red md:block",
                   children: "Use less than 350 characters for best results",
                 }),
-              (0, o.jsx)("div", { className: "flex h-[50vh] md:h-0" }),
+              !(0, P.Ig)(a.lyricInput || "").hasSelector &&
+                h &&
+                "lyricInput" === n &&
+                (0, o.jsx)("p", {
+                  className:
+                    "mt-2 hidden px-1 text-sm font-medium text-brand-red md:block",
+                  children: (0, P.Ig)(a.lyricInput || "").warning,
+                }),
+              (0, o.jsx)("div", { className: "h-[100px] md:h-0" }),
             ],
           });
         },
-        eS = () =>
-          (0, o.jsx)(X.Z, {
+        eZ = () =>
+          (0, o.jsx)(J.Z, {
             children: (0, o.jsx)("div", {
               children:
                 "Manual mode allows you to directly prompt the model without any prompt rewriting. By default, our system rewrites your prompts to improve the average output quality. If you are seeking specific sounds and want to interact directly with the model interface, we recommend using manual mode.",
             }),
           }),
-        ez = t(29456),
-        eT = (e) => {
-          let { userApiUsageData: a } = e;
+        eT = t(29456),
+        eF = (e) => {
+          let { userApiUsageData: a } = e,
+            t = (0, p.useMemo)(
+              () =>
+                Number((null == a ? void 0 : a.monthly_discretionary) || 0) +
+                Number((null == a ? void 0 : a.discretionary) || 0),
+              [a]
+            );
           return (0, o.jsx)(o.Fragment, {
             children:
               a &&
-              (0, o.jsxs)(ez.zs, {
+              (0, o.jsxs)(eT.zs, {
                 openDelay: 200,
                 children: [
-                  (0, o.jsxs)(ez.Yi, {
+                  (0, o.jsxs)(eT.Yi, {
                     className: "flex",
                     children: [
-                      (0, o.jsxs)("span", {
-                        className: "flex cursor-pointer items-center text-xs",
-                        children: [
-                          a.monthly_used,
-                          " / ",
-                          a.monthly_limit,
-                          " ",
-                          "Monthly Generations",
-                        ],
-                      }),
+                      "free" === a.tier
+                        ? (0, o.jsxs)("span", {
+                            className:
+                              "flex cursor-pointer items-center text-xs",
+                            children: [
+                              a.daily_used,
+                              " /",
+                              " ",
+                              a.daily_throttle_limit,
+                              " Daily Credits",
+                            ],
+                          })
+                        : null,
+                      "standard" === a.tier || "pro" === a.tier
+                        ? (0, o.jsxs)("span", {
+                            className:
+                              "flex cursor-pointer items-center text-xs",
+                            children: [
+                              a.monthly_used,
+                              " /",
+                              " ",
+                              a.monthly_limit,
+                              " Monthly Credits",
+                            ],
+                          })
+                        : null,
                       a.discretionary > 0 &&
                         (0, o.jsxs)(o.Fragment, {
                           children: [
-                            (0, o.jsx)(Y.Z, {
+                            (0, o.jsx)(W.Z, {
                               className: "mx-2 h-[20px] w-[2px]",
                               orientation: "vertical",
                             }),
                             (0, o.jsxs)("span", {
                               className:
                                 "ml-1 flex cursor-pointer items-center text-xs",
-                              children: [
-                                a.discretionary,
-                                " Additional Generations",
-                              ],
+                              children: [t, " Additional Credits"],
                             }),
                           ],
                         }),
                     ],
                   }),
-                  (0, o.jsx)(ez.bZ, {
+                  (0, o.jsx)(eT.bZ, {
                     side: "top",
                     className: "w-80",
                     children: (0, o.jsxs)("div", {
                       className: "flex flex-col space-y-1",
                       children: [
+                        "free" === a.tier
+                          ? (0, o.jsxs)("span", {
+                              className: "flex items-center",
+                              children: [
+                                a.daily_used,
+                                " /",
+                                " ",
+                                a.daily_throttle_limit,
+                                " Daily Credits",
+                              ],
+                            })
+                          : null,
+                        "standard" === a.tier || "pro" === a.tier
+                          ? (0, o.jsxs)("span", {
+                              className: "flex items-center",
+                              children: [
+                                a.monthly_used,
+                                " /",
+                                " ",
+                                a.monthly_limit,
+                                " Monthly Credits",
+                              ],
+                            })
+                          : null,
                         (0, o.jsxs)("span", {
                           className: "flex items-center",
                           children: [
-                            a.daily_used,
-                            " /",
-                            " ",
-                            a.daily_throttle_limit,
-                            " Daily Priority Generations",
+                            a.monthly_discretionary,
+                            " Additional Monthly Credits",
                           ],
                         }),
                         (0, o.jsxs)("span", {
                           className: "flex items-center",
-                          children: [
-                            a.monthly_used,
-                            " /",
-                            " ",
-                            a.monthly_limit,
-                            " Monthly Generations",
-                          ],
-                        }),
-                        (0, o.jsxs)("span", {
-                          className: "flex items-center",
-                          children: [
-                            a.discretionary,
-                            " Additional Generations",
-                          ],
+                          children: [a.discretionary, " Additional Credits"],
                         }),
                       ],
                     }),
@@ -2109,78 +2232,81 @@
               }),
           });
         },
-        eZ = () => {
+        eP = () => {
           let {
               samplerOptions: e,
               baseTrack: a,
               setSamplerOptions: t,
             } = (0, S.QY)(),
-            { isMediumDevice: n } = (0, _.Z)();
-          return "variation" === e.audio_conditioning_type && a
-            ? (0, o.jsx)("div", {
-                className:
-                  "relative my-5 flex w-full space-x-3 md:items-center",
-                children: (0, o.jsx)("div", {
-                  className: "w-full",
-                  children: (0, o.jsxs)("div", {
-                    className:
-                      "flex flex-col items-center md:flex-row md:space-x-4",
-                    children: [
-                      (0, o.jsx)("div", {
-                        className:
-                          "relative flex w-full flex-shrink-0 flex-col items-start md:w-1/2",
-                        children: (0, o.jsx)(eu, { size: n ? 57 : 40 }),
-                      }),
-                      (0, o.jsxs)("div", {
-                        className:
-                          "flex w-full flex-grow flex-col space-y-2 pt-3",
-                        children: [
-                          (0, o.jsx)("h1", {
-                            className:
-                              "whitespace-nowrap text-sm text-muted-foreground",
-                            children: "Variance",
-                          }),
-                          (0, o.jsx)($, {
-                            min: 0,
-                            max: 1,
-                            step: 0.01,
-                            className: "w-full",
-                            color: "bg-brand-accent",
-                            value: [
-                              void 0 !== e.audio_conditioning_similarity
-                                ? 1 - e.audio_conditioning_similarity
-                                : 0,
-                            ],
-                            onValueChange: (a) =>
-                              t({
-                                ...e,
-                                audio_conditioning_similarity: 1 - a[0],
-                              }),
-                          }),
-                          (0, o.jsxs)("div", {
-                            className: "flex items-center justify-between",
-                            children: [
-                              (0, o.jsx)("div", {
-                                className: "text-sm text-muted-foreground",
-                                children: "Similar",
-                              }),
-                              (0, o.jsx)("div", {
-                                className: "text-sm text-muted-foreground",
-                                children: "Different",
-                              }),
-                            ],
-                          }),
-                        ],
-                      }),
-                    ],
+            { isMediumDevice: n } = (0, C.Z)(),
+            [s, i] = (0, p.useState)(
+              void 0 !== e.audio_conditioning_similarity
+                ? 1 - e.audio_conditioning_similarity
+                : 0.1
+            ),
+            [r] = (0, d.c)(s, 100);
+          return (
+            (0, p.useEffect)(() => {
+              t({ ...e, audio_conditioning_similarity: 1 - s });
+            }, [r]),
+            "variation" === e.audio_conditioning_type && a
+              ? (0, o.jsx)("div", {
+                  className:
+                    "relative my-5 flex w-full space-x-3 md:items-center",
+                  children: (0, o.jsx)("div", {
+                    className: "w-full",
+                    children: (0, o.jsxs)("div", {
+                      className:
+                        "flex flex-col items-center md:flex-row md:space-x-4",
+                      children: [
+                        (0, o.jsx)("div", {
+                          className:
+                            "relative flex w-full flex-shrink-0 flex-col items-start md:w-1/2",
+                          children: (0, o.jsx)(eu, { size: n ? 57 : 40 }),
+                        }),
+                        (0, o.jsxs)("div", {
+                          className:
+                            "flex w-full flex-grow flex-col space-y-2 pt-3",
+                          children: [
+                            (0, o.jsx)("h1", {
+                              className:
+                                "whitespace-nowrap text-sm text-muted-foreground",
+                              children: "Variance",
+                            }),
+                            (0, o.jsx)($, {
+                              min: 0.1,
+                              max: 1,
+                              step: 0.01,
+                              className: "w-full",
+                              color: "bg-brand-accent",
+                              value: [s],
+                              onValueChange: (e) => i(e[0]),
+                            }),
+                            (0, o.jsxs)("div", {
+                              className: "flex items-center justify-between",
+                              children: [
+                                (0, o.jsx)("div", {
+                                  className: "text-sm text-muted-foreground",
+                                  children: "Similar",
+                                }),
+                                (0, o.jsx)("div", {
+                                  className: "text-sm text-muted-foreground",
+                                  children: "Different",
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
                   }),
-                }),
-              })
-            : null;
+                })
+              : null
+          );
         },
-        eF = t(52235);
-      let eP = 7 / 12;
-      var eL = (e) => {
+        eL = t(52235);
+      let eE = 7 / 12;
+      var eI = (e) => {
           let {
               partialTag: a = "",
               tagList: t,
@@ -2190,13 +2316,13 @@
             i = (0, p.useRef)(null),
             [r, l] = (0, p.useState)(!1),
             [u, c] = (0, p.useState)(!0),
-            { setShowTagCompletions: d } = (0, T.F)(),
-            { isMediumDevice: g } = (0, _.Z)(),
+            { setShowTagCompletions: d } = (0, Z.F)(),
+            { isMediumDevice: g } = (0, C.Z)(),
             h = (0, p.useCallback)(() => {
               if (i.current) {
                 let { scrollWidth: e, clientWidth: a } = i.current;
                 i.current.scrollLeft = Math.min(
-                  i.current.scrollLeft + a * eP,
+                  i.current.scrollLeft + a * eE,
                   e - a
                 );
               }
@@ -2204,7 +2330,7 @@
             f = (0, p.useCallback)(() => {
               i.current &&
                 (i.current.scrollLeft = Math.max(
-                  i.current.scrollLeft - i.current.clientWidth * eP,
+                  i.current.scrollLeft - i.current.clientWidth * eE,
                   0
                 ));
             }, []);
@@ -2231,7 +2357,7 @@
                   "absolute z-10 flex w-full items-center overflow-x-auto bg-background pb-1",
                 children: [
                   (0, o.jsx)("div", {
-                    className: (0, U.cn)([
+                    className: (0, P.cn)([
                       "absolute -z-10 h-full w-full bg-black/55",
                       s,
                     ]),
@@ -2243,7 +2369,7 @@
                       className:
                         "my-1 cursor-pointer rounded-full border border-input bg-black p-1",
                       onClick: () => d(!1),
-                      children: (0, o.jsx)(eF.Z, { size: 16, fill: "white" }),
+                      children: (0, o.jsx)(eL.Z, { size: 16, fill: "white" }),
                     }),
                   }),
                   (0, o.jsxs)("div", {
@@ -2254,25 +2380,25 @@
                         ? (0, o.jsxs)(o.Fragment, {
                             children: [
                               (0, o.jsx)("div", {
-                                className: (0, U.cn)([
+                                className: (0, P.cn)([
                                   "pointer-events-none absolute left-0 hidden h-[40px] w-[250px] bg-gradient-to-l from-transparent to-black md:block",
                                   "transition-opacity duration-500",
                                   r ? "opacity-100" : "opacity-0",
                                 ]),
                               }),
                               (0, o.jsx)("div", {
-                                className: (0, U.cn)([
+                                className: (0, P.cn)([
                                   "absolute left-[46px] top-[2px] py-1 pl-1 pr-4",
                                   "transition-opacity duration-500",
                                   r ? "opacity-100" : "opacity-0",
                                 ]),
-                                children: (0, o.jsx)(H.C, {
+                                children: (0, o.jsx)(G.C, {
                                   className:
                                     "mr-2 hidden cursor-pointer rounded-full border border-input bg-black p-1 text-foreground hover:text-muted-foreground md:inline-flex",
                                   onMouseDown: (e) => {
                                     e.preventDefault(), f();
                                   },
-                                  children: (0, o.jsx)(Q.Z, { size: 16 }),
+                                  children: (0, o.jsx)(B.Z, { size: 16 }),
                                 }),
                               }),
                             ],
@@ -2329,25 +2455,25 @@
                         ? (0, o.jsxs)(o.Fragment, {
                             children: [
                               (0, o.jsx)("div", {
-                                className: (0, U.cn)([
+                                className: (0, P.cn)([
                                   "pointer-events-none absolute right-0 hidden h-[40px] w-[200px] bg-gradient-to-r from-transparent to-black md:block",
                                   "transition-opacity duration-500",
                                   u ? "opacity-100" : "opacity-0",
                                 ]),
                               }),
                               (0, o.jsx)("div", {
-                                className: (0, U.cn)([
+                                className: (0, P.cn)([
                                   "absolute right-0 top-[2px] py-1 pl-4 pr-4",
                                   "transition-opacity duration-500",
                                   u ? "opacity-100" : "opacity-0",
                                 ]),
-                                children: (0, o.jsx)(H.C, {
+                                children: (0, o.jsx)(G.C, {
                                   className:
                                     "ml-3 hidden cursor-pointer rounded-full border border-input bg-black p-1 text-foreground hover:text-muted-foreground md:inline-flex",
                                   onMouseDown: (e) => {
                                     e.preventDefault(), h();
                                   },
-                                  children: (0, o.jsx)(B.Z, { size: 16 }),
+                                  children: (0, o.jsx)(H.Z, { size: 16 }),
                                 }),
                               }),
                             ],
@@ -2359,7 +2485,7 @@
               })
             : null;
         },
-        eE = (e) => {
+        eM = (e) => {
           let {
               partialTag: a,
               showOptions: t,
@@ -2377,11 +2503,11 @@
               userApiUsageData: b,
             } = e,
             { samplerOptions: x, setSamplerOptionsItem: y } = (0, S.QY)(),
-            { showTagCompletions: v } = (0, T.F)(),
-            { isLargeDevice: w } = (0, _.Z)(),
+            { showTagCompletions: v } = (0, Z.F)(),
+            { isLargeDevice: w } = (0, C.Z)(),
             j = (0, u.cC)("show-quota"),
             N = (0, u.cC)("advanced-controls"),
-            [k, C] = (0, p.useState)(!1);
+            [k, _] = (0, p.useState)(!1);
           (0, p.useEffect)(() => {
             k || y("audio_conditioning_length_seconds", 130);
           }, [k]);
@@ -2401,7 +2527,7 @@
                 ? (0, o.jsx)("div", {
                     className:
                       "absolute left-0 top-5 z-20 flex w-full items-center",
-                    children: (0, o.jsx)(eL, {
+                    children: (0, o.jsx)(eI, {
                       partialTag: a,
                       tagList: s,
                       addSuggestedTags: (e) => {
@@ -2416,7 +2542,7 @@
                 children: (0, o.jsxs)("div", {
                   className: "flex items-center space-x-2",
                   children: [
-                    (0, o.jsx)(G, {
+                    (0, o.jsx)(U, {
                       id: "bypass-settings",
                       checked: x.bypass_prompt_optimization,
                       onCheckedChange: (e) => {
@@ -2432,7 +2558,7 @@
                       className: "text-sm text-muted-foreground",
                       children: "Manual Mode",
                     }),
-                    (0, o.jsx)(eS, {}),
+                    (0, o.jsx)(eZ, {}),
                     (0, o.jsx)("div", {}),
                   ],
                 }),
@@ -2451,7 +2577,7 @@
                     className: "relative mb-3 mt-2 flex w-full items-center",
                     children: (null == n ? void 0 : n.length)
                       ? (0, o.jsx)(o.Fragment, {
-                          children: (0, o.jsx)(V, {
+                          children: (0, o.jsx)(K, {
                             tagType: "Prediction",
                             tagList: n,
                             addSuggestedTags: d,
@@ -2463,7 +2589,7 @@
                     className:
                       "flex flex-row items-center justify-between space-x-2",
                     children: [
-                      (0, o.jsx)(eZ, {}),
+                      (0, o.jsx)(eP, {}),
                       z &&
                         (0, o.jsx)("div", {
                           className: "w-full",
@@ -2472,13 +2598,13 @@
                       "inpaint" === x.audio_conditioning_type &&
                         (0, o.jsx)("div", {
                           className: "w-full",
-                          children: (0, o.jsx)(ej, {}),
+                          children: (0, o.jsx)(ek, {}),
                         }),
                     ],
                   }),
                   (0, o.jsx)("div", {
                     className: "mt-4",
-                    children: (0, o.jsx)(e_, {
+                    children: (0, o.jsx)(ez, {
                       settings: i,
                       setSettings: r,
                       lyricsType: g,
@@ -2489,7 +2615,7 @@
               }),
               (0, o.jsx)("div", {
                 className: "px-4",
-                children: (0, o.jsx)(Y.Z, { className: "mb-3 mt-4 " }),
+                children: (0, o.jsx)(W.Z, { className: "mb-3 mt-4 " }),
               }),
               (0, o.jsxs)("div", {
                 className: "flex w-full justify-between px-4",
@@ -2498,7 +2624,7 @@
                     className: "flex items-center space-x-2",
                     children: [
                       (0, o.jsx)("div", {}),
-                      j && b && (0, o.jsx)(eT, { userApiUsageData: b }),
+                      j && b && (0, o.jsx)(eF, { userApiUsageData: b }),
                     ],
                   }),
                   (0, o.jsxs)("div", {
@@ -2509,11 +2635,11 @@
                         (0, o.jsxs)("div", {
                           className: "mr-2 flex items-center space-x-2",
                           children: [
-                            (0, o.jsx)(G, {
+                            (0, o.jsx)(U, {
                               id: "advanced-controls",
                               checked: k,
                               onCheckedChange: (e) => {
-                                C(e);
+                                _(e);
                               },
                               title: "Toggle advanced controls",
                             }),
@@ -2524,13 +2650,13 @@
                             }),
                           ],
                         }),
-                      (0, o.jsxs)(R.z, {
+                      (0, o.jsxs)(q.z, {
                         variant: "default",
                         onClick: f,
                         className:
                           "flex w-[125px] flex-row items-center space-x-2 bg-[#FFFFFF]/5 px-0 hover:bg-[#FFFFFF]/10",
                         children: [
-                          (0, o.jsx)(O.Z, { size: 16, color: "white" }),
+                          (0, o.jsx)(Y.Z, { size: 16, color: "white" }),
                           (0, o.jsx)("div", {
                             className: " text-sm text-white",
                             children: "Reset Prompt",
@@ -2546,7 +2672,7 @@
                   children: [
                     (0, o.jsx)("div", {
                       className: "px-4",
-                      children: (0, o.jsx)(Y.Z, { className: "mb-2 mt-2 " }),
+                      children: (0, o.jsx)(W.Z, { className: "mb-2 mt-2 " }),
                     }),
                     (0, o.jsx)(ee, {}),
                   ],
@@ -2554,9 +2680,9 @@
             ],
           });
         },
-        eM = t(23441),
-        eD = t(88584),
-        eI = (e) => {
+        eR = t(23441),
+        eA = t(88584),
+        eD = (e) => {
           let {
               tagPredictions: a,
               settings: t,
@@ -2566,16 +2692,20 @@
               setLyricsType: r,
               userApiUsageData: l,
             } = e,
-            { samplerOptions: u, setSamplerOptionsItem: c } = (0, S.QY)();
+            { samplerOptions: c, setSamplerOptionsItem: d } = (0, S.QY)();
+          c.crop_start_time && (c.crop_start_time < 0.1 || c.crop_start_time);
+          let g =
+            "continuation" === c.audio_conditioning_type ||
+            "precede" === c.audio_conditioning_type;
           return (
-            u.crop_start_time && (u.crop_start_time < 0.1 || u.crop_start_time),
+            (0, u.cC)("advanced-controls"),
             (0, o.jsx)("div", {
               className: "relative left-0 w-full bg-gray-light",
               children: (0, o.jsxs)("div", {
                 className: "relative w-full",
                 children: [
                   (0, o.jsxs)("div", {
-                    className: (0, U.cn)("relative w-full", "mb-4"),
+                    className: (0, P.cn)("relative w-full", "mb-4"),
                     children: [
                       (0, o.jsx)("div", {
                         className: "relative flex flex-col items-end",
@@ -2597,11 +2727,11 @@
                             (0, o.jsxs)("span", {
                               className: "flex items-center space-x-2",
                               children: [
-                                (0, o.jsx)(G, {
+                                (0, o.jsx)(U, {
                                   id: "bypass-settings",
-                                  checked: u.bypass_prompt_optimization,
+                                  checked: c.bypass_prompt_optimization,
                                   onCheckedChange: (e) => {
-                                    c("bypass_prompt_optimization", e),
+                                    d("bypass_prompt_optimization", e),
                                       (0, F.L9)("Select Manual Mode", {
                                         value: e,
                                       });
@@ -2612,7 +2742,7 @@
                                   className: "text-sm ",
                                   children: "Manual Mode",
                                 }),
-                                (0, o.jsx)(eS, {}),
+                                (0, o.jsx)(eZ, {}),
                               ],
                             }),
                           ],
@@ -2628,7 +2758,7 @@
                               }),
                               (0, o.jsx)("div", {
                                 className: "mb-3 flex items-center",
-                                children: (0, o.jsx)(V, {
+                                children: (0, o.jsx)(K, {
                                   tagType: "Prediction",
                                   tagList: a,
                                   addSuggestedTags: s,
@@ -2639,19 +2769,23 @@
                         : null,
                     ],
                   }),
-                  (0, o.jsx)(eZ, {}),
-                  ("continuation" === u.audio_conditioning_type ||
-                    "precede" === u.audio_conditioning_type) &&
+                  (0, o.jsx)(eP, {}),
+                  g &&
                     (0, o.jsx)("div", {
                       className: "my-5 w-full",
                       children: (0, o.jsx)(eh, {}),
                     }),
-                  "inpaint" === u.audio_conditioning_type &&
+                  g &&
+                    (0, o.jsx)("div", {
+                      className: "mb-2 w-full",
+                      children: (0, o.jsx)(ee, {}),
+                    }),
+                  "inpaint" === c.audio_conditioning_type &&
                     (0, o.jsx)("div", {
                       className: "w-full",
-                      children: (0, o.jsx)(ej, {}),
+                      children: (0, o.jsx)(ek, {}),
                     }),
-                  (0, o.jsx)(e_, {
+                  (0, o.jsx)(ez, {
                     settings: t,
                     setSettings: n,
                     lyricsType: i,
@@ -2662,7 +2796,7 @@
             })
           );
         },
-        eA = (e) => {
+        eq = (e) => {
           let {
               partialTag: a,
               promptSuggestion: t,
@@ -2684,23 +2818,23 @@
             } = e,
             { openAuthModal: j } = (0, z.fI)(),
             k = (0, N.Z)(),
-            _ = (0, p.useRef)(null),
+            C = (0, p.useRef)(null),
             S = (0, p.useRef)(null),
             {
-              mobileDrawerOpen: Z,
-              setMobileDrawerOpen: P,
-              lyricsFocus: L,
-              showTagCompletions: E,
-            } = (0, T.F)(),
-            { data: M } = C(Z),
-            D = async () => {
-              await l(!0), P(!1);
+              mobileDrawerOpen: T,
+              setMobileDrawerOpen: L,
+              lyricsFocus: E,
+              showTagCompletions: I,
+            } = (0, Z.F)(),
+            { data: M } = _(T),
+            R = async () => {
+              await l(!0), L(!1);
             },
-            I = (0, p.useCallback)(() => {
-              P(!1);
-            }, [P]);
+            A = (0, p.useCallback)(() => {
+              L(!1);
+            }, [L]);
           (0, p.useEffect)(() => {
-            L &&
+            E &&
               setTimeout(() => {
                 if (S.current) {
                   let e =
@@ -2708,9 +2842,9 @@
                   S.current.scrollTo(0, e);
                 }
               }, 200);
-          }, [L]);
-          let A = () => {
-            let e = _.current;
+          }, [E]);
+          let D = () => {
+            let e = C.current;
             e &&
               setTimeout(() => {
                 e.focus();
@@ -2725,11 +2859,11 @@
                     j();
                     return;
                   }
-                  P(!0);
+                  L(!0);
                 },
                 className: "flex items-center justify-center",
                 children: (0, o.jsx)("div", {
-                  className: (0, U.cn)(
+                  className: (0, P.cn)(
                     "absolute bottom-1 cursor-pointer rounded-full bg-brand-accent p-3",
                     k ? "" : "opacity-70"
                   ),
@@ -2745,14 +2879,14 @@
                   }),
                 }),
               }),
-              (0, o.jsx)(eD.Z, {
+              (0, o.jsx)(eA.Z, {
                 detent: "full-height",
-                isOpen: Z,
-                onClose: I,
-                children: (0, o.jsxs)(eD.Z.Container, {
+                isOpen: T,
+                onClose: A,
+                children: (0, o.jsxs)(eA.Z.Container, {
                   children: [
-                    (0, o.jsx)(eD.Z.Header, { className: "bg-create" }),
-                    (0, o.jsxs)(eD.Z.Content, {
+                    (0, o.jsx)(eA.Z.Header, { className: "bg-create" }),
+                    (0, o.jsxs)(eA.Z.Content, {
                       disableDrag: !0,
                       className: "bg-create",
                       children: [
@@ -2763,9 +2897,9 @@
                             (0, o.jsxs)("div", {
                               className: "flex items-center space-x-4",
                               children: [
-                                (0, o.jsx)(eM.Z, {
+                                (0, o.jsx)(eR.Z, {
                                   size: 24,
-                                  onClick: () => P(!1),
+                                  onClick: () => L(!1),
                                   className: "z-10 cursor-pointer",
                                 }),
                                 (0, o.jsx)("div", { children: "Create" }),
@@ -2794,12 +2928,12 @@
                                     className: "h-6 w-6",
                                   }),
                                 }),
-                                (0, o.jsx)(R.z, {
+                                (0, o.jsx)(q.z, {
                                   variant: "ghost",
                                   onClick: w,
                                   className:
                                     "flexflex-row items-center space-x-2 px-0",
-                                  children: (0, o.jsx)(O.Z, { size: 24 }),
+                                  children: (0, o.jsx)(Y.Z, { size: 24 }),
                                 }),
                               ],
                             }),
@@ -2808,11 +2942,11 @@
                         (0, o.jsxs)("div", {
                           className: "relative w-full",
                           children: [
-                            (0, o.jsx)(ek.g, {
+                            (0, o.jsx)(eC.g, {
                               enterKeyHint: "send",
-                              ref: _,
+                              ref: C,
                               placeholder:
-                                (null == t ? void 0 : t.prompt) || eq,
+                                (null == t ? void 0 : t.prompt) || eY,
                               className:
                                 "m-auto mb-1 h-full w-11/12 bg-gray-light px-2 py-2 text-[16px] md:text-[14px]",
                               value: n.prompt,
@@ -2825,35 +2959,35 @@
                                   r(e.target.selectionStart);
                               },
                               onKeyDown: (e) => {
-                                "Enter" === e.key && D(),
+                                "Enter" === e.key && R(),
                                   "Tab" === e.key &&
                                     "" === n.prompt &&
                                     (e.preventDefault(),
                                     s({
                                       ...n,
                                       prompt:
-                                        (null == t ? void 0 : t.prompt) || eq,
+                                        (null == t ? void 0 : t.prompt) || eY,
                                     }));
                               },
                             }),
-                            (null == x ? void 0 : x.length) && E
+                            (null == x ? void 0 : x.length) && I
                               ? (0, o.jsx)("div", {
                                   className:
                                     "absolute -bottom-1 left-0 flex w-full flex-col items-end",
-                                  children: (0, o.jsx)(eL, {
+                                  children: (0, o.jsx)(eI, {
                                     containerStyle: "bg-create opacity-75",
                                     partialTag: a,
                                     tagList: x,
                                     addSuggestedTags: (e) => {
-                                      h(e), A();
+                                      h(e), D();
                                     },
                                   }),
                                 })
                               : null,
                           ],
                         }),
-                        (0, o.jsx)(Y.Z, { className: "mb-5 mt-2 px-4" }),
-                        (0, o.jsx)(eD.Z.Scroller, {
+                        (0, o.jsx)(W.Z, { className: "mb-5 mt-2 px-4" }),
+                        (0, o.jsx)(eA.Z.Scroller, {
                           ref: S,
                           children: (0, o.jsx)("div", {
                             className: "flex justify-between",
@@ -2862,7 +2996,7 @@
                               children: [
                                 (0, o.jsx)("div", {
                                   className: "px-4",
-                                  children: (0, o.jsx)(eI, {
+                                  children: (0, o.jsx)(eD, {
                                     partialTag: a,
                                     tagPredictions: b,
                                     settings: n,
@@ -2874,20 +3008,20 @@
                                   }),
                                 }),
                                 (0, o.jsx)("div", {
-                                  className: (0, U.cn)(
+                                  className: (0, P.cn)(
                                     "bottom-[10px] left-0 w-full px-4",
                                     "fixed"
                                   ),
                                   children: (0, o.jsx)("div", {
                                     className:
                                       "flex flex-row justify-between space-x-4",
-                                    children: (0, o.jsx)(R.z, {
+                                    children: (0, o.jsx)(q.z, {
                                       className:
                                         "w-full rounded-[4px] bg-brand-accent py-4 text-white disabled:opacity-75",
                                       variant: "create",
                                       size: "custom",
                                       disabled: g || !k,
-                                      onClick: D,
+                                      onClick: R,
                                       children: d,
                                     }),
                                   }),
@@ -2904,60 +3038,61 @@
             ],
           });
         };
-      let eR = 16,
-        eq = "a song about...",
-        eO = (e) => {
+      let eO = 16,
+        eY = "a song about...",
+        eW = (e) => {
           var a;
           let { drawer: t } = e,
             n = (0, N.Z)(),
             [s, i] = (0, p.useState)(!1),
             [r, b] = (0, p.useState)("infer"),
             [v, w] = (0, p.useState)(!1),
-            [k, L] = (0, p.useState)(void 0),
-            [E, M] = (0, p.useState)(Date.now()),
-            { data: D, refetch: I } = C((0, u.cC)("show-quota")),
+            [k, E] = (0, p.useState)(void 0),
+            [I, M] = (0, p.useState)(Date.now()),
+            R = (0, u.cC)("show-quota"),
+            { data: A, refetch: Y } = _(R),
             {
-              mobileDrawerOpen: O,
-              showOptions: Y,
-              setShowOptions: W,
-              setShowTagCompletions: U,
-            } = (0, T.F)(),
-            G = (0, p.useRef)(!1),
-            Q = (0, p.useRef)(null),
-            B = (0, p.useRef)(null),
+              mobileDrawerOpen: W,
+              showOptions: Q,
+              setShowOptions: U,
+              setShowTagCompletions: B,
+            } = (0, Z.F)(),
+            H = (0, p.useRef)(!1),
+            G = (0, p.useRef)(null),
+            V = (0, p.useRef)(null),
             {
-              resetPromptBar: H,
-              generateTrack: K,
-              samplerOptions: V,
-              generationSettings: X,
-              setGenerationSettings: J,
-              setSamplerOptions: $,
+              resetPromptBar: K,
+              generateTrack: J,
+              samplerOptions: X,
+              generationSettings: $,
+              setGenerationSettings: ee,
+              setSamplerOptions: ea,
             } = (0, S.QY)(),
-            ee = (0, h.NL)(),
-            [ea, et] = (0, p.useState)(X),
-            [eo, en] = (0, p.useState)(V),
-            { openAuthModal: es } = (0, z.fI)(),
-            { openWaitlistModal: ei } = (0, z.wc)(),
-            [er] = (0, d.c)(ea, 200),
-            [el] = (0, d.c)(eo, 200),
-            [eu, ec] = (0, p.useState)(null),
-            [ed] = (0, d.c)(eu, 200),
-            { isMediumDevice: eg, isLargeDevice: eh } = (0, _.Z)(),
-            ef = (0, u.cC)("disable-generations"),
-            em = (0, u.aS)("waitlist-iso-time-stamp-utc", ""),
-            eb = (0, p.useMemo)(() => {
-              let e = new Date(em);
+            et = (0, h.NL)(),
+            [eo, en] = (0, p.useState)($),
+            [es, ei] = (0, p.useState)(X),
+            { openAuthModal: er } = (0, z.fI)(),
+            { openWaitlistModal: el } = (0, z.wc)(),
+            [eu] = (0, d.c)(eo, 200),
+            [ec] = (0, d.c)(es, 200),
+            [ed, eg] = (0, p.useState)(null),
+            [eh] = (0, d.c)(ed, 200),
+            { isMediumDevice: ef, isLargeDevice: em } = (0, C.Z)(),
+            eb = (0, u.cC)("disable-generations"),
+            ep = (0, u.aS)("waitlist-iso-time-stamp-utc", ""),
+            ex = (0, p.useMemo)(() => {
+              let e = new Date(ep);
               return (
                 (null == n ? void 0 : n.created_at) &&
                 "Invalid Date" !== e.toString() &&
                 new Date(n.created_at) > e
               );
-            }, [null == n ? void 0 : n.created_at, em]),
-            ep = () => (n ? !eb || (ei(), !1) : (es(), !1)),
-            ex = "2.75rem",
-            ey = (0, p.useMemo)(() => {
+            }, [null == n ? void 0 : n.created_at, ep]),
+            ey = () => (n ? !ex || (el(), !1) : (er(), !1)),
+            ev = "2.75rem",
+            ew = (0, p.useMemo)(() => {
               let e;
-              switch (eo.audio_conditioning_type) {
+              switch (es.audio_conditioning_type) {
                 case "continuation":
                 case "precede":
                   e = "Extend";
@@ -2969,37 +3104,61 @@
                   e = "Create";
               }
               return e;
-            }, [eo.audio_conditioning_type]),
-            ev = () => {
-              let e = Q.current;
+            }, [es.audio_conditioning_type]),
+            ej = () => {
+              let e = G.current;
               e &&
                 setTimeout(() => {
                   e.focus();
                 }, 100);
             },
-            ew = async (e) => {
-              i(!0), W(!1);
+            eN = async (e) => {
+              i(!0), U(!1);
               try {
                 var a;
-                let t = ea.prompt;
+                let t = eo.prompt;
                 if (!t || "" === t.trim()) {
-                  x.toast.error("Please enter a prompt or select tags", Z.TQ);
+                  x.toast.error("Please enter a prompt or select tags", T.TQ);
                   return;
                 }
-                let n = { prompt: t };
+                let n = (0, P.Ig)(eo.lyricInput || "");
                 if (
-                  ("instrumental" === r && (n.lyricInput = ""),
+                  "inpaint" === X.audio_conditioning_type &&
+                  !n.hasSelector &&
+                  "lyricInput" === r
+                ) {
+                  x.toast.error(
+                    n.warning || "The lyrics is missing the *** selector",
+                    T.TQ
+                  );
+                  return;
+                }
+                if (
+                  "inpaint" === X.audio_conditioning_type &&
+                  (!X.inpainting_conditioning_crop_seconds ||
+                    !X.inpainting_working_region ||
+                    0 === X.inpainting_conditioning_crop_seconds.length)
+                ) {
+                  x.toast.error(
+                    "Please select a region of the song to inpaint",
+                    T.TQ
+                  );
+                  return;
+                }
+                let s = { prompt: t };
+                if (
+                  ("instrumental" === r && (s.lyricInput = ""),
                   "lyricPrompt" === r &&
-                    ea.lyricPrompt &&
-                    (n.lyricPrompt = ea.lyricPrompt),
-                  "lyricInput" === r && (n.lyricInput = ea.lyricInput),
-                  (n.samplerOptions = V),
+                    eo.lyricPrompt &&
+                    (s.lyricPrompt = eo.lyricPrompt),
+                  "lyricInput" === r && (s.lyricInput = eo.lyricInput),
+                  (s.samplerOptions = X),
                   v)
                 ) {
                   x.toast.message(
                     (0, o.jsxs)("div", {
                       children: [
-                        Object.entries(n).map((e) => {
+                        Object.entries(s).map((e) => {
                           let a,
                             [t, n] = e;
                           return (
@@ -3020,16 +3179,16 @@
                   );
                   return;
                 }
-                let s = "success",
-                  i = "Amazing music is seconds away!",
-                  l = !1,
-                  { data: u } = await I();
-                if (ef) {
+                let i = "success",
+                  l = "Amazing music is seconds away!",
+                  u = !1,
+                  { data: c } = await Y();
+                if (eb) {
                   x.toast.custom(
                     (e) =>
-                      (0, o.jsx)(A, {
+                      (0, o.jsx)(D, {
                         toastId: e,
-                        userApiUsage: u,
+                        userApiUsage: c,
                         toastType: "error",
                         toastMessage:
                           "Generation is currently under maintenance. Please try again later.",
@@ -3045,10 +3204,10 @@
                           }
                         : {
                             top: "44px",
-                            left: eg ? "268px" : "-8px",
-                            width: eh
+                            left: ef ? "268px" : "-8px",
+                            width: em
                               ? "calc(0.75 * (100vw - 20.85rem))"
-                              : eg
+                              : ef
                                 ? "calc(0.6 * (100vw - 19.9rem))"
                                 : "calc((100vw - 1rem))",
                           },
@@ -3056,36 +3215,33 @@
                   );
                   return;
                 }
+                let d =
+                    Number((null == c ? void 0 : c.daily_throttle_limit) || 0) -
+                    Number((null == c ? void 0 : c.daily_used) || 0),
+                  g =
+                    Number((null == c ? void 0 : c.monthly_limit) || 0) -
+                    Number((null == c ? void 0 : c.monthly_used) || 0),
+                  h = T.Jw;
                 if (
-                  (u &&
-                    0 >= Number(u.discretionary || 0) &&
-                    Number(u.monthly_used || 0) >=
-                      Number(u.monthly_limit || 0) &&
-                    ((i =
-                      "You have reached your monthly generation limit of ".concat(
-                        u.monthly_limit,
-                        "."
-                      )),
-                    (s = "error"),
-                    (l = !0)),
-                  (Number((null == u ? void 0 : u.daily_used) || 0) >=
+                  (c &&
+                    R &&
+                    (h > d || h > g) &&
                     Number(
-                      (null == u ? void 0 : u.daily_throttle_limit) || 0
-                    ) ||
-                    (null == u ? void 0 : u.daily_throttled)) &&
-                    ((i =
-                      "You have reached your daily priority generation limit of ".concat(
-                        null == u ? void 0 : u.daily_throttle_limit,
-                        ". You can still generate tracks, but they may take longer to complete."
-                      )),
-                    (s = "warning")),
+                      (null == c ? void 0 : c.monthly_discretionary) || 0
+                    ) < h &&
+                    Number((null == c ? void 0 : c.discretionary) || 0) < h &&
+                    ((l =
+                      "You have reached your creation limits. You can subscribe, purchase more credits, or wait for your credit usage to reset."),
+                    (i = "error"),
+                    (u = !0)),
                   x.toast.custom(
                     (e) =>
-                      (0, o.jsx)(A, {
+                      (0, o.jsx)(D, {
                         toastId: e,
-                        userApiUsage: u,
-                        toastType: s,
-                        toastMessage: i,
+                        userApiUsage: c,
+                        toastType: i,
+                        toastMessage: l,
+                        showQuotaInfo: R,
                       }),
                     {
                       position: "top-left",
@@ -3098,35 +3254,35 @@
                           }
                         : {
                             top: "44px",
-                            left: eg ? "268px" : "-8px",
-                            width: eh
+                            left: ef ? "268px" : "-8px",
+                            width: em
                               ? "calc(0.75 * (100vw - 20.85rem))"
-                              : eg
+                              : ef
                                 ? "calc(0.6 * (100vw - 19.9rem))"
                                 : "calc((100vw - 1rem))",
                           },
                     }
                   ),
-                  l)
+                  u)
                 )
                   return;
-                let { response: c } =
-                  (await (null == B
+                let { response: f } =
+                  (await (null == V
                     ? void 0
-                    : null === (a = B.current) || void 0 === a
+                    : null === (a = V.current) || void 0 === a
                       ? void 0
                       : a.execute({ async: !0 }))) || {};
-                (n.captchaToken = c),
+                (s.captchaToken = f),
                   M(Date.now()),
-                  await K(n),
-                  await ee.invalidateQueries({
+                  await J(s),
+                  await et.invalidateQueries({
                     queryKey: y.YN.currentUserApiUsage(),
                   });
               } catch (e) {
                 x.toast.dismiss(),
                   x.toast.error(
                     "An error occurred while generating the track",
-                    Z.TQ
+                    T.TQ
                   ),
                   console.error(e),
                   g.Tb(e);
@@ -3134,7 +3290,7 @@
                 i(!1);
               }
             },
-            ej = (0, p.useMemo)(
+            ek = (0, p.useMemo)(
               () =>
                 (function (e, a) {
                   let t = a || e.length,
@@ -3166,88 +3322,88 @@
                     cursorPartPos: s,
                     cursorPartLen: i,
                   };
-                })(ea.prompt, eu),
-              [er.prompt, ed]
+                })(eo.prompt, ed),
+              [eu.prompt, eh]
             ),
-            eN = (e) => {
-              let a = ea.prompt,
-                t = ej.cursorPart || "",
+            e_ = (e) => {
+              let a = eo.prompt,
+                t = ek.cursorPart || "",
                 o = e.join(", ") + ", ";
               if ("" !== t && e.some((e) => e.includes(t)))
-                ej.cursorPartPos + ej.cursorPartLen < a.length &&
+                ek.cursorPartPos + ek.cursorPartLen < a.length &&
                   (o = o.slice(0, -2)),
-                  ej.cursorPartPos > 0 && (o = " " + o),
+                  ek.cursorPartPos > 0 && (o = " " + o),
                   (a =
-                    a.substring(0, ej.cursorPartPos) +
+                    a.substring(0, ek.cursorPartPos) +
                     o +
-                    a.substring(ej.cursorPartPos + ej.cursorPartLen));
+                    a.substring(ek.cursorPartPos + ek.cursorPartLen));
               else {
                 a.trim().endsWith(",") || "" == a.trim() || (a += ", ");
-                let t = e.filter((e) => !ej.parts.includes(e));
+                let t = e.filter((e) => !ek.parts.includes(e));
                 t.length > 0 && (a += t.join(", ") + ", ");
               }
-              et({ ...ea, prompt: a });
+              en({ ...eo, prompt: a });
             },
-            { data: ek } = j({
-              partialTag: ej.cursorPart || "",
-              currentTags: ej.parts.filter((e) => e !== ej.cursorPart),
+            { data: eC } = j({
+              partialTag: ek.cursorPart || "",
+              currentTags: ek.parts.filter((e) => e !== ek.cursorPart),
             }),
-            eC = async () => {
-              ep() && (await ew());
+            eS = async () => {
+              ey() && (await eN());
             },
-            e_ = (0, p.useCallback)(() => {
-              H(), b("infer");
-            }, [H]);
+            ez = (0, p.useCallback)(() => {
+              K(), b("infer");
+            }, [K]);
           (0, p.useEffect)(() => {
-            G.current || (L(l()), (G.current = !0));
+            H.current || (E(l()), (H.current = !0));
           }, []),
             (0, p.useEffect)(() => {
-              J(er);
-            }, [er]),
+              ee(eu);
+            }, [eu]),
             (0, p.useEffect)(() => {
-              et(X);
+              en($);
+            }, [$]),
+            (0, p.useEffect)(() => {
+              ea(ec);
+            }, [ec]),
+            (0, p.useEffect)(() => {
+              ei(X);
             }, [X]),
             (0, p.useEffect)(() => {
-              $(el);
-            }, [el]),
+              "variation" === X.audio_conditioning_type && b("lyricInput"),
+                "inpaint" === X.audio_conditioning_type && b("lyricInput");
+            }, [X.audio_conditioning_type]),
             (0, p.useEffect)(() => {
-              en(V);
-            }, [V]),
-            (0, p.useEffect)(() => {
-              "variation" === V.audio_conditioning_type && b("lyricInput"),
-                "inpaint" === V.audio_conditioning_type && b("lyricInput");
-            }, [V.audio_conditioning_type]),
-            (0, p.useEffect)(() => {
-              Y && ev();
-            }, [Y]),
+              Q && ej();
+            }, [Q]),
             (0, p.useEffect)(() => {
               var e;
-              (null == ek
+              (null == eC
                 ? void 0
-                : null === (e = ek.completions) || void 0 === e
+                : null === (e = eC.completions) || void 0 === e
                   ? void 0
-                  : e.length) && U(!0);
-            }, [null == ek ? void 0 : ek.completions]);
-          let eS = (0, p.useMemo)(() => {
+                  : e.length) && B(!0);
+            }, [null == eC ? void 0 : eC.completions]);
+          let eZ = (0, p.useMemo)(() => {
             var e, a, t;
             return (
-              (!(null === (e = ea.prompt) || void 0 === e
+              (!(null === (e = eo.prompt) || void 0 === e
                 ? void 0
                 : e.length) &&
-                (Y || O)) ||
+                (Q || W)) ||
               s ||
               ("lyricInput" === r &&
-                !(null === (t = ea.lyricInput) || void 0 === t
+                !(null === (t = eo.lyricInput) || void 0 === t
                   ? void 0
                   : null === (a = t.trim()) || void 0 === a
                     ? void 0
                     : a.length))
             );
           }, [
-            null === (a = ea.prompt) || void 0 === a ? void 0 : a.length,
-            ea.lyricInput,
-            Y,
-            O,
+            null === (a = eo.prompt) || void 0 === a ? void 0 : a.length,
+            eo.lyricInput,
+            Q,
+            W,
             s,
             r,
           ]);
@@ -3256,7 +3412,7 @@
               (0, o.jsx)("form", {
                 children: (0, o.jsx)(c.Z, {
                   sitekey: "2945592b-1928-43a9-8473-7e7fed3d752e",
-                  ref: B,
+                  ref: V,
                   size: "invisible",
                   theme: "dark",
                   sentry: !1,
@@ -3269,28 +3425,28 @@
                 }),
               }),
               t
-                ? (0, o.jsx)(eA, {
-                    partialTag: ej.cursorPart || "",
-                    createText: ey,
-                    createDisabled: eS,
-                    imageWidth: ex,
+                ? (0, o.jsx)(eq, {
+                    partialTag: ek.cursorPart || "",
+                    createText: ew,
+                    createDisabled: eZ,
+                    imageWidth: ev,
                     promptSuggestion: k,
-                    addSuggestedTags: eN,
-                    tagCompletions: null == ek ? void 0 : ek.completions,
-                    tagPredictions: null == ek ? void 0 : ek.predictions,
-                    settings: ea,
-                    setSettings: et,
-                    handleGenerate: ew,
-                    inputCursorLocation: eu,
-                    setInputCursorLocation: ec,
+                    addSuggestedTags: e_,
+                    tagCompletions: null == eC ? void 0 : eC.completions,
+                    tagPredictions: null == eC ? void 0 : eC.predictions,
+                    settings: eo,
+                    setSettings: en,
+                    handleGenerate: eN,
+                    inputCursorLocation: ed,
+                    setInputCursorLocation: eg,
                     generatePromptSuggestions: l,
                     lyricsType: r,
                     setLyricsType: b,
-                    resetAll: e_,
+                    resetAll: ez,
                   })
                 : (0, o.jsxs)(o.Fragment, {
                     children: [
-                      (0, o.jsx)(P, {}),
+                      (0, o.jsx)(L, {}),
                       (0, o.jsx)("div", {
                         className: "mr-6 w-full items-center justify-between",
                         children: (0, o.jsxs)("div", {
@@ -3304,56 +3460,56 @@
                               className:
                                 "absolute left-3 top-1/2 hidden -translate-y-1/2 transform md:block",
                             }),
-                            (0, o.jsx)(q.I, {
+                            (0, o.jsx)(O.I, {
                               id: "prompt",
                               autoComplete: "off",
-                              ref: Q,
+                              ref: G,
                               type: "prompt",
                               placeholder:
-                                (null == k ? void 0 : k.prompt) || eq,
+                                (null == k ? void 0 : k.prompt) || eY,
                               className:
                                 "h-full border-b border-l border-r border-t border-[#3b82f67f] py-6 pr-[130px] text-[16px] shadow-ring-2 disabled:opacity-50\n          ".concat(
-                                  Y &&
+                                  Q &&
                                     "rounded-t-md rounded-bl-none rounded-br-none border-[var(--ring)] border-b-transparent ",
                                   "\n          ",
                                   "\n          ring-0 ring-transparent ring-offset-0 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
                                 ),
-                              style: { paddingLeft: ex },
-                              value: ea.prompt,
+                              style: { paddingLeft: ev },
+                              value: eo.prompt,
                               onFocus: () => {
-                                ep() && (x.toast.dismiss(), W(!0));
+                                ey() && (x.toast.dismiss(), U(!0));
                               },
                               onSelect: (e) => {
-                                ec(e.target.selectionStart);
+                                eg(e.target.selectionStart);
                               },
                               onChange: (e) => {
-                                et({ ...ea, prompt: e.target.value }),
-                                  ec(e.target.selectionStart);
+                                en({ ...eo, prompt: e.target.value }),
+                                  eg(e.target.selectionStart);
                               },
                               onKeyDown: (e) => {
                                 if (
-                                  ("Enter" === e.key && eC(), "Tab" === e.key)
+                                  ("Enter" === e.key && eS(), "Tab" === e.key)
                                 ) {
                                   var a;
                                   if (
-                                    null == ek
+                                    null == eC
                                       ? void 0
-                                      : null === (a = ek.completions) ||
+                                      : null === (a = eC.completions) ||
                                           void 0 === a
                                         ? void 0
                                         : a.length
                                   ) {
                                     e.preventDefault(),
-                                      eN([ek.completions[0].value]),
-                                      U(!1);
+                                      e_([eC.completions[0].value]),
+                                      B(!1);
                                     return;
                                   }
-                                  "" === ea.prompt &&
+                                  "" === eo.prompt &&
                                     (e.preventDefault(),
-                                    et({
-                                      ...ea,
+                                    en({
+                                      ...eo,
                                       prompt:
-                                        (null == k ? void 0 : k.prompt) || eq,
+                                        (null == k ? void 0 : k.prompt) || eY,
                                     }));
                                 }
                               },
@@ -3369,39 +3525,39 @@
                                     e.preventDefault();
                                     let { prompt: a, tags: t } = l();
                                     (a = a + ", " + t.join(", ")),
-                                      et({ ...ea, prompt: a }),
+                                      en({ ...eo, prompt: a }),
                                       (0, F.L9)("Randomize Prompt", {});
                                   },
                                   children: (0, o.jsx)(m.Z, {
                                     className: "mr-3 h-5 w-5",
                                   }),
                                 }),
-                                (0, o.jsx)(R.z, {
+                                (0, o.jsx)(q.z, {
                                   className: "w-[75px]",
                                   variant: "create",
-                                  disabled: eS || !n,
-                                  onClick: eC,
-                                  children: ey,
+                                  disabled: eZ || !n,
+                                  onClick: eS,
+                                  children: ew,
                                 }),
                               ],
                             }),
-                            (0, o.jsx)(eE, {
-                              refocusPromptBar: ev,
-                              partialTag: ej.cursorPart || "",
-                              resetAll: e_,
-                              showOptions: Y,
+                            (0, o.jsx)(eM, {
+                              refocusPromptBar: ej,
+                              partialTag: ek.cursorPart || "",
+                              resetAll: ez,
+                              showOptions: Q,
                               tagPredictions:
-                                null == ek ? void 0 : ek.predictions,
+                                null == eC ? void 0 : eC.predictions,
                               tagCompletions:
-                                null == ek ? void 0 : ek.completions,
-                              settings: ea,
-                              setSettings: et,
-                              options: eo,
-                              setOptions: en,
-                              addSuggestedTags: eN,
+                                null == eC ? void 0 : eC.completions,
+                              settings: eo,
+                              setSettings: en,
+                              options: es,
+                              setOptions: ei,
+                              addSuggestedTags: e_,
                               lyricsType: r,
                               setLyricsType: b,
-                              userApiUsageData: D,
+                              userApiUsageData: A,
                             }),
                           ],
                         }),
@@ -3411,7 +3567,7 @@
             ],
           });
         };
-      var eY = (0, b.default)(() => Promise.resolve(eO), { ssr: !1 });
+      var eQ = (0, b.default)(() => Promise.resolve(eW), { ssr: !1 });
     },
     14270: function (e, a, t) {
       var o = t(57437),
@@ -3438,14 +3594,14 @@
           y = (0, l.useRef)(null),
           [v, w] = (0, l.useState)(2),
           [j, N] = (0, l.useState)(31),
-          [k, C] = (0, l.useState)(null),
-          { isMediumDevice: _ } = (0, g.Z)();
+          [k, _] = (0, l.useState)(null),
+          { isMediumDevice: C } = (0, g.Z)();
         null == a || a.duration;
         let {
             wavesurfer: S,
             isReady: z,
-            isPlaying: T,
-            currentTime: Z,
+            isPlaying: Z,
+            currentTime: T,
           } = (0, n.o)({
             container: x,
             url: null == a ? void 0 : a.song_path,
@@ -3510,7 +3666,7 @@
           if (S && t) {
             let e = S.registerPlugin(d.Z.create());
             S.registerPlugin(c.Z.create()),
-              C(e),
+              _(e),
               b && b([0, 15]),
               S.on("decode", () => {
                 let a = e.addRegion({
@@ -3603,7 +3759,7 @@
                               className: "font-bold",
                               children: "Start: ",
                             }),
-                            (0, h.mr)(v, _),
+                            (0, h.mr)(v, C),
                           ],
                         }),
                         (0, o.jsxs)("div", {
@@ -3613,7 +3769,7 @@
                               className: "font-bold",
                               children: "Current: ",
                             }),
-                            (0, h.mr)(Z, _),
+                            (0, h.mr)(T, C),
                           ],
                         }),
                         (0, o.jsxs)("div", {
@@ -3623,7 +3779,7 @@
                               className: "font-bold",
                               children: "End: ",
                             }),
-                            (0, h.mr)(j, _),
+                            (0, h.mr)(j, C),
                           ],
                         }),
                       ],

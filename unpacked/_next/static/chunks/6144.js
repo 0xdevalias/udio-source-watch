@@ -1,6 +1,6 @@
 "use strict";
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [2938],
+  [6144],
   {
     81805: function (e, t, n) {
       var r = n(57437),
@@ -247,6 +247,26 @@
           list: ["profiles"],
           forProfile: (e) => [...o.list, e],
         };
+    },
+    48779: function (e, t, n) {
+      var r = n(73667),
+        i = n(6771),
+        a = n(68062),
+        o = n(36408);
+      t.Z = (e) => {
+        let { enabled: t } = e;
+        return (0, r.a)({
+          queryKey: o.YN.currentUserSubscriptionStatus(),
+          queryFn: async () => {
+            let { plan: e, status: t } = await (0, a.pI)(),
+              n = i.hX.includes(t),
+              r = i.nq.includes(e),
+              o = "pro" === e && n;
+            return { plan: e, status: t, paidPlan: r && n, proPlan: o };
+          },
+          enabled: t,
+        });
+      };
     },
     23642: function (e, t, n) {
       var r = n(73667),
@@ -502,7 +522,7 @@
                     (n = "PresubmitChecks"))
                   : (null == e ? void 0 : e.status) === 403
                     ? (r.toast.error(
-                        "Your account has been disabled. Please reach out if you have any questions.",
+                        "Your account is not authorized for this action.",
                         o.TQ
                       ),
                       (n = "Forbidden"))
@@ -923,7 +943,7 @@
           return D;
         },
         IC: function () {
-          return Z;
+          return z;
         },
         L9: function () {
           return N;
@@ -962,7 +982,7 @@
           return P;
         },
         ck: function () {
-          return z;
+          return Z;
         },
         ds: function () {
           return T;
@@ -971,10 +991,10 @@
           return U;
         },
         iL: function () {
-          return J;
+          return q;
         },
         is: function () {
-          return V;
+          return J;
         },
         jU: function () {
           return v;
@@ -998,10 +1018,10 @@
           return j;
         },
         mv: function () {
-          return Y;
+          return E;
         },
         pI: function () {
-          return E;
+          return Y;
         },
         qh: function () {
           return A;
@@ -1013,7 +1033,7 @@
           return f;
         },
         ue: function () {
-          return q;
+          return V;
         },
         x8: function () {
           return b;
@@ -1215,10 +1235,10 @@
         let { data: e } = await l.bL.get("/api/users/current/api-usage");
         return e;
       }
-      async function E() {
+      async function Y() {
         return (await l.bL.get("/api/subscriptions")).data;
       }
-      async function Y(e, t) {
+      async function E(e, t) {
         t &&
           (await l.bL.post("/api/feedback", {
             songId: t,
@@ -1227,7 +1247,7 @@
             feedbackRating: e.rating,
           }));
       }
-      async function Z(e, t, n) {
+      async function z(e, t, n) {
         let r =
             arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : d,
           i = await p();
@@ -1276,7 +1296,7 @@
           reportType: r,
         });
       }
-      async function z(e) {
+      async function Z(e) {
         let { attributesToUpdate: t } = e;
         return await l.bL.post("/api/profiles", t);
       }
@@ -1286,16 +1306,16 @@
           headers: { "Content-Type": "multipart/form-data" },
         });
       }
-      async function J(e, t) {
+      async function q(e, t) {
         return await l.bL.put("/api/songs/".concat(e, "/uploaded-cover"), t, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       }
-      async function V(e) {
+      async function J(e) {
         let { songId: t, payload: n } = e;
         return l.bL.put("/api/songs/".concat(t, "/generated-cover"), n);
       }
-      async function q(e) {
+      async function V(e) {
         return l.bL.post("/api/cover", e);
       }
     },
@@ -1324,7 +1344,7 @@
       var r = n(53334),
         i = n(7908),
         a = n(49079);
-      let o = i.Z.create({
+      let o = i.default.create({
         baseURL: "".concat("https://www.udio.com"),
         withCredentials: !0,
         headers: {
@@ -1348,27 +1368,30 @@
           );
         }
       ),
-        i.Z.create({
-          baseURL: a.env.BACKEND_PROXY_URL,
-          withCredentials: !0,
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer ".concat(a.env.BACKEND_PROXY_API_KEY),
-          },
-        }).interceptors.response.use(
-          function (e) {
-            return e;
-          },
-          function (e) {
-            var t;
-            return (
-              console.error("Error:", e),
-              (null === (t = e.response) || void 0 === t ? void 0 : t.status) >=
-                500 && r.Tb(e),
-              Promise.reject(e)
-            );
-          }
-        );
+        i.default
+          .create({
+            baseURL: a.env.BACKEND_PROXY_URL,
+            withCredentials: !0,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer ".concat(a.env.BACKEND_PROXY_API_KEY),
+            },
+          })
+          .interceptors.response.use(
+            function (e) {
+              return e;
+            },
+            function (e) {
+              var t;
+              return (
+                console.error("Error:", e),
+                (null === (t = e.response) || void 0 === t
+                  ? void 0
+                  : t.status) >= 500 && r.Tb(e),
+                Promise.reject(e)
+              );
+            }
+          );
     },
   },
 ]);

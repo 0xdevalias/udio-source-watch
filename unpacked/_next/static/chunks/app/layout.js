@@ -1,9 +1,11 @@
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [3185],
+  [3185, 3458],
   {
-    52055: function (e, t, r) {
-      Promise.resolve().then(r.bind(r, 99748)),
+    24654: function () {},
+    48386: function (e, t, r) {
+      Promise.resolve().then(r.bind(r, 91462)),
         Promise.resolve().then(r.bind(r, 91762)),
+        Promise.resolve().then(r.bind(r, 18882)),
         Promise.resolve().then(r.t.bind(r, 85935, 23)),
         Promise.resolve().then(r.t.bind(r, 46708, 23)),
         Promise.resolve().then(r.t.bind(r, 11524, 23)),
@@ -11,43 +13,43 @@
         Promise.resolve().then(r.t.bind(r, 52445, 23)),
         Promise.resolve().then(r.bind(r, 6863));
     },
-    99748: function (e, t, r) {
+    91462: function (e, t, r) {
       "use strict";
       r.r(t),
         r.d(t, {
           default: function () {
-            return tc;
+            return tf;
           },
         });
       var a = r(57437),
         n = r(2265),
-        s = r(52235),
-        i = r(88584),
+        i = r(52235),
+        s = r(88584),
         l = r(45722),
         o = r(19213),
         c = r(21270),
         d = r(21715),
         u = r(18994),
-        p = r(20703),
-        m = r(82670),
+        m = r(20703),
+        p = r(82670),
         f = r(56288),
-        x = r(30248),
-        h = r(20568);
+        h = r(30248),
+        x = r(20568),
+        g = r(40376);
       r(68203);
-      class g extends Error {
+      class v extends g.d7 {
         constructor(e, t) {
-          super(e, { cause: null == t ? void 0 : t.cause }),
-            (this.status = (null == t ? void 0 : t.status) || 500);
+          super(e), (this.status = (null == t ? void 0 : t.status) || 500);
         }
       }
-      var v = r(6771),
-        b = r(68062),
-        y = (e) =>
-          (0, h.D)({
+      var b = r(6771),
+        y = r(68062),
+        j = (e) =>
+          (0, x.D)({
             mutationFn: async (e) => {
-              let t = await (0, b.ue)(e);
+              let t = await (0, y.ue)(e);
               if (200 !== t.status)
-                throw new g("Failed to upload cover art image", {
+                throw new v("Failed to upload cover art image", {
                   status: t.status,
                 });
               return t.data;
@@ -61,25 +63,25 @@
                 ? (console.error("406: Error generating image"),
                   f.toast.error(
                     "Please try again with a different image prompt.",
-                    { duration: v.eS, dismissible: !0 }
+                    { duration: b.eS, dismissible: !0 }
                   ))
                 : f.toast.error("Error generating image", {
-                    duration: v.eS,
+                    duration: b.eS,
                     dismissible: !0,
                   }),
                 e();
             },
           }),
-        j = r(47082),
-        w = r(36408),
-        N = (e) => {
-          let t = (0, j.NL)();
-          return (0, h.D)({
+        w = r(47082),
+        N = r(36408),
+        k = (e) => {
+          let t = (0, w.NL)();
+          return (0, x.D)({
             mutationFn: async (e) => {
               let { songId: t, payload: r } = e,
-                a = await (0, b.is)({ songId: t, payload: r });
+                a = await (0, y.is)({ songId: t, payload: r });
               if (200 !== a.status)
-                throw new g("Failed to upload cover art image", {
+                throw new v("Failed to upload cover art image", {
                   status: a.status,
                 });
               return a.data;
@@ -90,202 +92,332 @@
             },
             onSuccess: async (r) => {
               f.toast.success("Cover art updated successfully!", {
-                duration: v.eS,
+                duration: b.eS,
               }),
                 await t.invalidateQueries({
-                  queryKey: w.ed.single(null == r ? void 0 : r.song_id),
+                  queryKey: N.ed.single(null == r ? void 0 : r.song_id),
                 }),
-                await t.invalidateQueries({ queryKey: w.ed.list }),
-                await t.invalidateQueries({ queryKey: w.ed.likedList }),
+                await t.invalidateQueries({ queryKey: N.ed.list }),
+                await t.invalidateQueries({ queryKey: N.ed.likedList }),
                 e();
             },
             onError: (e) => {
               console.error(e),
                 f.toast.dismiss(),
                 f.toast.error("Failed to update cover art image", {
-                  duration: v.eS,
+                  duration: b.eS,
                 });
             },
           });
         },
-        k = (e) => {
-          let t = (0, j.NL)();
-          return (0, h.D)({
+        C = (e) => {
+          let t = (0, w.NL)();
+          return (0, x.D)({
             mutationFn: async (e) => {
               let { songId: t, formData: r } = e,
-                a = await (0, b.iL)(t, r);
-              if (200 !== a.status)
-                throw new g("Failed to upload cover art image", {
-                  status: a.status,
-                });
-              return a.data;
+                a = (0, y.iL)(t, r);
+              return (
+                f.toast.promise(a, {
+                  loading: "Uploading Cover... ",
+                  success: "Cover updated successfully!",
+                  error: (e) => {
+                    var t, r;
+                    switch (
+                      null === (t = e.response) || void 0 === t
+                        ? void 0
+                        : t.status
+                    ) {
+                      case 403:
+                        return "Image cannot be uploaded due to content restrictions. Please try a different image.";
+                      case 413:
+                        return "Image file is too large. Please try a smaller image.";
+                      case 422:
+                        return "Image could not be processed by the server. Check your image format.";
+                      default:
+                        return (
+                          (null === (r = e.response) || void 0 === r
+                            ? void 0
+                            : r.statusText) ||
+                          "An error occurred while uploading the image."
+                        );
+                    }
+                  },
+                  duration: b.eS,
+                  dismissible: !0,
+                }),
+                a.then((e) => {
+                  if (200 !== e.status)
+                    throw new v(e.statusText, { status: e.status });
+                  return e.data;
+                })
+              );
             },
             mutationKey: ["uploadCoverArtImage"],
             onSuccess: async (r) => {
               f.toast.success("Cover art updated successfully!", {
-                duration: v.eS,
+                duration: b.eS,
               }),
                 await t.invalidateQueries({
-                  queryKey: w.ed.single(null == r ? void 0 : r.song_id),
+                  queryKey: N.ed.single(null == r ? void 0 : r.song_id),
                 }),
-                await t.invalidateQueries({ queryKey: w.ed.list }),
-                await t.invalidateQueries({ queryKey: w.ed.likedList }),
+                await t.invalidateQueries({ queryKey: N.ed.list }),
+                await t.invalidateQueries({ queryKey: N.ed.likedList }),
                 e();
             },
             onError: (t) => {
-              switch ((console.error(t), t.status)) {
-                case 403:
-                  f.toast.dismiss(),
-                    f.toast.error(
-                      "Image cannot be uploaded due to content restrictions. Please try a different image.",
-                      { duration: v.eS, dismissible: !0 }
-                    );
-                  break;
-                case 413:
-                  f.toast.dismiss(),
-                    f.toast.error(
-                      "Image file is too large. Please try a smaller image.",
-                      { duration: v.eS, dismissible: !0 }
-                    );
-                  break;
-                case 422:
-                  f.toast.dismiss(),
-                    f.toast.error(
-                      "Image could not be processed by the server. Check your image format.",
-                      { duration: v.eS, dismissible: !0 }
-                    );
-                  break;
-                default:
-                  f.toast.dismiss(),
-                    f.toast.error("Error uploading cover art image", {
-                      duration: v.eS,
-                      dismissible: !0,
-                    });
-              }
               e();
             },
           });
         },
-        C = r(48779),
-        S = r(23642),
-        L = r(41100),
-        F = r(7662),
-        R = r(79740),
-        T = r(1657),
-        Z = r(85754),
-        U = r(87474),
-        z = r(49842),
-        I = r(68928),
-        O = r(37501);
-      let D = n.forwardRef((e, t) => {
-        let { className: r, ...n } = e;
-        return (0, a.jsx)(I.fC, {
-          className: (0, T.cn)("grid gap-2", r),
-          ...n,
-          ref: t,
-        });
-      });
-      D.displayName = I.fC.displayName;
-      let A = n.forwardRef((e, t) => {
-        let { className: r, ...n } = e;
-        return (0, a.jsx)(I.ck, {
-          ref: t,
-          className: (0, T.cn)(
-            "aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-            r
+        S = r(48779),
+        L = r(23642),
+        I = r(41100),
+        T = r(7662),
+        F = r(79740),
+        R = r(1657),
+        z = r(39416);
+      r(20605);
+      let Z = Math.PI / 180;
+      async function U(e, t, r) {
+        let a =
+            arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 1,
+          n =
+            arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : 0,
+          i = t.getContext("2d");
+        if (!i) throw Error("No 2d context");
+        let s = e.naturalWidth / e.width,
+          l = e.naturalHeight / e.height,
+          o = window.devicePixelRatio,
+          c = Math.floor(r.width * s * o),
+          d = Math.floor(r.height * l * o),
+          u = 1;
+        (c > 1500 || d > 1500) &&
+          ((u = 1500 / Math.max(c, d)), (c *= u), (d *= u)),
+          (t.width = c),
+          (t.height = d),
+          i.scale(o * u, o * u),
+          (i.imageSmoothingQuality = "high");
+        let m = r.x * s,
+          p = r.y * l,
+          f = e.naturalWidth / 2,
+          h = e.naturalHeight / 2;
+        i.save(),
+          i.translate(-m, -p),
+          i.translate(f, h),
+          i.rotate(n * Z),
+          i.scale(a, a),
+          i.translate(-f, -h),
+          i.drawImage(
+            e,
+            0,
+            0,
+            e.naturalWidth,
+            e.naturalHeight,
+            0,
+            0,
+            e.naturalWidth,
+            e.naturalHeight
           ),
-          ...n,
-          children: (0, a.jsx)(I.z$, {
-            className: "flex items-center justify-center",
-            children: (0, a.jsx)(O.Z, {
-              className: "h-2.5 w-2.5 fill-current text-current",
-            }),
-          }),
+          i.restore();
+      }
+      let P = "";
+      async function O(e, t) {
+        let r =
+            arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 1,
+          a =
+            arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 0,
+          n = document.createElement("canvas");
+        U(e, n, t, r, a);
+        let i = await new Promise((e) => {
+          n.toBlob(e);
         });
-      });
-      A.displayName = I.ck.displayName;
-      var P = r(23444);
-      let _ = (0, R.I)(),
-        E = x.z.object({
-          prompt: x.z
+        return i
+          ? (P && URL.revokeObjectURL(P),
+            {
+              croppedImageUrl: (P = URL.createObjectURL(i)),
+              croppedImageBlob: i,
+            })
+          : (console.error("Failed to create blob"),
+            { croppedImageUrl: "", croppedImageBlob: i });
+      }
+      var D = (e) => {
+          var t, r;
+          let { onImageCropped: i, file: s } = e,
+            [l, o] = (0, n.useState)(""),
+            c = (0, n.useRef)(null),
+            d = (0, n.useRef)(null);
+          (0, n.useRef)(null), (0, n.useRef)("");
+          let [u, m] = (0, n.useState)(),
+            [p, f] = (0, n.useState)(),
+            [h, x] = (0, n.useState)(""),
+            [g, v] = (0, n.useState)(1),
+            [b, y] = (0, n.useState)(0),
+            [j, w] = (0, n.useState)(16 / 9);
+          async function N(e, t, r) {
+            if (!t) return;
+            let a = (0, z.BB)(e, t.width, t.height);
+            console.log("Crop complete", a), r(a);
+            let { croppedImageUrl: n, croppedImageBlob: s } = await O(
+              t,
+              a,
+              g,
+              b
+            );
+            x(n), null == i || i(n, s);
+          }
+          return (
+            (0, n.useEffect)(() => {
+              if (s) {
+                let e = new FileReader();
+                e.addEventListener("load", () => {
+                  var t;
+                  return o(
+                    (null === (t = e.result) || void 0 === t
+                      ? void 0
+                      : t.toString()) || ""
+                  );
+                }),
+                  e.readAsDataURL(s);
+              }
+            }, [s]),
+            (t = async () => {
+              (null == p ? void 0 : p.width) &&
+                (null == p ? void 0 : p.height) &&
+                d.current &&
+                c.current &&
+                U(d.current, c.current, p, g, b);
+            }),
+            (r = [p, g, b]),
+            (0, n.useEffect)(() => {
+              let e = setTimeout(() => {
+                t.apply(void 0);
+              }, 100);
+              return () => {
+                clearTimeout(e);
+              };
+            }, r),
+            (0, a.jsx)("div", {
+              children:
+                !!l &&
+                (0, a.jsx)(z.ZP, {
+                  crop: u,
+                  onChange: (e, t) => m(t),
+                  onComplete: (e) => N(e, d.current, f),
+                  aspect: 1,
+                  minHeight: 100,
+                  children: (0, a.jsx)("img", {
+                    ref: d,
+                    alt: "Crop me",
+                    src: l,
+                    style: {
+                      transform: "scale("
+                        .concat(g, ") rotate(")
+                        .concat(b, "deg)"),
+                    },
+                    onLoad: function (e) {
+                      if (j) {
+                        let { width: t, height: r } = e.currentTarget;
+                        m(
+                          (0, z._H)(
+                            (0, z.YG)({ unit: "%", width: 100 }, 1, t, r),
+                            t,
+                            r
+                          )
+                        );
+                      }
+                    },
+                  }),
+                }),
+            })
+          );
+        },
+        A = r(85754),
+        M = r(87474),
+        E = r(49842),
+        _ = r(35608),
+        G = r(23444);
+      let Q = (0, F.I)(),
+        W = h.z.object({
+          prompt: h.z
             .string()
             .min(2, { message: "Prompt must be at least 2 characters." })
             .refine((e) => "" !== e.trim(), {
               message: "Prompt cannot be just spaces.",
             }),
         });
-      var M = () => {
+      var Y = () => {
           let e = (0, n.useRef)(null),
             t = (0, o.cC)("manual-upload"),
-            [r, s] = (0, n.useState)(),
-            [i, x] = (0, n.useState)(null),
-            [h, g] = (0, n.useState)(null),
-            [v, b] = (0, n.useState)([]),
-            [j, w] = (0, n.useState)({ scale: 1, y: 0 }),
-            [R, I] = (0, n.useState)("generate"),
+            [r, i] = (0, n.useState)(),
+            [s, h] = (0, n.useState)(null),
+            [x, g] = (0, n.useState)(null),
+            [v, y] = (0, n.useState)(null),
+            [w, N] = (0, n.useState)([]),
+            [F, z] = (0, n.useState)({ scale: 1, y: 0 }),
+            [Z, U] = (0, n.useState)("generate"),
             {
-              track: O,
-              closeCoverModal: M,
-              setCoverArtSaving: G,
-              isImageExpanded: Q,
-              setIsImageExpanded: q,
-              imageGenerateStatus: Y,
-              setImageGenerateStatus: W,
+              track: P,
+              closeCoverModal: O,
+              setCoverArtSaving: Y,
+              isImageExpanded: q,
+              setIsImageExpanded: V,
+              imageGenerateStatus: B,
+              setImageGenerateStatus: J,
             } = (0, l.dG)(),
-            { setIsEditing: V } = (0, F.n)(),
-            { isExtraLargeDevice: K, is2XLargeDevice: J } = (0, L.Z)(),
-            B = (0, o.cC)("subscriptions"),
-            X = (0, S.Z)(),
-            { data: H, isLoading: $ } = (0, C.Z)({
-              enabled: !!(null == X ? void 0 : X.id) && B,
+            { setIsEditing: K } = (0, T.n)(),
+            { isExtraLargeDevice: X, is2XLargeDevice: H } = (0, I.Z)(),
+            $ = (0, o.cC)("subscriptions"),
+            ee = (0, L.Z)(),
+            { data: et, isLoading: er } = (0, S.Z)({
+              enabled: !!(null == ee ? void 0 : ee.id) && $,
             }),
-            ee = null == H ? void 0 : H.paidPlan,
-            et = (0, m.cI)({
-              resolver: (0, c.F)(E),
-              defaultValues: { prompt: (null == O ? void 0 : O.prompt) || "" },
+            ea = null == et ? void 0 : et.paidPlan,
+            en = (0, p.cI)({
+              resolver: (0, c.F)(W),
+              defaultValues: { prompt: (null == P ? void 0 : P.prompt) || "" },
             }),
-            er = () => {
-              i && r && URL.revokeObjectURL(r.image_path),
-                s(void 0),
-                G(!1),
-                et.reset(),
-                b([]),
-                W("idle"),
-                q(!1);
+            ei = () => {
+              s && r && URL.revokeObjectURL(r.image_path),
+                i(void 0),
+                Y(!1),
+                en.reset(),
+                N([]),
+                J("idle"),
+                V(!1);
             },
-            ea = y((e) => {
+            es = j((e) => {
               if (e && e.images.length > 0) {
                 let t = e.images;
-                W("success"), s(t[0]), b(t);
+                J("success"), i(t[0]), N(t);
               } else
-                console.log("No response from image generation"), W("error");
+                console.log("No response from image generation"), J("error");
             }),
-            en = N(er),
-            es = k(er),
-            ei = () => window.innerHeight / 2 / 4,
-            el = async (e) => {
-              b([]),
-                W("loading"),
-                await ea.mutateAsync({
-                  lyrics: null == O ? void 0 : O.lyrics,
+            el = k(ei),
+            eo = C(ei),
+            ec = () => window.innerHeight / 2 / 4,
+            ed = async (e) => {
+              N([]),
+                J("loading"),
+                await es.mutateAsync({
+                  lyrics: null == P ? void 0 : P.lyrics,
                   prompt: e.prompt,
-                  songId: null == O ? void 0 : O.id,
+                  songId: null == P ? void 0 : P.id,
                   count: 3,
                 });
             };
           (0, n.useEffect)(() => {
-            let e = ei();
-            Q ? w({ scale: K ? 1.5 : 2, y: e }) : w({ scale: 1, y: 0 });
-          }, [Q, K, J, w]);
-          let eo = r
+            let e = ec();
+            q ? z({ scale: X ? 1.5 : 2, y: e }) : z({ scale: 1, y: 0 });
+          }, [q, X, H, z]);
+          let eu = r
             ? null == r
               ? void 0
               : r.image_path
-            : (null == O ? void 0 : O.image_path) || "/images/placeholder.png";
+            : (null == P ? void 0 : P.image_path) || "/images/placeholder.png";
           return (0, a.jsxs)(a.Fragment, {
             children: [
-              (null == O ? void 0 : O.image_path) &&
-              ("generate" === R ? v.length > 0 || "loading" === Y : i)
+              (null == P ? void 0 : P.image_path) &&
+              ("generate" === Z ? w.length > 0 || "loading" === B : s)
                 ? (0, a.jsxs)("div", {
                     className: "absolute right-0 m-4 hidden md:top-0 md:block",
                     children: [
@@ -297,21 +429,21 @@
                         className:
                           "aspect-square w-[50px] flex-col xl:w-[75px] 2xl:w-[87.5px]",
                         onClick: () =>
-                          s({
-                            image_path: null == O ? void 0 : O.image_path,
+                          i({
+                            image_path: null == P ? void 0 : P.image_path,
                             raw_image_path: "",
                           }),
                         children: (0, a.jsx)("div", {
                           className:
                             "group relative aspect-square w-full shrink-0  border-2 border-transparent hover:border-white md:block md:w-[50px] xl:w-[75px] 2xl:w-[87.5px]",
-                          children: (0, a.jsx)(p.default, {
-                            src: null == O ? void 0 : O.image_path,
+                          children: (0, a.jsx)(m.default, {
+                            src: null == P ? void 0 : P.image_path,
                             alt: "original-cover",
                             className: "cursor-pointer",
                             layout: "fill",
                             objectFit: "cover",
                             priority: !0,
-                            blurDataURL: _,
+                            blurDataURL: Q,
                             placeholder: "blur",
                             sizes:
                               "50px, (min-width: 1280px) 75px, (min-width: 1536px) 87.5px",
@@ -327,35 +459,42 @@
                 children: [
                   (0, a.jsx)("div", {
                     className: "absolute left-4 top-2 md:left-0",
-                    children: (0, a.jsxs)(D, {
-                      value: R,
+                    children: (0, a.jsxs)(_.E, {
+                      value: Z,
                       onValueChange: (e) => {
-                        I(e),
+                        if (!ea) {
+                          f.toast.error(
+                            "Custom cover art changes are only available to subscribers",
+                            b.TQ
+                          ),
+                            U("generate");
+                          return;
+                        }
+                        U(e),
                           "upload" === e
-                            ? h
-                              ? s({ image_path: h, raw_image_path: "" })
-                              : s(void 0)
+                            ? v
+                              ? i({ image_path: v, raw_image_path: "" })
+                              : i(void 0)
                             : "generate" === e &&
-                              (v.length > 0 ? s(v[0]) : s(void 0));
+                              (w.length > 0 ? i(w[0]) : i(void 0));
                       },
                       children: [
                         (0, a.jsxs)("div", {
                           className: "flex items-center space-x-2",
                           children: [
-                            (0, a.jsx)(A, { value: "generate" }),
-                            (0, a.jsx)(z._, {
+                            (0, a.jsx)(_.m, { value: "generate" }),
+                            (0, a.jsx)(E._, {
                               htmlFor: "generate",
                               children: "Generate",
                             }),
                           ],
                         }),
                         t &&
-                          ee &&
                           (0, a.jsxs)("div", {
                             className: "flex items-center space-x-2",
                             children: [
-                              (0, a.jsx)(A, { value: "upload" }),
-                              (0, a.jsx)(z._, {
+                              (0, a.jsx)(_.m, { value: "upload" }),
+                              (0, a.jsx)(E._, {
                                 htmlFor: "upload",
                                 children: "Upload",
                               }),
@@ -364,91 +503,105 @@
                       ],
                     }),
                   }),
-                  (0, a.jsx)("div", {
-                    className:
-                      "mt-1 aspect-square w-[150px]  flex-col xl:w-[225px] 2xl:w-[262.5px]",
-                    children: (0, a.jsx)("div", {
-                      className:
-                        "aspect-square w-[150px] flex-col xl:w-[225px] 2xl:w-[262.5px]",
-                      children: (0, a.jsxs)(d.E.div, {
+                  s
+                    ? (0, a.jsx)("div", {
                         className:
-                          "group relative z-50 aspect-square w-[150px] shrink-0 md:ml-3 md:block xl:w-[225px] 2xl:w-[262.5px]",
-                        initial: !1,
-                        animate: j,
-                        transition: {
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 20,
-                        },
-                        onClick: () => {
-                          q(!Q);
-                        },
-                        children: [
-                          (0, a.jsx)(p.default, {
-                            src: eo,
-                            alt: "cover",
-                            layout: "fill",
-                            objectFit: "cover",
-                            sizes:
-                              "150px, (min-width: 1280px) 225px, (min-width: 1536px) 262.5px",
-                            className: "cursor-pointer",
-                            priority: !0,
-                            blurDataURL: _,
-                            placeholder: "blur",
-                            unoptimized: !eo.includes("imagedelivery"),
-                          }),
-                          "loading" === Y &&
-                            (0, a.jsx)("div", {
-                              className:
-                                "absolute inset-0 flex flex-col items-center justify-center bg-black opacity-80",
-                              children: (0, a.jsx)(u.Z, {
-                                className: "ml-2 animate-spin",
-                                size: 20,
+                          "mt-1 flex h-[150px] w-[150px] items-center md:h-[300px] md:w-[300px] 2xl:h-[350px] 2xl:w-[350px] ",
+                        children: (0, a.jsx)(D, {
+                          file: s,
+                          onImageCropped: (e, t) => {
+                            y(e),
+                              g(t),
+                              i({ image_path: e, raw_image_path: "" }),
+                              console.log(e);
+                          },
+                        }),
+                      })
+                    : (0, a.jsx)("div", {
+                        className:
+                          "mt-1 aspect-square w-[150px]  flex-col xl:w-[225px] 2xl:w-[262.5px]",
+                        children: (0, a.jsx)("div", {
+                          className:
+                            "aspect-square w-[150px] flex-col xl:w-[225px] 2xl:w-[262.5px]",
+                          children: (0, a.jsxs)(d.E.div, {
+                            className:
+                              "group relative z-50 aspect-square w-[150px] shrink-0 md:ml-3 md:block xl:w-[225px] 2xl:w-[262.5px]",
+                            initial: !1,
+                            animate: F,
+                            transition: {
+                              type: "spring",
+                              stiffness: 300,
+                              damping: 20,
+                            },
+                            onClick: () => {
+                              V(!q);
+                            },
+                            children: [
+                              (0, a.jsx)(m.default, {
+                                src: eu,
+                                alt: "cover",
+                                layout: "fill",
+                                objectFit: "cover",
+                                sizes:
+                                  "150px, (min-width: 1280px) 225px, (min-width: 1536px) 262.5px",
+                                className: "cursor-pointer",
+                                priority: !0,
+                                blurDataURL: Q,
+                                placeholder: "blur",
+                                unoptimized: !eu.includes("imagedelivery"),
                               }),
-                            }),
-                        ],
+                              "loading" === B &&
+                                (0, a.jsx)("div", {
+                                  className:
+                                    "absolute inset-0 flex flex-col items-center justify-center bg-black opacity-80",
+                                  children: (0, a.jsx)(u.Z, {
+                                    className: "ml-2 animate-spin",
+                                    size: 20,
+                                  }),
+                                }),
+                            ],
+                          }),
+                        }),
                       }),
-                    }),
-                  }),
                   (0, a.jsx)("div", {
                     className: "ml-4 w-4/5",
-                    children: (0, a.jsx)(U.l0, {
-                      ...et,
+                    children: (0, a.jsx)(M.l0, {
+                      ...en,
                       children: (0, a.jsxs)("form", {
-                        onSubmit: et.handleSubmit(el),
+                        onSubmit: en.handleSubmit(ed),
                         children: [
-                          (0, a.jsx)(U.Wi, {
-                            control: et.control,
+                          (0, a.jsx)(M.Wi, {
+                            control: en.control,
                             name: "prompt",
                             render: (e) => {
                               let { field: t } = e;
-                              return (0, a.jsxs)(U.xJ, {
+                              return (0, a.jsxs)(M.xJ, {
                                 children: [
-                                  (0, a.jsx)(U.lX, {
+                                  (0, a.jsx)(M.lX, {
                                     children:
-                                      "generate" === R ? "Prompt" : "Upload",
+                                      "generate" === Z ? "Prompt" : "Upload",
                                   }),
-                                  (0, a.jsx)(U.pf, {
+                                  (0, a.jsx)(M.pf, {
                                     children:
-                                      "generate" === R
+                                      "generate" === Z
                                         ? "Album cover for a song about..."
-                                        : "Upload an image from your device.",
+                                        : "Upload an image from your device under 5 MB.",
                                   }),
-                                  (0, a.jsx)(U.NI, {
-                                    className: (0, T.cn)(
-                                      "upload" === R && "hidden"
+                                  (0, a.jsx)(M.NI, {
+                                    className: (0, R.cn)(
+                                      "upload" === Z && "hidden"
                                     ),
-                                    children: (0, a.jsx)(P.g, {
+                                    children: (0, a.jsx)(G.g, {
                                       ...t,
                                       onKeyDown: (e) => {
                                         "Enter" === e.key &&
                                           e.shiftKey &&
                                           (e.preventDefault(),
-                                          et.handleSubmit(el)());
+                                          en.handleSubmit(ed)());
                                       },
                                     }),
                                   }),
-                                  (0, a.jsx)(U.zG, {}),
+                                  (0, a.jsx)(M.zG, {}),
                                 ],
                               });
                             },
@@ -456,28 +609,28 @@
                           (0, a.jsxs)("div", {
                             className: "mt-3 flex",
                             children: [
-                              (0, a.jsx)(Z.z, {
+                              (0, a.jsx)(A.z, {
                                 type: "submit",
                                 variant: "secondary",
-                                className: (0, T.cn)(
+                                className: (0, R.cn)(
                                   "mr-3 block",
-                                  "upload" === R && "hidden"
+                                  "upload" === Z && "hidden"
                                 ),
                                 title: "Generate a variation of this track",
-                                disabled: "loading" === Y,
+                                disabled: "loading" === B,
                                 children: (0, a.jsx)("span", {
                                   children: "Generate",
                                 }),
                               }),
-                              (0, a.jsx)(Z.z, {
+                              (0, a.jsx)(A.z, {
                                 type: "button",
                                 variant: "secondary",
-                                className: (0, T.cn)(
+                                className: (0, R.cn)(
                                   "mr-3 block",
-                                  "generate" === R && "hidden"
+                                  "generate" === Z && "hidden"
                                 ),
                                 title: "Upload a custom image",
-                                disabled: "loading" === Y,
+                                disabled: "loading" === B,
                                 onClick: () => {
                                   (null == e ? void 0 : e.current) &&
                                     (null == e || e.current.click());
@@ -501,38 +654,44 @@
                                     );
                                     return;
                                   }
-                                  x(t);
+                                  if (t.size > b.Tb) {
+                                    f.toast.error(
+                                      "File size must be less than 5 MB."
+                                    );
+                                    return;
+                                  }
+                                  h(t);
                                   let a = URL.createObjectURL(t);
-                                  g(a),
-                                    s({ image_path: a, raw_image_path: "" });
+                                  y(a),
+                                    i({ image_path: a, raw_image_path: "" });
                                 },
                                 style: { display: "none" },
                                 accept: "image/jpeg, image/png",
                               }),
-                              (0, a.jsx)(Z.z, {
+                              (0, a.jsx)(A.z, {
                                 type: "button",
                                 onClick: () => {
-                                  if (r && (null == O ? void 0 : O.id)) {
+                                  if (r && (null == P ? void 0 : P.id)) {
                                     if (
-                                      (V(!1), G(!0), M(), "upload" === R && i)
+                                      (K(!1), Y(!0), O(), "upload" === Z && s)
                                     ) {
                                       let e = new FormData();
-                                      e.append("image", i),
-                                        es.mutateAsync({
-                                          songId: null == O ? void 0 : O.id,
+                                      e.append("image", x || s),
+                                        eo.mutateAsync({
+                                          songId: null == P ? void 0 : P.id,
                                           formData: e,
                                         });
                                     } else
-                                      "generate" === R &&
+                                      "generate" === Z &&
                                         r &&
-                                        en.mutateAsync({
-                                          songId: null == O ? void 0 : O.id,
+                                        el.mutateAsync({
+                                          songId: null == P ? void 0 : P.id,
                                           payload: r,
                                         });
                                   }
                                 },
                                 disabled:
-                                  "generate" === R ? !r || "loading" === Y : !i,
+                                  "generate" === Z ? !r || "loading" === B : !s,
                                 variant: "secondary",
                                 className: "mr-3 block bg-brand-magenta",
                                 title: "Update Cover Art for Song",
@@ -549,12 +708,12 @@
                 ],
               }),
               (0, a.jsxs)("div", {
-                className: (0, T.cn)("upload" === R && "hidden"),
+                className: (0, R.cn)("upload" === Z && "hidden"),
                 children: [
                   (0, a.jsxs)("div", {
                     className: "mt-3 flex justify-center gap-x-4 lg:gap-x-8",
                     children: [
-                      "loading" === Y &&
+                      "loading" === B &&
                         (0, a.jsx)(a.Fragment, {
                           children: Array.from({ length: 2 }).map((e, t) =>
                             (0, a.jsx)(
@@ -575,11 +734,11 @@
                             )
                           ),
                         }),
-                      v.length > 0 && "loading" !== Y
+                      w.length > 0 && "loading" !== B
                         ? (0, a.jsx)("div", {
                             className:
                               " ml-4 flex w-4/5 flex-wrap gap-x-6 gap-y-3 md:justify-center",
-                            children: v
+                            children: w
                               .filter((e) => e !== r)
                               .map((e, t) =>
                                 (0, a.jsx)(
@@ -587,17 +746,17 @@
                                   {
                                     className:
                                       "aspect-square w-[100px] flex-col  xl:w-[150px] 2xl:w-[175px]",
-                                    onClick: () => s(e),
+                                    onClick: () => i(e),
                                     children: (0, a.jsx)("div", {
                                       className:
                                         "group relative aspect-square w-full shrink-0  border-2 border-transparent hover:border-white md:block md:w-[100px] xl:w-[150px] 2xl:w-[175px]",
-                                      children: (0, a.jsx)(p.default, {
+                                      children: (0, a.jsx)(m.default, {
                                         src: e.image_path,
                                         alt: "generated-image-".concat(t),
                                         layout: "fill",
                                         objectFit: "cover",
                                         priority: !0,
-                                        blurDataURL: _,
+                                        blurDataURL: Q,
                                         placeholder: "blur",
                                         className: "cursor-pointer",
                                         sizes:
@@ -613,8 +772,8 @@
                         : null,
                     ],
                   }),
-                  (null == O ? void 0 : O.image_path) &&
-                  ("generate" === R ? v.length > 0 || "loading" === Y : i)
+                  (null == P ? void 0 : P.image_path) &&
+                  ("generate" === Z ? w.length > 0 || "loading" === B : s)
                     ? (0, a.jsx)("div", {
                         className:
                           "mt-3 flex flex-col items-center justify-center md:hidden",
@@ -630,8 +789,8 @@
                               className:
                                 "aspect-square w-[50px] flex-col xl:w-[75px] 2xl:w-[87.5px]",
                               onClick: () =>
-                                s({
-                                  image_path: null == O ? void 0 : O.image_path,
+                                i({
+                                  image_path: null == P ? void 0 : P.image_path,
                                   raw_image_path: "",
                                 }),
                               children: (0, a.jsx)("div", {
@@ -640,14 +799,14 @@
                                 children: (0, a.jsx)("div", {
                                   className:
                                     "group relative mt-3 aspect-square w-full shrink-0  border-2 border-transparent hover:border-white md:block md:w-[100px] xl:w-[150px] 2xl:w-[175px]",
-                                  children: (0, a.jsx)(p.default, {
-                                    src: null == O ? void 0 : O.image_path,
+                                  children: (0, a.jsx)(m.default, {
+                                    src: null == P ? void 0 : P.image_path,
                                     alt: "original-cover",
                                     className: "cursor-pointer",
                                     layout: "fill",
                                     objectFit: "cover",
                                     priority: !0,
-                                    blurDataURL: _,
+                                    blurDataURL: Q,
                                     placeholder: "blur",
                                     sizes:
                                       "100px, (min-width: 1280px) 150px, (min-width: 1536px) 175px",
@@ -664,8 +823,8 @@
             ],
           });
         },
-        G = r(47934),
-        Q = () => {
+        q = r(47934),
+        V = () => {
           let {
               coverDrawerOpen: e,
               closeCoverDrawer: t,
@@ -680,14 +839,14 @@
             }, [r]),
             (0, a.jsx)("div", {
               className: "md:hidden",
-              children: (0, a.jsx)(i.Z, {
+              children: (0, a.jsx)(s.Z, {
                 detent: "full-height",
                 isOpen: e,
                 onClose: o,
-                children: (0, a.jsxs)(i.Z.Container, {
+                children: (0, a.jsxs)(s.Z.Container, {
                   children: [
-                    (0, a.jsx)(i.Z.Header, { className: "bg-create" }),
-                    (0, a.jsxs)(i.Z.Content, {
+                    (0, a.jsx)(s.Z.Header, { className: "bg-create" }),
+                    (0, a.jsxs)(s.Z.Content, {
                       disableDrag: !0,
                       className: "bg-create",
                       children: [
@@ -701,7 +860,7 @@
                             }),
                             (0, a.jsx)("div", {
                               className: "flex flex-row items-center",
-                              children: (0, a.jsx)(s.Z, {
+                              children: (0, a.jsx)(i.Z, {
                                 size: 24,
                                 onClick: t,
                                 className: "z-10 cursor-pointer",
@@ -709,9 +868,9 @@
                             }),
                           ],
                         }),
-                        (0, a.jsx)(G.Z, { className: "mb-5 px-4" }),
-                        (0, a.jsx)(i.Z.Scroller, {
-                          children: (0, a.jsx)(M, {}),
+                        (0, a.jsx)(q.Z, { className: "mb-5 px-4" }),
+                        (0, a.jsx)(s.Z.Scroller, {
+                          children: (0, a.jsx)(Y, {}),
                         }),
                       ],
                     }),
@@ -721,10 +880,10 @@
             })
           );
         },
-        q = r(64249),
-        Y = r(19346),
-        W = () =>
-          (0, h.D)({
+        B = r(64249),
+        J = r(19346),
+        K = () =>
+          (0, x.D)({
             mutationFn: async (e) => {
               let {
                 report: t,
@@ -732,53 +891,54 @@
                 songId: a,
                 reportType: n,
               } = e;
-              await (0, b.lu)(t, r, a, n);
+              await (0, y.lu)(t, r, a, n);
             },
             mutationKey: ["createReport"],
           }),
-        V = r(62177);
-      let K = n.forwardRef((e, t) => {
+        X = r(62177),
+        H = r(68928);
+      let $ = n.forwardRef((e, t) => {
         let { className: r, ...n } = e;
-        return (0, a.jsx)(I.fC, {
-          className: (0, T.cn)("grid gap-2", r),
+        return (0, a.jsx)(H.fC, {
+          className: (0, R.cn)("grid gap-2", r),
           ...n,
           ref: t,
         });
       });
-      K.displayName = I.fC.displayName;
-      let J = n.forwardRef((e, t) => {
+      $.displayName = H.fC.displayName;
+      let ee = n.forwardRef((e, t) => {
         let { className: r, ...n } = e;
-        return (0, a.jsx)(I.ck, {
+        return (0, a.jsx)(H.ck, {
           ref: t,
-          className: (0, T.cn)(
+          className: (0, R.cn)(
             "aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
             r
           ),
           ...n,
-          children: (0, a.jsx)(I.z$, {
+          children: (0, a.jsx)(H.z$, {
             className: "flex items-center justify-center",
-            children: (0, a.jsx)(V.nQG, {
+            children: (0, a.jsx)(X.nQG, {
               className: "h-3.5 w-3.5 fill-primary",
             }),
           }),
         });
       });
-      J.displayName = I.ck.displayName;
-      var B = (e) => {
+      ee.displayName = H.ck.displayName;
+      var et = (e) => {
         let { reportType: t, setReportType: r } = e;
         return (0, a.jsx)(a.Fragment, {
-          children: (0, a.jsxs)(K, {
+          children: (0, a.jsxs)($, {
             value: t,
             onValueChange: r,
             children: [
               (0, a.jsxs)("div", {
                 className: "flex items-center space-x-2",
                 children: [
-                  (0, a.jsx)(J, {
+                  (0, a.jsx)(ee, {
                     value: "offensive_content",
                     id: "offensive_content",
                   }),
-                  (0, a.jsx)(z._, {
+                  (0, a.jsx)(E._, {
                     htmlFor: "offensive_content",
                     children: "Offensive Content",
                   }),
@@ -787,11 +947,11 @@
               (0, a.jsxs)("div", {
                 className: "flex items-center space-x-2",
                 children: [
-                  (0, a.jsx)(J, {
+                  (0, a.jsx)(ee, {
                     value: "copyright_violation",
                     id: "copyright_violation",
                   }),
-                  (0, a.jsx)(z._, {
+                  (0, a.jsx)(E._, {
                     htmlFor: "copyright_violation",
                     children: "Copyright Violation",
                   }),
@@ -801,72 +961,72 @@
           }),
         });
       };
-      let X = x.z.object({
-        description: x.z
+      let er = h.z.object({
+        description: h.z
           .string()
           .min(10, { message: "Description must be at least 10 characters." }),
       });
-      var H = () => {
-          let e = W(),
+      var ea = () => {
+          let e = K(),
             {
               closeReportTrackModal: t,
               closeReportDrawer: r,
-              track: s,
+              track: i,
             } = (0, l.g4)(),
-            i = (0, m.cI)({ resolver: (0, c.F)(X) }),
+            s = (0, p.cI)({ resolver: (0, c.F)(er) }),
             [o, d] = (0, n.useState)(!1),
-            [u, p] = (0, n.useState)("offensive_content");
-          async function x(a) {
-            (null == s ? void 0 : s.user_id) &&
-              (null == s ? void 0 : s.id) &&
+            [u, m] = (0, n.useState)("offensive_content");
+          async function h(a) {
+            (null == i ? void 0 : i.user_id) &&
+              (null == i ? void 0 : i.id) &&
               (d(!0),
               await e.mutateAsync({
                 reportType: u,
-                reportedUserId: null == s ? void 0 : s.user_id,
-                songId: null == s ? void 0 : s.id,
+                reportedUserId: null == i ? void 0 : i.user_id,
+                songId: null == i ? void 0 : i.id,
                 report: a,
               }),
-              f.toast.success("Song Reported!", v.TQ),
+              f.toast.success("Song Reported!", b.TQ),
               t(),
               r(),
               d(!1),
-              h());
+              x());
           }
-          let h = () => {
-            i.reset({ description: "" }, { keepErrors: !0 });
+          let x = () => {
+            s.reset({ description: "" }, { keepErrors: !0 });
           };
           return (0, a.jsxs)(a.Fragment, {
             children: [
-              (0, a.jsx)(Y.xr, {
+              (0, a.jsx)(J.xr, {
                 className: "max-h-[70vh] overflow-auto pl-2",
-                children: (0, a.jsx)(U.l0, {
-                  ...i,
+                children: (0, a.jsx)(M.l0, {
+                  ...s,
                   children: (0, a.jsxs)("form", {
-                    onSubmit: i.handleSubmit(x),
+                    onSubmit: s.handleSubmit(h),
                     className: "mx-2 space-y-6 md:ml-2 md:w-4/5 lg:w-2/3",
                     children: [
-                      (0, a.jsx)(B, { reportType: u, setReportType: p }),
-                      (0, a.jsx)(U.Wi, {
-                        control: i.control,
+                      (0, a.jsx)(et, { reportType: u, setReportType: m }),
+                      (0, a.jsx)(M.Wi, {
+                        control: s.control,
                         name: "description",
                         render: (e) => {
                           let { field: t } = e;
-                          return (0, a.jsxs)(U.xJ, {
+                          return (0, a.jsxs)(M.xJ, {
                             children: [
-                              (0, a.jsx)(U.lX, {
+                              (0, a.jsx)(M.lX, {
                                 children:
                                   "offensive_content" === u
                                     ? "Explain why this content violates our community guidelines."
                                     : "Explain why this content violates copyright.",
                               }),
-                              (0, a.jsx)(U.NI, {
-                                children: (0, a.jsx)(P.g, {
+                              (0, a.jsx)(M.NI, {
+                                children: (0, a.jsx)(G.g, {
                                   placeholder:
                                     "Please provide a detailed description of the issue.",
                                   ...t,
                                 }),
                               }),
-                              (0, a.jsx)(U.zG, {}),
+                              (0, a.jsx)(M.zG, {}),
                             ],
                           });
                         },
@@ -874,17 +1034,17 @@
                       (0, a.jsxs)("div", {
                         className: "flex",
                         children: [
-                          (0, a.jsx)(Z.z, {
+                          (0, a.jsx)(A.z, {
                             disabled: o,
                             type: "submit",
                             children: o ? "Submitting..." : "Submit",
                           }),
                           (0, a.jsx)("div", {
                             className: "flex justify-end md:hidden",
-                            children: (0, a.jsx)(Z.z, {
+                            children: (0, a.jsx)(A.z, {
                               type: "button",
                               variant: "ghost",
-                              onClick: h,
+                              onClick: x,
                               children: "Reset",
                             }),
                           }),
@@ -896,30 +1056,30 @@
               }),
               (0, a.jsx)("div", {
                 className: "hidden justify-end md:flex",
-                children: (0, a.jsx)(Z.z, {
+                children: (0, a.jsx)(A.z, {
                   variant: "ghost",
-                  onClick: h,
+                  onClick: x,
                   children: "Reset",
                 }),
               }),
             ],
           });
         },
-        $ = () => {
+        en = () => {
           let { isReportTrackDrawerOpen: e, closeReportDrawer: t } = (0,
           l.g4)();
           return (0, a.jsx)("div", {
             className: "md:hidden",
-            children: (0, a.jsx)(i.Z, {
+            children: (0, a.jsx)(s.Z, {
               detent: "full-height",
               isOpen: e,
               onClose: () => {
                 t();
               },
-              children: (0, a.jsxs)(i.Z.Container, {
+              children: (0, a.jsxs)(s.Z.Container, {
                 children: [
-                  (0, a.jsx)(i.Z.Header, { className: "bg-create" }),
-                  (0, a.jsxs)(i.Z.Content, {
+                  (0, a.jsx)(s.Z.Header, { className: "bg-create" }),
+                  (0, a.jsxs)(s.Z.Content, {
                     disableDrag: !0,
                     className: "bg-create",
                     children: [
@@ -933,7 +1093,7 @@
                           }),
                           (0, a.jsx)("div", {
                             className: "flex flex-row items-center",
-                            children: (0, a.jsx)(s.Z, {
+                            children: (0, a.jsx)(i.Z, {
                               size: 24,
                               onClick: t,
                               className: "z-10 cursor-pointer",
@@ -941,8 +1101,10 @@
                           }),
                         ],
                       }),
-                      (0, a.jsx)(q.Z0, { className: "mb-5 px-4" }),
-                      (0, a.jsx)(i.Z.Scroller, { children: (0, a.jsx)(H, {}) }),
+                      (0, a.jsx)(B.Z0, { className: "mb-5 px-4" }),
+                      (0, a.jsx)(s.Z.Scroller, {
+                        children: (0, a.jsx)(ea, {}),
+                      }),
                     ],
                   }),
                 ],
@@ -950,64 +1112,64 @@
             }),
           });
         },
-        ee = () => {
+        ei = () => {
           let [e, t] = (0, n.useState)(!1);
           return ((0, n.useEffect)(() => {
             t(!0);
           }, []),
           e)
             ? (0, a.jsxs)(a.Fragment, {
-                children: [(0, a.jsx)($, {}), (0, a.jsx)(Q, {})],
+                children: [(0, a.jsx)(en, {}), (0, a.jsx)(V, {})],
               })
             : null;
         },
-        et = r(88198),
-        er = r(47907),
-        ea = r(41231),
-        en = r(3850),
-        es = r(13581);
-      let ei = {
+        es = r(88198),
+        el = r(47907),
+        eo = r(41231),
+        ec = r(3850),
+        ed = r(13581);
+      let eu = {
         apiHost: "https://cdn.growthbook.io",
         clientKey: "sdk-xFG8X44ezpZV88",
         decryptionKey: "/g9qmbGApxXcXwBgohjpWg==",
-        enableDevMode: !(0, T.Bl)(),
+        enableDevMode: !(0, R.Bl)(),
         subscribeToChanges: !0,
         trackingCallback: (e, t) => {
-          (0, es.L9)("View Experiment", { experiment: e, result: t });
+          (0, ed.L9)("View Experiment", { experiment: e, result: t });
         },
       };
-      new en.G(ei);
-      let el = new o.Gr(ei);
-      var eo = (e) => {
+      new ec.G(eu);
+      let em = new o.Gr(eu);
+      var ep = (e) => {
           let { children: t } = e,
-            r = (0, er.usePathname)(),
-            s = (0, S.Z)(),
-            [i, l] = (0, et.I)({ key: v.Zc }),
+            r = (0, el.usePathname)(),
+            i = (0, L.Z)(),
+            [s, l] = (0, es.I)({ key: b.Zc }),
             c = (0, n.useCallback)(() => {
-              l((0, ea.Z)());
+              l((0, eo.Z)());
             }, []);
           return (
             (0, n.useEffect)(() => {
               fetch("https://cdn.growthbook.io/api/features/sdk-xFG8X44ezpZV88")
                 .then((e) => e.json())
                 .then((e) => {
-                  el.setEncryptedFeatures(e.encryptedFeatures);
+                  em.setEncryptedFeatures(e.encryptedFeatures);
                 });
             }, []),
             (0, n.useEffect)(() => {
-              el.setAttributes({
-                ...el.getAttributes(),
+              em.setAttributes({
+                ...em.getAttributes(),
                 id:
-                  (null == s ? void 0 : s.id) ||
-                  (0, et._)({ key: v.Zc }) ||
+                  (null == i ? void 0 : i.id) ||
+                  (0, es._)({ key: b.Zc }) ||
                   c(),
-                loggedIn: !!(null == s ? void 0 : s.id),
+                loggedIn: !!(null == i ? void 0 : i.id),
                 browser: navigator.userAgent,
                 url: r,
               });
-            }, [r, null == s ? void 0 : s.id]),
+            }, [r, null == i ? void 0 : i.id]),
             (0, a.jsx)(o.Ny, {
-              growthbook: el,
+              growthbook: em,
               children: (0, a.jsx)(o.h4, {
                 timeout: 1e3,
                 fallback: (0, a.jsx)("div", {
@@ -1018,14 +1180,14 @@
             })
           );
         },
-        ec = r(14209),
-        ed = r(70048),
-        eu = r(89936),
-        ep = r(43887),
-        em = () => {
+        ef = r(14209),
+        eh = r(70048),
+        ex = r(89936),
+        eg = r(43887),
+        ev = () => {
           let { redirect: e, isAuthOpen: t, closeAuthModal: r } = (0, l.fI)(),
             n = e || window.location.pathname + window.location.search;
-          return (0, a.jsx)(ep.Z, {
+          return (0, a.jsx)(eg.Z, {
             isOpen: t,
             onChange: (e) => {
               e || r();
@@ -1038,7 +1200,7 @@
               children: (0, a.jsx)("div", {
                 className:
                   "relative flex w-full flex-col items-center justify-center text-white",
-                children: (0, a.jsxs)(ed.Z, {
+                children: (0, a.jsxs)(eh.Z, {
                   className:
                     "flex w-full flex-col items-center justify-center px-4 py-12 lg:px-20",
                   children: [
@@ -1046,55 +1208,55 @@
                       className: "flex items-center justify-center",
                       children: (0, a.jsx)("div", {
                         className: "mb-12 rounded-md p-2 lg:mb-4 lg:p-10",
-                        children: (0, a.jsx)(eu.Z, { redirect: n }),
+                        children: (0, a.jsx)(ex.Z, { redirect: n }),
                       }),
                     }),
-                    (0, a.jsx)(ec.Z, {}),
+                    (0, a.jsx)(ef.Z, {}),
                   ],
                 }),
               }),
             }),
           });
         },
-        ef = () => {
+        eb = () => {
           let e = (0, n.useRef)(null),
             [t, r] = (0, n.useState)(!1),
-            [s, i] = (0, n.useState)(0),
+            [i, s] = (0, n.useState)(0),
             [o, c] = (0, n.useState)(0),
-            { isExtraLargeDevice: u, is2XLargeDevice: p } = (0, L.Z)(),
+            { isExtraLargeDevice: u, is2XLargeDevice: m } = (0, I.Z)(),
             {
-              isCoverOpen: m,
+              isCoverOpen: p,
               closeCoverModal: f,
-              isImageExpanded: x,
-              setIsImageExpanded: h,
+              isImageExpanded: h,
+              setIsImageExpanded: x,
               imageGenerateStatus: g,
             } = (0, l.dG)();
           return (
             (0, n.useEffect)(() => {
               let t = () => {
-                if (!x || !e.current) return;
+                if (!h || !e.current) return;
                 let t = e.current.getBoundingClientRect(),
                   r = window.innerWidth,
                   a = window.innerHeight,
                   n = (r - t.width) / 2,
-                  s = (a - t.height) / 2;
-                i(n), c(s);
+                  i = (a - t.height) / 2;
+                s(n), c(i);
               };
               return (
                 t(),
                 window.addEventListener("resize", t),
                 () => window.removeEventListener("resize", t)
               );
-            }, [x]),
+            }, [h]),
             (0, n.useEffect)(() => {
               "loading" === g
                 ? r(!0)
                 : ("error" === g || "idle" === g) && r(!1);
             }, [g, r]),
             (0, a.jsx)(a.Fragment, {
-              children: (0, a.jsxs)(ep.Z, {
+              children: (0, a.jsxs)(eg.Z, {
                 dialogContentRef: e,
-                isOpen: m,
+                isOpen: p,
                 onChange: (e) => {
                   f();
                 },
@@ -1105,29 +1267,29 @@
                     className: "relative",
                     variants: {
                       default: {
-                        height: p ? "484px" : u ? "459px" : "409px",
+                        height: m ? "484px" : u ? "459px" : "409px",
                         overflow: "hidden",
                       },
                       expanded: {
-                        height: p ? "659px" : u ? "609px" : "559px",
+                        height: m ? "659px" : u ? "609px" : "559px",
                         overflow: "hidden",
                       },
                     },
                     initial: "default",
                     animate: t ? "expanded" : "default",
                     transition: { duration: 0.5 },
-                    children: (0, a.jsx)(M, {}),
+                    children: (0, a.jsx)(Y, {}),
                   }),
-                  x &&
+                  h &&
                     (0, a.jsx)("div", {
                       className:
                         "-mx-[${marginX}] -mx-[${marginY}] fixed inset-0 z-40 bg-black/80 ",
                       onClick: () => {
-                        h(!x);
+                        x(!h);
                       },
                       style: {
-                        marginLeft: "-".concat(s, "px"),
-                        marginRight: "-".concat(s, "px"),
+                        marginLeft: "-".concat(i, "px"),
+                        marginRight: "-".concat(i, "px"),
                         marginTop: "-".concat(o, "px"),
                         marginBottom: "-".concat(o, "px"),
                       },
@@ -1137,8 +1299,8 @@
             })
           );
         },
-        ex = () =>
-          (0, h.D)({
+        ey = () =>
+          (0, x.D)({
             mutationFn: async (e) => {
               let {
                 negativeFeedback: t,
@@ -1146,37 +1308,37 @@
                 rating: a,
                 songId: n,
               } = e;
-              await (0, b.mv)(
+              await (0, y.mv)(
                 { negativeFeedback: t, positiveFeedback: r, rating: a },
                 n
               );
             },
             mutationKey: ["createFeedback"],
           }),
-        eh = r(45179);
-      let eg = x.Ry({
-        positiveFeedback: x
+        ej = r(45179);
+      let ew = h.Ry({
+        positiveFeedback: h
           .Z_()
           .min(10, { message: "Feedback must be at least 10 characters." }),
-        negativeFeedback: x
+        negativeFeedback: h
           .Z_()
           .min(10, { message: "Feedback must be at least 10 characters." }),
-        rating: x
+        rating: h
           .Rx()
           .min(1, { message: "Rating must be at least 1." })
           .max(10, { message: "Rating must be at most 10." }),
       });
-      var ev = () => {
+      var eN = () => {
           let {
               track: e,
               isFeedbackOpen: t,
               closeFeedbackModal: r,
             } = (0, l.Xm)(),
-            n = (0, m.cI)({ resolver: (0, c.F)(eg) }),
-            s = ex();
-          async function i(t) {
-            await s.mutateAsync({ ...t, songId: null == e ? void 0 : e.id }),
-              f.toast.success("Feedback submitted!", v.TQ),
+            n = (0, p.cI)({ resolver: (0, c.F)(ew) }),
+            i = ey();
+          async function s(t) {
+            await i.mutateAsync({ ...t, songId: null == e ? void 0 : e.id }),
+              f.toast.success("Feedback submitted!", b.TQ),
               r(),
               o();
           }
@@ -1187,80 +1349,80 @@
             );
           };
           return (0, a.jsx)(a.Fragment, {
-            children: (0, a.jsxs)(ep.Z, {
+            children: (0, a.jsxs)(eg.Z, {
               isOpen: t,
               onChange: (e) => {
                 e
-                  ? (0, es.L9)("Modal Open", { modalType: "Feedback Modal" })
+                  ? (0, ed.L9)("Modal Open", { modalType: "Feedback Modal" })
                   : r();
               },
               title: "Feedback",
               description: "Send us feedback about this track",
               children: [
-                (0, a.jsx)(U.l0, {
+                (0, a.jsx)(M.l0, {
                   ...n,
                   children: (0, a.jsxs)("form", {
-                    onSubmit: n.handleSubmit(i),
+                    onSubmit: n.handleSubmit(s),
                     className: "w-2/3 space-y-6",
                     children: [
-                      (0, a.jsx)(U.Wi, {
+                      (0, a.jsx)(M.Wi, {
                         control: n.control,
                         name: "positiveFeedback",
                         render: (e) => {
                           let { field: t } = e;
-                          return (0, a.jsxs)(U.xJ, {
+                          return (0, a.jsxs)(M.xJ, {
                             children: [
-                              (0, a.jsx)(U.lX, {
+                              (0, a.jsx)(M.lX, {
                                 children:
                                   "What were some good qualities of the track",
                               }),
-                              (0, a.jsx)(U.NI, {
-                                children: (0, a.jsx)(P.g, {
+                              (0, a.jsx)(M.NI, {
+                                children: (0, a.jsx)(G.g, {
                                   placeholder: "The track excelled at...",
                                   ...t,
                                 }),
                               }),
-                              (0, a.jsx)(U.zG, {}),
+                              (0, a.jsx)(M.zG, {}),
                             ],
                           });
                         },
                       }),
-                      (0, a.jsx)(U.Wi, {
+                      (0, a.jsx)(M.Wi, {
                         control: n.control,
                         name: "negativeFeedback",
                         render: (e) => {
                           let { field: t } = e;
-                          return (0, a.jsxs)(U.xJ, {
+                          return (0, a.jsxs)(M.xJ, {
                             children: [
-                              (0, a.jsx)(U.lX, {
+                              (0, a.jsx)(M.lX, {
                                 children:
                                   "What were some bad qualities of the track",
                               }),
-                              (0, a.jsx)(U.NI, {
-                                children: (0, a.jsx)(P.g, {
+                              (0, a.jsx)(M.NI, {
+                                children: (0, a.jsx)(G.g, {
                                   placeholder:
                                     "The track could have been better at...",
                                   ...t,
                                 }),
                               }),
-                              (0, a.jsx)(U.zG, {}),
+                              (0, a.jsx)(M.zG, {}),
                             ],
                           });
                         },
                       }),
-                      (0, a.jsx)(U.Wi, {
+                      (0, a.jsx)(M.Wi, {
                         control: n.control,
                         name: "rating",
                         render: (e) => {
                           let { field: t } = e;
-                          return (0, a.jsxs)(U.xJ, {
+                          return (0, a.jsxs)(M.xJ, {
                             children: [
-                              (0, a.jsx)(U.lX, {
+                              (0, a.jsx)(M.lX, {
                                 children:
                                   "How would you rate the track from 1 to 10",
                               }),
-                              (0, a.jsx)(U.NI, {
-                                children: (0, a.jsx)(eh.I, {
+                              (0, a.jsx)(M.NI, {
+                                children: (0, a.jsx)(ej.I, {
                                   ...t,
                                   onChange: (e) => {
                                     var r;
@@ -1275,21 +1437,21 @@
                                   },
                                 }),
                               }),
-                              (0, a.jsx)(U.pf, {
+                              (0, a.jsx)(M.pf, {
                                 children: "Must be a number",
                               }),
-                              (0, a.jsx)(U.zG, {}),
+                              (0, a.jsx)(M.zG, {}),
                             ],
                           });
                         },
                       }),
-                      (0, a.jsx)(Z.z, { type: "submit", children: "Submit" }),
+                      (0, a.jsx)(A.z, { type: "submit", children: "Submit" }),
                     ],
                   }),
                 }),
                 (0, a.jsx)("div", {
                   className: "flex justify-end",
-                  children: (0, a.jsx)(Z.z, {
+                  children: (0, a.jsx)(A.z, {
                     variant: "ghost",
                     onClick: o,
                     children: "Reset",
@@ -1299,76 +1461,76 @@
             }),
           });
         },
-        eb = r(71483),
-        ey = () =>
-          (0, h.D)({
+        ek = r(71483),
+        eC = () =>
+          (0, x.D)({
             mutationFn: async (e) => {
               let { feedbackType: t, generalFeedback: r, fileUploads: a } = e;
-              await (0, b.IC)(t, r, a);
+              await (0, y.IC)(t, r, a);
             },
             mutationKey: ["createGeneralFeedback"],
           }),
-        ej = r(49030),
-        ew = r(40110),
-        eN = (e) => {
+        eS = r(49030),
+        eL = r(40110),
+        eI = (e) => {
           let { feedbackType: t, setFeedbackType: r } = e;
           return (0, a.jsx)(a.Fragment, {
-            children: (0, a.jsx)(ew.Tabs, {
+            children: (0, a.jsx)(eL.Tabs, {
               value: t,
               onValueChange: r,
-              children: (0, a.jsxs)(ew.TabsList, {
+              children: (0, a.jsxs)(eL.TabsList, {
                 children: [
-                  (0, a.jsx)(ew.TabsTrigger, {
+                  (0, a.jsx)(eL.TabsTrigger, {
                     value: "general",
                     children: "General",
                   }),
-                  (0, a.jsx)(ew.TabsTrigger, { value: "bug", children: "Bug" }),
+                  (0, a.jsx)(eL.TabsTrigger, { value: "bug", children: "Bug" }),
                 ],
               }),
             }),
           });
         };
-      let ek = x.Ry({
-        feedbackText: x
+      let eT = h.Ry({
+        feedbackText: h
           .Z_()
           .min(10, { message: "Feedback must be at least 10 characters." }),
-        consoleLogs: x.Z_().optional(),
-        videoLinkUrl: x.Z_().optional(),
+        consoleLogs: h.Z_().optional(),
+        videoLinkUrl: h.Z_().optional(),
       });
-      var eC = () => {
+      var eF = () => {
           let { isGeneralFeedbackOpen: e, closeGeneralFeedbackModal: t } = (0,
             l.jh)(),
-            r = ey(),
-            s = (0, m.cI)({ resolver: (0, c.F)(ek) }),
-            [i, o] = (0, n.useState)(null),
+            r = eC(),
+            i = (0, p.cI)({ resolver: (0, c.F)(eT) }),
+            [s, o] = (0, n.useState)(null),
             [d, u] = (0, n.useState)(!1),
-            [p, x] = (0, n.useState)("general");
-          async function h(e) {
+            [m, h] = (0, n.useState)("general");
+          async function x(e) {
             u(!0),
               await r.mutateAsync({
-                feedbackType: p,
+                feedbackType: m,
                 generalFeedback: e,
-                fileUploads: i,
+                fileUploads: s,
               }),
-              f.toast.success("Feedback submitted!", v.TQ),
+              f.toast.success("Feedback submitted!", b.TQ),
               t(),
               u(!1),
               o(null),
               g();
           }
           let g = () => {
-            s.reset(
+            i.reset(
               { feedbackText: "", consoleLogs: "", videoLinkUrl: "" },
               { keepErrors: !0 }
             ),
               o(null);
           };
           return (0, a.jsx)(a.Fragment, {
-            children: (0, a.jsxs)(ep.Z, {
+            children: (0, a.jsxs)(eg.Z, {
               isOpen: e,
               onChange: (e) => {
                 e
-                  ? (0, es.L9)("Modal Open", {
+                  ? (0, ed.L9)("Modal Open", {
                       modalType: "General Feedback Modal",
                     })
                   : t();
@@ -1377,78 +1539,78 @@
               description:
                 "Let us know what you think or any issues you're having. We'd love to hear from you!",
               children: [
-                (0, a.jsx)(ej.ScrollArea, {
+                (0, a.jsx)(eS.ScrollArea, {
                   className: "max-h-[70vh] overflow-auto pl-2",
-                  children: (0, a.jsx)(U.l0, {
-                    ...s,
+                  children: (0, a.jsx)(M.l0, {
+                    ...i,
                     children: (0, a.jsxs)("form", {
-                      onSubmit: s.handleSubmit(h),
+                      onSubmit: i.handleSubmit(x),
                       className: "ml-2 w-4/5 space-y-6 lg:w-2/3",
                       children: [
-                        (0, a.jsx)(eN, { feedbackType: p, setFeedbackType: x }),
-                        (0, a.jsx)(U.Wi, {
-                          control: s.control,
+                        (0, a.jsx)(eI, { feedbackType: m, setFeedbackType: h }),
+                        (0, a.jsx)(M.Wi, {
+                          control: i.control,
                           name: "feedbackText",
                           render: (e) => {
                             let { field: t } = e;
-                            return (0, a.jsxs)(U.xJ, {
+                            return (0, a.jsxs)(M.xJ, {
                               children: [
-                                (0, a.jsx)(U.lX, {
+                                (0, a.jsx)(M.lX, {
                                   children:
-                                    "general" === p
+                                    "general" === m
                                       ? "What feedback (good or bad!) do you have for us?"
                                       : "What bug are you experiencing?",
                                 }),
-                                (0, a.jsx)(U.NI, {
-                                  children: (0, a.jsx)(P.g, {
+                                (0, a.jsx)(M.NI, {
+                                  children: (0, a.jsx)(G.g, {
                                     placeholder:
                                       "Steps to reproduce, description, time it happened, etc.",
                                     ...t,
                                   }),
                                 }),
-                                (0, a.jsx)(U.zG, {}),
+                                (0, a.jsx)(M.zG, {}),
                               ],
                             });
                           },
                         }),
-                        "bug" === p
-                          ? (0, a.jsx)(U.Wi, {
-                              control: s.control,
+                        "bug" === m
+                          ? (0, a.jsx)(M.Wi, {
+                              control: i.control,
                               name: "consoleLogs",
                               render: (e) => {
                                 let { field: t } = e;
-                                return (0, a.jsxs)(U.xJ, {
+                                return (0, a.jsxs)(M.xJ, {
                                   children: [
-                                    (0, a.jsx)(U.lX, {
+                                    (0, a.jsx)(M.lX, {
                                       children:
                                         "If you’re reporting a bug, please provide any console logs you see here. [optional]",
                                     }),
-                                    (0, a.jsx)(U.NI, {
-                                      children: (0, a.jsx)(P.g, {
+                                    (0, a.jsx)(M.NI, {
+                                      children: (0, a.jsx)(G.g, {
                                         className: "w-full",
                                         placeholder: "e.g. Error raised for...",
                                         ...t,
                                       }),
                                     }),
-                                    (0, a.jsx)(U.zG, {}),
+                                    (0, a.jsx)(M.zG, {}),
                                   ],
                                 });
                               },
                             })
                           : null,
-                        "bug" === p
-                          ? (0, a.jsx)(U.Wi, {
-                              control: s.control,
+                        "bug" === m
+                          ? (0, a.jsx)(M.Wi, {
+                              control: i.control,
                               name: "videoLinkUrl",
                               render: (e) => {
                                 let { field: t } = e;
-                                return (0, a.jsxs)(U.xJ, {
+                                return (0, a.jsxs)(M.xJ, {
                                   children: [
-                                    (0, a.jsx)(U.lX, {
+                                    (0, a.jsx)(M.lX, {
                                       children:
                                         "If you’re reporting a bug, please provide a link to a Loom (or similar) video of the issue [optional].",
                                     }),
-                                    (0, a.jsx)(U.NI, {
+                                    (0, a.jsx)(M.NI, {
                                       children: (0, a.jsx)("input", {
                                         type: "text",
                                         placeholder: "https://www.loom.com/...",
@@ -1457,20 +1619,20 @@
                                           "w-full rounded-lg border p-2",
                                       }),
                                     }),
-                                    (0, a.jsx)(U.zG, {}),
+                                    (0, a.jsx)(M.zG, {}),
                                   ],
                                 });
                               },
                             })
                           : null,
-                        (0, a.jsxs)(U.xJ, {
+                        (0, a.jsxs)(M.xJ, {
                           children: [
-                            (0, a.jsx)(U.lX, {
+                            (0, a.jsx)(M.lX, {
                               className:
                                 "cursor-pointer rounded-xl border bg-white/70 px-4 py-2 text-black",
                               children: "Attach Screenshots",
                             }),
-                            (0, a.jsx)(U.V5, {
+                            (0, a.jsx)(M.V5, {
                               multiple: !0,
                               accept: "image/*",
                               onChange: (e) => {
@@ -1478,27 +1640,27 @@
                                   (e.target.files.length > 5
                                     ? f.toast.error(
                                         "You can only upload up to 5 images at a time.",
-                                        v.TQ
+                                        b.TQ
                                       )
                                     : o(Array.from(e.target.files)));
                               },
                             }),
                           ],
                         }),
-                        (null == i ? void 0 : i.length)
+                        (null == s ? void 0 : s.length)
                           ? (0, a.jsxs)("div", {
                               className: "flex flex-col space-y-2",
                               children: [
                                 (0, a.jsxs)("h3", {
                                   children: [
                                     "Attached Images (",
-                                    i.length,
+                                    s.length,
                                     ")",
                                   ],
                                 }),
                                 (0, a.jsx)("div", {
                                   className: "flex flex-row space-x-2",
-                                  children: Array.from(i).map((e, t) =>
+                                  children: Array.from(s).map((e, t) =>
                                     (0, a.jsxs)(
                                       "div",
                                       {
@@ -1517,11 +1679,11 @@
                                           (0, a.jsx)("div", {
                                             className:
                                               "absolute right-[-5px] top-[-5px] cursor-pointer",
-                                            children: (0, a.jsx)(eb.Z, {
+                                            children: (0, a.jsx)(ek.Z, {
                                               className:
                                                 "rounded-full bg-red-500",
                                               onClick: () => {
-                                                let e = Array.from(i);
+                                                let e = Array.from(s);
                                                 e.splice(t, 1), o(e);
                                               },
                                               size: 20,
@@ -1537,7 +1699,7 @@
                               ],
                             })
                           : null,
-                        (0, a.jsx)(Z.z, {
+                        (0, a.jsx)(A.z, {
                           disabled: d,
                           type: "submit",
                           children: d ? "Submitting..." : "Submit",
@@ -1548,7 +1710,7 @@
                 }),
                 (0, a.jsx)("div", {
                   className: "flex justify-end",
-                  children: (0, a.jsx)(Z.z, {
+                  children: (0, a.jsx)(A.z, {
                     variant: "ghost",
                     onClick: g,
                     children: "Reset",
@@ -1558,12 +1720,12 @@
             }),
           });
         },
-        eS = r(50661),
-        eL = () => {
+        eR = r(50661),
+        ez = () => {
           let { track: e, isLyricsOpen: t, closeLyricsModal: r } = (0, l.Q_)(),
-            n = (0, eS.V)({ timeout: 2e3 });
+            n = (0, eR.V)({ timeout: 2e3 });
           return (0, a.jsx)(a.Fragment, {
-            children: (0, a.jsxs)(ep.Z, {
+            children: (0, a.jsxs)(eg.Z, {
               isOpen: t,
               onChange: (e) => {
                 e || r();
@@ -1577,7 +1739,7 @@
                       children: e.lyrics,
                     })
                   : (0, a.jsx)("p", { children: "Lyrics not found" }),
-                (0, a.jsx)(Z.z, {
+                (0, a.jsx)(A.z, {
                   color: n.copied ? "teal" : "blue",
                   onClick: () => n.copy((null == e ? void 0 : e.lyrics) || ""),
                   children: n.copied ? "Copied" : "Copy",
@@ -1586,16 +1748,16 @@
             }),
           });
         },
-        eF = r(49414),
-        eR = () => {
-          let e = (0, j.NL)(),
-            t = (0, S.Z)();
-          return (0, h.D)({
+        eZ = r(49414),
+        eU = () => {
+          let e = (0, w.NL)(),
+            t = (0, L.Z)();
+          return (0, x.D)({
             mutationFn: async (e) => {
               let { attributesToUpdate: r } = e,
-                a = await (0, b.ck)({ attributesToUpdate: r });
+                a = await (0, y.ck)({ attributesToUpdate: r });
               return (
-                (0, es.L9)("Update Profile", {
+                (0, ed.L9)("Update Profile", {
                   userId: null == t ? void 0 : t.id,
                   attributes: r,
                 }),
@@ -1605,54 +1767,54 @@
             mutationKey: ["updateProfile"],
             onSettled: async () => {
               await e.invalidateQueries({
-                queryKey: w.YN.forProfile(null == t ? void 0 : t.id),
+                queryKey: N.YN.forProfile(null == t ? void 0 : t.id),
               });
             },
           });
         },
-        eT = r(96569);
-      let eZ = new eF.kz({ ...eF.Bp.build(), ...eF.yh }),
-        eU = x.Ry({
-          fullName: x.Z_().optional(),
-          displayName: x
+        eP = r(96569);
+      let eO = new eZ.kz({ ...eZ.Bp.build(), ...eZ.yh }),
+        eD = h.Ry({
+          fullName: h.Z_().optional(),
+          displayName: h
             .Z_()
             .min(3, { message: "Display name must be at least 3 characters." })
             .refine((e) => "" !== e.trim(), {
               message: "Display name cannot be just spaces.",
             })
-            .refine((e) => !eZ.hasMatch(e), {
+            .refine((e) => !eO.hasMatch(e), {
               message: "Display name cannot contain obscene language.",
             }),
-          website: x
-            .G0([x.Z_().url(), x.Z_().refine((e) => !e.length)])
+          website: h
+            .G0([h.Z_().url(), h.Z_().refine((e) => !e.length)])
             .optional(),
-          description: x
+          description: h
             .Z_()
             .max(200, {
               message: "Description cannot be more than 200 characters.",
             })
             .optional(),
         }),
-        ez = "displayName";
-      function eI(e) {
+        eA = "displayName";
+      function eM(e) {
         var t, r;
-        let { submitAction: s } = e,
-          [i, d] = (0, n.useState)(!1),
-          u = (0, m.cI)({ resolver: (0, c.F)(eU) }),
-          p = (0, S.Z)(),
-          { data: f, isLoading: x } = (0, eT.Z)({
-            id: null == p ? void 0 : p.id,
+        let { submitAction: i } = e,
+          [s, d] = (0, n.useState)(!1),
+          u = (0, p.cI)({ resolver: (0, c.F)(eD) }),
+          m = (0, L.Z)(),
+          { data: h, isLoading: x } = (0, eP.Z)({
+            id: null == m ? void 0 : m.id,
           }),
-          h = eR(),
-          { openAvatarModal: g } = (0, l.Dv)(),
-          { closeProfileModal: v } = (0, l.aN)(),
-          b = (0, o.cC)("user-profile-upload"),
-          y = (0, o.cC)("subscriptions"),
-          { data: j, isLoading: w } = (0, C.Z)({
-            enabled: !!(null == p ? void 0 : p.id) && y,
+          g = eU(),
+          { openAvatarModal: v } = (0, l.Dv)(),
+          { closeProfileModal: y } = (0, l.aN)(),
+          j = (0, o.cC)("user-profile-upload"),
+          w = (0, o.cC)("subscriptions"),
+          { data: N, isLoading: k } = (0, S.Z)({
+            enabled: !!(null == m ? void 0 : m.id) && w,
           }),
-          N = null == j ? void 0 : j.paidPlan;
-        async function k(e) {
+          C = null == N ? void 0 : N.paidPlan;
+        async function I(e) {
           d(!0);
           try {
             let t = {
@@ -1661,11 +1823,11 @@
               website: e.website,
               description: e.description,
             };
-            await h.mutateAsync({ attributesToUpdate: t }), (0, es.g6)(t);
+            await g.mutateAsync({ attributesToUpdate: t }), (0, ed.g6)(t);
           } catch (t) {
             let e = t.response;
             if ((console.error(t), (null == e ? void 0 : e.status) === 409)) {
-              u.setError(ez, {
+              u.setError(eA, {
                 message: "That display name is taken. Please try another.",
               });
               return;
@@ -1677,34 +1839,34 @@
           } finally {
             d(!1);
           }
-          s && s();
+          i && i();
         }
         return (
           (0, n.useEffect)(() => {
-            f &&
+            h &&
               !x &&
-              (u.setValue("fullName", f.full_name || ""),
-              u.setValue("displayName", f.username || ""),
-              u.setValue("website", f.website || ""),
-              u.setValue("description", f.description || ""));
-          }, [u, f, x]),
+              (u.setValue("fullName", h.full_name || ""),
+              u.setValue("displayName", h.username || ""),
+              u.setValue("website", h.website || ""),
+              u.setValue("description", h.description || ""));
+          }, [u, h, x]),
           (0, a.jsx)("div", {
-            children: (0, a.jsx)(ej.ScrollArea, {
+            children: (0, a.jsx)(eS.ScrollArea, {
               className: "max-h-[70vh] overflow-auto pl-2",
-              children: (0, a.jsx)(U.l0, {
+              children: (0, a.jsx)(M.l0, {
                 ...u,
                 children: (0, a.jsxs)("form", {
-                  onSubmit: u.handleSubmit(k),
+                  onSubmit: u.handleSubmit(I),
                   className: "ml-2 w-4/5 space-y-6 lg:w-2/3",
                   children: [
-                    (0, a.jsx)(U.Wi, {
+                    (0, a.jsx)(M.Wi, {
                       control: u.control,
-                      name: ez,
+                      name: eA,
                       render: (e) => {
                         let { field: t } = e;
-                        return (0, a.jsxs)(U.xJ, {
+                        return (0, a.jsxs)(M.xJ, {
                           children: [
-                            (0, a.jsxs)(U.lX, {
+                            (0, a.jsxs)(M.lX, {
                               children: [
                                 "Display Name ",
                                 (0, a.jsx)("span", {
@@ -1713,19 +1875,18 @@
                                 }),
                               ],
                             }),
-                            (0, a.jsx)(U.NI, {
-                              children: (0, a.jsx)(eh.I, {
+                            (0, a.jsx)(M.NI, {
+                              children: (0, a.jsx)(ej.I, {
                                 placeholder: "Your display name",
                                 ...t,
                               }),
                             }),
-                            (0, a.jsx)(U.zG, { className: "text-foreground" }),
+                            (0, a.jsx)(M.zG, { className: "text-foreground" }),
                           ],
                         });
                       },
                     }),
-                    b &&
-                      N &&
+                    j &&
                       (0, a.jsxs)("div", {
                         className: "flex flex-col space-y-2",
                         children: [
@@ -1734,13 +1895,20 @@
                               "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
                             children: "Avatar",
                           }),
-                          (0, a.jsx)(Z.z, {
+                          (0, a.jsx)(A.z, {
                             type: "button",
                             variant: "secondary",
                             title: "Generate a variation of this track",
                             className: "w-20",
                             onClick: () => {
-                              v(), g();
+                              if (!C) {
+                                f.toast.error(
+                                  "Avatar changes are only available to subscribers",
+                                  b.TQ
+                                );
+                                return;
+                              }
+                              y(), v();
                             },
                             children: (0, a.jsx)("span", {
                               children: "Upload",
@@ -1748,67 +1916,67 @@
                           }),
                         ],
                       }),
-                    (0, a.jsx)(U.Wi, {
+                    (0, a.jsx)(M.Wi, {
                       control: u.control,
                       name: "fullName",
                       render: (e) => {
                         let { field: t } = e;
-                        return (0, a.jsxs)(U.xJ, {
+                        return (0, a.jsxs)(M.xJ, {
                           children: [
-                            (0, a.jsx)(U.lX, {
+                            (0, a.jsx)(M.lX, {
                               children: "Full Name (Optional)",
                             }),
-                            (0, a.jsx)(U.NI, {
-                              children: (0, a.jsx)(eh.I, {
+                            (0, a.jsx)(M.NI, {
+                              children: (0, a.jsx)(ej.I, {
                                 placeholder:
                                   "If you would like to share your full name instead of a display name",
                                 ...t,
                               }),
                             }),
-                            (0, a.jsx)(U.zG, { className: "text-foreground" }),
+                            (0, a.jsx)(M.zG, { className: "text-foreground" }),
                           ],
                         });
                       },
                     }),
-                    (0, a.jsx)(U.Wi, {
+                    (0, a.jsx)(M.Wi, {
                       control: u.control,
                       name: "website",
                       render: (e) => {
                         let { field: t } = e;
-                        return (0, a.jsxs)(U.xJ, {
+                        return (0, a.jsxs)(M.xJ, {
                           children: [
-                            (0, a.jsx)(U.lX, {
+                            (0, a.jsx)(M.lX, {
                               children: "Website (Optional)",
                             }),
-                            (0, a.jsx)(U.NI, {
-                              children: (0, a.jsx)(eh.I, {
+                            (0, a.jsx)(M.NI, {
+                              children: (0, a.jsx)(ej.I, {
                                 placeholder: "Your website",
                                 ...t,
                               }),
                             }),
-                            (0, a.jsx)(U.zG, { className: "text-foreground" }),
+                            (0, a.jsx)(M.zG, { className: "text-foreground" }),
                           ],
                         });
                       },
                     }),
-                    (0, a.jsx)(U.Wi, {
+                    (0, a.jsx)(M.Wi, {
                       control: u.control,
                       name: "description",
                       render: (e) => {
                         let { field: t } = e;
-                        return (0, a.jsxs)(U.xJ, {
+                        return (0, a.jsxs)(M.xJ, {
                           children: [
-                            (0, a.jsx)(U.lX, {
+                            (0, a.jsx)(M.lX, {
                               children: "Description (Optional)",
                             }),
-                            (0, a.jsx)(U.NI, {
-                              children: (0, a.jsx)(eh.I, {
+                            (0, a.jsx)(M.NI, {
+                              children: (0, a.jsx)(ej.I, {
                                 placeholder:
                                   "A short description about yourself",
                                 ...t,
                               }),
                             }),
-                            (0, a.jsx)(U.zG, { className: "text-foreground" }),
+                            (0, a.jsx)(M.zG, { className: "text-foreground" }),
                           ],
                         });
                       },
@@ -1824,10 +1992,10 @@
                         children:
                           "An error occurred while updating the profile.",
                       }),
-                    (0, a.jsx)(Z.z, {
-                      disabled: i,
+                    (0, a.jsx)(A.z, {
+                      disabled: s,
                       type: "submit",
-                      children: i ? "Submitting..." : "Submit",
+                      children: s ? "Submitting..." : "Submit",
                     }),
                   ],
                 }),
@@ -1836,54 +2004,54 @@
           })
         );
       }
-      var eO = () => {
+      var eE = () => {
           let { isProfileOpen: e, closeProfileModal: t } = (0, l.aN)();
-          return (0, a.jsx)(ep.Z, {
+          return (0, a.jsx)(eg.Z, {
             isOpen: e,
             onChange: (e) => {
               e || t();
             },
             title: "Profile",
             description: "Update your profile",
-            children: (0, a.jsx)(eI, { submitAction: () => t() }),
+            children: (0, a.jsx)(eM, { submitAction: () => t() }),
           });
         },
-        eD = () => {
+        e_ = () => {
           let { isReportTrackModalOpen: e, closeReportTrackModal: t } = (0,
           l.g4)();
           return (0, a.jsx)(a.Fragment, {
-            children: (0, a.jsx)(ep.Z, {
+            children: (0, a.jsx)(eg.Z, {
               isOpen: e,
               onChange: (e) => {
                 e
-                  ? (0, es.L9)("Modal Open", { modalType: "Report Song Modal" })
+                  ? (0, ed.L9)("Modal Open", { modalType: "Report Song Modal" })
                   : t();
               },
               title: "Report a Song",
               description:
                 "If you believe a song violates our community guidelines or violates copyright, please let us know.",
-              children: (0, a.jsx)(H, {}),
+              children: (0, a.jsx)(ea, {}),
             }),
           });
         },
-        eA = r(43081),
-        eP = r(55211),
-        e_ = r(74919),
-        eE = r(28795),
-        eM = r(80706),
-        eG = r(50512),
-        eQ = r(27815),
-        eq = r(56409),
-        eY = r(25915),
-        eW = (e) => {
+        eG = r(43081),
+        eQ = r(55211),
+        eW = r(74919),
+        eY = r(28795),
+        eq = r(80706),
+        eV = r(50512),
+        eB = r(27815),
+        eJ = r(56409),
+        eK = r(25915),
+        eX = (e) => {
           let { track: t, shareText: r = "Check out my track from Udio: " } = e,
-            s = (0, n.useMemo)(
-              () => (0, T.KB)("/songs/".concat((0, T.Y)(t.id))),
+            i = (0, n.useMemo)(
+              () => (0, R.KB)("/songs/".concat((0, R.Y)(t.id))),
               [t.id]
             ),
-            i = (0, n.useCallback)(
+            s = (0, n.useCallback)(
               (e) => () => {
-                (0, es.L9)("Share Song", { songId: t.id, shareType: e });
+                (0, ed.L9)("Share Song", { songId: t.id, shareType: e });
               },
               [t.id]
             );
@@ -1894,50 +2062,50 @@
                 className: "hidden md:block",
                 children: "Share to social media:",
               }),
-              (0, a.jsx)(eY.B, {
-                onClick: i("X"),
+              (0, a.jsx)(eK.B, {
+                onClick: s("X"),
                 className: "ml-3",
-                url: s,
+                url: i,
                 title: r,
-                children: (0, a.jsx)(eY.b0, { size: 32, round: !0 }),
+                children: (0, a.jsx)(eK.b0, { size: 32, round: !0 }),
               }),
-              (0, a.jsx)(eY.Dk, {
-                onClick: i("Facebook"),
+              (0, a.jsx)(eK.Dk, {
+                onClick: s("Facebook"),
                 className: "ml-3",
-                url: s,
+                url: i,
                 title: r,
-                children: (0, a.jsx)(eY.Vq, { size: 32, round: !0 }),
+                children: (0, a.jsx)(eK.Vq, { size: 32, round: !0 }),
               }),
-              (0, a.jsx)(eY.N0, {
-                onClick: i("Whatsapp"),
+              (0, a.jsx)(eK.N0, {
+                onClick: s("Whatsapp"),
                 className: "ml-3",
-                url: s,
+                url: i,
                 title: r,
-                children: (0, a.jsx)(eY.ud, { size: 32, round: !0 }),
+                children: (0, a.jsx)(eK.ud, { size: 32, round: !0 }),
               }),
-              (0, a.jsx)(eY.r2, {
-                onClick: i("LinkedIn"),
+              (0, a.jsx)(eK.r2, {
+                onClick: s("LinkedIn"),
                 className: "ml-3",
-                url: s,
+                url: i,
                 title: r,
-                children: (0, a.jsx)(eY.pA, { size: 32, round: !0 }),
+                children: (0, a.jsx)(eK.pA, { size: 32, round: !0 }),
               }),
-              (0, a.jsx)(eY.iR, {
-                onClick: i("Reddit"),
+              (0, a.jsx)(eK.iR, {
+                onClick: s("Reddit"),
                 className: "ml-3",
-                url: s,
+                url: i,
                 title: r,
-                children: (0, a.jsx)(eY.MP, { size: 32, round: !0 }),
+                children: (0, a.jsx)(eK.MP, { size: 32, round: !0 }),
               }),
             ],
           });
         };
-      let eV = (0, R.I)();
-      var eK = (e) => {
+      let eH = (0, F.I)();
+      var e$ = (e) => {
           let { track: t } = e,
-            { getTrackLikes: r } = (0, eE.u)(),
-            { isMediumDevice: s } = (0, L.Z)(),
-            [i, l] = (0, n.useState)(!1),
+            { getTrackLikes: r } = (0, eY.u)(),
+            { isMediumDevice: i } = (0, I.Z)(),
+            [s, l] = (0, n.useState)(!1),
             o = (0, n.useCallback)(
               (e) => {
                 var r = window.URL.createObjectURL(e);
@@ -1953,12 +2121,12 @@
               },
               [null == t ? void 0 : t.title]
             ),
-            c = (0, e_.Z)(o);
+            c = (0, eW.Z)(o);
           return (
             (0, n.useCallback)(
               async (e) => {
                 l(!0),
-                  (0, es.L9)("Share Song", { songId: e, shareType: "Video" }),
+                  (0, ed.L9)("Share Song", { songId: e, shareType: "Video" }),
                   await c.mutateAsync(e),
                   l(!1);
               },
@@ -1966,7 +2134,7 @@
             ),
             (0, a.jsx)(a.Fragment, {
               children: t
-                ? (0, a.jsxs)(eQ.Zb, {
+                ? (0, a.jsxs)(eB.Zb, {
                     className: "w-full",
                     children: [
                       (0, a.jsxs)("div", {
@@ -1975,8 +2143,8 @@
                           (0, a.jsx)("div", {
                             className:
                               "relative ml-3 mt-6 hidden shrink-0 md:block md:h-[150px] md:w-[150px] lg:h-[250px] lg:w-[250px]",
-                            children: (0, a.jsx)(p.default, {
-                              src: t.image_path || eV,
+                            children: (0, a.jsx)(m.default, {
+                              src: t.image_path || eH,
                               alt: t.title || "Track",
                               layout: "fill",
                               objectFit: "cover",
@@ -1986,14 +2154,14 @@
                           (0, a.jsxs)("div", {
                             className: "flex-grow",
                             children: [
-                              (0, a.jsxs)(eQ.Ol, {
+                              (0, a.jsxs)(eB.Ol, {
                                 className: "mt-2 lg:pb-0",
                                 children: [
-                                  (0, a.jsx)(eQ.ll, { children: t.title }),
-                                  (0, a.jsx)(eQ.SZ, { children: t.artist }),
+                                  (0, a.jsx)(eB.ll, { children: t.title }),
+                                  (0, a.jsx)(eB.SZ, { children: t.artist }),
                                 ],
                               }),
-                              (0, a.jsxs)(eQ.aY, {
+                              (0, a.jsxs)(eB.aY, {
                                 className: "mt-3 w-full md:mt-0",
                                 children: [
                                   (0, a.jsxs)("audio", {
@@ -2011,7 +2179,7 @@
                                     className:
                                       "flex  flex-col items-center justify-between md:flex-row",
                                     children: [
-                                      (0, a.jsx)(Z.z, {
+                                      (0, a.jsx)(A.z, {
                                         className: "m-2 w-full md:w-2/5",
                                         variant: "magenta",
                                         children: (0, a.jsx)("a", {
@@ -2020,7 +2188,7 @@
                                           children: "Download Audio",
                                         }),
                                       }),
-                                      (0, a.jsx)(eq.Z, {
+                                      (0, a.jsx)(eJ.Z, {
                                         track: t,
                                         className: "w-full md:w-2/5",
                                       }),
@@ -2029,37 +2197,37 @@
                                   (0, a.jsxs)("div", {
                                     className: "mt-2 flex",
                                     children: [
-                                      (0, a.jsx)(eh.I, {
+                                      (0, a.jsx)(ej.I, {
                                         placeholder: "songUrl",
-                                        value: (0, T.KB)(
-                                          "/songs/".concat((0, T.Y)(t.id))
+                                        value: (0, R.KB)(
+                                          "/songs/".concat((0, R.Y)(t.id))
                                         ),
                                         readOnly: !0,
                                       }),
-                                      (0, a.jsx)(eM.Z, {
+                                      (0, a.jsx)(eq.Z, {
                                         className: "ml-3",
                                         onCopy: () => {
-                                          (0, es.L9)("Share Song", {
+                                          (0, ed.L9)("Share Song", {
                                             songId: t.id,
                                             shareType: "Direct",
                                           });
                                         },
-                                        copyText: (0, T.KB)(
-                                          "/songs/".concat((0, T.Y)(t.id))
+                                        copyText: (0, R.KB)(
+                                          "/songs/".concat((0, R.Y)(t.id))
                                         ),
                                         buttonLabel: "Copy",
                                       }),
                                     ],
                                   }),
                                   t.lyrics &&
-                                    (0, a.jsx)(eG.UQ, {
+                                    (0, a.jsx)(eV.UQ, {
                                       type: "single",
                                       collapsible: !0,
                                       className: "w-full",
-                                      children: (0, a.jsxs)(eG.Qd, {
+                                      children: (0, a.jsxs)(eV.Qd, {
                                         value: "lyrics",
                                         children: [
-                                          (0, a.jsx)(eG.o4, {
+                                          (0, a.jsx)(eV.o4, {
                                             children: (0, a.jsx)("div", {
                                               className:
                                                 "flex w-full justify-between",
@@ -2069,7 +2237,7 @@
                                               }),
                                             }),
                                           }),
-                                          (0, a.jsx)(eG.vF, {
+                                          (0, a.jsx)(eV.vF, {
                                             className:
                                               "max-h-60 overflow-auto md:max-h-96",
                                             children: (0, a.jsx)("div", {
@@ -2093,24 +2261,24 @@
                           }),
                         ],
                       }),
-                      (0, a.jsx)(eQ.eW, {
+                      (0, a.jsx)(eB.eW, {
                         children: (0, a.jsxs)("div", {
                           className:
                             "flex w-full flex-col items-center justify-between space-y-5 lg:flex-row lg:items-start lg:space-y-0",
                           children: [
-                            (0, a.jsx)(eW, { track: t }),
+                            (0, a.jsx)(eX, { track: t }),
                             (0, a.jsxs)("span", {
                               className: "flex flex-row items-center",
                               children: [
-                                (0, a.jsx)(eA.Z, {
+                                (0, a.jsx)(eG.Z, {
                                   fill: "#FFFFFF",
-                                  size: s ? 15 : 11,
+                                  size: i ? 15 : 11,
                                   className: "mr-2",
                                 }),
                                 t.plays,
-                                (0, a.jsx)(eP.Z, {
+                                (0, a.jsx)(eQ.Z, {
                                   fill: "#FFFFFF",
-                                  size: s ? 15 : 11,
+                                  size: i ? 15 : 11,
                                   className: "ml-4 mr-2",
                                 }),
                                 r(t),
@@ -2125,103 +2293,103 @@
             })
           );
         },
-        eJ = () => {
+        e0 = () => {
           let { track: e, isShareOpen: t, closeShareModal: r } = (0, l.K8)();
           return (0, a.jsx)(a.Fragment, {
-            children: (0, a.jsx)(ep.Z, {
+            children: (0, a.jsx)(eg.Z, {
               isOpen: t,
               onChange: (e) => {
                 e
-                  ? (0, es.L9)("Modal Open", { modalType: "Share Modal" })
+                  ? (0, ed.L9)("Modal Open", { modalType: "Share Modal" })
                   : r();
               },
               title: "Share",
               width: 900,
               description: "Share this song with your friends!",
-              children: (0, a.jsx)(eK, { track: e }),
+              children: (0, a.jsx)(e$, { track: e }),
             }),
           });
         },
-        eB = () => {
+        e1 = () => {
           var e;
-          let t = (0, S.Z)(),
-            [r, s] = (0, n.useState)(!1),
-            { data: i, isLoading: c } = (0, eT.Z)({
+          let t = (0, L.Z)(),
+            [r, i] = (0, n.useState)(!1),
+            { data: s, isLoading: c } = (0, eP.Z)({
               id: null == t ? void 0 : t.id,
             }),
             {
               isSignUpOpen: d,
               openSignUpModal: u,
-              closeSignUpModal: p,
+              closeSignUpModal: m,
             } = (0, l.ot)(),
-            { openWaitlistModal: m } = (0, l.wc)(),
-            f = (0, j.NL)(),
-            x = (0, o.aS)("waitlist-iso-time-stamp-utc", ""),
-            h = (0, n.useMemo)(() => {
-              let e = new Date(x);
+            { openWaitlistModal: p } = (0, l.wc)(),
+            f = (0, w.NL)(),
+            h = (0, o.aS)("waitlist-iso-time-stamp-utc", ""),
+            x = (0, n.useMemo)(() => {
+              let e = new Date(h);
               return "Invalid Date" !== e.toString() && new Date() > e;
-            }, [x]),
+            }, [h]),
             g = (0, n.useMemo)(() => {
               var e;
-              return !!(null == i
+              return !!(null == s
                 ? void 0
-                : null === (e = i.username) || void 0 === e
+                : null === (e = s.username) || void 0 === e
                   ? void 0
                   : e.length);
-            }, [null == i ? void 0 : i.username]);
+            }, [null == s ? void 0 : s.username]);
           return (
             (0, n.useEffect)(() => {
-              !t || c || g || (s(!0), u());
+              !t || c || g || (i(!0), u());
             }, [g, c, t]),
-            (0, a.jsx)(ep.Z, {
+            (0, a.jsx)(eg.Z, {
               isOpen: d,
               onChange: () => {},
               title: "Sign Up",
               description: "Please complete your profile to continue.",
-              dismissable: !!(null == i
+              dismissable: !!(null == s
                 ? void 0
-                : null === (e = i.username) || void 0 === e
+                : null === (e = s.username) || void 0 === e
                   ? void 0
                   : e.length),
-              children: (0, a.jsx)(eI, {
+              children: (0, a.jsx)(eM, {
                 submitAction: () => {
-                  p(),
+                  m(),
                     r &&
-                      h &&
-                      (m(),
-                      f.invalidateQueries({ queryKey: w.YN.currentUser }));
+                      x &&
+                      (p(),
+                      f.invalidateQueries({ queryKey: N.YN.currentUser }));
                 },
               }),
             })
           );
         },
-        eX = r(97714),
-        eH = r(42706),
-        e$ = () => {
+        e2 = r(97714),
+        e5 = r(42706),
+        e4 = () => {
           let { isSubscriptionOpen: e, closeSubscriptionModal: t } = (0,
           l.We)();
           return (0, a.jsx)("div", {
-            children: (0, a.jsx)(eH.Vq, {
+            children: (0, a.jsx)(e5.Vq, {
               open: e,
               onOpenChange: t,
-              children: (0, a.jsx)(eH.cZ, {
-                className: "min-w-[75vw]",
+              children: (0, a.jsx)(e5.cZ, {
+                className: "max-h-[95%] min-w-[75vw] overflow-y-scroll",
                 children: (0, a.jsx)("div", {
                   className: "relative w-full",
-                  children: (0, a.jsx)(eX.Z, {}),
+                  children: (0, a.jsx)(e2.Z, {}),
                 }),
               }),
             }),
           });
         },
-        e0 = r(14270),
-        e2 = () => {
+        e6 = r(14270),
+        e7 = () => {
           let e = (0, n.useRef)(null),
             [t, r] = (0, n.useState)(!1),
-            { isExtraLargeDevice: s, is2XLargeDevice: i } = (0, L.Z)(),
+            { isExtraLargeDevice: i, is2XLargeDevice: s } = (0, I.Z)(),
             { isTrimOpen: o, closeTrimModal: c, track: u } = (0, l.f7)();
           return (0, a.jsx)(a.Fragment, {
-            children: (0, a.jsx)(ep.Z, {
+            children: (0, a.jsx)(eg.Z, {
               dialogContentRef: e,
               isOpen: o,
               onChange: (e) => {
@@ -2234,11 +2402,11 @@
                 className: "relative",
                 variants: {
                   default: {
-                    height: i ? "484px" : s ? "459px" : "409px",
+                    height: s ? "484px" : i ? "459px" : "409px",
                     overflow: "hidden",
                   },
                   expanded: {
-                    height: i ? "659px" : s ? "609px" : "559px",
+                    height: s ? "659px" : i ? "609px" : "559px",
                     overflow: "hidden",
                   },
                 },
@@ -2249,31 +2417,31 @@
                   className: "mt-2 w-full p-6",
                   children: [
                     " ",
-                    (0, a.jsx)(e0.Z, { track: u, useTrim: !0, height: 200 }),
+                    (0, a.jsx)(e6.Z, { track: u, useTrim: !0, height: 200 }),
                   ],
                 }),
               }),
             }),
           });
         },
-        e1 = r(53879),
-        e5 = r(18025),
-        e4 = r(8792),
-        e7 = r(8870);
-      let e6 = n.forwardRef((e, t) => {
+        e3 = r(53879),
+        e8 = r(18025),
+        e9 = r(8792),
+        te = r(8870);
+      let tt = n.forwardRef((e, t) => {
         let {
             className: r,
             variant: n = "outline",
-            size: s = "icon",
-            ...i
+            size: i = "icon",
+            ...s
           } = e,
-          { scrollPrev: o, canScrollPrev: c } = (0, e7.vr)(),
+          { scrollPrev: o, canScrollPrev: c } = (0, te.vr)(),
           { page: d, setPage: u } = (0, l.V9)();
-        return (0, a.jsxs)(Z.z, {
+        return (0, a.jsxs)(A.z, {
           ref: t,
           variant: n,
-          size: s,
-          className: (0, T.cn)(
+          size: i,
+          className: (0, R.cn)(
             "rounded-full",
             c ? "opacity-100" : "opacity-0",
             r
@@ -2282,9 +2450,9 @@
           onClick: () => {
             o(), u(d - 1);
           },
-          ...i,
+          ...s,
           children: [
-            (0, a.jsx)(e1.Z, { className: "h-6 w-6" }),
+            (0, a.jsx)(e3.Z, { className: "h-6 w-6" }),
             (0, a.jsx)("span", {
               className: "sr-only",
               children: "Previous slide",
@@ -2292,21 +2460,21 @@
           ],
         });
       });
-      e6.displayName = "CarouselPrevious";
-      let e3 = n.forwardRef((e, t) => {
+      tt.displayName = "CarouselPrevious";
+      let tr = n.forwardRef((e, t) => {
         let {
             className: r,
             variant: n = "outline",
-            size: s = "icon",
-            ...i
+            size: i = "icon",
+            ...s
           } = e,
-          { scrollNext: o, canScrollNext: c } = (0, e7.vr)(),
+          { scrollNext: o, canScrollNext: c } = (0, te.vr)(),
           { page: d, setPage: u } = (0, l.V9)();
-        return (0, a.jsxs)(Z.z, {
+        return (0, a.jsxs)(A.z, {
           ref: t,
           variant: n,
-          size: s,
-          className: (0, T.cn)(
+          size: i,
+          className: (0, R.cn)(
             "rounded-full",
             c ? "opacity-100" : "opacity-0",
             r
@@ -2315,9 +2483,9 @@
           onClick: () => {
             o(), u(d + 1);
           },
-          ...i,
+          ...s,
           children: [
-            (0, a.jsx)(e5.Z, { className: "h-6 w-6" }),
+            (0, a.jsx)(e8.Z, { className: "h-6 w-6" }),
             (0, a.jsx)("span", {
               className: "sr-only",
               children: "Next slide",
@@ -2325,11 +2493,11 @@
           ],
         });
       });
-      e3.displayName = "CarouselNext";
-      var e9 = () => {
-          (0, er.usePathname)();
+      tr.displayName = "CarouselNext";
+      var ta = () => {
+          (0, el.usePathname)();
           let { isTutorialOpen: e, closeTutorialModal: t } = (0, l.V9)(),
-            { isMediumDevice: r } = (0, L.Z)(),
+            { isMediumDevice: r } = (0, I.Z)(),
             n = [
               {
                 title: "Create your first song",
@@ -2360,27 +2528,27 @@
               },
             ];
           return (0, a.jsx)(a.Fragment, {
-            children: (0, a.jsx)(ep.Z, {
+            children: (0, a.jsx)(eg.Z, {
               isOpen: e,
               onChange: (e) => {
                 e
-                  ? (0, es.L9)("Modal Open", { modalType: "Tutorial Modal" })
+                  ? (0, ed.L9)("Modal Open", { modalType: "Tutorial Modal" })
                   : t();
               },
               title: "",
               description: "",
               width: 900,
               contentStyle: { display: "flex", flexDirection: "column" },
-              children: (0, a.jsx)(e7.lr, {
+              children: (0, a.jsx)(te.lr, {
                 children: (0, a.jsxs)("div", {
                   className:
                     "align-center flex max-h-[80vh] flex-col justify-center",
                   children: [
-                    (0, a.jsx)(e7.KI, {
+                    (0, a.jsx)(te.KI, {
                       className: "flex",
-                      children: n.map((e, s) =>
+                      children: n.map((e, i) =>
                         (0, a.jsxs)(
-                          e7.d$,
+                          te.d$,
                           {
                             className:
                               "relative flex-shrink-0 flex-grow-0 basis-full",
@@ -2394,10 +2562,10 @@
                                 children: r
                                   ? (0, a.jsx)("div", {
                                       className: "relative w-4/5",
-                                      children: (0, a.jsx)(p.default, {
+                                      children: (0, a.jsx)(m.default, {
                                         placeholder: "blur",
-                                        blurDataURL: v.bw,
-                                        priority: 0 === s,
+                                        blurDataURL: b.bw,
+                                        priority: 0 === i,
                                         objectFit: "cover",
                                         width: 21,
                                         height: 9,
@@ -2410,10 +2578,10 @@
                                     })
                                   : (0, a.jsx)("div", {
                                       className: "relative w-1/2",
-                                      children: (0, a.jsx)(p.default, {
+                                      children: (0, a.jsx)(m.default, {
                                         placeholder: "blur",
-                                        blurDataURL: v.bw,
-                                        priority: 0 === s,
+                                        blurDataURL: b.bw,
+                                        priority: 0 === i,
                                         objectFit: "cover",
                                         width: 4,
                                         height: 3,
@@ -2430,11 +2598,11 @@
                                   "flex-1 p-6 pt-3 text-sm md:text-base",
                                 children: [
                                   e.description,
-                                  s === n.length - 1 &&
+                                  i === n.length - 1 &&
                                     (0, a.jsxs)("span", {
                                       children: [
                                         " Please check out our ",
-                                        (0, a.jsx)(e4.default, {
+                                        (0, a.jsx)(e9.default, {
                                           href: "/guide",
                                           onClick: t,
                                           children: (0, a.jsx)("span", {
@@ -2449,15 +2617,15 @@
                               }),
                             ],
                           },
-                          s
+                          i
                         )
                       ),
                     }),
                     (0, a.jsxs)("div", {
                       className: "flex flex-row justify-between",
                       children: [
-                        (0, a.jsx)(e6, { className: "ml-6 mr-3 flex-1" }),
-                        (0, a.jsx)(e3, { className: "ml-3 mr-6 flex-1" }),
+                        (0, a.jsx)(tt, { className: "ml-6 mr-3 flex-1" }),
+                        (0, a.jsx)(tr, { className: "ml-3 mr-6 flex-1" }),
                       ],
                     }),
                   ],
@@ -2466,193 +2634,212 @@
             }),
           });
         },
-        e8 = (e) => {
-          let t = (0, j.NL)(),
-            r = (0, S.Z)();
-          return (0, h.D)({
+        tn = (e) => {
+          let t = (0, w.NL)(),
+            r = (0, L.Z)();
+          return (0, x.D)({
             mutationFn: async (e) => {
               let { formData: t } = e,
-                r = await (0, b.b4)({ formData: t });
-              if (200 !== r.status)
-                throw new g("Failed to upload user avatar image", {
-                  status: r.status,
-                });
-              return r.data;
+                r = (0, y.b4)({ formData: t });
+              return (
+                f.toast.promise(r, {
+                  loading: "Uploading Avatar... ",
+                  success: "Avatar updated successfully!",
+                  error: (e) => {
+                    var t, r;
+                    switch (
+                      null === (t = e.response) || void 0 === t
+                        ? void 0
+                        : t.status
+                    ) {
+                      case 403:
+                        return "Image cannot be uploaded due to content restrictions. Please try a different image.";
+                      case 413:
+                        return "Image file is too large. Please try a smaller image.";
+                      case 422:
+                        return "Image could not be processed by the server. Check your image format.";
+                      default:
+                        return (
+                          (null === (r = e.response) || void 0 === r
+                            ? void 0
+                            : r.statusText) ||
+                          "An error occurred while uploading the image."
+                        );
+                    }
+                  },
+                  duration: b.eS,
+                  dismissible: !0,
+                }),
+                r.then((e) => {
+                  if (200 !== e.status)
+                    throw new v(e.statusText, { status: e.status });
+                  return e.data;
+                })
+              );
             },
             mutationKey: ["uploadUserAvatar"],
             onSuccess: async (a) => {
-              console.log("toast should be here"),
-                f.toast.success("Avatar updated successfully!", {
-                  duration: v.eS,
-                }),
-                await t.invalidateQueries({
-                  queryKey: w.YN.forProfile(null == r ? void 0 : r.id),
-                }),
+              await t.invalidateQueries({
+                queryKey: N.YN.forProfile(null == r ? void 0 : r.id),
+              }),
                 e();
             },
             onError: (t) => {
-              switch ((console.error(t), t.status)) {
-                case 403:
-                  f.toast.dismiss(),
-                    f.toast.error(
-                      "Image cannot be uploaded due to content restrictions. Please try a different image.",
-                      { duration: v.eS, dismissible: !0 }
-                    );
-                  break;
-                case 413:
-                  f.toast.dismiss(),
-                    f.toast.error(
-                      "Image file is too large. Please try a smaller image.",
-                      { duration: v.eS, dismissible: !0 }
-                    );
-                  break;
-                case 422:
-                  f.toast.dismiss(),
-                    f.toast.error(
-                      "Image could not be processed by the server. Check your image format.",
-                      { duration: v.eS, dismissible: !0 }
-                    );
-                  break;
-                default:
-                  f.toast.dismiss(),
-                    f.toast.error("Error uploading user avatar", {
-                      duration: v.eS,
-                      dismissible: !0,
-                    });
-              }
               e();
             },
           });
         };
-      let te = (0, R.I)();
-      var tt = () => {
+      let ti = (0, F.I)();
+      var ts = () => {
           let e = (0, n.useRef)(null);
           (0, o.cC)("manual-upload");
           let [t, r] = (0, n.useState)(null),
-            [s, i] = (0, n.useState)(!1),
-            [c, u] = (0, n.useState)(null),
-            [m, x] = (0, n.useState)({ scale: 1, y: 0 }),
-            h = (0, S.Z)(),
-            { data: g, isLoading: v } = (0, eT.Z)({
-              id: null == h ? void 0 : h.id,
+            [i, s] = (0, n.useState)(null),
+            [c, u] = (0, n.useState)(!1),
+            [p, h] = (0, n.useState)(null),
+            [x, g] = (0, n.useState)({ scale: 1, y: 0 }),
+            v = (0, L.Z)(),
+            { data: y, isLoading: j } = (0, eP.Z)({
+              id: null == v ? void 0 : v.id,
             }),
-            { closeAvatarModal: b } = (0, l.Dv)(),
-            { isExtraLargeDevice: y } = (0, L.Z)(),
-            j = e8(() => {
-              c && URL.revokeObjectURL(c);
+            { closeAvatarModal: w } = (0, l.Dv)(),
+            { isExtraLargeDevice: N } = (0, I.Z)(),
+            k = tn(() => {
+              p && URL.revokeObjectURL(p);
             }),
-            w = () => window.innerHeight / 2 / 4;
+            C = () => window.innerHeight / 2 / 4;
           (0, n.useEffect)(() => {
-            let e = w();
-            s ? x({ scale: y ? 1.5 : 2, y: e }) : x({ scale: 1, y: 0 });
-          }, [s]);
-          let N =
-            c ||
-            (null == g ? void 0 : g.avatar_url) ||
-            "/images/placeholder.png";
+            let e = C();
+            c ? g({ scale: N ? 1.5 : 2, y: e }) : g({ scale: 1, y: 0 });
+          }, [c]);
+          let S = p || (null == y ? void 0 : y.avatar_url) || ti;
           return (0, a.jsx)(a.Fragment, {
             children: (0, a.jsxs)("div", {
               className:
                 "relative flex flex-col items-center justify-center gap-x-4 lg:gap-x-8",
               children: [
-                (0, a.jsx)("div", {
-                  className:
-                    "mt-1 aspect-square w-[150px]  flex-col xl:w-[225px] 2xl:w-[262.5px]",
-                  children: (0, a.jsx)("div", {
-                    className:
-                      "aspect-square w-[150px] flex-col xl:w-[225px] 2xl:w-[262.5px]",
-                    children: (0, a.jsx)(d.E.div, {
+                t
+                  ? (0, a.jsx)("div", {
                       className:
-                        "group relative z-50 aspect-square w-[150px] shrink-0 md:ml-3 md:block xl:w-[225px] 2xl:w-[262.5px]",
-                      initial: !1,
-                      animate: m,
-                      transition: {
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20,
-                      },
-                      onClick: () => {
-                        i(!s);
-                      },
-                      children: (0, a.jsx)(p.default, {
-                        src: N,
-                        alt: "cover",
-                        layout: "fill",
-                        objectFit: "cover",
-                        sizes:
-                          "150px, (min-width: 1280px) 225px, (min-width: 1536px) 262.5px",
-                        className: "cursor-pointer",
-                        priority: !0,
-                        blurDataURL: te,
-                        placeholder: "blur",
-                        unoptimized: !(null == c
-                          ? void 0
-                          : c.includes("imagedelivery")),
+                        "mt-1 flex h-[150px] w-[150px]  items-center md:h-[450px] md:w-full md:max-w-[450px] ",
+                      children: (0, a.jsx)(D, {
+                        file: t,
+                        onImageCropped: (e, t) => {
+                          h(e), s(t), console.log(e);
+                        },
+                      }),
+                    })
+                  : (0, a.jsx)("div", {
+                      className:
+                        "mt-1 aspect-square w-[150px]  flex-col xl:w-[225px] 2xl:w-[262.5px]",
+                      children: (0, a.jsx)("div", {
+                        className:
+                          "aspect-square w-[150px] flex-col xl:w-[225px] 2xl:w-[262.5px]",
+                        children: (0, a.jsx)(d.E.div, {
+                          className:
+                            "group relative z-50 aspect-square w-[150px] shrink-0 md:ml-3 md:block xl:w-[225px] 2xl:w-[262.5px]",
+                          initial: !1,
+                          animate: x,
+                          transition: {
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                          },
+                          onClick: () => {
+                            u(!c);
+                          },
+                          children: (0, a.jsx)(m.default, {
+                            src: S || ti,
+                            alt: "cover",
+                            layout: "fill",
+                            objectFit: "cover",
+                            sizes:
+                              "150px, (min-width: 1280px) 225px, (min-width: 1536px) 262.5px",
+                            className: "cursor-pointer",
+                            priority: !0,
+                            blurDataURL: ti,
+                            placeholder: "blur",
+                            unoptimized: !S.includes("imagedelivery"),
+                          }),
+                        }),
                       }),
                     }),
-                  }),
-                }),
                 (0, a.jsx)("div", {
                   className: "ml-4 w-4/5",
-                  children: (0, a.jsx)("form", {
-                    children: (0, a.jsxs)("div", {
-                      className: "mt-3 flex",
-                      children: [
-                        (0, a.jsx)(Z.z, {
-                          type: "button",
-                          variant: "secondary",
-                          className: "mr-3 block",
-                          title: "Upload a custom image",
-                          onClick: () => {
-                            (null == e ? void 0 : e.current) &&
-                              (null == e || e.current.click());
-                          },
-                          children: (0, a.jsx)("span", { children: "Upload" }),
-                        }),
-                        (0, a.jsx)("input", {
-                          type: "file",
-                          ref: e,
-                          onChange: (e) => {
-                            let t = e.target.files ? e.target.files[0] : null;
-                            if (!t) return;
-                            let a = t.type;
-                            if ("image/jpeg" !== a && "image/png" !== a) {
-                              f.toast.error(
-                                "Please upload a valid image file (JPEG or PNG)."
-                              );
-                              return;
-                            }
-                            r(t), u(URL.createObjectURL(t));
-                          },
-                          style: { display: "none" },
-                          accept: "image/jpeg, image/png",
-                        }),
-                        (0, a.jsx)(Z.z, {
-                          type: "button",
-                          onClick: () => {
-                            if (t && (b(), t)) {
-                              let e = new FormData();
-                              e.append("image", t),
-                                j.mutateAsync({ formData: e });
-                            }
-                          },
-                          disabled: !c,
-                          variant: "secondary",
-                          className: "mr-3 block bg-brand-magenta",
-                          title: "Update User Avatar",
-                          children: (0, a.jsx)("span", { children: "Save" }),
-                        }),
-                      ],
-                    }),
+                  children: (0, a.jsxs)("form", {
+                    children: [
+                      (0, a.jsx)("div", {
+                        className: "mt-3 text-base text-muted-foreground ",
+                        children:
+                          "Upload an image from your device under 5 MB.",
+                      }),
+                      (0, a.jsxs)("div", {
+                        className: "mt-3 flex",
+                        children: [
+                          (0, a.jsx)(A.z, {
+                            type: "button",
+                            variant: "secondary",
+                            className: "mr-3 block",
+                            title: "Upload a custom image",
+                            onClick: () => {
+                              (null == e ? void 0 : e.current) &&
+                                (null == e || e.current.click());
+                            },
+                            children: (0, a.jsx)("span", {
+                              children: "Upload",
+                            }),
+                          }),
+                          (0, a.jsx)("input", {
+                            type: "file",
+                            ref: e,
+                            onChange: (e) => {
+                              let t = e.target.files ? e.target.files[0] : null;
+                              if (!t) return;
+                              let a = t.type;
+                              if ("image/jpeg" !== a && "image/png" !== a) {
+                                f.toast.error(
+                                  "Please upload a valid image file (JPEG or PNG)."
+                                );
+                                return;
+                              }
+                              if (t.size > b.Tb) {
+                                f.toast.error(
+                                  "File size must be less than 5 MB."
+                                );
+                                return;
+                              }
+                              r(t), h(URL.createObjectURL(t));
+                            },
+                            style: { display: "none" },
+                            accept: "image/jpeg, image/png",
+                          }),
+                          (0, a.jsx)(A.z, {
+                            type: "button",
+                            onClick: () => {
+                              if (t && (w(), t)) {
+                                let e = new FormData();
+                                e.append("image", i || t),
+                                  k.mutateAsync({ formData: e });
+                              }
+                            },
+                            disabled: !p,
+                            variant: "secondary",
+                            className: "mr-3 block bg-brand-magenta",
+                            title: "Update User Avatar",
+                            children: (0, a.jsx)("span", { children: "Save" }),
+                          }),
+                        ],
+                      }),
+                    ],
                   }),
                 }),
               ],
             }),
           });
         },
-        tr = () => {
+        tl = () => {
           let { isAvatarModalOpen: e, closeAvatarModal: t } = (0, l.Dv)();
-          return (0, a.jsx)(ep.Z, {
+          return (0, a.jsx)(eg.Z, {
             isOpen: e,
             onChange: (e) => {
               e || t();
@@ -2661,16 +2848,16 @@
             description: "Update your Avatar",
             children: (0, a.jsx)("div", {
               className: "relative",
-              children: (0, a.jsx)(tt, {}),
+              children: (0, a.jsx)(ts, {}),
             }),
           });
         },
-        ta = () => {
+        to = () => {
           let { isWaitlistModalOpen: e, closeWaitlistModal: t } = (0, l.wc)();
-          return (0, a.jsx)(ep.Z, {
+          return (0, a.jsx)(eg.Z, {
             isOpen: e,
             onChange: (e) => {
-              e ? (0, es.L9)("Waitlist User Create") : t();
+              e ? (0, ed.L9)("Waitlist User Create") : t();
             },
             title: "We're sorry",
             contentStyle: { width: "fit-content" },
@@ -2684,9 +2871,9 @@
             }),
           });
         },
-        tn = () => {
+        tc = () => {
           let [e, t] = (0, n.useState)(!1),
-            r = (0, S.Z)();
+            r = (0, L.Z)();
           return ((0, n.useEffect)(() => {
             t(!0);
           }, []),
@@ -2696,46 +2883,46 @@
                   r
                     ? (0, a.jsxs)(a.Fragment, {
                         children: [
-                          (0, a.jsx)(eO, {}),
-                          (0, a.jsx)(tr, {}),
-                          (0, a.jsx)(ef, {}),
-                          (0, a.jsx)(ev, {}),
-                          (0, a.jsx)(eC, {}),
-                          (0, a.jsx)(e$, {}),
-                          (0, a.jsx)(eD, {}),
-                          (0, a.jsx)(e2, {}),
+                          (0, a.jsx)(eE, {}),
+                          (0, a.jsx)(tl, {}),
+                          (0, a.jsx)(eb, {}),
+                          (0, a.jsx)(eN, {}),
+                          (0, a.jsx)(eF, {}),
+                          (0, a.jsx)(e4, {}),
+                          (0, a.jsx)(e_, {}),
+                          (0, a.jsx)(e7, {}),
                         ],
                       })
                     : null,
-                  (0, a.jsx)(eJ, {}),
-                  (0, a.jsx)(eL, {}),
-                  (0, a.jsx)(eB, {}),
-                  (0, a.jsx)(e9, {}),
-                  (0, a.jsx)(em, {}),
+                  (0, a.jsx)(e0, {}),
+                  (0, a.jsx)(ez, {}),
+                  (0, a.jsx)(e1, {}),
                   (0, a.jsx)(ta, {}),
+                  (0, a.jsx)(ev, {}),
+                  (0, a.jsx)(to, {}),
                 ],
               })
             : null;
         },
-        ts = r(79509),
-        ti = r(34599),
-        tl = (e) => {
+        td = r(79509),
+        tu = r(34599),
+        tm = (e) => {
           let { children: t } = e,
-            [r] = (0, n.useState)(() => (0, ti.v)());
-          return (0, a.jsx)(ts.SessionContextProvider, {
+            [r] = (0, n.useState)(() => (0, tu.v)());
+          return (0, a.jsx)(td.SessionContextProvider, {
             supabaseClient: r,
             children: t,
           });
         },
-        to = r(20621),
-        tc = (e) => {
+        tp = r(20621),
+        tf = (e) => {
           let { children: t } = e;
-          return (0, a.jsxs)(j.aH, {
-            client: to.Z,
+          return (0, a.jsxs)(w.aH, {
+            client: tp.Z,
             children: [
-              (0, a.jsx)(tl, {
-                children: (0, a.jsxs)(eo, {
-                  children: [(0, a.jsx)(tn, {}), (0, a.jsx)(ee, {}), t],
+              (0, a.jsx)(tm, {
+                children: (0, a.jsxs)(ep, {
+                  children: [(0, a.jsx)(tc, {}), (0, a.jsx)(ei, {}), t],
                 }),
               }),
               (0, a.jsx)(f.Toaster, { position: "top-center" }),
@@ -2748,12 +2935,12 @@
       r.r(t);
       var a = r(57437),
         n = r(80946),
-        s = r(2265),
-        i = r(63019),
+        i = r(2265),
+        s = r(63019),
         l = r(13581);
       t.default = () => (
-        (0, s.useEffect)(() => {
-          (0, l.au)({ surface: i.tq ? "mobile_web" : "desktop_web" });
+        (0, i.useEffect)(() => {
+          (0, l.au)({ surface: s.tq ? "mobile_web" : "desktop_web" });
         }, []),
         (0, a.jsx)(a.Fragment, {
           children: (0, a.jsx)(n.GoogleAnalytics, { gaId: "G-RF4WWQM7BF" }),
@@ -2789,16 +2976,446 @@
     },
     97714: function (e, t, r) {
       "use strict";
-      function a() {
-        return null;
-      }
-      r.d(t, {
-        Z: function () {
-          return a;
-        },
-      }),
-        r(57437),
-        r(1657);
+      var a = r(57437),
+        n = r(19213),
+        i = r(2265),
+        s = r(56288),
+        l = r(48779),
+        o = r(23642),
+        c = r(45722),
+        d = r(6771),
+        u = r(68203),
+        m = r(17543),
+        p = r(1657),
+        f = r(85754),
+        h = r(49842),
+        x = r(35608);
+      let g = [
+          { id: "1", value: "1", label: "Monthly", priceSuffix: "/month" },
+          { id: "2", value: "2", label: "Annually", priceSuffix: "/month" },
+        ],
+        v = (e) => {
+          let { className: t } = e;
+          return (0, a.jsx)("svg", {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 24 24",
+            fill: "currentColor",
+            className: (0, p.cn)("h-6 w-6", t),
+            children: (0, a.jsx)("path", {
+              fillRule: "evenodd",
+              d: "M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z",
+              clipRule: "evenodd",
+            }),
+          });
+        };
+      t.Z = (e) => {
+        let { showFaqFooter: t = !0 } = e,
+          [r, b] = (0, i.useState)(g[0]),
+          [y, j] = (0, i.useState)(!1),
+          { openAuthModal: w } = (0, c.fI)(),
+          N = (0, o.Z)(),
+          k = (0, n.cC)("subscriptions"),
+          { data: C, isLoading: S } = (0, l.Z)({
+            enabled: !!(null == N ? void 0 : N.id) && k,
+          }),
+          L = async (e, t) => {
+            try {
+              j(!0);
+              let r = await u.bL.post("/api/stripe/checkout", {
+                redirect: window.location.pathname + window.location.search,
+                type: e,
+                ...("credits" !== e
+                  ? {
+                      timePeriod: "1" === t.timePeriod ? "monthly" : "annually",
+                    }
+                  : { amount: t.amount }),
+              });
+              window.location.href = r.data.url;
+            } catch (e) {
+              s.toast.error(
+                "Error connecting to Stripe. Please try again later.",
+                d.TQ
+              ),
+                j(!1);
+            }
+          },
+          I = [
+            {
+              name: "Free",
+              id: "0",
+              action: N ? () => {} : w,
+              price: { 1: "$0", 2: "$0" },
+              discountPrice: { 1: "", 2: "" },
+              description:
+                "Make your music with a limited daily quota and basic features for free, no credit card required.",
+              features: [
+                "10 credits/day with an additional 100 extra credits/month",
+                "Standard processing queue",
+                "Up to 2 concurrent generations (4 tracks)",
+                "Remix and extend tracks",
+              ],
+              featured: !1,
+              highlighted: !1,
+              disabled: !!N,
+              disabledText: "Included",
+              cta: "Sign up",
+            },
+            {
+              name: "Standard",
+              id: "1",
+              action: () =>
+                N
+                  ? (null == C ? void 0 : C.status) === "active"
+                    ? (0, m.Q)()
+                    : L("standard", { timePeriod: r.value })
+                  : w(),
+              price: { 1: "$10", 2: "$8" },
+              discountPrice: { 1: "", 2: "" },
+              description:
+                "The introductory package, higher generation limits, access to more features, more fun.",
+              features: [
+                "1200 credits/month, no daily limit",
+                "Priority processing queue",
+                "Up to 3 concurrent generations (6 tracks)",
+                "Inpainting, custom cover art, and custom user avatars",
+              ],
+              featured: !1,
+              highlighted: !0,
+              cta:
+                (null == C ? void 0 : C.status) === "active"
+                  ? "Manage Subscription"
+                  : "Subscribe to Standard",
+              discounted: !0,
+            },
+            {
+              name: "Pro",
+              id: "1",
+              action: () =>
+                N
+                  ? (null == C ? void 0 : C.status) === "active"
+                    ? (0, m.Q)()
+                    : L("pro", { timePeriod: r.value })
+                  : w(),
+              price: { 1: "$30", 2: "$24" },
+              discountPrice: { 1: "", 2: "" },
+              description:
+                "The ultimate package, the most amount of generations, special features, and early access.",
+              features: [
+                "4800 credits/month, no daily limit",
+                "Priority processing queue",
+                "Up to 4 concurrent generations (8 tracks)",
+                "All features from the standard plan",
+              ],
+              featured: !1,
+              highlighted: !0,
+              cta:
+                (null == C ? void 0 : C.status) === "active"
+                  ? "Manage Subscription"
+                  : "Subscribe to Pro",
+              discounted: !0,
+            },
+          ];
+        return (0, a.jsxs)("div", {
+          children: [
+            (0, a.jsx)("div", {
+              className: (0, p.cn)("flex w-full flex-col items-center"),
+              children: (0, a.jsx)("div", {
+                className: "flex w-full flex-col items-center",
+                children: (0, a.jsxs)("div", {
+                  className:
+                    "mx-auto flex max-w-7xl flex-col items-center px-6 lg:px-8",
+                  children: [
+                    null,
+                    g.length > 1
+                      ? (0, a.jsx)("div", {
+                          className: "mt-4 flex justify-center",
+                          children: (0, a.jsxs)(x.E, {
+                            defaultValue: r.value,
+                            onValueChange: (e) => {
+                              b(g.find((t) => t.value === e));
+                            },
+                            className:
+                              "grid gap-x-1 rounded-full bg-white p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200/30 dark:bg-black dark:ring-gray-800",
+                            style: {
+                              gridTemplateColumns: "repeat(".concat(
+                                g.length,
+                                ", minmax(0, 1fr))"
+                              ),
+                            },
+                            children: [
+                              (0, a.jsx)(h._, {
+                                className: "sr-only",
+                                children: "Payment frequency",
+                              }),
+                              g.map((e) =>
+                                (0, a.jsxs)(
+                                  h._,
+                                  {
+                                    className: (0, p.cn)(
+                                      r.value === e.value
+                                        ? "bg-brand-accent text-white"
+                                        : "bg-transparent text-gray-500 hover:bg-green-500/10",
+                                      "cursor-pointer rounded-full px-2.5 py-2 transition-all"
+                                    ),
+                                    htmlFor: e.value,
+                                    children: [
+                                      e.label,
+                                      (0, a.jsx)(x.m, {
+                                        value: e.value,
+                                        id: e.value,
+                                        className: "hidden",
+                                      }),
+                                    ],
+                                  },
+                                  e.value
+                                )
+                              ),
+                            ],
+                          }),
+                        })
+                      : (0, a.jsx)("div", {
+                          className: "mt-12",
+                          "aria-hidden": "true",
+                        }),
+                    (0, a.jsx)("div", {
+                      className: (0, p.cn)(
+                        "isolate mx-auto mb-4 mt-4 flex w-5/6 flex-col items-center justify-center md:max-w-md lg:mx-0 lg:grid lg:max-w-none",
+                        2 === I.length ? "gap-8 lg:grid-cols-2 " : "",
+                        3 === I.length ? "gap-8 lg:grid-cols-3 " : ""
+                      ),
+                      children: I.map((e) =>
+                        (0, a.jsxs)(
+                          "div",
+                          {
+                            className: (0, p.cn)(
+                              e.featured
+                                ? "!bg-gray-900 ring-gray-900 dark:!bg-gray-100 dark:ring-gray-100"
+                                : "bg-white ring-gray-300/70 dark:bg-gray-900/80 dark:ring-gray-700",
+                              "h-full max-w-full rounded-3xl p-8 ring-1 md:max-w-md xl:p-10"
+                            ),
+                            children: [
+                              (0, a.jsx)("h3", {
+                                id: e.id,
+                                className: (0, p.cn)(
+                                  e.featured
+                                    ? "text-white dark:text-black"
+                                    : "text-black dark:text-white",
+                                  "text-2xl font-bold tracking-tight"
+                                ),
+                                children: e.name,
+                              }),
+                              (0, a.jsx)("p", {
+                                className: (0, p.cn)(
+                                  e.featured
+                                    ? "text-gray-300 dark:text-gray-500"
+                                    : "text-gray-600 dark:text-gray-400",
+                                  "mt-4 text-sm leading-6"
+                                ),
+                                children: e.description,
+                              }),
+                              (0, a.jsxs)("p", {
+                                className: "mt-6 flex items-baseline gap-x-1",
+                                children: [
+                                  (0, a.jsx)("span", {
+                                    className: (0, p.cn)(
+                                      e.featured
+                                        ? "text-white dark:text-black"
+                                        : "text-black dark:text-white",
+                                      "text-4xl font-bold tracking-tight",
+                                      e.discountPrice &&
+                                      "object" == typeof e.discountPrice &&
+                                      e.discountPrice[r.value]
+                                        ? "line-through opacity-50"
+                                        : ""
+                                    ),
+                                    children:
+                                      "string" == typeof e.price
+                                        ? e.price
+                                        : e.price[r.value],
+                                  }),
+                                  "string" != typeof e.price
+                                    ? (0, a.jsx)("span", {
+                                        className: (0, p.cn)(
+                                          e.featured
+                                            ? "text-gray-300 dark:text-gray-500"
+                                            : "text-gray-600 dark:text-gray-400",
+                                          "text-sm font-semibold leading-6"
+                                        ),
+                                        children: r.priceSuffix,
+                                      })
+                                    : null,
+                                  (0, a.jsx)("span", {
+                                    className: (0, p.cn)(
+                                      e.featured
+                                        ? "text-white dark:text-black"
+                                        : "text-black dark:text-white",
+                                      "text-4xl tracking-tight"
+                                    ),
+                                    children:
+                                      "string" == typeof e.discountPrice
+                                        ? e.discountPrice
+                                        : e.discountPrice[r.value],
+                                  }),
+                                  "string" != typeof e.price &&
+                                  e.discountPrice &&
+                                  "object" == typeof e.discountPrice &&
+                                  e.discountPrice[r.value]
+                                    ? (0, a.jsx)("span", {
+                                        className: (0, p.cn)(
+                                          e.featured
+                                            ? "text-gray-300 dark:text-gray-500"
+                                            : "text-gray-600 dark:text-gray-400",
+                                          "text-sm font-semibold leading-6"
+                                        ),
+                                        children: r.priceSuffix,
+                                      })
+                                    : null,
+                                ],
+                              }),
+                              (0, a.jsx)("a", {
+                                "aria-describedby": e.id,
+                                className: (0, p.cn)(
+                                  "mt-6 flex shadow-sm",
+                                  e.disabled ? "pointer-events-none" : ""
+                                ),
+                                onClick: e.action,
+                                children: (0, a.jsx)(f.z, {
+                                  size: "lg",
+                                  disabled: e.disabled || y,
+                                  className: (0, p.cn)(
+                                    "w-full text-black dark:text-white",
+                                    e.highlighted || e.featured
+                                      ? "hover:bg-brand-accent/70 bg-brand-accent"
+                                      : "bg-gray-100 dark:bg-gray-600",
+                                    e.featured || e.disabled
+                                      ? "bg-white hover:bg-gray-200 dark:bg-neutral-900 dark:hover:bg-black"
+                                      : "transition-opacity hover:opacity-80"
+                                  ),
+                                  variant: e.highlighted
+                                    ? "default"
+                                    : "outline",
+                                  children: e.disabled ? e.disabledText : e.cta,
+                                }),
+                              }),
+                              (0, a.jsx)("ul", {
+                                className: (0, p.cn)(
+                                  e.featured
+                                    ? "text-gray-300 dark:text-gray-500"
+                                    : "text-gray-700 dark:text-gray-400",
+                                  "mt-8 space-y-3 text-sm leading-6 xl:mt-10"
+                                ),
+                                children: e.features.map((t) =>
+                                  (0, a.jsxs)(
+                                    "li",
+                                    {
+                                      className: "flex gap-x-3",
+                                      children: [
+                                        (0, a.jsx)(v, {
+                                          className: (0, p.cn)(
+                                            e.featured
+                                              ? "text-white dark:text-black"
+                                              : "",
+                                            e.highlighted
+                                              ? "text-brand-accent"
+                                              : "text-gray-500",
+                                            "h-6 w-5 flex-none"
+                                          ),
+                                          "aria-hidden": "true",
+                                        }),
+                                        t,
+                                      ],
+                                    },
+                                    t
+                                  )
+                                ),
+                              }),
+                            ],
+                          },
+                          e.id
+                        )
+                      ),
+                    }),
+                    (0, a.jsxs)("div", {
+                      className:
+                        "flex flex-col items-center justify-center space-y-2",
+                      children: [
+                        (0, a.jsx)("div", { children: "Out of generations?" }),
+                        (0, a.jsxs)("div", {
+                          className:
+                            "flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0",
+                          children: [
+                            (0, a.jsx)(f.z, {
+                              size: "lg",
+                              disabled: y,
+                              className:
+                                "hover:bg-brand-accent/70 w-full bg-gray-600 text-white ring-1 ring-gray-700",
+                              variant: "default",
+                              onClick: () =>
+                                N ? L("credits", { amount: 100 }) : w(),
+                              children: "Purchase 100 credits - $3.00",
+                            }),
+                            (0, a.jsx)(f.z, {
+                              size: "lg",
+                              disabled: y,
+                              className:
+                                "hover:bg-brand-accent/70 w-full bg-gray-600 text-white ring-1 ring-gray-700",
+                              variant: "default",
+                              onClick: () =>
+                                N ? L("credits", { amount: 1e3 }) : w(),
+                              children: "Purchase 1000 credits - $25.00",
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+            }),
+            t
+              ? (0, a.jsxs)("div", {
+                  className:
+                    "bottom-2 right-4 mt-4 w-full text-center text-sm text-white lg:absolute lg:mt-0 lg:w-fit lg:text-left",
+                  children: [
+                    "Have any questions?",
+                    (0, a.jsx)("br", {}),
+                    "Check out our",
+                    " ",
+                    (0, a.jsx)("a", {
+                      href: "/pricing#faq",
+                      rel: "noreferrer",
+                      className: "text-brand-accent",
+                      children: "Pricing FAQ",
+                    }),
+                  ],
+                })
+              : null,
+          ],
+        });
+      };
+    },
+    18882: function (e, t, r) {
+      "use strict";
+      r.r(t);
+      var a = r(57437),
+        n = r(2265),
+        i = r(56288),
+        s = r(6771);
+      t.default = () => (
+        (0, n.useEffect)(() => {
+          (() => {
+            let e = window.location.hash;
+            console.log("hash", e),
+              "#purchase-success" === e &&
+                i.toast.success("Purchase successful!", {
+                  id: "purchase-success",
+                  ...s.TQ,
+                });
+          })(),
+            console.log("here");
+        }, []),
+        (0, a.jsx)(a.Fragment, {})
+      );
     },
     70048: function (e, t, r) {
       "use strict";
@@ -2830,29 +3447,29 @@
       "use strict";
       var a = r(57437),
         n = r(66802),
-        s = r.n(n),
-        i = r(20703),
+        i = r.n(n),
+        s = r(20703),
         l = r(56288),
         o = r(6771),
         c = r(34599),
         d = r(13581),
         u = r(1657),
-        p = r(80706),
-        m = r(85754);
+        m = r(80706),
+        p = r(85754);
       t.Z = (e) => {
         let { redirect: t } = e,
           r = (0, c.v)(),
           n = t;
         t || (n = "/");
         let f = (0, u.KB)("/auth/callback?redirect=".concat(n)),
-          x = async () => {
-            if (s()(window.navigator.userAgent)) {
+          h = async () => {
+            if (i()(window.navigator.userAgent)) {
               l.toast.warning(
                 "Please open Udio in your native browser (Safari, Chrome, etc.) to sign in.\n\nGoogle does not support this browser.",
                 {
                   ...o.TQ,
                   duration: 2e4,
-                  action: (0, a.jsx)(p.Z, {
+                  action: (0, a.jsx)(m.Z, {
                     className: "ml-3",
                     copyText: window.location.href,
                     buttonLabel: "Copy Link",
@@ -2868,7 +3485,7 @@
             });
             (0, d.L9)("Sign In", { type: "Google" });
           },
-          h = async () => {
+          x = async () => {
             let { data: e, error: t } = await r.auth.signInWithOAuth({
               provider: "discord",
               options: { redirectTo: f },
@@ -2885,11 +3502,11 @@
         return (0, a.jsxs)("div", {
           className: "flex flex-col items-center space-y-5 ",
           children: [
-            (0, a.jsxs)(m.z, {
-              onClick: x,
+            (0, a.jsxs)(p.z, {
+              onClick: h,
               className: "w-[250px]",
               children: [
-                (0, a.jsx)(i.default, {
+                (0, a.jsx)(s.default, {
                   src: "/logos/Google.svg",
                   alt: "Google Logo",
                   width: 24,
@@ -2899,11 +3516,11 @@
                 "Sign in with Google",
               ],
             }),
-            (0, a.jsxs)(m.z, {
-              onClick: h,
+            (0, a.jsxs)(p.z, {
+              onClick: x,
               className: "w-[250px]",
               children: [
-                (0, a.jsx)(i.default, {
+                (0, a.jsx)(s.default, {
                   src: "/logos/Discord.svg",
                   alt: "Discord Logo",
                   width: 24,
@@ -2913,11 +3530,11 @@
                 "Sign in with Discord",
               ],
             }),
-            (0, a.jsxs)(m.z, {
+            (0, a.jsxs)(p.z, {
               onClick: g,
               className: "w-[250px]",
               children: [
-                (0, a.jsx)(i.default, {
+                (0, a.jsx)(s.default, {
                   src: "/logos/X.svg",
                   alt: "Twitter Logo",
                   width: 24,
@@ -2939,8 +3556,8 @@
         let {
           isOpen: t,
           onChange: r,
-          title: s,
-          width: i = 768,
+          title: i,
+          width: s = 768,
           description: l,
           dismissable: o,
           children: c,
@@ -2953,13 +3570,13 @@
           children: (0, a.jsxs)(n.cZ, {
             ref: u,
             className: "z-[99999999] w-5/6 lg:w-full",
-            style: { maxWidth: i, ...d },
+            style: { maxWidth: s, ...d },
             dismissable: o,
             children: [
-              (s || l) &&
+              (i || l) &&
                 (0, a.jsxs)(n.fK, {
                   children: [
-                    (0, a.jsx)(n.$N, { children: s }),
+                    (0, a.jsx)(n.$N, { children: i }),
                     (0, a.jsx)(n.Be, { children: l }),
                   ],
                 }),
@@ -2973,15 +3590,15 @@
       "use strict";
       var a = r(57437),
         n = r(2265),
-        s = r(56288),
-        i = r(74919),
+        i = r(56288),
+        s = r(74919),
         l = r(13581),
         o = r(1657),
         c = r(85754);
       t.Z = (e) => {
         let { track: t, className: r } = e,
           [d, u] = (0, n.useState)(!1),
-          p = (0, n.useCallback)(
+          m = (0, n.useCallback)(
             (e) => {
               var r = window.URL.createObjectURL(e);
               let a = document.createElement("a");
@@ -2996,17 +3613,17 @@
             },
             [null == t ? void 0 : t.title]
           ),
-          m = (0, i.Z)(p),
+          p = (0, s.Z)(m),
           f = (0, n.useCallback)(async () => {
             if (!(null == t ? void 0 : t.image_path)) {
-              s.toast.error("Please generate an image cover to create a video");
+              i.toast.error("Please generate an image cover to create a video");
               return;
             }
             u(!0),
               (0, l.L9)("Share Song", { songId: t.id, shareType: "Video" }),
-              await m.mutateAsync(t.id),
+              await p.mutateAsync(t.id),
               u(!1);
-          }, [m]);
+          }, [p]);
         return t
           ? (0, a.jsx)(c.z, {
               variant: "magenta",
@@ -3023,22 +3640,22 @@
       "use strict";
       var a = r(57437),
         n = r(41943),
-        s = r(77778),
-        i = r(86210),
+        i = r(77778),
+        s = r(86210),
         l = r(43081),
         o = r(2265),
         c = r(74332),
         d = r(78398),
         u = r(5201),
-        p = r(41100),
-        m = r(1657),
+        m = r(41100),
+        p = r(1657),
         f = r(85754);
       t.Z = (e) => {
         let {
             track: t,
             useTrim: r = !1,
-            height: x = 100,
-            setPoints: h,
+            height: h = 100,
+            setPoints: x,
             setWorkingRegion: g,
           } = e,
           v = (0, o.useRef)(null),
@@ -3046,19 +3663,19 @@
           [y, j] = (0, o.useState)(2),
           [w, N] = (0, o.useState)(31),
           [k, C] = (0, o.useState)(null),
-          { isMediumDevice: S } = (0, p.Z)();
+          { isMediumDevice: S } = (0, m.Z)();
         null == t || t.duration;
         let {
             wavesurfer: L,
-            isReady: F,
-            isPlaying: R,
-            currentTime: T,
+            isReady: I,
+            isPlaying: T,
+            currentTime: F,
           } = (0, n.o)({
             container: v,
             url: null == t ? void 0 : t.song_path,
             waveColor: "#333",
             progressColor: "#e30b5d",
-            height: x,
+            height: h,
             barWidth: 3,
             barGap: 1,
             barRadius: 2,
@@ -3066,7 +3683,7 @@
             autoCenter: !1,
             autoScroll: !1,
           }),
-          Z = () => {
+          R = () => {
             let e = v.current,
               t = null == e ? void 0 : e.firstChild,
               r = null == t ? void 0 : t.shadowRoot,
@@ -3076,13 +3693,13 @@
                   : r.querySelectorAll(
                       '[part="region-handle region-handle-right"]'
                     ),
-              i =
+              s =
                 null == r
                   ? void 0
                   : r.querySelectorAll(
                       '[part="region-handle region-handle-left"]'
                     );
-            if (!n || !i) return;
+            if (!n || !s) return;
             let l = document.createElement("style");
             (l.textContent =
               "\n    .icon-container-left {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      position: absolute;\n      top: 50%; \n      left: calc(50% - 4px); /* Adjust this value as needed */\n      transform: translate(-50%, -50%);\n      width: 16px;\n      height: 16px;\n      background-color: white;\n      border-radius: 50%;\n    }\n    \n    .icon-container-right {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      position: absolute;\n      top: 50%; \n      left: calc(50% + 4px); /* Adjust this value as needed */\n      transform: translate(-50%, -50%);\n      width: 16px;\n      height: 16px;\n      background-color: white;\n      border-radius: 50%;\n    }\n\n    .h-full {\n      height: 100%;\n    }\n  "),
@@ -3097,12 +3714,12 @@
                 (t.className =
                   "icon-container" + ("right" === e ? "-right" : "-left")),
                 (t.innerHTML = c.renderToString(
-                  (0, a.jsx)(s.Z, { color: "black", size: 16 })
+                  (0, a.jsx)(i.Z, { color: "black", size: 16 })
                 )),
                 t
               );
             };
-            i.forEach((e) => {
+            s.forEach((e) => {
               if (e.querySelector(".icon-container")) return;
               let t = o("left");
               e.appendChild(t);
@@ -3118,7 +3735,7 @@
             let e = L.registerPlugin(u.Z.create());
             L.registerPlugin(d.Z.create()),
               C(e),
-              h && h([0, 15]),
+              x && x([0, 15]),
               L.on("decode", () => {
                 let t = e.addRegion({
                   start: 0,
@@ -3130,7 +3747,7 @@
                 t.on("update", () => {
                   t.end - t.start < 1 && (t.end = t.start + 1);
                 }),
-                  Z();
+                  R();
               }),
               e.on("region-in", (e) => {}),
               e.on("region-out", (e) => {
@@ -3141,11 +3758,11 @@
                   e.start,
                   e.end,
                 ]);
-                j(t.start), N(t.end), h && h(r);
+                j(t.start), N(t.end), x && x(r);
               });
           }
         }, [L, r]);
-        let U = Math.min(x / 4, 40);
+        let z = Math.min(h / 4, 40);
         return (0, a.jsx)(a.Fragment, {
           children: t
             ? (0, a.jsxs)("div", {
@@ -3162,8 +3779,8 @@
                               className: "rounded-full p-2",
                               onClick: () => (null == L ? void 0 : L.pause()),
                               size: "custom",
-                              children: (0, a.jsx)(i.Z, {
-                                size: U,
+                              children: (0, a.jsx)(s.Z, {
+                                size: z,
                                 fill: "black",
                               }),
                             })
@@ -3172,7 +3789,7 @@
                               onClick: () => (null == L ? void 0 : L.play()),
                               size: "custom",
                               children: (0, a.jsx)(l.Z, {
-                                size: U,
+                                size: z,
                                 className: "translate-x-[2px]",
                                 fill: "black",
                               }),
@@ -3210,7 +3827,7 @@
                               className: "font-bold",
                               children: "Start: ",
                             }),
-                            (0, m.mr)(y, S),
+                            (0, p.mr)(y, S),
                           ],
                         }),
                         (0, a.jsxs)("div", {
@@ -3220,7 +3837,7 @@
                               className: "font-bold",
                               children: "Current: ",
                             }),
-                            (0, m.mr)(T, S),
+                            (0, p.mr)(F, S),
                           ],
                         }),
                         (0, a.jsxs)("div", {
@@ -3230,7 +3847,7 @@
                               className: "font-bold",
                               children: "End: ",
                             }),
-                            (0, m.mr)(w, S),
+                            (0, p.mr)(w, S),
                           ],
                         }),
                       ],
@@ -3248,13 +3865,13 @@
       "use strict";
       var a = r(57437),
         n = r(50661),
-        s = r(1657),
-        i = r(85754);
+        i = r(1657),
+        s = r(85754);
       t.Z = (e) => {
         let { buttonLabel: t, copyText: r, className: l } = e,
           o = (0, n.V)();
-        return (0, a.jsx)(i.z, {
-          className: (0, s.cn)(
+        return (0, a.jsx)(s.z, {
+          className: (0, i.cn)(
             o.copied
               ? "bg-green-300 hover:bg-green-400 "
               : "bg-gray-200 hover:bg-green-500",
@@ -3285,21 +3902,21 @@
       });
       var a = r(57437),
         n = r(95320),
-        s = r(23441),
-        i = r(2265),
+        i = r(23441),
+        s = r(2265),
         l = r(1657);
       let o = n.fC,
-        c = i.forwardRef((e, t) => {
-          let { className: r, ...s } = e;
+        c = s.forwardRef((e, t) => {
+          let { className: r, ...i } = e;
           return (0, a.jsx)(n.ck, {
             ref: t,
             className: (0, l.cn)("border-b", r),
-            ...s,
+            ...i,
           });
         });
       c.displayName = "AccordionItem";
-      let d = i.forwardRef((e, t) => {
-        let { className: r, children: i, ...o } = e;
+      let d = s.forwardRef((e, t) => {
+        let { className: r, children: s, ...o } = e;
         return (0, a.jsx)(n.h4, {
           className: "flex",
           children: (0, a.jsxs)(n.xz, {
@@ -3310,8 +3927,8 @@
             ),
             ...o,
             children: [
-              i,
-              (0, a.jsx)(s.Z, {
+              s,
+              (0, a.jsx)(i.Z, {
                 className: "h-4 w-4 shrink-0 transition-transform duration-200",
               }),
             ],
@@ -3319,20 +3936,84 @@
         });
       });
       d.displayName = n.xz.displayName;
-      let u = i.forwardRef((e, t) => {
-        let { className: r, children: s, ...i } = e;
+      let u = s.forwardRef((e, t) => {
+        let { className: r, children: i, ...s } = e;
         return (0, a.jsx)(n.VY, {
           ref: t,
           className:
             "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
-          ...i,
+          ...s,
           children: (0, a.jsx)("div", {
             className: (0, l.cn)("pb-4 pt-0", r),
-            children: s,
+            children: i,
           }),
         });
       });
       u.displayName = n.VY.displayName;
+    },
+    85754: function (e, t, r) {
+      "use strict";
+      r.d(t, {
+        d: function () {
+          return o;
+        },
+        z: function () {
+          return c;
+        },
+      });
+      var a = r(57437),
+        n = r(59143),
+        i = r(57742),
+        s = r(2265),
+        l = r(1657);
+      let o = (0, i.j)(
+          "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          {
+            variants: {
+              variant: {
+                default:
+                  "bg-primary text-primary-foreground hover:bg-primary/90",
+                destructive:
+                  "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+                outline:
+                  "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+                secondary:
+                  "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-sm",
+                ghost: "hover:bg-accent hover:text-accent-foreground",
+                link: "text-primary underline-offset-4 hover:underline",
+                gray: "bg-gray-light text-foreground hover:bg-gray/90",
+                blue: "bg-brand-blue text-black hover:bg-brand-light-blue",
+                lightblue:
+                  "bg-brand-light-blue text-black hover:bg-brand-light-blue/70",
+                create:
+                  "bg-brand-magenta hover:bg-[#b5084a] text-white text-base",
+                "brand-accent":
+                  "bg-brand-accent text-white hover:bg-brand-accent/70",
+                magenta:
+                  "bg-brand-magenta hover:bg-brand-accent text-white text-base",
+                custom: "",
+              },
+              size: {
+                default: "h-10 px-4 py-2",
+                sm: "h-9 rounded-md px-3",
+                lg: "h-11 rounded-md px-8",
+                icon: "h-10 w-10",
+                custom: "",
+              },
+            },
+            defaultVariants: { variant: "default", size: "default" },
+          }
+        ),
+        c = s.forwardRef((e, t) => {
+          let { className: r, variant: i, size: s, asChild: c = !1, ...d } = e,
+            u = c ? n.g7 : "button";
+          return (0, a.jsx)(u, {
+            className: (0, l.cn)(o({ variant: i, size: s, className: r })),
+            ref: t,
+            ...d,
+          });
+        });
+      c.displayName = "Button";
     },
     27815: function (e, t, r) {
       "use strict";
@@ -3344,7 +4025,7 @@
           return c;
         },
         Zb: function () {
-          return i;
+          return s;
         },
         aY: function () {
           return d;
@@ -3358,24 +4039,24 @@
       });
       var a = r(57437),
         n = r(2265),
-        s = r(1657);
-      let i = n.forwardRef((e, t) => {
+        i = r(1657);
+      let s = n.forwardRef((e, t) => {
         let { className: r, ...n } = e;
         return (0, a.jsx)("div", {
           ref: t,
-          className: (0, s.cn)(
+          className: (0, i.cn)(
             "rounded-lg border bg-card text-card-foreground shadow-sm",
             r
           ),
           ...n,
         });
       });
-      i.displayName = "Card";
+      s.displayName = "Card";
       let l = n.forwardRef((e, t) => {
         let { className: r, ...n } = e;
         return (0, a.jsx)("div", {
           ref: t,
-          className: (0, s.cn)(
+          className: (0, i.cn)(
             "flex flex-col space-y-1.5 px-6 pb-0 pt-2 lg:p-6",
             r
           ),
@@ -3387,7 +4068,7 @@
         let { className: r, ...n } = e;
         return (0, a.jsx)("h3", {
           ref: t,
-          className: (0, s.cn)(
+          className: (0, i.cn)(
             "text-lg font-semibold leading-none tracking-tight lg:text-2xl",
             r
           ),
@@ -3399,7 +4080,7 @@
         let { className: r, ...n } = e;
         return (0, a.jsx)("p", {
           ref: t,
-          className: (0, s.cn)("text-sm text-muted-foreground", r),
+          className: (0, i.cn)("text-sm text-muted-foreground", r),
           ...n,
         });
       });
@@ -3408,7 +4089,7 @@
         let { className: r, ...n } = e;
         return (0, a.jsx)("div", {
           ref: t,
-          className: (0, s.cn)("px-6 pb-2 pt-0 lg:p-6", r),
+          className: (0, i.cn)("px-6 pb-2 pt-0 lg:p-6", r),
           ...n,
         });
       });
@@ -3417,7 +4098,7 @@
         let { className: r, ...n } = e;
         return (0, a.jsx)("div", {
           ref: t,
-          className: (0, s.cn)("flex items-center p-6 pt-0", r),
+          className: (0, i.cn)("flex items-center p-6 pt-0", r),
           ...n,
         });
       });
@@ -3427,19 +4108,19 @@
       "use strict";
       r.d(t, {
         KI: function () {
-          return m;
+          return p;
         },
         Pz: function () {
-          return h;
+          return x;
         },
         am: function () {
-          return x;
+          return h;
         },
         d$: function () {
           return f;
         },
         lr: function () {
-          return p;
+          return m;
         },
         vr: function () {
           return u;
@@ -3447,8 +4128,8 @@
       });
       var a = r(57437),
         n = r(18062),
-        s = r(53879),
-        i = r(18025),
+        i = r(53879),
+        s = r(18025),
         l = r(2265),
         o = r(1657),
         c = r(85754);
@@ -3458,28 +4139,28 @@
         if (!e) throw Error("useCarousel must be used within a <Carousel />");
         return e;
       }
-      let p = l.forwardRef((e, t) => {
+      let m = l.forwardRef((e, t) => {
         let {
             orientation: r = "horizontal",
-            opts: s,
-            setApi: i,
+            opts: i,
+            setApi: s,
             plugins: c,
             className: u,
-            children: p,
-            ...m
+            children: m,
+            ...p
           } = e,
-          [f, x] = (0, n.Z)({ ...s, axis: "horizontal" === r ? "x" : "y" }, c),
-          [h, g] = l.useState(!1),
+          [f, h] = (0, n.Z)({ ...i, axis: "horizontal" === r ? "x" : "y" }, c),
+          [x, g] = l.useState(!1),
           [v, b] = l.useState(!1),
           y = l.useCallback((e) => {
             e && (g(e.canScrollPrev()), b(e.canScrollNext()));
           }, []),
           j = l.useCallback(() => {
-            null == x || x.scrollPrev();
-          }, [x]),
+            null == h || h.scrollPrev();
+          }, [h]),
           w = l.useCallback(() => {
-            null == x || x.scrollNext();
-          }, [x]),
+            null == h || h.scrollNext();
+          }, [h]),
           N = l.useCallback(
             (e) => {
               "ArrowLeft" === e.key
@@ -3490,32 +4171,32 @@
           );
         return (
           l.useEffect(() => {
-            x && i && i(x);
-          }, [x, i]),
+            h && s && s(h);
+          }, [h, s]),
           l.useEffect(() => {
-            if (x)
+            if (h)
               return (
-                y(x),
-                x.on("reInit", y),
-                x.on("select", y),
+                y(h),
+                h.on("reInit", y),
+                h.on("select", y),
                 () => {
-                  null == x || x.off("select", y);
+                  null == h || h.off("select", y);
                 }
               );
-          }, [x, y]),
+          }, [h, y]),
           (0, a.jsx)(d.Provider, {
             value: {
               carouselRef: f,
-              api: x,
-              opts: s,
+              api: h,
+              opts: i,
               orientation:
                 r ||
-                ((null == s ? void 0 : s.axis) === "y"
+                ((null == i ? void 0 : i.axis) === "y"
                   ? "vertical"
                   : "horizontal"),
               scrollPrev: j,
               scrollNext: w,
-              canScrollPrev: h,
+              canScrollPrev: x,
               canScrollNext: v,
             },
             children: (0, a.jsx)("div", {
@@ -3524,80 +4205,47 @@
               className: (0, o.cn)("relative", u),
               role: "region",
               "aria-roledescription": "carousel",
-              ...m,
-              children: p,
+              ...p,
+              children: m,
             }),
           })
         );
       });
-      p.displayName = "Carousel";
-      let m = l.forwardRef((e, t) => {
+      m.displayName = "Carousel";
+      let p = l.forwardRef((e, t) => {
         let { className: r, ...n } = e,
-          { carouselRef: s, orientation: i } = u();
+          { carouselRef: i, orientation: s } = u();
         return (0, a.jsx)("div", {
-          ref: s,
+          ref: i,
           className: "overflow-hidden",
           children: (0, a.jsx)("div", {
             ref: t,
             className: (0, o.cn)(
               "flex",
-              "horizontal" === i ? "-ml-4" : "-mt-4 flex-col",
+              "horizontal" === s ? "-ml-4" : "-mt-4 flex-col",
               r
             ),
             ...n,
           }),
         });
       });
-      m.displayName = "CarouselContent";
+      p.displayName = "CarouselContent";
       let f = l.forwardRef((e, t) => {
         let { className: r, ...n } = e,
-          { orientation: s } = u();
+          { orientation: i } = u();
         return (0, a.jsx)("div", {
           ref: t,
           role: "group",
           "aria-roledescription": "slide",
           className: (0, o.cn)(
             "min-w-0 shrink-0 grow-0 basis-full",
-            "horizontal" === s ? "pl-4" : "pt-4",
+            "horizontal" === i ? "pl-4" : "pt-4",
             r
           ),
           ...n,
         });
       });
       f.displayName = "CarouselItem";
-      let x = l.forwardRef((e, t) => {
-        let {
-            className: r,
-            variant: n = "outline",
-            size: i = "icon",
-            ...l
-          } = e,
-          { orientation: d, scrollPrev: p, canScrollPrev: m } = u();
-        return (0, a.jsxs)(c.z, {
-          ref: t,
-          variant: n,
-          size: i,
-          className: (0, o.cn)(
-            "absolute  h-10 w-10 rounded-full",
-            "horizontal" === d
-              ? "right-0 top-0 flex -translate-x-[4rem] -translate-y-8"
-              : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-            m ? "opacity-100" : "hidden",
-            r
-          ),
-          disabled: !m,
-          onClick: p,
-          ...l,
-          children: [
-            (0, a.jsx)(s.Z, { className: "h-6 w-6" }),
-            (0, a.jsx)("span", {
-              className: "sr-only",
-              children: "Previous slide",
-            }),
-          ],
-        });
-      });
-      x.displayName = "CarouselPrevious";
       let h = l.forwardRef((e, t) => {
         let {
             className: r,
@@ -3605,24 +4253,57 @@
             size: s = "icon",
             ...l
           } = e,
-          { orientation: d, scrollNext: p, canScrollNext: m } = u();
+          { orientation: d, scrollPrev: m, canScrollPrev: p } = u();
         return (0, a.jsxs)(c.z, {
           ref: t,
           variant: n,
           size: s,
           className: (0, o.cn)(
+            "absolute  h-10 w-10 rounded-full",
+            "horizontal" === d
+              ? "right-0 top-0 flex -translate-x-[4rem] -translate-y-8"
+              : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+            p ? "opacity-100" : "hidden",
+            r
+          ),
+          disabled: !p,
+          onClick: m,
+          ...l,
+          children: [
+            (0, a.jsx)(i.Z, { className: "h-6 w-6" }),
+            (0, a.jsx)("span", {
+              className: "sr-only",
+              children: "Previous slide",
+            }),
+          ],
+        });
+      });
+      h.displayName = "CarouselPrevious";
+      let x = l.forwardRef((e, t) => {
+        let {
+            className: r,
+            variant: n = "outline",
+            size: i = "icon",
+            ...l
+          } = e,
+          { orientation: d, scrollNext: m, canScrollNext: p } = u();
+        return (0, a.jsxs)(c.z, {
+          ref: t,
+          variant: n,
+          size: i,
+          className: (0, o.cn)(
             "absolute h-10 w-10 rounded-full",
             "horizontal" === d
               ? "right-0 top-0 flex -translate-x-[1rem] -translate-y-8"
               : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-            m ? "opacity-100" : "hidden",
+            p ? "opacity-100" : "hidden",
             r
           ),
-          disabled: !m,
-          onClick: p,
+          disabled: !p,
+          onClick: m,
           ...l,
           children: [
-            (0, a.jsx)(i.Z, { className: "h-6 w-6" }),
+            (0, a.jsx)(s.Z, { className: "h-6 w-6" }),
             (0, a.jsx)("span", {
               className: "sr-only",
               children: "Next slide",
@@ -3630,13 +4311,13 @@
           ],
         });
       });
-      h.displayName = "CarouselNext";
+      x.displayName = "CarouselNext";
     },
     42706: function (e, t, r) {
       "use strict";
       r.d(t, {
         $N: function () {
-          return h;
+          return x;
         },
         Be: function () {
           return g;
@@ -3648,10 +4329,10 @@
           return o;
         },
         cN: function () {
-          return x;
+          return h;
         },
         cZ: function () {
-          return m;
+          return p;
         },
         fK: function () {
           return f;
@@ -3662,30 +4343,30 @@
       });
       var a = r(57437),
         n = r(72936),
-        s = r(52235),
-        i = r(2265),
+        i = r(52235),
+        s = r(2265),
         l = r(1657);
       let o = n.fC,
         c = n.xz,
         d = n.h_,
         u = n.x8,
-        p = i.forwardRef((e, t) => {
-          let { className: r, ...s } = e;
+        m = s.forwardRef((e, t) => {
+          let { className: r, ...i } = e;
           return (0, a.jsx)(n.aV, {
             ref: t,
             className: (0, l.cn)(
               "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
               r
             ),
-            ...s,
+            ...i,
           });
         });
-      p.displayName = n.aV.displayName;
-      let m = i.forwardRef((e, t) => {
-        let { className: r, children: i, dismissable: o = !0, ...c } = e;
+      m.displayName = n.aV.displayName;
+      let p = s.forwardRef((e, t) => {
+        let { className: r, children: s, dismissable: o = !0, ...c } = e;
         return (0, a.jsxs)(d, {
           children: [
-            (0, a.jsx)(p, {}),
+            (0, a.jsx)(m, {}),
             (0, a.jsxs)(n.VY, {
               ref: t,
               className: (0, l.cn)(
@@ -3694,13 +4375,13 @@
               ),
               ...c,
               children: [
-                i,
+                s,
                 o
                   ? (0, a.jsxs)(n.x8, {
                       className:
                         "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity data-[state=open]:bg-accent data-[state=open]:text-muted-foreground hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none",
                       children: [
-                        (0, a.jsx)(s.Z, { className: "h-4 w-4" }),
+                        (0, a.jsx)(i.Z, { className: "h-4 w-4" }),
                         (0, a.jsx)("span", {
                           className: "sr-only",
                           children: "Close",
@@ -3713,7 +4394,7 @@
           ],
         });
       });
-      m.displayName = n.VY.displayName;
+      p.displayName = n.VY.displayName;
       let f = (e) => {
         let { className: t, ...r } = e;
         return (0, a.jsx)("div", {
@@ -3725,7 +4406,7 @@
         });
       };
       f.displayName = "DialogHeader";
-      let x = (e) => {
+      let h = (e) => {
         let { className: t, ...r } = e;
         return (0, a.jsx)("div", {
           className: (0, l.cn)(
@@ -3735,25 +4416,25 @@
           ...r,
         });
       };
-      x.displayName = "DialogFooter";
-      let h = i.forwardRef((e, t) => {
-        let { className: r, ...s } = e;
+      h.displayName = "DialogFooter";
+      let x = s.forwardRef((e, t) => {
+        let { className: r, ...i } = e;
         return (0, a.jsx)(n.Dx, {
           ref: t,
           className: (0, l.cn)(
             "text-lg font-semibold leading-none tracking-tight",
             r
           ),
-          ...s,
+          ...i,
         });
       });
-      h.displayName = n.Dx.displayName;
-      let g = i.forwardRef((e, t) => {
-        let { className: r, ...s } = e;
+      x.displayName = n.Dx.displayName;
+      let g = s.forwardRef((e, t) => {
+        let { className: r, ...i } = e;
         return (0, a.jsx)(n.dk, {
           ref: t,
           className: (0, l.cn)("text-sm text-muted-foreground", r),
-          ...s,
+          ...i,
         });
       });
       g.displayName = n.dk.displayName;
@@ -3762,7 +4443,7 @@
       "use strict";
       r.d(t, {
         NI: function () {
-          return h;
+          return x;
         },
         V5: function () {
           return v;
@@ -3774,7 +4455,7 @@
           return c;
         },
         lX: function () {
-          return x;
+          return h;
         },
         pf: function () {
           return g;
@@ -3788,23 +4469,23 @@
       });
       var a = r(57437),
         n = r(59143),
-        s = r(2265),
-        i = r(82670),
+        i = r(2265),
+        s = r(82670),
         l = r(1657),
         o = r(49842);
-      let c = i.RV,
-        d = s.createContext({}),
+      let c = s.RV,
+        d = i.createContext({}),
         u = (e) => {
           let { ...t } = e;
           return (0, a.jsx)(d.Provider, {
             value: { name: t.name },
-            children: (0, a.jsx)(i.Qr, { ...t }),
+            children: (0, a.jsx)(s.Qr, { ...t }),
           });
         },
-        p = () => {
-          let e = s.useContext(d),
-            t = s.useContext(m),
-            { getFieldState: r, formState: a } = (0, i.Gc)(),
+        m = () => {
+          let e = i.useContext(d),
+            t = i.useContext(p),
+            { getFieldState: r, formState: a } = (0, s.Gc)(),
             n = r(e.name, a);
           if (!e) throw Error("useFormField should be used within <FormField>");
           let { id: l } = t;
@@ -3817,12 +4498,12 @@
             ...n,
           };
         },
-        m = s.createContext({}),
-        f = s.forwardRef((e, t) => {
+        p = i.createContext({}),
+        f = i.forwardRef((e, t) => {
           let { className: r, ...n } = e,
-            i = s.useId();
-          return (0, a.jsx)(m.Provider, {
-            value: { id: i },
+            s = i.useId();
+          return (0, a.jsx)(p.Provider, {
+            value: { id: s },
             children: (0, a.jsx)("div", {
               ref: t,
               className: (0, l.cn)("space-y-2", r),
@@ -3831,67 +4512,67 @@
           });
         });
       f.displayName = "FormItem";
-      let x = s.forwardRef((e, t) => {
+      let h = i.forwardRef((e, t) => {
         let { className: r, ...n } = e,
-          { error: s, formItemId: i } = p();
+          { error: i, formItemId: s } = m();
         return (0, a.jsx)(o._, {
           ref: t,
-          className: (0, l.cn)(s && "text-destructive", r),
-          htmlFor: i,
+          className: (0, l.cn)(i && "text-destructive", r),
+          htmlFor: s,
           ...n,
         });
       });
-      x.displayName = "FormLabel";
-      let h = s.forwardRef((e, t) => {
+      h.displayName = "FormLabel";
+      let x = i.forwardRef((e, t) => {
         let { ...r } = e,
           {
-            error: s,
-            formItemId: i,
+            error: i,
+            formItemId: s,
             formDescriptionId: l,
             formMessageId: o,
-          } = p();
+          } = m();
         return (0, a.jsx)(n.g7, {
           ref: t,
-          id: i,
-          "aria-describedby": s ? "".concat(l, " ").concat(o) : "".concat(l),
-          "aria-invalid": !!s,
+          id: s,
+          "aria-describedby": i ? "".concat(l, " ").concat(o) : "".concat(l),
+          "aria-invalid": !!i,
           ...r,
         });
       });
-      h.displayName = "FormControl";
-      let g = s.forwardRef((e, t) => {
+      x.displayName = "FormControl";
+      let g = i.forwardRef((e, t) => {
         let { className: r, ...n } = e,
-          { formDescriptionId: s } = p();
+          { formDescriptionId: i } = m();
         return (0, a.jsx)("p", {
           ref: t,
-          id: s,
+          id: i,
           className: (0, l.cn)("text-sm text-muted-foreground", r),
           ...n,
         });
       });
       g.displayName = "FormDescription";
-      let v = s.forwardRef((e, t) => {
-        let { className: r, children: n, ...s } = e,
-          { formItemId: i } = p();
+      let v = i.forwardRef((e, t) => {
+        let { className: r, children: n, ...i } = e,
+          { formItemId: s } = m();
         return (0, a.jsx)("input", {
           ref: t,
-          id: i,
+          id: s,
           className: (0, l.cn)("sr-only", r),
           type: "file",
-          ...s,
+          ...i,
         });
       });
       v.displayName = "FormFileUpload";
-      let b = s.forwardRef((e, t) => {
-        let { className: r, children: n, ...s } = e,
-          { error: i, formMessageId: o } = p(),
-          c = i ? String(null == i ? void 0 : i.message) : n;
+      let b = i.forwardRef((e, t) => {
+        let { className: r, children: n, ...i } = e,
+          { error: s, formMessageId: o } = m(),
+          c = s ? String(null == s ? void 0 : s.message) : n;
         return c
           ? (0, a.jsx)("p", {
               ref: t,
               id: o,
               className: (0, l.cn)("text-sm font-medium text-destructive", r),
-              ...s,
+              ...i,
               children: c,
             })
           : null;
@@ -3902,25 +4583,25 @@
       "use strict";
       r.d(t, {
         I: function () {
-          return i;
+          return s;
         },
       });
       var a = r(57437),
         n = r(2265),
-        s = r(1657);
-      let i = n.forwardRef((e, t) => {
-        let { className: r, type: n, ...i } = e;
+        i = r(1657);
+      let s = n.forwardRef((e, t) => {
+        let { className: r, type: n, ...s } = e;
         return (0, a.jsx)("input", {
           type: n,
-          className: (0, s.cn)(
+          className: (0, i.cn)(
             "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
             r
           ),
           ref: t,
-          ...i,
+          ...s,
         });
       });
-      i.displayName = "Input";
+      s.displayName = "Input";
     },
     49842: function (e, t, r) {
       "use strict";
@@ -3931,21 +4612,64 @@
       });
       var a = r(57437),
         n = r(24602),
-        s = r(57742),
-        i = r(2265),
+        i = r(57742),
+        s = r(2265),
         l = r(1657);
-      let o = (0, s.j)(
+      let o = (0, i.j)(
           "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         ),
-        c = i.forwardRef((e, t) => {
-          let { className: r, ...s } = e;
+        c = s.forwardRef((e, t) => {
+          let { className: r, ...i } = e;
           return (0, a.jsx)(n.f, {
             ref: t,
             className: (0, l.cn)(o(), r),
-            ...s,
+            ...i,
           });
         });
       c.displayName = n.f.displayName;
+    },
+    35608: function (e, t, r) {
+      "use strict";
+      r.d(t, {
+        E: function () {
+          return o;
+        },
+        m: function () {
+          return c;
+        },
+      });
+      var a = r(57437),
+        n = r(68928),
+        i = r(37501),
+        s = r(2265),
+        l = r(1657);
+      let o = s.forwardRef((e, t) => {
+        let { className: r, ...i } = e;
+        return (0, a.jsx)(n.fC, {
+          className: (0, l.cn)("grid gap-2", r),
+          ...i,
+          ref: t,
+        });
+      });
+      o.displayName = n.fC.displayName;
+      let c = s.forwardRef((e, t) => {
+        let { className: r, ...s } = e;
+        return (0, a.jsx)(n.ck, {
+          ref: t,
+          className: (0, l.cn)(
+            "aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+            r
+          ),
+          ...s,
+          children: (0, a.jsx)(n.z$, {
+            className: "flex items-center justify-center",
+            children: (0, a.jsx)(i.Z, {
+              className: "h-2.5 w-2.5 fill-current text-current",
+            }),
+          }),
+        });
+      });
+      c.displayName = n.ck.displayName;
     },
     49030: function (e, t, r) {
       "use strict";
@@ -3960,18 +4684,18 @@
         });
       var a = r(57437),
         n = r(19346),
-        s = r(2265),
-        i = r(1657);
-      let l = s.forwardRef((e, t) => {
-        let { className: r, children: s, ...l } = e;
+        i = r(2265),
+        s = r(1657);
+      let l = i.forwardRef((e, t) => {
+        let { className: r, children: i, ...l } = e;
         return (0, a.jsxs)(n.fC, {
-          className: (0, i.cn)("relative overflow-hidden", r),
+          className: (0, s.cn)("relative overflow-hidden", r),
           ...l,
           children: [
             (0, a.jsx)(n.l_, {
               className: "h-full w-full rounded-[inherit]",
               ref: t,
-              children: s,
+              children: i,
             }),
             (0, a.jsx)(o, {}),
             (0, a.jsx)(n.Ns, {}),
@@ -3979,16 +4703,16 @@
         });
       });
       l.displayName = n.fC.displayName;
-      let o = s.forwardRef((e, t) => {
-        let { className: r, orientation: s = "vertical", ...l } = e;
+      let o = i.forwardRef((e, t) => {
+        let { className: r, orientation: i = "vertical", ...l } = e;
         return (0, a.jsx)(n.gb, {
           ref: t,
-          orientation: s,
-          className: (0, i.cn)(
+          orientation: i,
+          className: (0, s.cn)(
             "flex touch-none select-none transition-colors",
-            "vertical" === s &&
+            "vertical" === i &&
               "h-full w-2.5 border-l border-l-transparent p-[1px]",
-            "horizontal" === s &&
+            "horizontal" === i &&
               "h-2.5 flex-col border-t border-t-transparent p-[1px]",
             r
           ),
@@ -4009,22 +4733,22 @@
       });
       var a = r(57437),
         n = r(51014),
-        s = r(2265),
-        i = r(1657);
-      let l = s.forwardRef((e, t) => {
+        i = r(2265),
+        s = r(1657);
+      let l = i.forwardRef((e, t) => {
         let {
           className: r,
-          orientation: s = "horizontal",
+          orientation: i = "horizontal",
           decorative: l = !0,
           ...o
         } = e;
         return (0, a.jsx)(n.f, {
           ref: t,
           decorative: l,
-          orientation: s,
-          className: (0, i.cn)(
+          orientation: i,
+          className: (0, s.cn)(
             "shrink-0 bg-border",
-            "horizontal" === s ? "h-[1px] w-full" : "h-full w-[1px]",
+            "horizontal" === i ? "h-[1px] w-full" : "h-full w-[1px]",
             r
           ),
           ...o,
@@ -4051,42 +4775,42 @@
         });
       var a = r(57437),
         n = r(64694),
-        s = r(2265),
-        i = r(1657);
+        i = r(2265),
+        s = r(1657);
       let l = n.fC,
-        o = s.forwardRef((e, t) => {
-          let { className: r, ...s } = e;
+        o = i.forwardRef((e, t) => {
+          let { className: r, ...i } = e;
           return (0, a.jsx)(n.aV, {
             ref: t,
-            className: (0, i.cn)(
+            className: (0, s.cn)(
               "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
               r
             ),
-            ...s,
+            ...i,
           });
         });
       o.displayName = n.aV.displayName;
-      let c = s.forwardRef((e, t) => {
-        let { className: r, ...s } = e;
+      let c = i.forwardRef((e, t) => {
+        let { className: r, ...i } = e;
         return (0, a.jsx)(n.xz, {
           ref: t,
-          className: (0, i.cn)(
+          className: (0, s.cn)(
             "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
             r
           ),
-          ...s,
+          ...i,
         });
       });
       c.displayName = n.xz.displayName;
-      let d = s.forwardRef((e, t) => {
-        let { className: r, ...s } = e;
+      let d = i.forwardRef((e, t) => {
+        let { className: r, ...i } = e;
         return (0, a.jsx)(n.VY, {
           ref: t,
-          className: (0, i.cn)(
+          className: (0, s.cn)(
             "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             r
           ),
-          ...s,
+          ...i,
         });
       });
       d.displayName = n.VY.displayName;
@@ -4095,16 +4819,16 @@
       "use strict";
       r.d(t, {
         g: function () {
-          return i;
+          return s;
         },
       });
       var a = r(57437),
         n = r(2265),
-        s = r(1657);
-      let i = n.forwardRef((e, t) => {
+        i = r(1657);
+      let s = n.forwardRef((e, t) => {
         let { className: r, ...n } = e;
         return (0, a.jsx)("textarea", {
-          className: (0, s.cn)(
+          className: (0, i.cn)(
             "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
             r
           ),
@@ -4112,20 +4836,20 @@
           ...n,
         });
       });
-      i.displayName = "Textarea";
+      s.displayName = "Textarea";
     },
     74919: function (e, t, r) {
       "use strict";
       var a = r(20568),
         n = r(56288),
-        s = r(6771),
-        i = r(68203);
+        i = r(6771),
+        s = r(68203);
       t.Z = (e) =>
         (0, a.D)({
           mutationFn: async (e) => {
             try {
               return (
-                await i.bL.post(
+                await s.bL.post(
                   "/api/share-video",
                   { song_id: e },
                   { responseType: "blob" }
@@ -4137,11 +4861,11 @@
               (null == e ? void 0 : e.status) === 429
                 ? n.toast.error(
                     "Please try again later. Video is being generated!",
-                    s.TQ
+                    i.TQ
                   )
                 : (null == e ? void 0 : e.status) === 503
-                  ? n.toast.error("Video unavailable", s.TQ)
-                  : n.toast.error("Error generating video", s.TQ);
+                  ? n.toast.error("Video unavailable", i.TQ)
+                  : n.toast.error("Error generating video", i.TQ);
               return;
             }
           },
@@ -4158,10 +4882,10 @@
           return n;
         },
         YN: function () {
-          return i;
+          return s;
         },
         Z5: function () {
-          return s;
+          return i;
         },
         ed: function () {
           return a;
@@ -4186,41 +4910,41 @@
           forUser: (e, t) => [...n.list, e, t],
           currentUser: (e, t, r) => [...n.list, "current", t, e, r],
         },
-        s = {
+        i = {
           list: ["tag-predictions"],
-          forPartialTag: (e) => [...s.list, e],
+          forPartialTag: (e) => [...i.list, e],
           forPartialAndCurrentTags: (e, t) => [
-            ...s.forPartialTag(e),
+            ...i.forPartialTag(e),
             JSON.stringify(t),
           ],
         },
-        i = {
+        s = {
           currentUser: ["current-user"],
           currentUserSubscriptionStatus: () => [
-            ...i.currentUser,
+            ...s.currentUser,
             "subscription-status",
           ],
-          currentUserApiUsage: () => [...i.currentUser, "api-usage"],
+          currentUserApiUsage: () => [...s.currentUser, "api-usage"],
           list: ["profiles"],
-          forProfile: (e) => [...i.list, e],
+          forProfile: (e) => [...s.list, e],
         };
     },
     48779: function (e, t, r) {
       "use strict";
       var a = r(73667),
         n = r(6771),
-        s = r(68062),
-        i = r(36408);
+        i = r(68062),
+        s = r(36408);
       t.Z = (e) => {
         let { enabled: t } = e;
         return (0, a.a)({
-          queryKey: i.YN.currentUserSubscriptionStatus(),
+          queryKey: s.YN.currentUserSubscriptionStatus(),
           queryFn: async () => {
-            let { plan: e, status: t } = await (0, s.pI)(),
+            let { plan: e, status: t } = await (0, i.pI)(),
               r = n.hX.includes(t),
               a = n.nq.includes(e),
-              i = "pro" === e && r;
-            return { plan: e, status: t, paidPlan: a && r, proPlan: i };
+              s = "pro" === e && r;
+            return { plan: e, status: t, paidPlan: a && r, proPlan: s };
           },
           enabled: t,
         });
@@ -4230,8 +4954,8 @@
       "use strict";
       var a = r(73667),
         n = r(68062),
-        s = r(11109),
-        i = r(13581),
+        i = r(11109),
+        s = r(13581),
         l = r(36408);
       t.Z = () => {
         let { data: e } = (0, a.a)({
@@ -4241,9 +4965,9 @@
               let e = await (0, n.k)();
               return (
                 (null == e ? void 0 : e.id) &&
-                  (null === s.Z || void 0 === s.Z ? void 0 : s.Z.getId()) !==
+                  (null === i.Z || void 0 === i.Z ? void 0 : i.Z.getId()) !==
                     (null == e ? void 0 : e.id) &&
-                  (0, i.$A)(null == e ? void 0 : e.id),
+                  (0, s.$A)(null == e ? void 0 : e.id),
                 null != e ? e : null
               );
             } catch (e) {
@@ -4259,16 +4983,16 @@
       "use strict";
       var a = r(73667),
         n = r(68062),
-        s = r(1657),
-        i = r(36408);
+        i = r(1657),
+        s = r(36408);
       t.Z = (e) => {
         let { id: t } = e;
         return (0, a.a)({
           enabled: !!t,
-          queryKey: i.YN.forProfile(t),
+          queryKey: s.YN.forProfile(t),
           queryFn: async () => {
             if (!t) return;
-            let e = (null == t ? void 0 : t.includes("-")) ? t : (0, s.xK)(t),
+            let e = (null == t ? void 0 : t.includes("-")) ? t : (0, i.xK)(t),
               r = await (0, n.yH)([e]);
             return null == r ? void 0 : r[e];
           },
@@ -4280,12 +5004,12 @@
       "use strict";
       var a = r(6524),
         n = r(75787),
-        s = r(31451),
-        i = r(36408);
+        i = r(31451),
+        s = r(36408);
       let l = new n.S({ defaultOptions: { queries: { gcTime: 3e5 } } });
       {
         let e = (0, a.K)({ storage: window.localStorage, throttleTime: 5e3 });
-        (0, s.wO)({
+        (0, i.wO)({
           queryClient: l,
           persister: e,
           dehydrateOptions: {
@@ -4294,10 +5018,10 @@
               return (
                 !(r.dataUpdatedAt && Date.now() - r.dataUpdatedAt < 3e5) &&
                 "song" !== t[0] &&
-                t[0] !== i.ed.likedList &&
-                t[0] !== i.ed.list[0] &&
-                t[0] !== i.Z5.list[0] &&
-                t[0] !== i.ed.generationList[0]
+                t[0] !== s.ed.likedList &&
+                t[0] !== s.ed.list[0] &&
+                t[0] !== s.Z5.list[0] &&
+                t[0] !== s.ed.generationList[0]
               );
             },
           },
@@ -4340,7 +5064,7 @@
       "use strict";
       r.d(t, {
         Dv: function () {
-          return i;
+          return s;
         },
         K8: function () {
           return d;
@@ -4358,22 +5082,22 @@
           return f;
         },
         aN: function () {
-          return s;
+          return i;
         },
         dG: function () {
-          return p;
+          return m;
         },
         f7: function () {
-          return m;
+          return p;
         },
         fI: function () {
           return l;
         },
         g4: function () {
-          return h;
+          return x;
         },
         jh: function () {
-          return x;
+          return h;
         },
         ot: function () {
           return o;
@@ -4384,12 +5108,12 @@
       });
       var a = r(22020),
         n = r(65249);
-      let s = (0, a.Ue)((e) => ({
+      let i = (0, a.Ue)((e) => ({
           isProfileOpen: !1,
           openProfileModal: () => e({ isProfileOpen: !0 }),
           closeProfileModal: () => e({ isProfileOpen: !1 }),
         })),
-        i = (0, a.Ue)((e) => ({
+        s = (0, a.Ue)((e) => ({
           isAvatarModalOpen: !1,
           openAvatarModal: () => e({ isAvatarModalOpen: !0 }),
           closeAvatarModal: () => e({ isAvatarModalOpen: !1 }),
@@ -4424,7 +5148,7 @@
           track: void 0,
           setLyricsModalTrack: (t) => e({ track: t }),
         })),
-        p = (0, a.Ue)((e) => ({
+        m = (0, a.Ue)((e) => ({
           isCoverOpen: !1,
           openCoverModal: () => e({ isCoverOpen: !0 }),
           closeCoverModal: () => e({ isCoverOpen: !1 }),
@@ -4440,7 +5164,7 @@
           imageGenerateStatus: "idle",
           setImageGenerateStatus: (t) => e({ imageGenerateStatus: t }),
         })),
-        m = (0, a.Ue)((e) => ({
+        p = (0, a.Ue)((e) => ({
           isTrimOpen: !1,
           openTrimModal: () => e({ isTrimOpen: !0 }),
           closeTrimModal: () => e({ isTrimOpen: !1 }),
@@ -4454,12 +5178,12 @@
           closeFeedbackModal: () => e({ isFeedbackOpen: !1 }),
           setFeedbackModalTrack: (t) => e({ track: t }),
         })),
-        x = (0, a.Ue)((e) => ({
+        h = (0, a.Ue)((e) => ({
           isGeneralFeedbackOpen: !1,
           openGeneralFeedbackModal: () => e({ isGeneralFeedbackOpen: !0 }),
           closeGeneralFeedbackModal: () => e({ isGeneralFeedbackOpen: !1 }),
         })),
-        h = (0, a.Ue)((e) => ({
+        x = (0, a.Ue)((e) => ({
           isReportTrackModalOpen: !1,
           openReportTrackModal: () => e({ isReportTrackModalOpen: !0 }),
           closeReportTrackModal: () => e({ isReportTrackModalOpen: !1 }),
@@ -4537,8 +5261,8 @@
           }
           let n = t().localUnlikes;
           null == n || delete n[r.id], e({ localUnlikes: n });
-          let s = t().localDislikes;
-          null == s || delete s[r.id], e({ localDislikes: s });
+          let i = t().localDislikes;
+          null == i || delete i[r.id], e({ localDislikes: i });
         },
         handleUnlike: async (r) => {
           let a = t().localLikes;
@@ -4563,8 +5287,8 @@
           }
           let n = t().localRemoveDislikes;
           null == n || delete n[r.id], e({ localRemoveDislikes: n });
-          let s = t().localLikes;
-          null == s || delete s[r.id], e({ localLikes: s });
+          let i = t().localLikes;
+          null == i || delete i[r.id], e({ localLikes: i });
         },
         handleRemoveDislike: async (r) => {
           let a = t().localDislikes;
@@ -4600,26 +5324,100 @@
           },
         });
     },
+    6771: function (e, t, r) {
+      "use strict";
+      r.d(t, {
+        DM: function () {
+          return f;
+        },
+        Gw: function () {
+          return c;
+        },
+        Jw: function () {
+          return a;
+        },
+        Qe: function () {
+          return l;
+        },
+        TQ: function () {
+          return p;
+        },
+        Tb: function () {
+          return m;
+        },
+        Zc: function () {
+          return i;
+        },
+        bw: function () {
+          return s;
+        },
+        cc: function () {
+          return u;
+        },
+        eS: function () {
+          return n;
+        },
+        hX: function () {
+          return x;
+        },
+        i6: function () {
+          return o;
+        },
+        nq: function () {
+          return h;
+        },
+        yd: function () {
+          return d;
+        },
+      });
+      let a = 2,
+        n = 5e3,
+        i = "anonymous-user-id",
+        s =
+          "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJibGFjayIgLz48ZmlsdGVyIGlkPSJnYXVzc2lhbi1ibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIwLjUiIC8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJibGFjayIgZmlsdGVyPSJ1cmwoI2dhdXNzaWFuLWJsdXIpIiAvPjwvc3ZnPg==",
+        l = 30,
+        o = 5,
+        c = 900,
+        d = 100,
+        u = 2,
+        m = 5242880,
+        p = {
+          duration: 5e3,
+          dismissible: !0,
+          cancel: {
+            label: "Close",
+            actionButtonStyle: { backgroundColor: "#ffed4a", color: "#000" },
+            onClick: () => {},
+          },
+        },
+        f = {
+          foreground: "#f9f9f9",
+          brandAccent: "#E30B5D",
+          mutedForeground: "#71717a",
+        },
+        h = ["pro", "standard"],
+        x = ["trialing", "active"];
+    },
     68062: function (e, t, r) {
       "use strict";
       r.d(t, {
         BJ: function () {
-          return O;
+          return P;
         },
         CD: function () {
           return v;
         },
         CE: function () {
-          return D;
+          return O;
         },
         IC: function () {
           return G;
         },
         L9: function () {
-          return _;
+          return M;
         },
         M5: function () {
-          return x;
+          return h;
         },
         PK: function () {
           return j;
@@ -4631,13 +5429,13 @@
           return k;
         },
         QF: function () {
-          return F;
+          return I;
         },
         Uz: function () {
           return C;
         },
         Z8: function () {
-          return U;
+          return z;
         },
         _e: function () {
           return g;
@@ -4649,37 +5447,37 @@
           return f;
         },
         cg: function () {
-          return z;
+          return Z;
         },
         ck: function () {
-          return q;
+          return W;
         },
         ds: function () {
           return w;
         },
         hT: function () {
-          return R;
+          return T;
         },
         iL: function () {
-          return W;
+          return q;
         },
         is: function () {
           return V;
         },
         jU: function () {
-          return h;
+          return x;
         },
         jV: function () {
-          return Z;
+          return R;
         },
         jk: function () {
           return y;
         },
         k: function () {
-          return p;
+          return m;
         },
         l8: function () {
-          return A;
+          return D;
         },
         lQ: function () {
           return L;
@@ -4688,56 +5486,56 @@
           return Q;
         },
         mv: function () {
-          return M;
+          return _;
         },
         pI: function () {
           return E;
         },
         qh: function () {
-          return I;
+          return U;
         },
         rW: function () {
           return N;
         },
         uB: function () {
-          return m;
+          return p;
         },
         ue: function () {
-          return K;
+          return B;
         },
         x8: function () {
           return b;
         },
         yH: function () {
-          return T;
+          return F;
         },
         yL: function () {
-          return P;
+          return A;
         },
       });
       var a = r(53334),
         n = r(19524),
-        s = r.n(n),
-        i = r(49414),
+        i = r.n(n),
+        s = r(49414),
         l = r(41231),
         o = r(68203),
         c = r(34599);
-      let d = new i.kz({ ...i.Bp.build(), ...i.yh }),
+      let d = new s.kz({ ...s.Bp.build(), ...s.yh }),
         u = (0, c.v)();
-      async function p() {
+      async function m() {
         var e;
         return null === (e = (await o.bL.get("/api/users/current")).data) ||
           void 0 === e
           ? void 0
           : e.user;
       }
-      async function m(e) {
+      async function p(e) {
         await o.bL.delete("/api/songs/".concat(e));
       }
       async function f(e) {
         await o.bL.delete("/api/songs", { data: { trackIds: e } });
       }
-      async function x(e, t) {
+      async function h(e, t) {
         if (e) {
           if (d.hasMatch(t.title || ""))
             throw Error("Title contains obscene language.");
@@ -4750,7 +5548,7 @@
           );
         }
       }
-      async function h(e) {
+      async function x(e) {
         if (null == e ? void 0 : e.id)
           return (
             await o.bL.post("/api/increment-play-count", { songId: e.id }), !0
@@ -4795,9 +5593,9 @@
         ).data;
         return null == t ? void 0 : t[0];
       }
-      async function F(e) {
+      async function I(e) {
         if (!(null == e ? void 0 : e.length)) return [];
-        let t = s()
+        let t = i()
           .chunk(e, 20)
           .map((e) =>
             o.bL.get("/api/songs", { params: { songIds: e.join(",") } })
@@ -4808,15 +5606,15 @@
           return console.error(e), a.Tb(e), [];
         }
       }
-      async function R(e) {
+      async function T(e) {
         let { playlists: t } = (
           await o.bL.get("/api/playlists", { params: { id: e } })
         ).data;
         if (t) return t[0];
       }
-      async function T(e) {
+      async function F(e) {
         let t = new URLSearchParams();
-        t.set("ids", s().uniq(e).join(","));
+        t.set("ids", i().uniq(e).join(","));
         let { profiles: r, error: a } = (
           await o.bL.get("/api/profiles", { params: t })
         ).data;
@@ -4826,7 +5624,7 @@
         }
         return r.reduce((e, t) => ((e[t.id] = t), e), {});
       }
-      async function Z(e) {
+      async function R(e) {
         let {
           userId: t,
           pageParam: r = 0,
@@ -4840,45 +5638,45 @@
             nextCursor: void 0,
             prevCursor: void 0,
           };
-        let s = {
+        let i = {
             userId: t,
             rangeStart: String(r),
             rangeFinish: String(r + a - 1),
             ...(n && { searchQuery: n }),
           },
-          { playlists: i } = (await o.bL.get("/api/playlists", { params: s }))
+          { playlists: s } = (await o.bL.get("/api/playlists", { params: i }))
             .data;
         return {
-          data: i || [],
+          data: s || [],
           cursor: r,
-          nextCursor: (null == i ? void 0 : i.length) === a ? r + a : void 0,
+          nextCursor: (null == s ? void 0 : s.length) === a ? r + a : void 0,
           prevCursor: r > 0 ? Math.max(r - a, 0) : void 0,
         };
       }
-      async function U(e) {
+      async function z(e) {
         let {
             pageParam: t = 0,
             pageSize: r = 20,
             searchQuery: a,
             byOthers: n = !1,
           } = e,
-          s = {
+          i = {
             rangeStart: String(t),
             rangeFinish: String(t + r - 1),
             ...(a && { searchQuery: a }),
             ...(void 0 !== n && { byOthers: String(n) }),
           },
-          { playlists: i } = (
-            await o.bL.get("/api/playlists/current", { params: s })
+          { playlists: s } = (
+            await o.bL.get("/api/playlists/current", { params: i })
           ).data;
         return {
-          data: i || [],
+          data: s || [],
           cursor: t,
-          nextCursor: (null == i ? void 0 : i.length) === r ? t + r : void 0,
+          nextCursor: (null == s ? void 0 : s.length) === r ? t + r : void 0,
           prevCursor: t > 0 ? Math.max(t - r, 0) : void 0,
         };
       }
-      async function z(e) {
+      async function Z(e) {
         let { playlist: t } = (
           await o.bL.post("/api/playlists", {
             ...((null == e ? void 0 : e.length) && { name: e }),
@@ -4886,29 +5684,29 @@
         ).data;
         return t;
       }
-      async function I(e, t) {
+      async function U(e, t) {
         await o.bL.put("/api/playlists/".concat(e), { name: t });
       }
-      async function O(e, t) {
+      async function P(e, t) {
         await o.bL.put("/api/playlists/".concat(t), { songIdToAdd: e });
       }
-      async function D(e, t) {
+      async function O(e, t) {
         await o.bL.put("/api/playlists/".concat(e), { songList: t });
       }
-      async function A(e) {
+      async function D(e) {
         await o.bL.delete("/api/playlists/".concat(e));
       }
-      async function P(e, t) {
+      async function A(e, t) {
         await o.bL.put("/api/playlists/".concat(t), { songIndexToRemove: e });
       }
-      async function _() {
+      async function M() {
         let { data: e } = await o.bL.get("/api/users/current/api-usage");
         return e;
       }
       async function E() {
         return (await o.bL.get("/api/subscriptions")).data;
       }
-      async function M(e, t) {
+      async function _(e, t) {
         t &&
           (await o.bL.post("/api/feedback", {
             songId: t,
@@ -4920,9 +5718,9 @@
       async function G(e, t, r) {
         let a =
             arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : u,
-          n = await p();
+          n = await m();
         if (!n) return;
-        let { feedbackItem: s } = (
+        let { feedbackItem: i } = (
           await o.bL.post("/api/general-feedback", {
             feedbackText: t.feedbackText,
             feedbackType: e,
@@ -4937,12 +5735,12 @@
                 let t = (0, l.Z)(),
                   r = ""
                     .concat(n.id, "/")
-                    .concat(null == s ? void 0 : s.id, "/")
+                    .concat(null == i ? void 0 : i.id, "/")
                     .concat(t),
-                  { error: i } = await u.storage.from("feedback").upload(r, e);
-                if (i) {
+                  { error: s } = await u.storage.from("feedback").upload(r, e);
+                if (s) {
                   console.error(
-                    "Screenshot not saved for ".concat(e.name, ": ").concat(i)
+                    "Screenshot not saved for ".concat(e.name, ": ").concat(s)
                   );
                   return;
                 }
@@ -4953,7 +5751,7 @@
               })
             )
           ).filter((e) => void 0 !== e);
-          await o.bL.put("/api/general-feedback/".concat(s.id), {
+          await o.bL.put("/api/general-feedback/".concat(i.id), {
             screenshotUrls: e,
           });
         }
@@ -4966,7 +5764,7 @@
           reportType: a,
         });
       }
-      async function q(e) {
+      async function W(e) {
         let { attributesToUpdate: t } = e;
         return await o.bL.post("/api/profiles", t);
       }
@@ -4976,7 +5774,7 @@
           headers: { "Content-Type": "multipart/form-data" },
         });
       }
-      async function W(e, t) {
+      async function q(e, t) {
         return await o.bL.put("/api/songs/".concat(e, "/uploaded-cover"), t, {
           headers: { "Content-Type": "multipart/form-data" },
         });
@@ -4985,9 +5783,53 @@
         let { songId: t, payload: r } = e;
         return o.bL.put("/api/songs/".concat(t, "/generated-cover"), r);
       }
-      async function K(e) {
+      async function B(e) {
         return o.bL.post("/api/cover", e);
       }
+    },
+    11109: function (e, t, r) {
+      "use strict";
+      var a = r(17300),
+        n = r.n(a),
+        i = r(1657);
+      t.Z = {
+        identify: (e) => {
+          n().identify(e);
+        },
+        register: (e) => {
+          n().init("c67825f586087d7adfce6052f087cadb", {
+            api_host: (0, i.KB)("/mp"),
+            track_pageview: !1,
+            debug: !(0, i.Bl)(),
+            persistence: "localStorage",
+          }),
+            n().register(e);
+        },
+        alias: (e) => {
+          n().alias(e);
+        },
+        track: (e, t) => {
+          n().track(e, t);
+        },
+        trackLinks: (e, t) => {
+          n().track_links(e, t, { referrer: document.referrer });
+        },
+        reset: () => {
+          n().reset();
+        },
+        people: {
+          set: (e) => {
+            n().people.set(e);
+          },
+        },
+        getId: () => {
+          try {
+            n().get_distinct_id();
+          } catch (e) {
+            return;
+          }
+        },
+      };
     },
     79740: function (e, t, r) {
       "use strict";
@@ -5010,23 +5852,23 @@
       "use strict";
       r.d(t, {
         bL: function () {
-          return i;
+          return s;
         },
       });
       var a = r(53334),
         n = r(7908),
-        s = r(49079);
-      let i = n.Z.create({
+        i = r(49079);
+      let s = n.default.create({
         baseURL: "".concat("https://www.udio.com"),
         withCredentials: !0,
         headers: {
           "Content-Type": "application/json",
-          ...(s.env.VERCEL_AUTOMATION_BYPASS_SECRET && {
-            "x-vercel-protection-bypass": s.env.VERCEL_AUTOMATION_BYPASS_SECRET,
+          ...(i.env.VERCEL_AUTOMATION_BYPASS_SECRET && {
+            "x-vercel-protection-bypass": i.env.VERCEL_AUTOMATION_BYPASS_SECRET,
           }),
         },
       });
-      i.interceptors.response.use(
+      s.interceptors.response.use(
         function (e) {
           return e;
         },
@@ -5040,39 +5882,307 @@
           );
         }
       ),
-        n.Z.create({
-          baseURL: s.env.BACKEND_PROXY_URL,
-          withCredentials: !0,
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer ".concat(s.env.BACKEND_PROXY_API_KEY),
-          },
-        }).interceptors.response.use(
-          function (e) {
-            return e;
-          },
-          function (e) {
-            var t;
-            return (
-              console.error("Error:", e),
-              (null === (t = e.response) || void 0 === t ? void 0 : t.status) >=
-                500 && a.Tb(e),
-              Promise.reject(e)
-            );
+        n.default
+          .create({
+            baseURL: i.env.BACKEND_PROXY_URL,
+            withCredentials: !0,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer ".concat(i.env.BACKEND_PROXY_API_KEY),
+            },
+          })
+          .interceptors.response.use(
+            function (e) {
+              return e;
+            },
+            function (e) {
+              var t;
+              return (
+                console.error("Error:", e),
+                (null === (t = e.response) || void 0 === t
+                  ? void 0
+                  : t.status) >= 500 && a.Tb(e),
+                Promise.reject(e)
+              );
+            }
+          );
+    },
+    17543: function (e, t, r) {
+      "use strict";
+      r.d(t, {
+        Q: function () {
+          return c;
+        },
+      });
+      var a,
+        n = r(56288),
+        i = r(40131),
+        s = r(6771),
+        l = r(68203),
+        o = r(49079);
+      new i.Z(null !== (a = o.env.STRIPE_SECRET_KEY) && void 0 !== a ? a : "", {
+        apiVersion: "2023-10-16",
+        appInfo: { name: "MVP", version: "0.1.0" },
+      });
+      let c = async () => {
+        try {
+          let e = (await l.bL.get("/api/stripe/stripe-portal")).data;
+          window.location.href = e.url;
+        } catch (e) {
+          n.toast.error(
+            "Error connecting to Stripe. Please try again later.",
+            s.TQ
+          );
+        } finally {
+        }
+      };
+    },
+    34599: function (e, t, r) {
+      "use strict";
+      r.d(t, {
+        v: function () {
+          return n;
+        },
+      });
+      var a = r(51880);
+      let n = () =>
+        (0, a.AY)(
+          "https://api.udio.com",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1mbXB4amVtYWNzaGZjcHpvc2x1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAzNjAxNTcsImV4cCI6MjAyNTkzNjE1N30.YcGEN_n6AfHlfh4PIe4nTEe_PeC9WFU9A7vda7qMJH0",
+          {
+            auth: { storageKey: "sb-ssr-".concat("production", "-auth-token") },
           }
         );
+    },
+    13581: function (e, t, r) {
+      "use strict";
+      r.d(t, {
+        $A: function () {
+          return i;
+        },
+        L9: function () {
+          return c;
+        },
+        au: function () {
+          return s;
+        },
+        g6: function () {
+          return o;
+        },
+        lk: function () {
+          return l;
+        },
+      });
+      var a = r(53334),
+        n = r(11109);
+      let i = (e) => {
+          try {
+            n.Z.identify(e);
+          } catch (e) {
+            a.Tb(e);
+          }
+        },
+        s = (e) => {
+          try {
+            n.Z.register(e);
+          } catch (e) {
+            a.Tb(e);
+          }
+        },
+        l = () => {
+          try {
+            n.Z.reset();
+          } catch (e) {
+            a.Tb(e);
+          }
+        },
+        o = (e) => {
+          try {
+            n.Z.people.set(e);
+          } catch (e) {
+            a.Tb(e);
+          }
+        },
+        c = (e, t) => {
+          try {
+            d.includes(e) && n.Z.track(e, t);
+          } catch (e) {
+            a.Tb(e);
+          }
+        },
+        d = [
+          "Create Song",
+          "Remix Song",
+          "Extend Song",
+          "Inpaint Song",
+          "Publish Song",
+          "Unpublish Song",
+          "Listen Song",
+          "Complete Song",
+        ];
+    },
+    1657: function (e, t, r) {
+      "use strict";
+      r.d(t, {
+        Bl: function () {
+          return w;
+        },
+        Ig: function () {
+          return k;
+        },
+        KB: function () {
+          return y;
+        },
+        NY: function () {
+          return v;
+        },
+        Y: function () {
+          return h;
+        },
+        Yu: function () {
+          return u;
+        },
+        _6: function () {
+          return g;
+        },
+        cn: function () {
+          return d;
+        },
+        h0: function () {
+          return b;
+        },
+        mr: function () {
+          return f;
+        },
+        tW: function () {
+          return j;
+        },
+        wb: function () {
+          return N;
+        },
+        xK: function () {
+          return x;
+        },
+        yT: function () {
+          return p;
+        },
+        z8: function () {
+          return C;
+        },
+      });
+      var a = r(75504),
+        n = r(15423),
+        i = r.n(n),
+        s = r(56288),
+        l = r(51367),
+        o = r(6771);
+      let c = i()();
+      function d() {
+        for (var e = arguments.length, t = Array(e), r = 0; r < e; r++)
+          t[r] = arguments[r];
+        return (0, l.m6)((0, a.W)(t));
+      }
+      let u = (e) => {
+          let t = new Date(e),
+            r = Math.abs((new Date().getTime() - t.getTime()) / 1e3) / 60,
+            a = r / 60,
+            n = a / 24,
+            i = n / 30;
+          return i >= 1
+            ? "".concat(Math.round(i), "mo")
+            : n >= 1
+              ? "".concat(Math.round(n), "d")
+              : a >= 1
+                ? "".concat(Math.round(a), "h")
+                : r >= 1
+                  ? "".concat(Math.round(r), "m")
+                  : "< 1m";
+        },
+        m = (e) => /^[a-zA-Z0-9]+$/.test(e),
+        p = (e) => e.charAt(0).toUpperCase() + e.slice(1),
+        f = function (e) {
+          let t =
+              arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
+            r = Math.floor(e),
+            a = "0".concat(r % 60).slice(-2),
+            n = "00".concat(Math.round((e % 1) * 1e3)).slice(-3),
+            i = "".concat(Math.floor(r / 60), ":").concat(a);
+          return t && (i += ":".concat(n)), i;
+        },
+        h = (e) => (e ? c.fromUUID(e) : e),
+        x = (e) => (e && m(e) ? c.toUUID(e) : e),
+        g = (e, t) => (1 === e ? t : t + "s"),
+        v = (e) => {
+          if (!(null == e ? void 0 : e.length)) return "";
+          let [t, r] = e.toUpperCase().split(" ");
+          return r ? "".concat(t[0]).concat(r[0]) : "".concat(t[0]);
+        },
+        b = () => {
+          s.toast.warning(
+            "Song is not ready yet. Please try again soon!",
+            o.TQ
+          );
+        },
+        y = (e) => "".concat("https://www.udio.com").concat(e),
+        j = (e) => {
+          if (!e.user_id) return "/";
+          if (!e.artist) return "/users/".concat(h(e.user_id));
+          let t = e.artist,
+            r = t ? t.length - t.trimEnd().length : 0,
+            a = encodeURIComponent(t.trimEnd()) + "%20".repeat(r);
+          return "/creators/".concat(a);
+        },
+        w = () => !0,
+        N = function (e) {
+          let t =
+            arguments.length > 1 && void 0 !== arguments[1]
+              ? arguments[1]
+              : 350;
+          return e.replace(/\[(verse|bridge|chorus)\]/gi, "").length > t;
+        },
+        k = (e) => {
+          if (!e) return { hasSelector: !0, warning: "" };
+          let t = (e.match(/\*\*\*/g) || []).length;
+          return 2 === t
+            ? { hasSelector: !0, warning: "" }
+            : t > 2
+              ? {
+                  hasSelector: !1,
+                  warning: "You have too many *** selector in your lyrics.",
+                }
+              : 1 === t
+                ? {
+                    hasSelector: !1,
+                    warning: "You only have one *** selector in your lyrics.",
+                  }
+                : {
+                    hasSelector: !1,
+                    warning:
+                      "You are missing *** selectors from your text, which are required for inpainting.",
+                  };
+        },
+        C = (e) => {
+          let t = (e) => parseFloat(e.toFixed(1)).toString();
+          return e < 1e3
+            ? e
+            : e < 1e6
+              ? t(e / 1e3) + "k"
+              : e < 1e9
+                ? t(e / 1e6) + "m"
+                : t(e / 1e9) + "b";
+        };
     },
     6863: function (e, t, r) {
       "use strict";
       r.r(t),
         r.d(t, {
           ThemeProvider: function () {
-            return s;
+            return i;
           },
         });
       var a = r(57437),
         n = r(91774);
-      function s(e) {
+      function i(e) {
         let { children: t, ...r } = e;
         return (0, a.jsx)(n.f, { ...r, children: t });
       }
@@ -5084,12 +6194,12 @@
     e.O(
       0,
       [
-        6603, 1866, 8310, 1230, 6288, 9892, 5250, 1880, 1749, 9731, 9213, 2408,
-        4481, 6395, 2569, 9346, 3902, 6594, 4768, 5915, 3476, 3912, 1046, 3458,
-        2971, 4872, 1744,
+        6603, 1866, 8310, 1230, 6288, 9892, 5250, 1880, 9731, 1749, 4778, 8600,
+        4950, 4481, 2722, 2569, 9346, 3902, 131, 6594, 4768, 5915, 3476, 3912,
+        5211, 2971, 4872, 1744,
       ],
       function () {
-        return e((e.s = 52055));
+        return e((e.s = 48386));
       }
     ),
       (_N_E = e.O());

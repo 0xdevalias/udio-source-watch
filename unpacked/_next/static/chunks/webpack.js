@@ -117,7 +117,7 @@
       return "static/chunks/" + e + ".302361b2546aebf4.js";
     }),
     (d.miniCssF = function (e) {
-      return "static/css/06a1f52cc9ed947c.css";
+      return "static/css/1be01e27137edb18.css";
     }),
     (d.g = (function () {
       if ("object" == typeof globalThis) return globalThis;

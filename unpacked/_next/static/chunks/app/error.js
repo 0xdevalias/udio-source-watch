@@ -16,8 +16,8 @@
         o = e(53334),
         c = e(8792),
         u = e(2265),
-        a = e(1657);
-      let i = [
+        i = e(1657);
+      let a = [
         "buTPVwEaU2R9qWDxNWfcts",
         "3kpBFMQRcAeH8A2JVV1uGX",
         "qDBmGRMFhunPBWWCaUGjsG",
@@ -32,9 +32,9 @@
         (0, u.useEffect)(() => {
           o.Tb(t);
         }, [t]);
-        let s = i[Math.floor(Math.random() * i.length)];
+        let s = a[Math.floor(Math.random() * a.length)];
         return (
-          (0, a.xK)(s),
+          (0, i.xK)(s),
           (0, r.jsxs)("div", {
             className:
               "-[100vw] flex h-[100vh] flex-col items-center justify-center space-y-5",
@@ -66,7 +66,7 @@
       "use strict";
       e.d(t, {
         DM: function () {
-          return h;
+          return g;
         },
         Gw: function () {
           return s;
@@ -75,10 +75,13 @@
           return r;
         },
         Qe: function () {
-          return a;
+          return i;
         },
         TQ: function () {
-          return f;
+          return h;
+        },
+        Tb: function () {
+          return d;
         },
         Zc: function () {
           return c;
@@ -87,19 +90,19 @@
           return u;
         },
         cc: function () {
-          return d;
+          return f;
         },
         eS: function () {
           return o;
         },
         hX: function () {
-          return m;
+          return w;
         },
         i6: function () {
-          return i;
+          return a;
         },
         nq: function () {
-          return g;
+          return m;
         },
         yd: function () {
           return l;
@@ -110,12 +113,13 @@
         c = "anonymous-user-id",
         u =
           "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJibGFjayIgLz48ZmlsdGVyIGlkPSJnYXVzc2lhbi1ibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIwLjUiIC8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJibGFjayIgZmlsdGVyPSJ1cmwoI2dhdXNzaWFuLWJsdXIpIiAvPjwvc3ZnPg==",
-        a = 30,
-        i = 5,
+        i = 30,
+        a = 5,
         s = 900,
         l = 100,
-        d = 2,
-        f = {
+        f = 2,
+        d = 5242880,
+        h = {
           duration: 5e3,
           dismissible: !0,
           cancel: {
@@ -124,34 +128,37 @@
             onClick: () => {},
           },
         },
-        h = {
+        g = {
           foreground: "#f9f9f9",
           brandAccent: "#E30B5D",
           mutedForeground: "#71717a",
         },
-        g = ["pro", "standard"],
-        m = ["trialing", "active"];
+        m = ["pro", "standard"],
+        w = ["trialing", "active"];
     },
     1657: function (n, t, e) {
       "use strict";
       e.d(t, {
         Bl: function () {
-          return v;
+          return p;
+        },
+        Ig: function () {
+          return W;
         },
         KB: function () {
           return x;
         },
         NY: function () {
-          return w;
+          return b;
         },
         Y: function () {
-          return g;
+          return m;
         },
         Yu: function () {
-          return d;
+          return f;
         },
         _6: function () {
-          return b;
+          return y;
         },
         cn: function () {
           return l;
@@ -160,48 +167,55 @@
           return I;
         },
         mr: function () {
-          return h;
+          return g;
         },
         tW: function () {
-          return y;
+          return v;
         },
         wb: function () {
           return G;
         },
         xK: function () {
-          return m;
+          return w;
+        },
+        yT: function () {
+          return h;
+        },
+        z8: function () {
+          return M;
         },
       });
       var r = e(75504),
         o = e(15423),
         c = e.n(o),
         u = e(56288),
-        a = e(51367),
-        i = e(6771);
+        i = e(51367),
+        a = e(6771);
       let s = c()();
       function l() {
         for (var n = arguments.length, t = Array(n), e = 0; e < n; e++)
           t[e] = arguments[e];
-        return (0, a.m6)((0, r.W)(t));
+        return (0, i.m6)((0, r.W)(t));
       }
-      let d = (n) => {
+      let f = (n) => {
           let t = new Date(n),
             e = Math.abs((new Date().getTime() - t.getTime()) / 1e3) / 60,
             r = e / 60,
             o = r / 24,
             c = o / 30;
           return c >= 1
-            ? "".concat(Math.round(c), " Month ago")
+            ? "".concat(Math.round(c), "mo")
             : o >= 1
-              ? "".concat(Math.round(o), "d ago")
+              ? "".concat(Math.round(o), "d")
               : r >= 1
-                ? "".concat(Math.round(r), "h ago")
+                ? "".concat(Math.round(r), "h")
                 : e >= 1
-                  ? "".concat(Math.round(e), "m ago")
-                  : "< 1m ago";
+                  ? "".concat(Math.round(e), "m")
+                  : "< 1m";
         },
-        f = (n) => /^[a-zA-Z0-9]+$/.test(n),
-        h = function (n) {
+        d = (n) => /^[a-zA-Z0-9]+$/.test(n),
+        h = (n) => n.charAt(0).toUpperCase() + n.slice(1),
+        g = function (n) {
           let t =
               arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             e = Math.floor(n),
@@ -210,10 +224,10 @@
             c = "".concat(Math.floor(e / 60), ":").concat(r);
           return t && (c += ":".concat(o)), c;
         },
-        g = (n) => (n ? s.fromUUID(n) : n),
-        m = (n) => (n && f(n) ? s.toUUID(n) : n),
-        b = (n, t) => (1 === n ? t : t + "s"),
-        w = (n) => {
+        m = (n) => (n ? s.fromUUID(n) : n),
+        w = (n) => (n && d(n) ? s.toUUID(n) : n),
+        y = (n, t) => (1 === n ? t : t + "s"),
+        b = (n) => {
           if (!(null == n ? void 0 : n.length)) return "";
           let [t, e] = n.toUpperCase().split(" ");
           return e ? "".concat(t[0]).concat(e[0]) : "".concat(t[0]);
@@ -221,25 +235,56 @@
         I = () => {
           u.toast.warning(
             "Song is not ready yet. Please try again soon!",
-            i.TQ
+            a.TQ
           );
         },
         x = (n) => "".concat("https://www.udio.com").concat(n),
-        y = (n) => {
+        v = (n) => {
           if (!n.user_id) return "/";
-          if (!n.artist) return "/users/".concat(g(n.user_id));
+          if (!n.artist) return "/users/".concat(m(n.user_id));
           let t = n.artist,
             e = t ? t.length - t.trimEnd().length : 0,
             r = encodeURIComponent(t.trimEnd()) + "%20".repeat(e);
           return "/creators/".concat(r);
         },
-        v = () => !0,
+        p = () => !0,
         G = function (n) {
           let t =
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
               : 350;
           return n.replace(/\[(verse|bridge|chorus)\]/gi, "").length > t;
+        },
+        W = (n) => {
+          if (!n) return { hasSelector: !0, warning: "" };
+          let t = (n.match(/\*\*\*/g) || []).length;
+          return 2 === t
+            ? { hasSelector: !0, warning: "" }
+            : t > 2
+              ? {
+                  hasSelector: !1,
+                  warning: "You have too many *** selector in your lyrics.",
+                }
+              : 1 === t
+                ? {
+                    hasSelector: !1,
+                    warning: "You only have one *** selector in your lyrics.",
+                  }
+                : {
+                    hasSelector: !1,
+                    warning:
+                      "You are missing *** selectors from your text, which are required for inpainting.",
+                  };
+        },
+        M = (n) => {
+          let t = (n) => parseFloat(n.toFixed(1)).toString();
+          return n < 1e3
+            ? n
+            : n < 1e6
+              ? t(n / 1e3) + "k"
+              : n < 1e9
+                ? t(n / 1e6) + "m"
+                : t(n / 1e9) + "b";
         };
     },
     8792: function (n, t, e) {
