@@ -15,6 +15,7 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
     https://github.com/naokazuterada/MarkdownTOC/pull/170
 -->
 <!-- TOC start (generated with https://derlin.github.io/bitdowntoc/) -->
+- [2024-05-10Z \(`EWfAQmJwXT3hruIu_VWg8`\)](#2024-05-10z-ewfaqmjwxt3hruiu_vwg8)
 - [2024-05-09Z \(`o1gyhglvcLJ7fzg5w6AaH`\)](#2024-05-09z-o1gyhglvclj7fzg5w6aah)
 - [2024-05-07Z \(`pmsN1K108Cn8QGT0rRiiv`\)](#2024-05-07z-pmsn1k108cn8qgt0rriiv)
 - [2024-05-06Z \(`KXv3skDdS71Ts-yWowFQD`\)](#2024-05-06z-kxv3skdds71ts-ywowfqd)
@@ -25,6 +26,82 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
 <!-- DISABLEDMarkdownTOC levels="1,2" style="unordered" bullets="-" indent="  " -->
 <!-- TODO: Reinstate this after this bug is fixed: https://github.com/naokazuterada/MarkdownTOC/pull/170 -->
 <!-- /MarkdownTOC -->
+
+## 2024-05-10Z (`EWfAQmJwXT3hruIu_VWg8`)
+
+### Notes
+
+The following notes are not necessarily comprehensive, but just things of potential interest that I noted while reviewing the diffs. If you want to see everything that changed, you can look at the diffs of the changed files in the `unpacked/` folder:
+
+- **tl;dr**
+  - NOTE: This build's diff was only minimally analysed
+- App release version (Git SHA?): `2a08b0f0b4b1baebdd256d4885b0c9b2949f5e4f`
+  - Extracted with `grep 'SENTRY_RELEASE = ' "unpacked/_next/static/chunks/main-app.js"`
+- `unpacked/_next/static/chunks/4178.js`
+  - ```js
+    onKeyDown: (e) => {
+      if (
+        (console.log("Key down", e.key), "Tab" === e.key)
+      ) {
+        let {
+          selectionStart: o,
+          selectionEnd: n,
+          value: s,
+        } = e.currentTarget;
+        if (!h || n === o) return;
+        e.preventDefault();
+        let i = s.substring(o, n);
+        console.log("Selected text", i),
+          (i = i.replace(/\*/g, ""));
+        let r = s.replace(/\*\*\*/g, ""),
+          l = r.indexOf(i),
+          u =
+            r.slice(0, l) +
+            "***" +
+            i +
+            "***" +
+            r.slice(l + i.length);
+        t({ ...a, lyricInput: u });
+      }
+    },
+    ```
+  - ```diff
+    - children:
+    -   "When inpainting, use “***” to enclose the section of the lyrics that correspond to the top waveform. Any lyrics changes should match sections selected for inpainting.",
+    + children: [
+    +   "When inpainting, use “***” to enclose the lyrics you want to inpaint, plus 1-2 extra lines on both sides. You can highlight text and press Tab to quickly select an area. For more help, check out the",
+    +   " ",
+    +   (0, o.jsx)("a", {
+    +     href: "/guide",
+    +     target: "_blank",
+    +     className: "font-bold hover:underline",
+    +     children: "guide",
+    +   }),
+    +   ".",
+    + ],
+    ```
+- `unpacked/_next/static/chunks/app/global-error.js`
+  - ```diff
+    - "You are missing *** selectors from your text, which are required for inpainting.",
+    + "You are missing *** selectors from your text, which are required for inpainting. Try highlighting 1-2 lines around the area you want to change and press Tab.",
+    ```
+
+### Not From Build Manifest
+
+#### Archived
+
+```
+https://www.udio.com/_next/static/chunks/4178-18ffdf2851596b4c.js
+https://www.udio.com/_next/static/chunks/4546-2d21a093696543f3.js
+https://www.udio.com/_next/static/chunks/7897-ebfe7803820d7218.js
+https://www.udio.com/_next/static/chunks/app/(app)/(home)/page-a88aa37e738d9bc4.js
+https://www.udio.com/_next/static/chunks/app/(app)/layout-15f62c7566c438f3.js
+https://www.udio.com/_next/static/chunks/app/error-b882310b83588f08.js
+https://www.udio.com/_next/static/chunks/app/global-error-f08dee84cbe5b4b1.js
+https://www.udio.com/_next/static/chunks/app/layout-a780d932ab3cd66d.js
+https://www.udio.com/_next/static/chunks/main-app-4f777e9676743fbe.js
+https://www.udio.com/_next/static/chunks/webpack-588d98f944991ade.js
+```
 
 ## 2024-05-09Z (`o1gyhglvcLJ7fzg5w6AaH`)
 

@@ -3994,13 +3994,11 @@
               throw Error("Expected enabled to be a boolean");
             this.#E(),
               (0, n.VS)(this.options, r) ||
-                this.#i
-                  .getQueryCache()
-                  .notify({
-                    type: "observerOptionsUpdated",
-                    query: this.#o,
-                    observer: this,
-                  });
+                this.#i.getQueryCache().notify({
+                  type: "observerOptionsUpdated",
+                  query: this.#o,
+                  observer: this,
+                });
             let a = this.hasListeners();
             a && c(this.#o, i, this.options, r) && this.#b(),
               this.updateResult(e),

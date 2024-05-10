@@ -15,8 +15,8 @@
       var r = e(57437),
         o = e(53334),
         c = e(8792),
-        u = e(2265),
-        i = e(1657);
+        i = e(2265),
+        u = e(1657);
       let a = [
         "buTPVwEaU2R9qWDxNWfcts",
         "3kpBFMQRcAeH8A2JVV1uGX",
@@ -29,12 +29,12 @@
       ];
       function s(n) {
         let { error: t, reset: e } = n;
-        (0, u.useEffect)(() => {
+        (0, i.useEffect)(() => {
           o.Tb(t);
         }, [t]);
         let s = a[Math.floor(Math.random() * a.length)];
         return (
-          (0, i.xK)(s),
+          (0, u.xK)(s),
           (0, r.jsxs)("div", {
             className:
               "-[100vw] flex h-[100vh] flex-col items-center justify-center space-y-5",
@@ -75,7 +75,7 @@
           return r;
         },
         Qe: function () {
-          return i;
+          return u;
         },
         TQ: function () {
           return h;
@@ -87,7 +87,7 @@
           return c;
         },
         bw: function () {
-          return u;
+          return i;
         },
         cc: function () {
           return f;
@@ -111,9 +111,9 @@
       let r = 2,
         o = 5e3,
         c = "anonymous-user-id",
-        u =
+        i =
           "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJibGFjayIgLz48ZmlsdGVyIGlkPSJnYXVzc2lhbi1ibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIwLjUiIC8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJibGFjayIgZmlsdGVyPSJ1cmwoI2dhdXNzaWFuLWJsdXIpIiAvPjwvc3ZnPg==",
-        i = 30,
+        u = 30,
         a = 5,
         s = 900,
         l = 100,
@@ -188,14 +188,14 @@
       var r = e(75504),
         o = e(15423),
         c = e.n(o),
-        u = e(56288),
-        i = e(51367),
+        i = e(56288),
+        u = e(51367),
         a = e(6771);
       let s = c()();
       function l() {
         for (var n = arguments.length, t = Array(n), e = 0; e < n; e++)
           t[e] = arguments[e];
-        return (0, i.m6)((0, r.W)(t));
+        return (0, u.m6)((0, r.W)(t));
       }
       let f = (n) => {
           let t = new Date(n),
@@ -233,7 +233,7 @@
           return e ? "".concat(t[0]).concat(e[0]) : "".concat(t[0]);
         },
         I = () => {
-          u.toast.warning(
+          i.toast.warning(
             "Song is not ready yet. Please try again soon!",
             a.TQ
           );
@@ -273,7 +273,7 @@
                 : {
                     hasSelector: !1,
                     warning:
-                      "You are missing *** selectors from your text, which are required for inpainting.",
+                      "You are missing *** selectors from your text, which are required for inpainting. Try highlighting 1-2 lines around the area you want to change and press Tab.",
                   };
         },
         M = (n) => {

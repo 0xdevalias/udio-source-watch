@@ -75,7 +75,7 @@
       "use strict";
       e.d(t, {
         DM: function () {
-          return m;
+          return g;
         },
         Gw: function () {
           return s;
@@ -111,7 +111,7 @@
           return a;
         },
         nq: function () {
-          return g;
+          return m;
         },
         yd: function () {
           return l;
@@ -137,19 +137,19 @@
             onClick: () => {},
           },
         },
-        m = {
+        g = {
           foreground: "#f9f9f9",
           brandAccent: "#E30B5D",
           mutedForeground: "#71717a",
         },
-        g = ["pro", "standard"],
+        m = ["pro", "standard"],
         w = ["trialing", "active"];
     },
     1657: function (n, t, e) {
       "use strict";
       e.d(t, {
         Bl: function () {
-          return j;
+          return p;
         },
         Ig: function () {
           return G;
@@ -161,7 +161,7 @@
           return b;
         },
         Y: function () {
-          return g;
+          return m;
         },
         Yu: function () {
           return f;
@@ -176,13 +176,13 @@
           return x;
         },
         mr: function () {
-          return m;
+          return g;
         },
         tW: function () {
           return v;
         },
         wb: function () {
-          return p;
+          return j;
         },
         xK: function () {
           return w;
@@ -224,7 +224,7 @@
         },
         d = (n) => /^[a-zA-Z0-9]+$/.test(n),
         h = (n) => n.charAt(0).toUpperCase() + n.slice(1),
-        m = function (n) {
+        g = function (n) {
           let t =
               arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             e = Math.floor(n),
@@ -233,7 +233,7 @@
             c = "".concat(Math.floor(e / 60), ":").concat(r);
           return t && (c += ":".concat(o)), c;
         },
-        g = (n) => (n ? s.fromUUID(n) : n),
+        m = (n) => (n ? s.fromUUID(n) : n),
         w = (n) => (n && d(n) ? s.toUUID(n) : n),
         y = (n, t) => (1 === n ? t : t + "s"),
         b = (n) => {
@@ -250,14 +250,14 @@
         I = (n) => "".concat("https://www.udio.com").concat(n),
         v = (n) => {
           if (!n.user_id) return "/";
-          if (!n.artist) return "/users/".concat(g(n.user_id));
+          if (!n.artist) return "/users/".concat(m(n.user_id));
           let t = n.artist,
             e = t ? t.length - t.trimEnd().length : 0,
             r = encodeURIComponent(t.trimEnd()) + "%20".repeat(e);
           return "/creators/".concat(r);
         },
-        j = () => !0,
-        p = function (n) {
+        p = () => !0,
+        j = function (n) {
           let t =
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
@@ -282,7 +282,7 @@
                 : {
                     hasSelector: !1,
                     warning:
-                      "You are missing *** selectors from your text, which are required for inpainting.",
+                      "You are missing *** selectors from your text, which are required for inpainting. Try highlighting 1-2 lines around the area you want to change and press Tab.",
                   };
         },
         W = (n) => {
