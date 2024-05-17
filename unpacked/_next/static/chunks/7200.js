@@ -1,24 +1,24 @@
 "use strict";
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [4178],
+  [7200],
   {
-    92299: function (e, a, t) {
-      var o = t(57437),
-        n = t(28814),
-        s = t(2265),
-        i = t(1657),
-        r = t(55322);
-      a.Z = (e) => {
+    92299: function (e, t, a) {
+      var o = a(57437),
+        n = a(28814),
+        s = a(2265),
+        i = a(1657),
+        r = a(55322);
+      t.Z = (e) => {
         let {
-            size: a = 20,
-            color: t = "white",
+            size: t = 20,
+            color: a = "white",
             className: l,
-            contentClassName: u,
-            children: c,
+            contentClassName: c,
+            children: u,
             width: d = 400,
           } = e,
           [g, h] = (0, s.useState)(!1),
-          f = (0, s.useCallback)(() => {
+          m = (0, s.useCallback)(() => {
             h(!g);
           }, [g]);
         return (0, o.jsx)(r.pn, {
@@ -28,32 +28,32 @@
             onOpenChange: h,
             children: [
               (0, o.jsx)(r.aJ, {
-                onClick: f,
-                children: (0, o.jsx)(n.Z, { className: l, size: a, color: t }),
+                onClick: m,
+                children: (0, o.jsx)(n.Z, { className: l, size: t, color: a }),
               }),
               (0, o.jsx)(r._v, {
-                className: (0, i.cn)(["w-[".concat(d, "px] max-w-[75%]"), u]),
-                children: c,
+                className: (0, i.cn)(["w-[".concat(d, "px] max-w-[75%]"), c]),
+                children: u,
               }),
             ],
           }),
         });
       };
     },
-    14178: function (e, a, t) {
-      t.r(a),
-        t.d(a, {
+    77200: function (e, t, a) {
+      a.r(t),
+        a.d(t, {
           VISIBLE_TAG_INCREMENT: function () {
-            return eO;
+            return eJ;
           },
           default: function () {
-            return eQ;
+            return e0;
           },
           defaultPromptPlaceholder: function () {
-            return eY;
+            return eX;
           },
         });
-      var o = t(57437);
+      var o = a(57437);
       let n = [
           "a song about a late-night drive",
           "a song about a first kiss under the stars",
@@ -761,34 +761,34 @@
         i = () => n[Math.floor(Math.random() * n.length)],
         r = () => s[Math.floor(Math.random() * s.length)],
         l = () => ({ prompt: i(), tags: [r()] });
-      var u = t(19213),
-        c = t(18746),
-        d = t(47281),
-        g = t(53334),
-        h = t(47082),
-        f = t(97404),
-        m = t(91980),
-        b = t(24232),
-        p = t(2265),
-        x = t(56288),
-        y = t(36408),
-        v = t(48779),
-        w = t(73667),
-        j = t(68203),
+      var c = a(19213),
+        u = a(18746),
+        d = a(47281),
+        g = a(53334),
+        h = a(47082),
+        m = a(97404),
+        f = a(91980),
+        b = a(24232),
+        p = a(2265),
+        x = a(56288),
+        y = a(36408),
+        v = a(48779),
+        w = a(73667),
+        j = a(68203),
         N = (e) => {
-          let { partialTag: a, currentTags: t } = e,
-            o = (0, u.cC)("create-tag-search"),
+          let { partialTag: t, currentTags: a } = e,
+            o = (0, c.cC)("create-tag-search"),
             n = s.slice(0, 25).map((e) => ({ label: e, value: e }));
           return (0, w.a)({
             enabled:
-              !!(null == a ? void 0 : a.length) ||
-              !!(null == t ? void 0 : t.length),
-            queryKey: y.Z5.forPartialAndCurrentTags(a, t),
+              !!(null == t ? void 0 : t.length) ||
+              !!(null == a ? void 0 : a.length),
+            queryKey: y.Z5.forPartialAndCurrentTags(t, a),
             queryFn: async () => {
               if (!o) return { predictions: n, completions: [] };
               let e = await j.bL.post("/api/searchtags", {
-                partialTag: a,
-                currentTags: t,
+                partialTag: t,
+                currentTags: a,
               });
               return {
                 predictions:
@@ -805,68 +805,68 @@
             placeholderData: (e) => e || { predictions: n, completions: [] },
           });
         },
-        k = t(23642),
-        _ = t(68062),
-        C = function () {
+        k = a(23642),
+        C = a(68062),
+        _ = function () {
           let e =
               arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
-            a = (0, k.Z)();
+            t = (0, k.Z)();
           return (0, w.a)({
             queryKey: y.YN.currentUserApiUsage(),
-            queryFn: async () => (await (0, _.L9)()).data,
+            queryFn: async () => (await (0, C.L9)()).data,
             refetchOnWindowFocus: !1,
-            enabled: !!(null == a ? void 0 : a.id) && e,
+            enabled: !!(null == t ? void 0 : t.id) && e,
           });
         },
-        S = t(41100),
-        z = t(38980),
-        T = t(45722),
-        Z = t(76798),
-        F = t(6771),
-        P = t(13581),
-        L = t(1657),
-        I = () => {
-          let { showOptions: e, setShowOptions: a } = (0, Z.F)();
+        S = a(41100),
+        z = a(38980),
+        T = a(45722),
+        Z = a(76798),
+        F = a(6771),
+        L = a(13581),
+        I = a(1657),
+        P = () => {
+          let { showOptions: e, setShowOptions: t } = (0, Z.F)();
           return (0, o.jsx)(o.Fragment, {
             children: e
               ? (0, o.jsx)("div", {
                   className:
                     "fixed left-0 top-0 z-[-1000] h-screen w-screen bg-black/30",
-                  onClick: () => a(!1),
+                  onClick: () => t(!1),
                 })
               : null,
           });
         },
-        E = t(98998),
-        M = t(37501),
-        R = t(28814),
-        D = t(77929),
-        A = t(81805),
-        q = (e) => {
+        D = a(98998),
+        E = a(37501),
+        M = a(28814),
+        A = a(77929),
+        R = a(81805),
+        O = (e) => {
           let {
-            toastId: a,
-            userApiUsage: t,
+            toastId: t,
+            userApiUsage: a,
             showQuotaInfo: n,
             toastType: s = "warning",
             toastMessage: i = "Amazing music is seconds away!",
           } = e;
-          return (0, o.jsxs)(A.Z, {
-            toastId: a,
+          return (0, o.jsxs)(R.Z, {
+            toastId: t,
             children: [
-              (0, o.jsxs)(D.Cd, {
+              (0, o.jsxs)(A.Cd, {
                 className: "flex items-center space-x-2 text-lg",
                 children: [
                   "error" === s
-                    ? (0, o.jsx)(E.Z, {
+                    ? (0, o.jsx)(D.Z, {
                         className:
                           "my-auto mr-2 h-4 w-4 animate-pulse text-red-500",
                       })
                     : "warning" === s
-                      ? (0, o.jsx)(E.Z, {
+                      ? (0, o.jsx)(D.Z, {
                           className:
                             "my-auto mr-2 h-4 w-4 animate-pulse text-orange-500",
                         })
-                      : (0, o.jsx)(M.Z, {
+                      : (0, o.jsx)(E.Z, {
                           className:
                             "my-auto mr-2 h-4 w-4 animate-pulse stroke-green-500",
                         }),
@@ -878,42 +878,43 @@
                 className:
                   "flex flex-col items-center justify-between md:flex-row",
                 children: [
-                  (0, o.jsx)(D.X, { className: "md:ml-6", children: i }),
-                  t &&
+                  (0, o.jsx)(A.X, { className: "md:ml-6", children: i }),
+                  a &&
                     n &&
-                    (0, o.jsx)(D.X, {
+                    "success" !== s &&
+                    (0, o.jsx)(A.X, {
                       className: "mt-2 md:mt-0",
                       children: (0, o.jsxs)("div", {
                         className: "flex flex-col space-y-1",
                         children: [
-                          "free" === t.tier
+                          "free" === a.tier
                             ? (0, o.jsx)(o.Fragment, {
                                 children: (0, o.jsxs)("span", {
                                   className: "flex items-center",
                                   children: [
-                                    (0, o.jsx)(R.Z, {
+                                    (0, o.jsx)(M.Z, {
                                       className: "my-auto mr-2 h-4 w-4",
                                     }),
-                                    t.daily_used,
+                                    a.daily_used,
                                     " /",
                                     " ",
-                                    t.daily_throttle_limit,
+                                    a.daily_throttle_limit,
                                     " Daily Credits",
                                   ],
                                 }),
                               })
                             : null,
-                          "pro" === t.tier || "standard" === t.tier
+                          "pro" === a.tier || "standard" === a.tier
                             ? (0, o.jsx)(o.Fragment, {
                                 children: (0, o.jsxs)("span", {
                                   className: "flex items-center",
                                   children: [
-                                    (0, o.jsx)(R.Z, {
+                                    (0, o.jsx)(M.Z, {
                                       className: "my-auto mr-2 h-4 w-4",
                                     }),
-                                    t.monthly_used,
+                                    a.monthly_used,
                                     " / ",
-                                    t.monthly_limit,
+                                    a.monthly_limit,
                                     " ",
                                     "Monthly Credits",
                                   ],
@@ -923,11 +924,11 @@
                           (0, o.jsxs)("span", {
                             className: "flex items-center",
                             children: [
-                              (0, o.jsx)(R.Z, {
+                              (0, o.jsx)(M.Z, {
                                 className: "my-auto mr-2 h-4 w-4",
                               }),
-                              Number(t.monthly_discretionary || 0) +
-                                Number(t.discretionary || 0),
+                              Number(a.monthly_discretionary || 0) +
+                                Number(a.discretionary || 0),
                               " ",
                               "Additional Credits",
                             ],
@@ -940,50 +941,50 @@
             ],
           });
         },
-        O = t(85754),
-        Y = t(45179),
-        W = t(78798),
-        Q = t(47934),
-        U = t(94845);
-      let B = p.forwardRef((e, a) => {
-        let { className: t, ...n } = e;
-        return (0, o.jsx)(U.fC, {
-          className: (0, L.cn)(
+        q = a(85754),
+        W = a(45179),
+        Y = a(78798),
+        Q = a(47934),
+        B = a(94845);
+      let U = p.forwardRef((e, t) => {
+        let { className: a, ...n } = e;
+        return (0, o.jsx)(B.fC, {
+          className: (0, I.cn)(
             "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
-            t
+            a
           ),
           ...n,
-          ref: a,
-          children: (0, o.jsx)(U.bU, {
-            className: (0, L.cn)(
+          ref: t,
+          children: (0, o.jsx)(B.bU, {
+            className: (0, I.cn)(
               "pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
             ),
           }),
         });
       });
-      B.displayName = U.fC.displayName;
-      var H = t(49108),
-        G = t(37805),
-        K = t(31478);
-      let V = 7 / 12;
+      U.displayName = B.fC.displayName;
+      var H = a(49108),
+        G = a(37805),
+        V = a(31478);
+      let K = 7 / 12;
       var J = (e) => {
-          let { tagType: a, tagList: t, addSuggestedTags: n } = e,
+          let { tagType: t, tagList: a, addSuggestedTags: n } = e,
             s = (0, p.useRef)(null),
             [i, r] = (0, p.useState)(!1),
-            [l, u] = (0, p.useState)(!0),
-            c = (0, p.useCallback)(() => {
+            [l, c] = (0, p.useState)(!0),
+            u = (0, p.useCallback)(() => {
               if (s.current) {
-                let { scrollWidth: e, clientWidth: a } = s.current;
+                let { scrollWidth: e, clientWidth: t } = s.current;
                 s.current.scrollLeft = Math.min(
-                  s.current.scrollLeft + a * V,
-                  e - a
+                  s.current.scrollLeft + t * K,
+                  e - t
                 );
               }
             }, []),
             d = (0, p.useCallback)(() => {
               s.current &&
                 (s.current.scrollLeft = Math.max(
-                  s.current.scrollLeft - s.current.clientWidth * V,
+                  s.current.scrollLeft - s.current.clientWidth * K,
                   0
                 ));
             }, []);
@@ -992,18 +993,18 @@
                 if (!s.current) return;
                 let {
                   scrollLeft: e,
-                  scrollWidth: a,
-                  clientWidth: t,
+                  scrollWidth: t,
+                  clientWidth: a,
                 } = s.current;
-                0 === e ? r(!1) : r(!0), e + t === a ? u(!1) : u(!0);
+                0 === e ? r(!1) : r(!0), e + a === t ? c(!1) : c(!0);
               },
-              a = s.current;
+              t = s.current;
             return (
-              null == a || a.addEventListener("scroll", e),
-              () => (null == a ? void 0 : a.removeEventListener("scroll", e))
+              null == t || t.addEventListener("scroll", e),
+              () => (null == t ? void 0 : t.removeEventListener("scroll", e))
             );
           }, []),
-          t)
+          a)
             ? (0, o.jsxs)("div", {
                 className: "relative flex max-w-full flex-grow items-center",
                 children: [
@@ -1011,19 +1012,19 @@
                     ? (0, o.jsxs)(o.Fragment, {
                         children: [
                           (0, o.jsx)("div", {
-                            className: (0, L.cn)([
+                            className: (0, I.cn)([
                               "pointer-events-none absolute left-0 hidden h-[40px] w-[200px] bg-gradient-to-l from-transparent to-black md:block",
                               "transition-opacity duration-500",
                               i ? "opacity-100" : "opacity-0",
                             ]),
                           }),
                           (0, o.jsx)("div", {
-                            className: (0, L.cn)([
+                            className: (0, I.cn)([
                               "absolute left-0 top-0 bg-gradient-to-l from-transparent to-black",
                               "transition-opacity duration-500",
                               i ? "opacity-100" : "opacity-0",
                             ]),
-                            children: (0, o.jsx)(K.C, {
+                            children: (0, o.jsx)(V.C, {
                               className:
                                 "mr-2 hidden cursor-pointer bg-gray-light py-0 text-foreground hover:text-muted-foreground md:inline-flex",
                               onMouseDown: (e) => {
@@ -1040,19 +1041,19 @@
                     children: (0, o.jsx)("div", {
                       ref: s,
                       className:
-                        "flex overflow-x-auto scroll-smooth whitespace-nowrap rounded-lg",
+                        "flex overflow-x-auto scroll-smooth whitespace-nowrap rounded-[28px]",
                       style: { scrollbarWidth: "none" },
-                      children: t.map((e) =>
+                      children: a.map((e) =>
                         (0, o.jsx)(
-                          K.C,
+                          V.C,
                           {
                             className:
                               "mr-2 cursor-pointer bg-[#FFFFFF]/5 px-3 py-3 text-muted-foreground hover:text-muted-foreground md:bg-gray-light md:px-2.5 md:py-1",
-                            onMouseDown: (t) => {
-                              t.preventDefault(),
+                            onMouseDown: (a) => {
+                              a.preventDefault(),
                                 n([e.value]),
-                                (0, P.L9)(
-                                  "Prediction" === a
+                                (0, L.L9)(
+                                  "Prediction" === t
                                     ? "Tag Prediction Click"
                                     : "Tag Completion Click",
                                   { tag: e.value }
@@ -1069,23 +1070,23 @@
                     ? (0, o.jsxs)(o.Fragment, {
                         children: [
                           (0, o.jsx)("div", {
-                            className: (0, L.cn)([
+                            className: (0, I.cn)([
                               "pointer-events-none absolute right-0 hidden h-[40px] w-[200px] bg-gradient-to-r from-transparent to-black md:block",
                               "transition-opacity duration-500",
                               l ? "opacity-100" : "opacity-0",
                             ]),
                           }),
                           (0, o.jsx)("div", {
-                            className: (0, L.cn)([
+                            className: (0, I.cn)([
                               "absolute right-0 top-0 bg-gradient-to-r from-transparent to-black pl-8",
                               "transition-opacity duration-500",
                               l ? "opacity-100" : "opacity-0",
                             ]),
-                            children: (0, o.jsx)(K.C, {
+                            children: (0, o.jsx)(V.C, {
                               className:
                                 "ml-3 hidden cursor-pointer bg-gray-light py-0 text-foreground hover:text-muted-foreground md:inline-flex",
                               onMouseDown: (e) => {
-                                e.preventDefault(), c();
+                                e.preventDefault(), u();
                               },
                               children: (0, o.jsx)(G.Z, { className: "w-4" }),
                             }),
@@ -1097,41 +1098,62 @@
               })
             : null;
         },
-        X = t(92299),
-        $ = t(26579);
-      let ee = p.forwardRef((e, a) => {
-        let { className: t, ...n } = e;
-        return (0, o.jsxs)($.fC, {
-          ref: a,
-          className: (0, L.cn)(
+        X = a(92299),
+        $ = a(26579),
+        ee = a(55322);
+      let et = p.forwardRef((e, t) => {
+        let { className: a, ...n } = e;
+        return (0, o.jsx)($.fC, {
+          ref: t,
+          className: (0, I.cn)(
             "relative flex w-full touch-none select-none items-center",
-            t
+            a
           ),
           ...n,
-          children: [
-            (0, o.jsx)($.fQ, {
-              className:
-                "relative h-2 w-full grow overflow-hidden rounded-full bg-secondary",
-              children: (0, o.jsx)($.e6, {
-                className: "absolute h-full bg-primary",
-              }),
+          children: (0, o.jsx)(ee.pn, {
+            delayDuration: 100,
+            children: (0, o.jsxs)(ee.u, {
+              children: [
+                (0, o.jsx)($.fQ, {
+                  className:
+                    "relative h-2 w-full grow overflow-hidden rounded-full bg-secondary",
+                  children: (0, o.jsx)($.e6, {
+                    className: "absolute h-full bg-primary",
+                  }),
+                }),
+                (0, o.jsx)(ee.aJ, {
+                  asChild: !0,
+                  children: (0, o.jsx)($.bU, {
+                    className:
+                      "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+                    children:
+                      n.showValueLabel &&
+                      (0, o.jsx)("div", {
+                        className:
+                          "flex -translate-y-7 items-center justify-center",
+                        children: n.value,
+                      }),
+                  }),
+                }),
+                n.valueLabelTooltip &&
+                  !n.showValueLabel &&
+                  (0, o.jsx)(ee._v, {
+                    children: (0, o.jsx)("p", { children: n.value }),
+                  }),
+              ],
             }),
-            (0, o.jsx)($.bU, {
-              className:
-                "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-            }),
-          ],
+          }),
         });
       });
-      ee.displayName = $.fC.displayName;
+      et.displayName = $.fC.displayName;
       var ea = () => {
-          let [e, a] = (0, p.useState)(120),
-            [t] = (0, d.c)(e, 100),
+          let [e, t] = (0, p.useState)(120),
+            [a] = (0, d.c)(e, 100),
             { samplerOptions: n, setSamplerOptions: s } = (0, z.QY)();
           return (
             (0, p.useEffect)(() => {
-              s({ ...n, audio_conditioning_length_seconds: t });
-            }, [t]),
+              s({ ...n, audio_conditioning_length_seconds: a });
+            }, [a]),
             (0, o.jsx)(o.Fragment, {
               children: (0, o.jsxs)("div", {
                 className: "flex items-center space-x-4 px-6 pt-3",
@@ -1156,14 +1178,14 @@
                           }),
                         ],
                       }),
-                      (0, o.jsx)(ee, {
+                      (0, o.jsx)(et, {
                         min: 1,
                         max: 130,
                         step: 1,
                         className: "w-full",
                         color: "bg-brand-accent",
                         value: [e],
-                        onValueChange: (e) => a(e[0]),
+                        onValueChange: (e) => t(e[0]),
                       }),
                       (0, o.jsxs)("div", {
                         className: "flex items-center justify-between",
@@ -1182,85 +1204,134 @@
                   }),
                   (0, o.jsx)("div", {
                     className: "font-mono text-base",
-                    children: (0, L.mr)(e),
+                    children: (0, I.mr)(e),
                   }),
                 ],
               }),
             })
           );
         },
-        et = t(91942),
-        eo = t(98642),
-        en = t(57976),
-        es = t(50661),
-        ei = t(49578),
-        er = t(23416),
-        el = t(20703);
-      let eu = (0, t(79740).I)();
-      var ec = (e) => {
-          let { size: a = 48 } = e,
-            t = (0, es.V)(),
+        eo = a(91942),
+        en = a(98642),
+        es = a(57976),
+        ei = (e) => {
+          let {
+            selected: t,
+            handleSelect: a,
+            title: n,
+            description: s,
+            icon: i,
+            brandHighlight: r,
+          } = e;
+          return (0, o.jsx)(o.Fragment, {
+            children: (0, o.jsxs)("div", {
+              className: (0, I.cn)([
+                "relative flex h-[49px] cursor-pointer flex-row items-center justify-center overflow-hidden rounded-md border border-input px-4 md:justify-between",
+                t
+                  ? r
+                    ? "border-2 border-[var(--brand-accent)] bg-create"
+                    : "border-[var(--ring)] bg-create"
+                  : "bg-[#FFFFFF]/5 hover:border-[var(--ring)]",
+              ]),
+              onClick: a,
+              children: [
+                (0, o.jsxs)("div", {
+                  className:
+                    "relative flex w-full justify-center md:flex-col md:justify-start xl:flex-row xl:items-center xl:space-x-2",
+                  children: [
+                    (0, o.jsxs)("div", {
+                      className:
+                        "flex shrink-0 items-center text-sm font-medium text-white xl:text-base",
+                      children: [
+                        i &&
+                          (0, o.jsx)("div", {
+                            className: "mr-2 w-4",
+                            children: i,
+                          }),
+                        n,
+                      ],
+                    }),
+                    s
+                      ? (0, o.jsx)("div", {
+                          className:
+                            "truncate-1-line hidden w-full whitespace-nowrap text-xs leading-5 text-muted-foreground lg:block",
+                          children: s,
+                        })
+                      : null,
+                  ],
+                }),
+                t
+                  ? (0, o.jsx)(es.Z, {
+                      className: "hidden lg:block",
+                      size: r ? 20 : 16,
+                      color: "black",
+                      fill: r ? F.DM.brandAccent : "white",
+                    })
+                  : (0, o.jsx)(E.Z, {
+                      className: "hidden lg:block",
+                      size: 16,
+                      color: "white",
+                    }),
+              ],
+            }),
+          });
+        },
+        er = a(50661),
+        el = a(23416),
+        ec = a(20703);
+      let eu = (0, a(79740).I)();
+      var ed = (e) => {
+          let { size: t = 48 } = e,
+            a = (0, er.V)(),
             {
               baseTrack: n,
               setBaseTrack: s,
               setSamplerOptionsItem: i,
             } = (0, z.QY)(),
-            [r, l] = (0, p.useState)((null == n ? void 0 : n.prompt) || "");
+            [r, l] = (0, p.useState)((null == n ? void 0 : n.title) || "");
           return (
             (0, p.useEffect)(() => {
-              l((null == n ? void 0 : n.prompt) || "");
-            }, [null == n ? void 0 : n.prompt]),
+              l((null == n ? void 0 : n.title) || "");
+            }, [null == n ? void 0 : n.title]),
             (0, o.jsxs)(o.Fragment, {
               children: [
                 (0, o.jsx)("h1", {
                   className: "whitespace-nowrap text-sm text-muted-foreground",
-                  children: "Original Prompt",
+                  children: "Original Track",
                 }),
                 (0, o.jsxs)("div", {
                   className: "flex w-full py-2",
                   children: [
-                    (0, o.jsxs)(O.z, {
-                      variant: "ghost",
-                      className:
-                        "absolute -top-1 right-0 flex h-8 flex-row py-0",
-                      onClick: () => {
-                        s(null), i("crop_start_time", void 0);
-                      },
-                      children: [
-                        (0, o.jsx)(ei.Z, { className: "mr-2", size: 16 }),
-                        "Create New",
-                      ],
-                    }),
                     (0, o.jsx)("div", {
                       className: "relative flex-shrink-0",
-                      children: (0, o.jsx)(el.default, {
+                      children: (0, o.jsx)(ec.default, {
                         className: "rounded-sm",
                         src: (null == n ? void 0 : n.image_path) || eu,
                         alt:
                           (null == n ? void 0 : n.title) || "base track icon",
-                        width: a,
-                        height: a,
-                        sizes: "".concat(a, "px"),
+                        width: t,
+                        height: t,
+                        sizes: "".concat(t, "px"),
                       }),
                     }),
                     (0, o.jsxs)("div", {
                       className:
-                        "truncate-1-line flex flex-grow items-center rounded-md border border-input p-2 text-sm text-muted-foreground",
+                        "truncate-1-line ml-2 flex flex-grow items-center rounded-md border border-input p-2 text-sm text-muted-foreground md:ml-0",
                       children: [
                         (0, o.jsx)("div", {
-                          className: "truncate-1-line flex-grow ",
+                          className: "truncate-3-line flex-grow text-[#424242]",
                           children: r,
                         }),
                         (0, o.jsx)("div", {
                           className: "ml-4 flex-shrink-0",
                           onClick: () => {
-                            t.copy(r),
+                            a.copy(null == n ? void 0 : n.prompt),
                               l("Copied!"),
                               setTimeout(() => {
                                 l(r);
                               }, 1500);
                           },
-                          children: (0, o.jsx)(er.Z, {
+                          children: (0, o.jsx)(el.Z, {
                             size: 16,
                             className: "cursor-pointer",
                           }),
@@ -1273,11 +1344,11 @@
             })
           );
         },
-        ed = t(14270),
-        eg = t(29691),
-        eh = () => {
-          let e = (0, u.cC)("extension-trim"),
-            [a, t] = (0, p.useState)(!1),
+        eg = a(14270),
+        eh = a(29691),
+        em = () => {
+          let e = (0, c.cC)("extension-trim"),
+            [t, a] = (0, p.useState)(!1),
             {
               baseTrack: n,
               samplerOptions: s,
@@ -1285,25 +1356,25 @@
             } = (0, z.QY)();
           return (
             (0, p.useEffect)(() => {
-              a || i("audio_conditioning_crop_seconds", void 0);
-            }, [a]),
+              t || i("audio_conditioning_crop_seconds", void 0);
+            }, [t]),
             (0, o.jsx)(o.Fragment, {
               children:
                 e &&
                 n &&
                 (0, o.jsx)(o.Fragment, {
-                  children: (0, o.jsxs)(eg.zF, {
-                    onOpenChange: (e) => t(e),
+                  children: (0, o.jsxs)(eh.zF, {
+                    onOpenChange: (e) => a(e),
                     children: [
-                      (0, o.jsx)(eg.wy, {
+                      (0, o.jsx)(eh.wy, {
                         children: (0, o.jsxs)("div", {
                           className: " mt-2 flex items-center justify-between",
                           children: [
-                            (0, o.jsx)(B, {
+                            (0, o.jsx)(U, {
                               id: "bypass-settings",
-                              checked: a,
+                              checked: t,
                               onCheckedChange: (e) => {
-                                t(e);
+                                a(e);
                               },
                               title: "Use Section Crop",
                               className: "mr-2",
@@ -1320,10 +1391,10 @@
                           ],
                         }),
                       }),
-                      (0, o.jsx)(eg.Fw, {
+                      (0, o.jsx)(eh.Fw, {
                         children: (0, o.jsx)("div", {
                           className: "mt-2",
-                          children: (0, o.jsx)(ed.Z, {
+                          children: (0, o.jsx)(eg.Z, {
                             useTrim: !0,
                             height: 50,
                             track: n,
@@ -1342,87 +1413,87 @@
         ef = () => {
           let {
               baseTrack: e,
-              samplerOptions: a,
-              setSamplerOptions: t,
+              samplerOptions: t,
+              setSamplerOptions: a,
             } = (0, z.QY)(),
             [n, s] = (0, p.useState)("middle");
           if (
             !e ||
-            ("precede" !== a.audio_conditioning_type &&
-              "continuation" !== a.audio_conditioning_type)
+            ("precede" !== t.audio_conditioning_type &&
+              "continuation" !== t.audio_conditioning_type)
           )
             return null;
           let i = [
             {
-              arrow: (0, o.jsx)(et.Z, { className: "mr-2 h-5 w-5" }),
+              arrow: (0, o.jsx)(eo.Z, { className: "mr-2 h-5 w-5" }),
               title: "Before",
               placement: "Add Intro",
-              checked: "precede" === a.audio_conditioning_type && "intro" === n,
+              checked: "precede" === t.audio_conditioning_type && "intro" === n,
               onClick: () => {
-                t({
-                  ...a,
+                a({
+                  ...t,
                   audio_conditioning_type: "precede",
                   crop_start_time: 0,
                 }),
                   s("intro"),
-                  (0, P.L9)("Select Extension Type", {
+                  (0, L.L9)("Select Extension Type", {
                     extensionType: "intro",
                     placement: "Pre-extension",
                   });
               },
             },
             {
-              arrow: (0, o.jsx)(et.Z, { className: "mr-2 h-5 w-5" }),
+              arrow: (0, o.jsx)(eo.Z, { className: "mr-2 h-5 w-5" }),
               title: "Before",
               placement: "Add Section",
               checked:
-                "precede" === a.audio_conditioning_type && "middle" === n,
+                "precede" === t.audio_conditioning_type && "middle" === n,
               onClick: () => {
-                t({
-                  ...a,
+                a({
+                  ...t,
                   audio_conditioning_type: "precede",
                   crop_start_time: 0.4,
                 }),
                   s("middle"),
-                  (0, P.L9)("Select Extension Type", {
+                  (0, L.L9)("Select Extension Type", {
                     extensionType: "middle",
                     placement: "Pre-extension",
                   });
               },
             },
             {
-              arrow: (0, o.jsx)(eo.Z, { className: "mr-2 h-5 w-5" }),
+              arrow: (0, o.jsx)(en.Z, { className: "mr-2 h-5 w-5" }),
               title: "After",
               placement: "Add Section",
               checked:
-                "continuation" === a.audio_conditioning_type && "middle" === n,
+                "continuation" === t.audio_conditioning_type && "middle" === n,
               onClick: () => {
-                t({
-                  ...a,
+                a({
+                  ...t,
                   audio_conditioning_type: "continuation",
                   crop_start_time: 0.4,
                 }),
                   s("middle"),
-                  (0, P.L9)("Select Extension Type", {
+                  (0, L.L9)("Select Extension Type", {
                     extensionType: "middle",
                     placement: "Continuation",
                   });
               },
             },
             {
-              arrow: (0, o.jsx)(eo.Z, { className: "mr-2 h-5 w-5" }),
+              arrow: (0, o.jsx)(en.Z, { className: "mr-2 h-5 w-5" }),
               title: "After",
               placement: "Add Outro",
               checked:
-                "continuation" === a.audio_conditioning_type && "outro" === n,
+                "continuation" === t.audio_conditioning_type && "outro" === n,
               onClick: () => {
-                t({
-                  ...a,
+                a({
+                  ...t,
                   audio_conditioning_type: "continuation",
                   crop_start_time: 0.9,
                 }),
                   s("outro"),
-                  (0, P.L9)("Select Extension Type", {
+                  (0, L.L9)("Select Extension Type", {
                     extensionType: "outro",
                     placement: "Continuation",
                   });
@@ -1432,8 +1503,8 @@
           return (0, o.jsxs)("div", {
             className: "relative my-2",
             children: [
-              (0, o.jsx)(ec, { size: 40 }),
-              (0, o.jsx)(eh, {}),
+              (0, o.jsx)(ed, { size: 72 }),
+              (0, o.jsx)(em, {}),
               (0, o.jsx)(Q.Z, { className: "mb-3 mt-3 " }),
               (0, o.jsx)("div", {
                 className: "relative my-3 flex w-full flex-col",
@@ -1457,54 +1528,18 @@
                   children: (0, o.jsx)("div", {
                     className: "grid w-full grid-cols-2 gap-4 lg:grid-cols-4",
                     children: i.map((e) =>
-                      (0, o.jsxs)(
+                      (0, o.jsx)(
                         "div",
                         {
-                          className:
-                            "flex h-[60px] flex-grow cursor-pointer items-center justify-center rounded-md p-3 text-sm ".concat(
-                              e.checked
-                                ? "border border-[var(--ring)] bg-gray-light"
-                                : "bg-[#FFFFFF]/5 hover:border-[var(--ring)]"
-                            ),
-                          onClick: e.onClick,
-                          children: [
-                            (0, o.jsxs)("div", {
-                              className:
-                                "relative flex w-full flex-col justify-start",
-                              children: [
-                                (0, o.jsxs)("div", {
-                                  className:
-                                    "flex items-center text-base font-medium",
-                                  children: [
-                                    (0, o.jsx)("div", {
-                                      className: "mr-2 w-4",
-                                      children: e.arrow,
-                                    }),
-                                    e.placement,
-                                  ],
-                                }),
-                                (0, o.jsx)("div", {
-                                  className:
-                                    "truncate-1-line w-full whitespace-nowrap text-base  leading-5 text-muted-foreground",
-                                  children: e.title,
-                                }),
-                              ],
-                            }),
-                            e.checked
-                              ? (0, o.jsx)(en.Z, {
-                                  className: "",
-                                  size: 16,
-                                  color: "black",
-                                  fill: "white",
-                                })
-                              : (0, o.jsx)(M.Z, {
-                                  className: "",
-                                  size: 16,
-                                  color: "white",
-                                }),
-                          ],
+                          children: (0, o.jsx)(ei, {
+                            icon: e.arrow,
+                            selected: e.checked,
+                            handleSelect: e.onClick,
+                            title: e.placement,
+                            description: e.title,
+                          }),
                         },
-                        "".concat(e.title, "-").concat(e.placement)
+                        e.placement
                       )
                     ),
                   }),
@@ -1513,49 +1548,52 @@
             ],
           });
         },
-        em = t(41943),
-        eb = t(77778),
-        ep = t(86210),
-        ex = t(43081),
-        ey = t(74332),
-        ev = t(78398),
-        ew = t(5201);
-      let ej = "hsla(0, 0%, 5%, 0.75)";
-      var eN = (e) => {
-          var a;
+        eb = a(41943),
+        ep = a(77778),
+        ex = a(86210),
+        ey = a(43081),
+        ev = a(70094),
+        ew = a(52235),
+        ej = a(74332),
+        eN = a(78398),
+        ek = a(5201);
+      let eC = "hsla(337, 91%, 47%, 0.4)";
+      var e_ = (e) => {
+          var t;
           let {
-              track: t,
+              track: a,
               useTrim: n = !1,
               multipleSections: s = !1,
               height: i = 100,
               setPoints: r,
               setWorkingRegion: l,
             } = e,
-            u = (0, p.useRef)(null),
             c = (0, p.useRef)(null),
+            u = (0, p.useRef)(null),
             [d, g] = (0, p.useState)(2),
-            [h, f] = (0, p.useState)(31),
-            [m, b] = (0, p.useState)([0, 0]),
-            [x, y] = (0, p.useState)(null),
+            [h, m] = (0, p.useState)(31),
+            [f, b] = (0, p.useState)(0),
+            [x, y] = (0, p.useState)([0, 0]),
             [v, w] = (0, p.useState)(null),
             [j, N] = (0, p.useState)(null),
-            { isMediumDevice: k } = (0, S.Z)(),
-            _ = k
+            [k, C] = (0, p.useState)(null),
+            { isMediumDevice: _ } = (0, S.Z)(),
+            z = _
               ? (window.innerWidth - 540) / 28
               : (window.innerWidth - 100) / 28,
-            C = "#e30b5d",
             {
-              wavesurfer: z,
-              isReady: T,
-              isPlaying: Z,
-              currentTime: F,
-            } = (0, em.o)({
-              container: u,
-              url: null == t ? void 0 : t.song_path,
-              waveColor: "#7b7d7e",
-              progressColor: C,
+              wavesurfer: T,
+              isReady: Z,
+              isPlaying: L,
+              currentTime: P,
+            } = (0, eb.o)({
+              container: c,
+              url: null == a ? void 0 : a.song_path,
+              waveColor: "#555555",
+              progressColor: "#7b7d7e",
+              cursorColor: "white",
               height: i,
-              minPxPerSec: _,
+              minPxPerSec: z,
               barWidth: 3,
               barGap: 1,
               barRadius: 2,
@@ -1563,275 +1601,334 @@
               autoCenter: !1,
               autoScroll: !1,
             }),
-            { wavesurfer: P, isReady: I } = (0, em.o)({
-              container: c,
-              url: null == t ? void 0 : t.song_path,
+            { wavesurfer: D, isReady: E } = (0, eb.o)({
+              container: u,
+              url: null == a ? void 0 : a.song_path,
               height: 30,
               barWidth: 3,
               barHeight: 0.5,
               barGap: 1,
               barRadius: 2,
               waveColor: "#333",
-              progressColor: C,
             }),
-            E = () => {
-              let e = u.current,
-                a = null == e ? void 0 : e.firstChild,
-                t = null == a ? void 0 : a.shadowRoot,
+            M = () => {
+              let e = c.current,
+                t = null == e ? void 0 : e.firstChild,
+                a = null == t ? void 0 : t.shadowRoot,
                 n =
-                  null == t
+                  null == a
                     ? void 0
-                    : t.querySelectorAll(
+                    : a.querySelectorAll(
                         '[part="region-handle region-handle-right"]'
                       ),
                 s =
-                  null == t
+                  null == a
                     ? void 0
-                    : t.querySelectorAll(
+                    : a.querySelectorAll(
                         '[part="region-handle region-handle-left"]'
                       );
               if (!n || !s) return;
               let i = document.createElement("style");
               (i.textContent =
                 "\n    .icon-container-left {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      position: absolute;\n      top: 50%; \n      left: calc(50% - 4px); /* Adjust this value as needed */\n      transform: translate(-50%, -50%);\n      width: 16px;\n      height: 16px;\n      background-color: white;\n      border-radius: 50%;\n    }\n    \n    .icon-container-right {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      position: absolute;\n      top: 50%; \n      left: calc(50% + 4px); /* Adjust this value as needed */\n      transform: translate(-50%, -50%);\n      width: 16px;\n      height: 16px;\n      background-color: white;\n      border-radius: 50%;\n    }\n\n    .h-full {\n      height: 100%;\n    }\n  "),
-                null == t || t.appendChild(i);
+                null == a || a.appendChild(i);
               let r = function () {
                 let e =
                     arguments.length > 0 && void 0 !== arguments[0]
                       ? arguments[0]
                       : "right",
-                  a = document.createElement("div");
+                  t = document.createElement("div");
                 return (
-                  (a.className =
+                  (t.className =
                     "icon-container" + ("right" === e ? "-right" : "-left")),
-                  (a.innerHTML = ey.renderToString(
-                    (0, o.jsx)(eb.Z, { color: "black", size: 16 })
+                  (t.innerHTML = ej.renderToString(
+                    (0, o.jsx)(ep.Z, { color: "black", size: 16 })
                   )),
-                  a
+                  t
                 );
               };
               s.forEach((e) => {
                 if (e.querySelector(".icon-container")) return;
-                let a = r("left");
-                e.appendChild(a);
+                let t = r("left");
+                e.appendChild(t);
               }),
                 n.forEach((e) => {
                   if (e.querySelector(".icon-container")) return;
-                  let a = r("right");
-                  e.appendChild(a);
+                  let t = r("right");
+                  e.appendChild(t);
                 });
             };
-          (0, p.useEffect)(() => {
-            r && r([5, 10]), l && l([0, 28]);
-          }, []),
+          return (
             (0, p.useEffect)(() => {
-              if (z && !T) {
-                let e = z.registerPlugin(ew.Z.create());
-                k && z.registerPlugin(ev.Z.create()),
-                  y(e),
+              r && r([5, 10]), l && l([0, 28]);
+            }, []),
+            (0, p.useEffect)(() => {
+              if (T && !Z) {
+                let e = T.registerPlugin(ek.Z.create());
+                _ &&
+                  T.registerPlugin(
+                    eN.Z.create({ lineColor: F.DM.brandAccent })
+                  ),
+                  w(e),
                   r && r([5, 10]),
-                  z.on("decode", () => {
-                    let a = e.addRegion({
+                  T.on("decode", () => {
+                    let t = e.addRegion({
                       start: 5,
                       end: 10,
                       content: "",
-                      color: ej,
+                      color: eC,
                       resize: !0,
                     });
-                    a.on("update", () => {
-                      a.end - a.start < 1 && (a.end = a.start + 1);
-                    }),
-                      E();
+                    b(1),
+                      t.on("update", () => {
+                        t.end - t.start < 1 && (t.end = t.start + 1);
+                      }),
+                      M();
                   }),
                   e.on("region-in", (e) => {}),
-                  e.on("region-updated", (a) => {
-                    let t = Object.values(e.getRegions()).flatMap((e) => [
+                  e.on("region-updated", (t) => {
+                    let a = Object.values(e.getRegions()).flatMap((e) => [
                       e.start,
                       e.end,
                     ]);
-                    g(a.start), f(a.end), r && r(t);
+                    g(t.start), m(t.end), r && r(a);
                   });
               }
-              if (s && P && z && T && I) {
-                let e = P.registerPlugin(ew.Z.create());
-                P.setVolume(0),
-                  null == P ||
-                    P.setMediaElement(null == z ? void 0 : z.getMediaElement()),
+              if (s && D && T && Z && E) {
+                let e = D.registerPlugin(ek.Z.create());
+                D.setVolume(0),
+                  null == D ||
+                    D.setMediaElement(null == T ? void 0 : T.getMediaElement()),
                   l && l([0, 28]),
-                  w(e);
-                let a = !1;
+                  N(e);
+                let t = !1;
                 e.clearRegions();
-                let t = e.addRegion({
+                let a = e.addRegion({
                   start: 0,
                   end: 28,
-                  color: "hsla(0, 100%, 100%, 0.2)",
+                  color: "hsla(0, 100%, 100%, 0.1)",
                   resize: !1,
                 });
-                t.on("update", () => {
-                  (a = !0), z.setScrollTime(t.start), l && l([t.start, t.end]);
+                a.on("update", () => {
+                  (t = !0), T.setScrollTime(a.start), l && l([a.start, a.end]);
                 }),
-                  N(t),
-                  z.on("scroll", (t) => {
-                    if (a) {
-                      a = !1;
+                  C(a),
+                  T.on("scroll", (a) => {
+                    if (t) {
+                      t = !1;
                       return;
                     }
                     let o = e.getRegions()[0];
-                    o.setOptions({ start: t, end: t + 28 }),
-                      l && l([t, t + 28]),
-                      N(o);
+                    o.setOptions({ start: a, end: a + 28 }),
+                      l && l([a, a + 28]),
+                      C(o);
                   });
               }
               return () => {
-                null == v || v.clearRegions();
+                null == j || j.clearRegions();
               };
-            }, [z, t, P, T, I]),
-            null === (a = u.current) || void 0 === a || a.clientWidth,
-            null == t || t.duration;
-          let M = Math.min(i / 4, 40);
-          return (0, o.jsx)(o.Fragment, {
-            children: t
-              ? (0, o.jsxs)("div", {
-                  className: "w-[95%]",
-                  onBlur: () => {
-                    null == z || z.pause(), null == P || P.pause();
-                  },
-                  style: { touchAction: "none" },
-                  children: [
-                    (0, o.jsxs)("div", {
-                      className: "relative flex w-full",
-                      children: [
-                        (0, o.jsx)("div", {
-                          className: "mr-3 mt-[10px]",
-                          children: (null == z ? void 0 : z.isPlaying())
-                            ? (0, o.jsx)(O.z, {
-                                className: "rounded-full p-2",
-                                onClick: () => (null == z ? void 0 : z.pause()),
-                                size: "custom",
-                                children: (0, o.jsx)(ep.Z, {
-                                  size: M,
-                                  fill: "black",
+            }, [T, a, D, Z, E]),
+            null === (t = c.current) || void 0 === t || t.clientWidth,
+            null == a || a.duration,
+            (0, o.jsx)(o.Fragment, {
+              children: a
+                ? (0, o.jsxs)("div", {
+                    onBlur: () => {
+                      null == T || T.pause(), null == D || D.pause();
+                    },
+                    style: { touchAction: "none" },
+                    children: [
+                      (0, o.jsx)("h4", {
+                        className: "text-m mt-4",
+                        children: "1. Choose a 28s context window",
+                      }),
+                      (0, o.jsx)("p", {
+                        className: "mt-1 text-xs text-muted-foreground",
+                        children:
+                          "Select a 28-second section of the song where you want to make changes. This is your working area.",
+                      }),
+                      (0, o.jsx)("div", {
+                        ref: u,
+                        id: "waveform-minimap",
+                        className: "mt-4 h-full w-full",
+                      }),
+                      (0, o.jsx)("h4", {
+                        className: "text-m mt-6",
+                        children: "2. Select inpainting regions",
+                      }),
+                      (0, o.jsx)("p", {
+                        className: "mt-1 text-xs text-muted-foreground",
+                        children:
+                          "Add up to 4 specific regions within the context window to regenerate. Everything outside these regions will stay the same.",
+                      }),
+                      (0, o.jsxs)("div", {
+                        className: "relative mt-4 flex w-full items-center",
+                        children: [
+                          (0, o.jsx)("div", {
+                            className: "mr-3 ",
+                            children: (null == T ? void 0 : T.isPlaying())
+                              ? (0, o.jsx)(q.z, {
+                                  className: "rounded-full p-3",
+                                  onClick: () =>
+                                    null == T ? void 0 : T.pause(),
+                                  size: "custom",
+                                  children: (0, o.jsx)(ex.Z, {
+                                    size: 22,
+                                    fill: "black",
+                                  }),
+                                })
+                              : (0, o.jsx)(q.z, {
+                                  className: "rounded-full p-3",
+                                  onClick: () =>
+                                    null == T ? void 0 : T.play(),
+                                  size: "custom",
+                                  children: (0, o.jsx)(ey.Z, {
+                                    size: 22,
+                                    className: "translate-x-[2px]",
+                                    fill: "black",
+                                  }),
                                 }),
-                              })
-                            : (0, o.jsx)(O.z, {
-                                className: "rounded-full p-2",
-                                onClick: () => (null == z ? void 0 : z.play()),
-                                size: "custom",
-                                children: (0, o.jsx)(ex.Z, {
-                                  size: M,
-                                  className: "translate-x-[2px]",
-                                  fill: "black",
-                                }),
-                              }),
-                        }),
-                        (0, o.jsxs)("div", {
-                          className: "flex w-full flex-col",
-                          children: [
-                            (0, o.jsx)("div", {
-                              ref: u,
+                          }),
+                          (0, o.jsx)("div", {
+                            className: "flex flex-col",
+                            style: { width: "calc(100% - 60px)" },
+                            children: (0, o.jsx)("div", {
+                              ref: c,
                               id: "waveform",
-                              className: "h-full w-full",
+                              className:
+                                "h-full w-full rounded-lg border-2 bg-[#ffffff1a]",
                               onClick: () => {
-                                z && z.play();
+                                T && T.play();
                               },
                               onBlur: () => {
-                                null == z || z.pause(), null == P || P.pause();
+                                null == T || T.pause(), null == D || D.pause();
                               },
                             }),
-                            (0, o.jsx)("div", {
-                              ref: c,
-                              id: "waveform-minimap",
-                              className: "mt-2 h-full w-full",
+                          }),
+                        ],
+                      }),
+                      n &&
+                        (0, o.jsxs)("div", {
+                          className:
+                            " ml-[50px] mt-1 flex justify-between font-mono text-xs md:text-base",
+                          children: [
+                            (0, o.jsxs)("div", {
+                              className: " font-mono ",
+                              children: [
+                                (0, o.jsx)("span", {
+                                  className: "font-bold",
+                                  children: "Start: ",
+                                }),
+                                (0, I.mr)(d, _),
+                              ],
+                            }),
+                            (0, o.jsxs)("div", {
+                              className: "font-mono",
+                              children: [
+                                (0, o.jsx)("span", {
+                                  className: "font-bold",
+                                  children: "Current: ",
+                                }),
+                                (0, I.mr)(P, _),
+                              ],
+                            }),
+                            (0, o.jsxs)("div", {
+                              className: "font-mono",
+                              children: [
+                                (0, o.jsx)("span", {
+                                  className: "font-bold",
+                                  children: "End: ",
+                                }),
+                                (0, I.mr)(h, _),
+                              ],
                             }),
                           ],
                         }),
-                      ],
-                    }),
-                    n &&
-                      (0, o.jsxs)("div", {
-                        className:
-                          " ml-[50px] mt-1 flex justify-between font-mono text-xs md:text-base",
-                        children: [
-                          (0, o.jsxs)("div", {
-                            className: " font-mono ",
-                            children: [
-                              (0, o.jsx)("span", {
-                                className: "font-bold",
-                                children: "Start: ",
-                              }),
-                              (0, L.mr)(d, k),
-                            ],
-                          }),
-                          (0, o.jsxs)("div", {
-                            className: "font-mono",
-                            children: [
-                              (0, o.jsx)("span", {
-                                className: "font-bold",
-                                children: "Current: ",
-                              }),
-                              (0, L.mr)(F, k),
-                            ],
-                          }),
-                          (0, o.jsxs)("div", {
-                            className: "font-mono",
-                            children: [
-                              (0, o.jsx)("span", {
-                                className: "font-bold",
-                                children: "End: ",
-                              }),
-                              (0, L.mr)(h, k),
-                            ],
-                          }),
-                        ],
-                      }),
-                    s &&
-                      (0, o.jsxs)("div", {
-                        className: "mt-2 flex",
-                        children: [
-                          (0, o.jsx)(O.z, {
-                            onClick: () => {
-                              if (x) {
-                                if (x.getRegions().length > 3) return;
-                                let e = x.addRegion({
-                                  start: F,
-                                  end: F + 3,
-                                  content: "",
-                                  color: ej,
-                                  resize: !0,
-                                });
-                                e.on("update", () => {
-                                  e.end - e.start < 1 && (e.end = e.start + 1);
-                                });
-                              }
-                              E();
-                            },
-                            variant: "outline",
-                            className: "mr-2 text-xs md:text-base",
-                            children: "Add Region",
-                          }),
-                          (0, o.jsx)(O.z, {
-                            onClick: () => {
-                              x && x.clearRegions();
-                            },
-                            variant: "outline",
-                            className: "text-xs md:text-base",
-                            children: "Clear Regions",
-                          }),
-                        ],
-                      }),
-                  ],
-                })
-              : (0, o.jsx)("div", {
-                  className: "h-16 w-9/12 bg-gray-300",
-                  children: "Track not found",
-                }),
-          });
+                      s &&
+                        (0, o.jsxs)("div", {
+                          className:
+                            "absolute mt-2 flex w-full justify-between",
+                          children: [
+                            (0, o.jsxs)("div", {
+                              className: "text-xs text-brand-accent",
+                              children: [
+                                f,
+                                " ",
+                                (0, I._6)(f, "region"),
+                                " marked for regeneration",
+                              ],
+                            }),
+                            (0, o.jsxs)("div", {
+                              children: [
+                                (0, o.jsx)(q.z, {
+                                  onClick: () => {
+                                    if (v) {
+                                      if (v.getRegions().length > 3) return;
+                                      let e = v.addRegion({
+                                        start: P,
+                                        end: P + 3,
+                                        content: "",
+                                        color: eC,
+                                        resize: !0,
+                                      });
+                                      b(f + 1),
+                                        e.on("update", () => {
+                                          e.end - e.start < 1 &&
+                                            (e.end = e.start + 1);
+                                        });
+                                    }
+                                    M();
+                                  },
+                                  variant: "ghost",
+                                  className: "mr-2 text-xs",
+                                  children: (0, o.jsxs)("div", {
+                                    className: "flex items-center",
+                                    children: [
+                                      (0, o.jsx)(ev.Z, {
+                                        size: 12,
+                                        className: "mr-1",
+                                      }),
+                                      (0, o.jsx)("div", {
+                                        children: " Add Region",
+                                      }),
+                                    ],
+                                  }),
+                                }),
+                                (0, o.jsx)(q.z, {
+                                  onClick: () => {
+                                    v && v.clearRegions(), b(0);
+                                  },
+                                  variant: "ghost",
+                                  className: "text-xs",
+                                  children: (0, o.jsxs)("div", {
+                                    className: "flex items-center",
+                                    children: [
+                                      (0, o.jsx)(ew.Z, {
+                                        size: 12,
+                                        className: "mr-1",
+                                      }),
+                                      (0, o.jsx)("div", { children: " Clear" }),
+                                    ],
+                                  }),
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                    ],
+                  })
+                : (0, o.jsx)("div", {
+                    className: "h-16 w-9/12 bg-gray-300",
+                    children: "Track not found",
+                  }),
+            })
+          );
         },
-        ek = () => {
-          let e = (0, u.cC)("enable-inpainting"),
+        eS = () => {
+          let e = (0, c.cC)("enable-inpainting"),
             {
-              baseTrack: a,
-              samplerOptions: t,
+              baseTrack: t,
+              samplerOptions: a,
               setSamplerOptionsItem: n,
             } = (0, z.QY)(),
             s = (0, k.Z)(),
@@ -1840,42 +1937,18 @@
           return (0, o.jsxs)("div", {
             className: "relative my-2",
             children: [
-              (0, o.jsx)(ec, { size: 40 }),
+              (0, o.jsx)(ed, { size: 40 }),
               e &&
-                a &&
+                t &&
                 r &&
                 (0, o.jsxs)(o.Fragment, {
                   children: [
-                    (0, o.jsxs)("div", {
-                      className: " mt-2 flex flex-col md:flex-row ",
-                      children: [
-                        (0, o.jsxs)("div", {
-                          className: "flex items-center",
-                          children: [
-                            (0, o.jsx)("h1", {
-                              className:
-                                "mr-2 whitespace-nowrap text-sm text-muted-foreground",
-                              children: "Select Inpainting Sections",
-                            }),
-                            (0, o.jsx)(X.Z, {
-                              children:
-                                "Select sections to inpaint. These shaded sections will be re-generated based on your prompt. You may inpaint four sections at a time within a maximum window of 28 seconds. Any sections outside of the range displayed in the top waveform will be ignored.",
-                            }),
-                          ],
-                        }),
-                        (0, o.jsx)("h1", {
-                          className: "text-sm text-muted-foreground md:ml-2",
-                          children:
-                            "Note: Only selected shaded regions that are visible within the top waveform will be inpainted.",
-                        }),
-                      ],
-                    }),
                     (0, o.jsx)("div", {
                       className: "mt-2",
-                      children: (0, o.jsx)(eN, {
+                      children: (0, o.jsx)(e_, {
                         multipleSections: !0,
                         height: 50,
-                        track: a,
+                        track: t,
                         setPoints: (e) => {
                           n("inpainting_conditioning_crop_seconds", e);
                         },
@@ -1884,7 +1957,15 @@
                         },
                       }),
                     }),
-                    (0, o.jsx)(Q.Z, { className: "mt-3 " }),
+                    (0, o.jsx)("h4", {
+                      className: "text-m mt-12",
+                      children: "3. Highlight corresponding lyrics",
+                    }),
+                    (0, o.jsx)("p", {
+                      className: "mt-1 text-xs text-muted-foreground ",
+                      children:
+                        "Highlight the lyrics that match the audio in your 28-second context window. This helps the model understand what part of the song you're changing.",
+                    }),
                     (0, o.jsx)("h1", {
                       className: "md:hidden",
                       children:
@@ -1895,114 +1976,73 @@
             ],
           });
         },
-        e_ = t(95200),
-        eC = t(23444);
-      let eS = [
-        "Write lyrics suitable for a 30s clip — about 6 lines for most genres, fewer for slower songs, and more for faster ones.",
-        "Add [Verse], [Bridge], and [Chorus] tags for additional control.",
-        "[Drop] and [guitar solo] [sax solo] all do interesting things.",
-        "If the model mispronounces a word, you can split it up into easier phonemes.",
-        "Use between 200 and 350 characters for best results.",
-      ];
-      var ez = (e) => {
+        ez = a(95200),
+        eT = a(23444),
+        eZ = (e) => {
           let {
-              settings: a,
-              setSettings: t,
-              lyricsType: n,
-              setLyricsType: s,
-            } = e,
-            [i, r] = (0, p.useState)(0),
-            { isMediumDevice: l } = (0, S.Z)(),
-            { setLyricsFocus: u } = (0, Z.F)(),
-            c = (0, p.useCallback)(
+            settings: t,
+            setSettings: a,
+            lyricsType: n,
+            setLyricsType: s,
+          } = e;
+          (0, p.useRef)(null);
+          let [i, r] = (0, p.useState)(0),
+            [l, c] = (0, p.useState)(125),
+            { isMediumDevice: u } = (0, S.Z)(),
+            { setLyricsFocus: d, setLyricsRef: g } = (0, Z.F)(),
+            h = (0, p.useCallback)(
               (e) => () => {
-                s(e), (0, P.L9)("Select Lyric Type", { lyricType: e });
+                s(e), (0, L.L9)("Select Lyric Type", { lyricType: e });
               },
               [s]
             ),
-            { samplerOptions: d, setSamplerOptionsItem: g } = (0, z.QY)(),
-            h = "inpaint" === d.audio_conditioning_type,
-            f = [
+            { samplerOptions: m, setSamplerOptionsItem: f } = (0, z.QY)(),
+            b = "inpaint" === m.audio_conditioning_type,
+            x = [
               {
                 title: "Custom",
                 description: "Write your own lyrics",
                 value: "lyricInput",
               },
               { title: "Instrumental", value: "instrumental" },
-              { title: l ? "Auto-generated" : "Auto", value: "infer" },
+              { title: u ? "Auto-generated" : "Auto", value: "infer" },
             ];
-          h &&
-            (f = [
-              {
-                title: "Region",
-                description: "Lyrics for the visible region of the song",
-                value: "lyricInput",
-              },
+          b &&
+            (x = [
+              { title: "Lyrics", value: "lyricInput" },
               { title: "Instrumental", value: "instrumental" },
             ]),
             (0, p.useEffect)(() => {
-              "lyricInput" === n && r(Math.floor(Math.random() * eS.length));
+              "lyricInput" === n && r(Math.floor(Math.random() * F.mW.length));
             }, [n]);
-          let m = (0, p.useCallback)(() => {
-              r((i + 1) % eS.length);
+          let y = (0, p.useCallback)(() => {
+              r((i + 1) % F.mW.length);
             }, [i]),
-            b = (0, p.useCallback)(() => {
-              r((i - 1 + eS.length) % eS.length);
+            v = (0, p.useCallback)(() => {
+              r((i - 1 + F.mW.length) % F.mW.length);
             }, [i]);
           return (0, o.jsxs)("div", {
             children: [
-              (0, o.jsx)("h1", {
-                className: "mb-2 text-sm text-muted-foreground",
-                children: "Lyrics",
-              }),
+              !b &&
+                (0, o.jsx)("h1", {
+                  className: "mb-2 text-sm text-muted-foreground",
+                  children: "Lyrics",
+                }),
               (0, o.jsx)("div", {
-                className: (0, L.cn)(
-                  "grid grid-cols-".concat(f.length, " items-center gap-x-4"),
+                className: (0, I.cn)(
+                  "grid grid-cols-".concat(x.length, " items-center gap-x-4"),
                   "lyricInput" === n ? "mb-3" : "mb-0 "
                 ),
-                children: f.map((e) =>
-                  (0, o.jsxs)(
+                children: x.map((e) =>
+                  (0, o.jsx)(
                     "div",
                     {
-                      className: (0, L.cn)([
-                        "relative flex h-[49px] cursor-pointer flex-row items-center justify-center overflow-hidden rounded-md border border-input px-4 md:justify-between",
-                        n === e.value
-                          ? "border-[var(--ring)] bg-create"
-                          : "bg-[#FFFFFF]/5 hover:border-[var(--ring)]",
-                      ]),
-                      onClick: c(e.value),
-                      children: [
-                        (0, o.jsxs)("div", {
-                          className:
-                            "relative flex w-full flex-row justify-center md:w-4/5 md:flex-col md:justify-start xl:flex-row xl:items-center xl:space-x-2",
-                          children: [
-                            (0, o.jsx)("div", {
-                              className:
-                                "text-sm font-medium text-white xl:text-base",
-                              children: e.title,
-                            }),
-                            e.description
-                              ? (0, o.jsx)("div", {
-                                  className:
-                                    "truncate-1-line hidden w-full whitespace-nowrap text-xs leading-5 text-muted-foreground lg:block",
-                                  children: e.description,
-                                })
-                              : null,
-                          ],
-                        }),
-                        n === e.value
-                          ? (0, o.jsx)(en.Z, {
-                              className: "hidden lg:block",
-                              size: 16,
-                              color: "black",
-                              fill: "white",
-                            })
-                          : (0, o.jsx)(M.Z, {
-                              className: "hidden lg:block",
-                              size: 16,
-                              color: "white",
-                            }),
-                      ],
+                      children: (0, o.jsx)(ei, {
+                        selected: n === e.value,
+                        handleSelect: h(e.value),
+                        title: e.title,
+                        description: e.description || "",
+                      }),
                     },
                     e.title
                   )
@@ -2013,45 +2053,80 @@
                     className: "flex min-h-[150px] items-center md:h-auto",
                     children: (0, o.jsxs)("div", {
                       className:
-                        "relative flex w-full flex-col items-start space-y-2 lg:flex-row lg:space-x-2",
+                        "relative mt-1 flex w-full flex-col items-start lg:flex-row lg:space-x-2",
                       children: [
-                        (0, o.jsx)(eC.g, {
-                          placeholder: "Write custom lyrics here",
-                          className:
-                            "min-h-[125px] w-full px-4 text-[16px] md:min-h-[150px] md:text-[14px] lg:w-2/3",
-                          value: a.lyricInput,
-                          onDrag: (e) => e.stopPropagation(),
-                          onKeyDown: (e) => {
-                            if (
-                              (console.log("Key down", e.key), "Tab" === e.key)
-                            ) {
-                              let {
-                                selectionStart: o,
-                                selectionEnd: n,
-                                value: s,
-                              } = e.currentTarget;
-                              if (!h || n === o) return;
-                              e.preventDefault();
-                              let i = s.substring(o, n);
-                              console.log("Selected text", i),
-                                (i = i.replace(/\*/g, ""));
-                              let r = s.replace(/\*\*\*/g, ""),
-                                l = r.indexOf(i),
-                                u =
-                                  r.slice(0, l) +
-                                  "***" +
-                                  i +
-                                  "***" +
-                                  r.slice(l + i.length);
-                              t({ ...a, lyricInput: u });
-                            }
-                          },
-                          onFocus: () => u(!0),
-                          onBlur: () => u(!1),
-                          onChange: (e) =>
-                            t({ ...a, lyricInput: e.target.value }),
+                        (0, o.jsxs)("div", {
+                          className: "relative w-full",
+                          children: [
+                            (0, o.jsx)(eT.g, {
+                              placeholder: "Write custom lyrics here",
+                              className:
+                                "relative min-h-[125px] w-full px-4 text-[16px] md:min-h-[150px] md:text-[14px] ".concat(
+                                  (0, I.Ig)(t.lyricInput || "").hasSelector ||
+                                  !b
+                                    ? ""
+                                    : "text-muted-foreground"
+                                ),
+                              value: t.lyricInput,
+                              onDrag: (e) => e.stopPropagation(),
+                              onKeyDown: (e) => {
+                                if (
+                                  (console.log("Key down", e.key),
+                                  "Tab" === e.key)
+                                ) {
+                                  let {
+                                    selectionStart: o,
+                                    selectionEnd: n,
+                                    value: s,
+                                  } = e.currentTarget;
+                                  if (!b || n === o) return;
+                                  e.preventDefault();
+                                  let i = s.substring(o, n);
+                                  console.log("Selected text", i),
+                                    (i = i.replace(/\*/g, ""));
+                                  let r = s.replace(/\*\*\*/g, ""),
+                                    l = r.indexOf(i),
+                                    c =
+                                      r.slice(0, l) +
+                                      "***" +
+                                      i +
+                                      "***" +
+                                      r.slice(l + i.length);
+                                  a({ ...t, lyricInput: c });
+                                }
+                              },
+                              onFocus: () => d(!0),
+                              onBlur: () => d(!1),
+                              onChange: (e) =>
+                                a({ ...t, lyricInput: e.target.value }),
+                            }),
+                            (0, I.Ig)(t.lyricInput || "").hasSelector &&
+                              (0, o.jsx)(es.Z, {
+                                className:
+                                  "absolute bottom-4 right-8 hidden lg:block",
+                                size: 20,
+                                color: "black",
+                                fill: F.DM.brandAccent,
+                              }),
+                            (0, I.wb)(t.lyricInput || "") &&
+                              !b &&
+                              (0, o.jsx)("p", {
+                                className:
+                                  "mt-2 hidden px-1 text-sm font-medium text-brand-red md:block",
+                                children:
+                                  "Use less than 350 characters for best results",
+                              }),
+                            !(0, I.Ig)(t.lyricInput || "").hasSelector &&
+                              b &&
+                              "lyricInput" === n &&
+                              (0, o.jsx)("p", {
+                                className:
+                                  "mt-2 hidden px-1 text-sm font-medium text-brand-red md:block",
+                                children: (0, I.Ig)(t.lyricInput || "").warning,
+                              }),
+                          ],
                         }),
-                        (0, L.wb)(a.lyricInput || "") &&
+                        (0, I.wb)(t.lyricInput || "") &&
                           (0, o.jsx)("p", {
                             className:
                               "mt-2 px-1 text-sm font-medium text-destructive md:hidden",
@@ -2059,39 +2134,51 @@
                               "Use less than 350 characters for best results",
                           }),
                         (0, o.jsx)("div", {
-                          className: "relative w-full px-4 lg:w-1/3",
-                          children: h
-                            ? (0, o.jsxs)(o.Fragment, {
+                          className: "relative w-full rounded-lg lg:w-1/2",
+                          children: b
+                            ? (0, o.jsxs)("div", {
+                                className: "bg-[#ffffff0a] px-4 py-2",
                                 children: [
                                   (0, o.jsxs)("div", {
                                     className:
-                                      "my-2 flex flex-row items-center text-base ",
+                                      "my-2 flex flex-row items-center text-base text-sm",
                                     children: [
-                                      (0, o.jsx)(R.Z, {
+                                      (0, o.jsx)(ez.Z, {
                                         className: "mr-2",
                                         size: 16,
                                       }),
-                                      "Region Lyrics Note",
+                                      "Inpainting Explained",
                                     ],
                                   }),
                                   (0, o.jsxs)("div", {
-                                    className: "text-base ",
+                                    className:
+                                      "mb-2 text-base text-muted-foreground",
                                     children: [
-                                      "When inpainting, use “***” to enclose the lyrics you want to inpaint, plus 1-2 extra lines on both sides. You can highlight text and press Tab to quickly select an area. For more help, check out the",
-                                      " ",
-                                      (0, o.jsx)("a", {
-                                        href: "/guide",
-                                        target: "_blank",
-                                        className: "font-bold hover:underline",
-                                        children: "guide",
+                                      (0, o.jsx)("p", {
+                                        className: "mb-3 text-sm",
+                                        children:
+                                          "The model uses lyrics to identify your chosen context window. It copies the rest of the song as-is.",
                                       }),
-                                      ".",
+                                      (0, o.jsxs)("p", {
+                                        className: "text-sm",
+                                        children: [
+                                          "Highlight the corresponding lyrics and press TAB, or use ‘***’ to enclose the lyrics.",
+                                          " ",
+                                          (0, o.jsx)("a", {
+                                            href: "/guide",
+                                            target: "_blank",
+                                            className: "font-bold underline",
+                                            children: "Learn more",
+                                          }),
+                                        ],
+                                      }),
                                     ],
                                   }),
                                   " ",
                                 ],
                               })
-                            : (0, o.jsxs)(o.Fragment, {
+                            : (0, o.jsxs)("div", {
+                                className: "px-4",
                                 children: [
                                   (0, o.jsxs)("div", {
                                     className:
@@ -2100,12 +2187,12 @@
                                       (0, o.jsx)(H.Z, {
                                         size: 16,
                                         className: "cursor-pointer",
-                                        onClick: b,
+                                        onClick: v,
                                       }),
                                       (0, o.jsx)(G.Z, {
                                         size: 16,
                                         className: "cursor-pointer",
-                                        onClick: m,
+                                        onClick: y,
                                       }),
                                     ],
                                   }),
@@ -2113,7 +2200,7 @@
                                     className:
                                       "my-2 flex flex-row items-center text-base text-muted-foreground",
                                     children: [
-                                      (0, o.jsx)(e_.Z, {
+                                      (0, o.jsx)(ez.Z, {
                                         className: "mr-2",
                                         size: 16,
                                       }),
@@ -2123,9 +2210,8 @@
                                   (0, o.jsx)("div", {
                                     className:
                                       "text-base text-muted-foreground",
-                                    children: eS[i],
+                                    children: F.mW[i],
                                   }),
-                                  " ",
                                 ],
                               }),
                         }),
@@ -2133,77 +2219,62 @@
                     }),
                   })
                 : null,
-              (0, L.wb)(a.lyricInput || "") &&
-                !h &&
-                (0, o.jsx)("p", {
-                  className:
-                    "mt-2 hidden px-1 text-sm font-medium text-brand-red md:block",
-                  children: "Use less than 350 characters for best results",
-                }),
-              !(0, L.Ig)(a.lyricInput || "").hasSelector &&
-                h &&
-                "lyricInput" === n &&
-                (0, o.jsx)("p", {
-                  className:
-                    "mt-2 hidden px-1 text-sm font-medium text-brand-red md:block",
-                  children: (0, L.Ig)(a.lyricInput || "").warning,
-                }),
               (0, o.jsx)("div", { className: "h-[100px] md:h-0" }),
             ],
           });
         },
-        eT = () =>
+        eF = () =>
           (0, o.jsx)(X.Z, {
             children: (0, o.jsx)("div", {
               children:
                 "Manual mode allows you to directly prompt the model without any prompt rewriting. By default, our system rewrites your prompts to improve the average output quality. If you are seeking specific sounds and want to interact directly with the model interface, we recommend using manual mode.",
             }),
           }),
-        eZ = t(29456),
-        eF = (e) => {
-          let { userApiUsageData: a } = e,
-            t = (0, p.useMemo)(
+        eL = a(29456),
+        eI = (e) => {
+          let { userApiUsageData: t } = e,
+            a = (0, p.useMemo)(
               () =>
-                Number((null == a ? void 0 : a.monthly_discretionary) || 0) +
-                Number((null == a ? void 0 : a.discretionary) || 0),
-              [a]
+                Number((null == t ? void 0 : t.monthly_discretionary) || 0) +
+                Number((null == t ? void 0 : t.discretionary) || 0),
+              [t]
             );
           return (0, o.jsx)(o.Fragment, {
             children:
-              a &&
-              (0, o.jsxs)(eZ.zs, {
+              t &&
+              (0, o.jsxs)(eL.zs, {
                 openDelay: 200,
                 children: [
-                  (0, o.jsxs)(eZ.Yi, {
+                  (0, o.jsxs)(eL.Yi, {
                     className: "flex",
                     children: [
-                      "free" === a.tier
+                      "free" === t.tier
                         ? (0, o.jsxs)("span", {
                             className:
                               "flex cursor-pointer items-center text-xs",
                             children: [
-                              a.daily_used,
+                              t.daily_used,
                               " /",
                               " ",
-                              a.daily_throttle_limit,
+                              t.daily_throttle_limit,
                               " Daily Credits",
                             ],
                           })
                         : null,
-                      "standard" === a.tier || "pro" === a.tier
+                      "standard" === t.tier || "pro" === t.tier
                         ? (0, o.jsxs)("span", {
                             className:
                               "flex cursor-pointer items-center text-xs",
                             children: [
-                              a.monthly_used,
+                              t.monthly_used,
                               " /",
                               " ",
-                              a.monthly_limit,
+                              t.monthly_limit,
                               " Monthly Credits",
                             ],
                           })
                         : null,
-                      a.discretionary > 0 &&
+                      t.discretionary > 0 &&
                         (0, o.jsxs)(o.Fragment, {
                           children: [
                             (0, o.jsx)(Q.Z, {
@@ -2213,38 +2284,38 @@
                             (0, o.jsxs)("span", {
                               className:
                                 "ml-1 flex cursor-pointer items-center text-xs",
-                              children: [t, " Additional Credits"],
+                              children: [a, " Additional Credits"],
                             }),
                           ],
                         }),
                     ],
                   }),
-                  (0, o.jsx)(eZ.bZ, {
+                  (0, o.jsx)(eL.bZ, {
                     side: "top",
                     className: "w-80",
                     children: (0, o.jsxs)("div", {
                       className: "flex flex-col space-y-1",
                       children: [
-                        "free" === a.tier
+                        "free" === t.tier
                           ? (0, o.jsxs)("span", {
                               className: "flex items-center",
                               children: [
-                                a.daily_used,
+                                t.daily_used,
                                 " /",
                                 " ",
-                                a.daily_throttle_limit,
+                                t.daily_throttle_limit,
                                 " Daily Credits",
                               ],
                             })
                           : null,
-                        "standard" === a.tier || "pro" === a.tier
+                        "standard" === t.tier || "pro" === t.tier
                           ? (0, o.jsxs)("span", {
                               className: "flex items-center",
                               children: [
-                                a.monthly_used,
+                                t.monthly_used,
                                 " /",
                                 " ",
-                                a.monthly_limit,
+                                t.monthly_limit,
                                 " Monthly Credits",
                               ],
                             })
@@ -2252,13 +2323,13 @@
                         (0, o.jsxs)("span", {
                           className: "flex items-center",
                           children: [
-                            a.monthly_discretionary,
+                            t.monthly_discretionary,
                             " Additional Monthly Credits",
                           ],
                         }),
                         (0, o.jsxs)("span", {
                           className: "flex items-center",
-                          children: [a.discretionary, " Additional Credits"],
+                          children: [t.discretionary, " Additional Credits"],
                         }),
                       ],
                     }),
@@ -2270,8 +2341,8 @@
         eP = () => {
           let {
               samplerOptions: e,
-              baseTrack: a,
-              setSamplerOptions: t,
+              baseTrack: t,
+              setSamplerOptions: a,
             } = (0, z.QY)(),
             { isMediumDevice: n } = (0, S.Z)(),
             [s, i] = (0, p.useState)(
@@ -2282,12 +2353,12 @@
             [r] = (0, d.c)(s, 100);
           return (
             (0, p.useEffect)(() => {
-              t({ ...e, audio_conditioning_similarity: 1 - s });
+              a({ ...e, audio_conditioning_similarity: 1 - s });
             }, [r]),
-            "variation" === e.audio_conditioning_type && a
+            "variation" === e.audio_conditioning_type && t
               ? (0, o.jsx)("div", {
                   className:
-                    "relative my-5 flex w-full space-x-3 md:items-center",
+                    "relative my-3 flex w-full space-x-3 md:my-5 md:items-center",
                   children: (0, o.jsx)("div", {
                     className: "w-full",
                     children: (0, o.jsxs)("div", {
@@ -2297,7 +2368,7 @@
                         (0, o.jsx)("div", {
                           className:
                             "relative flex w-full flex-shrink-0 flex-col items-start md:w-1/2",
-                          children: (0, o.jsx)(ec, { size: n ? 57 : 40 }),
+                          children: (0, o.jsx)(ed, { size: n ? 57 : 72 }),
                         }),
                         (0, o.jsxs)("div", {
                           className:
@@ -2308,11 +2379,12 @@
                                 "whitespace-nowrap text-sm text-muted-foreground",
                               children: "Variance",
                             }),
-                            (0, o.jsx)(ee, {
+                            (0, o.jsx)(et, {
+                              valueLabelTooltip: !0,
                               min: 0.1,
                               max: 1,
                               step: 0.01,
-                              className: "w-full",
+                              className: "w-full pb-4",
                               color: "bg-brand-accent",
                               value: [s],
                               onValueChange: (e) => i(e[0]),
@@ -2338,34 +2410,33 @@
                 })
               : null
           );
-        },
-        eL = t(52235);
-      let eI = 7 / 12;
+        };
+      let eD = 7 / 12;
       var eE = (e) => {
           let {
-              partialTag: a = "",
-              tagList: t,
+              partialTag: t = "",
+              tagList: a,
               addSuggestedTags: n,
               containerStyle: s,
             } = e,
             i = (0, p.useRef)(null),
             [r, l] = (0, p.useState)(!1),
-            [u, c] = (0, p.useState)(!0),
+            [c, u] = (0, p.useState)(!0),
             { setShowTagCompletions: d } = (0, Z.F)(),
             { isMediumDevice: g } = (0, S.Z)(),
             h = (0, p.useCallback)(() => {
               if (i.current) {
-                let { scrollWidth: e, clientWidth: a } = i.current;
+                let { scrollWidth: e, clientWidth: t } = i.current;
                 i.current.scrollLeft = Math.min(
-                  i.current.scrollLeft + a * eI,
-                  e - a
+                  i.current.scrollLeft + t * eD,
+                  e - t
                 );
               }
             }, []),
-            f = (0, p.useCallback)(() => {
+            m = (0, p.useCallback)(() => {
               i.current &&
                 (i.current.scrollLeft = Math.max(
-                  i.current.scrollLeft - i.current.clientWidth * eI,
+                  i.current.scrollLeft - i.current.clientWidth * eD,
                   0
                 ));
             }, []);
@@ -2374,25 +2445,25 @@
                 if (!i.current) return;
                 let {
                   scrollLeft: e,
-                  scrollWidth: a,
-                  clientWidth: t,
+                  scrollWidth: t,
+                  clientWidth: a,
                 } = i.current;
-                0 === e ? l(!1) : l(!0), e + t === a ? c(!1) : c(!0);
+                0 === e ? l(!1) : l(!0), e + a === t ? u(!1) : u(!0);
               },
-              a = i.current;
+              t = i.current;
             return (
-              null == a || a.addEventListener("scroll", e),
-              () => (null == a ? void 0 : a.removeEventListener("scroll", e))
+              null == t || t.addEventListener("scroll", e),
+              () => (null == t ? void 0 : t.removeEventListener("scroll", e))
             );
           }, [null == i ? void 0 : i.current]);
-          let m = null == t ? void 0 : t.filter((e) => e.value !== a);
-          return (null == m ? void 0 : m.length)
+          let f = null == a ? void 0 : a.filter((e) => e.value !== t);
+          return (null == f ? void 0 : f.length)
             ? (0, o.jsxs)("div", {
                 className:
                   "absolute z-10 flex w-full items-center overflow-x-auto bg-background pb-1",
                 children: [
                   (0, o.jsx)("div", {
-                    className: (0, L.cn)([
+                    className: (0, I.cn)([
                       "absolute -z-10 h-full w-full bg-black/55",
                       s,
                     ]),
@@ -2404,7 +2475,7 @@
                       className:
                         "my-1 cursor-pointer rounded-full border border-input bg-black p-1",
                       onClick: () => d(!1),
-                      children: (0, o.jsx)(eL.Z, { size: 16, fill: "white" }),
+                      children: (0, o.jsx)(ew.Z, { size: 16, fill: "white" }),
                     }),
                   }),
                   (0, o.jsxs)("div", {
@@ -2415,23 +2486,23 @@
                         ? (0, o.jsxs)(o.Fragment, {
                             children: [
                               (0, o.jsx)("div", {
-                                className: (0, L.cn)([
+                                className: (0, I.cn)([
                                   "pointer-events-none absolute left-0 hidden h-[40px] w-[250px] bg-gradient-to-l from-transparent to-black md:block",
                                   "transition-opacity duration-500",
                                   r ? "opacity-100" : "opacity-0",
                                 ]),
                               }),
                               (0, o.jsx)("div", {
-                                className: (0, L.cn)([
+                                className: (0, I.cn)([
                                   "absolute left-[46px] top-[2px] py-1 pl-1 pr-4",
                                   "transition-opacity duration-500",
                                   r ? "opacity-100" : "opacity-0",
                                 ]),
-                                children: (0, o.jsx)(K.C, {
+                                children: (0, o.jsx)(V.C, {
                                   className:
                                     "mr-2 hidden cursor-pointer rounded-full border border-input bg-black p-1 text-foreground hover:text-muted-foreground md:inline-flex",
                                   onMouseDown: (e) => {
-                                    e.preventDefault(), f();
+                                    e.preventDefault(), m();
                                   },
                                   children: (0, o.jsx)(H.Z, { size: 16 }),
                                 }),
@@ -2447,36 +2518,36 @@
                           scrollbarWidth: "none",
                           width: g ? "calc(100% - 96px)" : "calc(100% - 48px)",
                         },
-                        children: m.slice(0, 10).map((e) =>
+                        children: f.slice(0, 10).map((e) =>
                           (0, o.jsx)(
                             "button",
                             {
                               className:
                                 "flex cursor-pointer items-center whitespace-nowrap rounded-full border border-input bg-black/90 px-4 py-1 text-sm text-muted-foreground focus:outline-none",
-                              onMouseDown: (a) => {
-                                a.preventDefault(),
+                              onMouseDown: (t) => {
+                                t.preventDefault(),
                                   n([e.value]),
-                                  (0, P.L9)("Tag Completion Click", {
+                                  (0, L.L9)("Tag Completion Click", {
                                     tag: e.value,
                                   });
                               },
-                              children: e.value.includes(a)
+                              children: e.value.includes(t)
                                 ? (0, o.jsxs)("span", {
                                     children: [
-                                      e.value.slice(0, e.value.indexOf(a)),
-                                      " " === e.value[e.value.indexOf(a) - 1]
+                                      e.value.slice(0, e.value.indexOf(t)),
+                                      " " === e.value[e.value.indexOf(t) - 1]
                                         ? " "
                                         : "",
                                       (0, o.jsx)("span", {
                                         className: "font-bold underline",
-                                        children: a,
+                                        children: t,
                                       }),
                                       " " ===
-                                      e.value[e.value.indexOf(a) + a.length]
+                                      e.value[e.value.indexOf(t) + t.length]
                                         ? " "
                                         : "",
                                       e.value.slice(
-                                        e.value.indexOf(a) + a.length
+                                        e.value.indexOf(t) + t.length
                                       ),
                                     ],
                                   })
@@ -2486,23 +2557,23 @@
                           )
                         ),
                       }),
-                      u
+                      c
                         ? (0, o.jsxs)(o.Fragment, {
                             children: [
                               (0, o.jsx)("div", {
-                                className: (0, L.cn)([
+                                className: (0, I.cn)([
                                   "pointer-events-none absolute right-0 hidden h-[40px] w-[200px] bg-gradient-to-r from-transparent to-black md:block",
                                   "transition-opacity duration-500",
-                                  u ? "opacity-100" : "opacity-0",
+                                  c ? "opacity-100" : "opacity-0",
                                 ]),
                               }),
                               (0, o.jsx)("div", {
-                                className: (0, L.cn)([
+                                className: (0, I.cn)([
                                   "absolute right-0 top-[2px] py-1 pl-4 pr-4",
                                   "transition-opacity duration-500",
-                                  u ? "opacity-100" : "opacity-0",
+                                  c ? "opacity-100" : "opacity-0",
                                 ]),
-                                children: (0, o.jsx)(K.C, {
+                                children: (0, o.jsx)(V.C, {
                                   className:
                                     "ml-3 hidden cursor-pointer rounded-full border border-input bg-black p-1 text-foreground hover:text-muted-foreground md:inline-flex",
                                   onMouseDown: (e) => {
@@ -2522,39 +2593,39 @@
         },
         eM = (e) => {
           let {
-              partialTag: a,
-              showOptions: t,
+              partialTag: t,
+              showOptions: a,
               tagPredictions: n,
               tagCompletions: s,
               settings: i,
               setSettings: r,
               options: l,
-              setOptions: c,
+              setOptions: u,
               addSuggestedTags: d,
               lyricsType: g,
               setLyricsType: h,
-              resetAll: f,
-              refocusPromptBar: m,
+              resetAll: m,
+              refocusPromptBar: f,
               userApiUsageData: b,
             } = e,
             { samplerOptions: x, setSamplerOptionsItem: y } = (0, z.QY)(),
             { showTagCompletions: v } = (0, Z.F)(),
             { isLargeDevice: w } = (0, S.Z)(),
-            j = (0, u.cC)("show-quota"),
-            N = (0, u.cC)("advanced-controls"),
-            [k, _] = (0, p.useState)(!1);
+            j = (0, c.cC)("show-quota"),
+            N = (0, c.cC)("advanced-controls"),
+            [k, C] = (0, p.useState)(!1);
           (0, p.useEffect)(() => {
             k || y("audio_conditioning_length_seconds", 130);
           }, [k]);
-          let C =
+          let _ =
             "continuation" === x.audio_conditioning_type ||
             "precede" === x.audio_conditioning_type;
           return (0, o.jsxs)("div", {
             className:
-              "absolute left-0 -mt-1 w-full rounded-b-lg bg-background transition duration-300 ease-in-out "
-                .concat(t ? "opacity-100" : "opacity-0", " ")
+              "absolute left-0 -mt-1 max-h-[90vh] w-full overflow-auto rounded-b-lg bg-background transition duration-300 ease-in-out "
+                .concat(a ? "opacity-100" : "opacity-0", " ")
                 .concat(
-                  t ? "block" : "hidden",
+                  a ? "block" : "hidden",
                   "  border-x border-b border-[var(--ring)] pb-4"
                 ),
             children: [
@@ -2563,10 +2634,10 @@
                     className:
                       "absolute left-0 top-5 z-20 flex w-full items-center",
                     children: (0, o.jsx)(eE, {
-                      partialTag: a,
+                      partialTag: t,
                       tagList: s,
                       addSuggestedTags: (e) => {
-                        d(e), m();
+                        d(e), f();
                       },
                     }),
                   })
@@ -2577,12 +2648,12 @@
                 children: (0, o.jsxs)("div", {
                   className: "flex items-center space-x-2",
                   children: [
-                    (0, o.jsx)(B, {
+                    (0, o.jsx)(U, {
                       id: "bypass-settings",
                       checked: x.bypass_prompt_optimization,
                       onCheckedChange: (e) => {
                         y("bypass_prompt_optimization", e),
-                          (0, P.L9)("Select Manual Mode", { value: e });
+                          (0, L.L9)("Select Manual Mode", { value: e });
                       },
                       title: x.bypass_prompt_optimization
                         ? "Infer musical style from prompt"
@@ -2593,7 +2664,7 @@
                       className: "text-sm text-muted-foreground",
                       children: "Manual Mode",
                     }),
-                    (0, o.jsx)(eT, {}),
+                    (0, o.jsx)(eF, {}),
                     (0, o.jsx)("div", {}),
                   ],
                 }),
@@ -2625,7 +2696,7 @@
                       "flex flex-row items-center justify-between space-x-2",
                     children: [
                       (0, o.jsx)(eP, {}),
-                      C &&
+                      _ &&
                         (0, o.jsx)("div", {
                           className: "w-full",
                           children: (0, o.jsx)(ef, {}),
@@ -2633,13 +2704,13 @@
                       "inpaint" === x.audio_conditioning_type &&
                         (0, o.jsx)("div", {
                           className: "w-full",
-                          children: (0, o.jsx)(ek, {}),
+                          children: (0, o.jsx)(eS, {}),
                         }),
                     ],
                   }),
                   (0, o.jsx)("div", {
-                    className: "mt-4",
-                    children: (0, o.jsx)(ez, {
+                    className: "mt-2",
+                    children: (0, o.jsx)(eZ, {
                       settings: i,
                       setSettings: r,
                       lyricsType: g,
@@ -2659,22 +2730,22 @@
                     className: "flex items-center space-x-2",
                     children: [
                       (0, o.jsx)("div", {}),
-                      j && b && (0, o.jsx)(eF, { userApiUsageData: b }),
+                      j && b && (0, o.jsx)(eI, { userApiUsageData: b }),
                     ],
                   }),
                   (0, o.jsxs)("div", {
                     className: "flex space-x-2",
                     children: [
                       N &&
-                        C &&
+                        _ &&
                         (0, o.jsxs)("div", {
                           className: "mr-2 flex items-center space-x-2",
                           children: [
-                            (0, o.jsx)(B, {
+                            (0, o.jsx)(U, {
                               id: "advanced-controls",
                               checked: k,
                               onCheckedChange: (e) => {
-                                _(e);
+                                C(e);
                               },
                               title: "Toggle advanced controls",
                             }),
@@ -2685,16 +2756,16 @@
                             }),
                           ],
                         }),
-                      (0, o.jsxs)(O.z, {
+                      (0, o.jsxs)(q.z, {
                         variant: "default",
-                        onClick: f,
+                        onClick: m,
                         className:
-                          "flex w-[125px] flex-row items-center space-x-2 bg-[#FFFFFF]/5 px-0 hover:bg-[#FFFFFF]/10",
+                          "flex flex-row items-center space-x-2 bg-[#FFFFFF]/5 px-4 hover:bg-[#FFFFFF]/10",
                         children: [
-                          (0, o.jsx)(W.Z, { size: 16, color: "white" }),
+                          (0, o.jsx)(Y.Z, { size: 12, color: "white" }),
                           (0, o.jsx)("div", {
-                            className: " text-sm text-white",
-                            children: "Reset Prompt",
+                            className: "text-sm text-white",
+                            children: "Create New Song",
                           }),
                         ],
                       }),
@@ -2715,420 +2786,861 @@
             ],
           });
         },
-        eR = t(23441),
-        eD = t(88584),
-        eA = (e) => {
+        eA = a(23441),
+        eR = a(70655),
+        eO = a(79584),
+        eq = (e) => {
           let {
-              tagPredictions: a,
-              settings: t,
-              setSettings: n,
-              addSuggestedTags: s,
-              lyricsType: i,
-              setLyricsType: r,
-              userApiUsageData: l,
+            lyricType: t,
+            lyricsType: a,
+            handleChangeLyricType: n,
+            className: s,
+          } = e;
+          return (0, o.jsxs)(
+            q.z,
+            {
+              className: (0, I.cn)(
+                [
+                  "relative flex h-[49px] cursor-pointer flex-row items-center justify-center overflow-hidden rounded-md border border-input bg-transparent-dark px-4 md:justify-between",
+                  a === t.value
+                    ? "border-[var(--ring)] bg-create-background"
+                    : "bg-[#FFFFFF]/5 hover:border-[var(--ring)]",
+                ],
+                s
+              ),
+              onClick: n(t.value),
+              children: [
+                (0, o.jsxs)("div", {
+                  className:
+                    "relative flex w-full flex-col justify-center md:w-4/5 md:justify-start xl:flex-row xl:items-center xl:space-x-2",
+                  children: [
+                    (0, o.jsx)("div", {
+                      className:
+                        "text-left text-sm font-medium text-white xl:text-base",
+                      children: t.title,
+                    }),
+                    t.description
+                      ? (0, o.jsx)("div", {
+                          className:
+                            "truncate-1-line block w-full whitespace-nowrap text-left text-xs leading-5 text-muted-foreground md:hidden lg:block",
+                          children: t.description,
+                        })
+                      : null,
+                  ],
+                }),
+                a === t.value
+                  ? (0, o.jsx)(es.Z, {
+                      className: "block md:hidden lg:block",
+                      size: 16,
+                      color: "black",
+                      fill: "white",
+                    })
+                  : (0, o.jsx)(E.Z, {
+                      className: "block md:hidden lg:block",
+                      size: 16,
+                      color: "white",
+                    }),
+              ],
+            },
+            t.title
+          );
+        },
+        eW = (e) => {
+          var t, a;
+          let {
+              settings: n,
+              lyricsType: s,
+              setLyricsType: i,
+              setDrawerLyricsSheetOpen: r,
             } = e,
-            { samplerOptions: c, setSamplerOptionsItem: d } = (0, z.QY)();
-          c.crop_start_time && (c.crop_start_time < 0.1 || c.crop_start_time);
-          let g =
-            "continuation" === c.audio_conditioning_type ||
-            "precede" === c.audio_conditioning_type;
+            { isMediumDevice: l } = (0, S.Z)(),
+            c = (0, p.useCallback)(
+              (e) => () => {
+                i(e), (0, L.L9)("Select Lyric Type", { lyricType: e });
+              },
+              [i]
+            );
+          return (0, o.jsxs)("div", {
+            children: [
+              (0, o.jsx)("h1", {
+                className: "mb-2 text-sm text-muted-foreground",
+                children: "Lyrics",
+              }),
+              (0, o.jsxs)("div", {
+                className: (0, I.cn)(
+                  "mb-3 grid grid-cols-2 items-center gap-4 md:grid-cols-3"
+                ),
+                children: [
+                  (0, o.jsx)(eq, {
+                    className:
+                      "order-last col-span-2 md:order-none md:col-span-1",
+                    lyricType: {
+                      title: "Custom",
+                      description: "Write your own lyrics",
+                      value: "lyricInput",
+                    },
+                    lyricsType: s,
+                    handleChangeLyricType: c,
+                  }),
+                  (0, o.jsx)(eq, {
+                    lyricType: { title: "Instrumental", value: "instrumental" },
+                    lyricsType: s,
+                    handleChangeLyricType: c,
+                  }),
+                  (0, o.jsx)(eq, {
+                    className: "order-first md:order-none",
+                    lyricType: {
+                      title: l ? "Auto-generated" : "Generated",
+                      value: "infer",
+                    },
+                    lyricsType: s,
+                    handleChangeLyricType: c,
+                  }),
+                ],
+              }),
+              "lyricInput" === s
+                ? (0, o.jsx)("div", {
+                    className: "flex min-h-[150px] items-center md:h-auto",
+                    children: (0, o.jsx)("div", {
+                      className:
+                        "relative flex w-full flex-col items-start lg:flex-row lg:space-x-2",
+                      children: (0, o.jsx)("div", {
+                        className: (0, I.cn)([
+                          "w-full overflow-y-hidden whitespace-pre rounded-md border border-input px-4 py-2 text-[16px] text-muted-foreground transition-all duration-200 ease-in-out md:min-h-[150px] md:text-[14px] lg:w-2/3",
+                          (
+                            null === (t = n.lyricInput) || void 0 === t
+                              ? void 0
+                              : t.length
+                          )
+                            ? "text-muted-foreground"
+                            : "text-gray-4",
+                        ]),
+                        style: { maxHeight: 150, minHeight: 150 },
+                        onClick: () => r(!0),
+                        children: (
+                          null === (a = n.lyricInput) || void 0 === a
+                            ? void 0
+                            : a.length
+                        )
+                          ? n.lyricInput
+                          : "Describe your song to generate lyrics,\nor write your own",
+                      }),
+                    }),
+                  })
+                : null,
+            ],
+          });
+        },
+        eY = (e) => {
+          let {
+              settings: t,
+              lyricsType: a,
+              setLyricsType: n,
+              setDrawerLyricsSheetOpen: s,
+            } = e,
+            { samplerOptions: i, setSamplerOptionsItem: r } = (0, z.QY)();
+          i.crop_start_time && (i.crop_start_time < 0.1 || i.crop_start_time);
+          let l =
+            "continuation" === i.audio_conditioning_type ||
+            "precede" === i.audio_conditioning_type;
           return (
-            (0, u.cC)("advanced-controls"),
+            (0, c.cC)("advanced-controls"),
             (0, o.jsx)("div", {
-              className: "relative left-0 w-full bg-gray-light",
+              className: "relative left-0 w-full bg-gray-dark",
               children: (0, o.jsxs)("div", {
                 className: "relative w-full",
                 children: [
-                  (0, o.jsxs)("div", {
-                    className: (0, L.cn)("relative w-full", "mb-4"),
-                    children: [
-                      (0, o.jsx)("div", {
-                        className: "relative flex flex-col items-end",
-                        children: (0, o.jsxs)("div", {
-                          className: "flex w-full items-center justify-between",
-                          children: [
-                            l && "new" !== l.tier
-                              ? (0, o.jsxs)("span", {
-                                  className: " flex text-xs",
-                                  children: [
-                                    l.monthly_used,
-                                    " /",
-                                    " ",
-                                    l.monthly_limit,
-                                    " Monthly Generations",
-                                  ],
-                                })
-                              : (0, o.jsx)("div", {}),
-                            (0, o.jsxs)("span", {
-                              className: "flex items-center space-x-2",
-                              children: [
-                                (0, o.jsx)(B, {
-                                  id: "bypass-settings",
-                                  checked: c.bypass_prompt_optimization,
-                                  onCheckedChange: (e) => {
-                                    d("bypass_prompt_optimization", e),
-                                      (0, P.L9)("Select Manual Mode", {
-                                        value: e,
-                                      });
-                                  },
-                                }),
-                                (0, o.jsx)("label", {
-                                  htmlFor: "bypass-settings",
-                                  className: "text-sm ",
-                                  children: "Manual Mode",
-                                }),
-                                (0, o.jsx)(eT, {}),
-                              ],
-                            }),
-                          ],
-                        }),
-                      }),
-                      (null == a ? void 0 : a.length)
-                        ? (0, o.jsxs)(o.Fragment, {
-                            children: [
-                              (0, o.jsx)("h1", {
-                                className:
-                                  "truncate-1-line mb-3 max-w-full text-sm text-muted-foreground",
-                                children: "Suggested tags",
-                              }),
-                              (0, o.jsx)("div", {
-                                className: "mb-3 flex items-center",
-                                children: (0, o.jsx)(J, {
-                                  tagType: "Prediction",
-                                  tagList: a,
-                                  addSuggestedTags: s,
-                                }),
-                              }),
-                            ],
-                          })
-                        : null,
-                    ],
-                  }),
                   (0, o.jsx)(eP, {}),
-                  g &&
+                  l &&
                     (0, o.jsx)("div", {
-                      className: "my-5 w-full",
+                      className: "my-3 w-full",
                       children: (0, o.jsx)(ef, {}),
                     }),
-                  g &&
+                  l &&
                     (0, o.jsx)("div", {
                       className: "mb-2 w-full",
                       children: (0, o.jsx)(ea, {}),
                     }),
-                  "inpaint" === c.audio_conditioning_type &&
+                  "inpaint" === i.audio_conditioning_type &&
                     (0, o.jsx)("div", {
                       className: "w-full",
-                      children: (0, o.jsx)(ek, {}),
+                      children: (0, o.jsx)(eS, {}),
                     }),
-                  (0, o.jsx)(ez, {
+                  (0, o.jsx)(eW, {
+                    setDrawerLyricsSheetOpen: s,
                     settings: t,
-                    setSettings: n,
-                    lyricsType: i,
-                    setLyricsType: r,
+                    lyricsType: a,
+                    setLyricsType: n,
                   }),
                 ],
               }),
             })
           );
         },
-        eq = (e) => {
+        eQ = a(80037),
+        eB = (e) => {
           let {
-              partialTag: a,
-              promptSuggestion: t,
-              settings: n,
-              setSettings: s,
-              inputCursorLocation: i,
-              setInputCursorLocation: r,
-              handleGenerate: l,
-              generatePromptSuggestions: u,
-              imageWidth: c,
-              createText: d,
-              createDisabled: g,
-              addSuggestedTags: h,
-              tagPredictions: b,
-              tagCompletions: x,
-              lyricsType: y,
-              setLyricsType: v,
-              resetAll: w,
+              isOpen: t,
+              inputRef: a,
+              onClose: n,
+              settings: s,
+              setSettings: i,
+              lyricsType: r,
             } = e,
-            { openAuthModal: j } = (0, T.fI)(),
-            N = (0, k.Z)(),
-            _ = (0, p.useRef)(null),
-            S = (0, p.useRef)(null),
-            {
-              mobileDrawerOpen: z,
-              setMobileDrawerOpen: F,
-              lyricsFocus: I,
-              showTagCompletions: E,
-            } = (0, Z.F)(),
-            { data: M } = C(z),
-            R = async () => {
-              await l(!0), F(!1);
-            },
-            D = (0, p.useCallback)(() => {
-              F(!1);
-            }, [F]);
+            { setLyricsFocus: l } = (0, Z.F)(),
+            [c, u] = (0, p.useState)(0),
+            d = (0, p.useCallback)(() => {
+              u((c + 1) % F.mW.length);
+            }, [c]),
+            g = (0, p.useCallback)(() => {
+              u((c - 1 + F.mW.length) % F.mW.length);
+            }, [c]);
           (0, p.useEffect)(() => {
-            I &&
-              setTimeout(() => {
-                if (S.current) {
-                  let e =
-                    S.current.scrollHeight / 2 - S.current.clientHeight / 2;
-                  S.current.scrollTo(0, e);
-                }
-              }, 200);
-          }, [I]);
-          let A = () => {
-            let e = _.current;
-            e &&
-              setTimeout(() => {
-                e.focus();
-              }, 200);
-          };
-          return (0, o.jsxs)("div", {
-            className: "md:hidden",
-            children: [
-              (0, o.jsx)("div", {
-                onClick: () => {
-                  if (!N) {
-                    j();
-                    return;
-                  }
-                  F(!0);
-                },
-                className: "flex items-center justify-center",
-                children: (0, o.jsx)("div", {
-                  className: (0, L.cn)(
-                    "absolute bottom-1 cursor-pointer rounded-full bg-brand-accent p-3",
-                    N ? "" : "opacity-70"
-                  ),
-                  children: (0, o.jsx)("div", {
-                    className: "cursor-pointer",
-                    onClick: () => (0, P.L9)("Click Mobile Create Button", {}),
-                    children: (0, o.jsx)(el.default, {
-                      src: "/icons/create-icon.svg",
-                      width: 32,
-                      height: 32,
-                      alt: "Create",
-                    }),
-                  }),
-                }),
-              }),
-              (0, o.jsx)(eD.Z, {
-                detent: "full-height",
-                isOpen: z,
-                onClose: D,
-                children: (0, o.jsxs)(eD.Z.Container, {
+            "lyricInput" === r && u(Math.floor(Math.random() * F.mW.length));
+          }, [r]);
+          let [h, m] = (0, p.useState)(!1);
+          return (0, o.jsx)(eO.y, {
+            detent: "full-height",
+            isOpen: t,
+            onClose: n,
+            children: (0, o.jsxs)(eO.y.Container, {
+              style: { height: "calc(100% - env(safe-area-inset-top))" },
+              children: [
+                (0, o.jsx)(eO.y.Header, { className: "bg-gray-dark" }),
+                (0, o.jsxs)(eO.y.Content, {
+                  disableDrag: !0,
+                  className: "bg-gray-dark",
                   children: [
-                    (0, o.jsx)(eD.Z.Header, { className: "bg-create" }),
-                    (0, o.jsxs)(eD.Z.Content, {
-                      disableDrag: !0,
-                      className: "bg-create",
-                      children: [
-                        (0, o.jsxs)("div", {
-                          className:
-                            "flex w-full flex-row items-center justify-between bg-create p-4",
-                          children: [
-                            (0, o.jsxs)("div", {
-                              className: "flex items-center space-x-4",
-                              children: [
-                                (0, o.jsx)(eR.Z, {
-                                  size: 24,
-                                  onClick: () => F(!1),
-                                  className: "z-10 cursor-pointer",
-                                }),
-                                (0, o.jsx)("div", { children: "Create" }),
-                                (0, o.jsx)(f.Z, {
-                                  fill: "#808080",
-                                  color: "#808080",
-                                  size: 24,
-                                  className: "",
-                                }),
-                              ],
-                            }),
-                            (0, o.jsxs)("div", {
-                              className: "flex flex-row items-center space-x-5",
-                              children: [
-                                (0, o.jsx)("button", {
-                                  className:
-                                    "ml-4 transition duration-300 ease-in-out hover:rotate-45 hover:scale-105",
-                                  onClick: (e) => {
-                                    e.preventDefault();
-                                    let { prompt: a, tags: t } = u();
-                                    (a = a + ", " + t.join(", ")),
-                                      s({ ...n, prompt: a }),
-                                      (0, P.L9)("Randomize Prompt", {});
-                                  },
-                                  children: (0, o.jsx)(m.Z, {
-                                    className: "h-6 w-6",
-                                  }),
-                                }),
-                                (0, o.jsx)(O.z, {
-                                  variant: "ghost",
-                                  onClick: w,
-                                  className:
-                                    "flexflex-row items-center space-x-2 px-0",
-                                  children: (0, o.jsx)(W.Z, { size: 24 }),
-                                }),
-                              ],
-                            }),
-                          ],
-                        }),
-                        (0, o.jsxs)("div", {
-                          className: "relative w-full",
-                          children: [
-                            (0, o.jsx)(eC.g, {
-                              enterKeyHint: "send",
-                              ref: _,
-                              placeholder:
-                                (null == t ? void 0 : t.prompt) || eY,
-                              className:
-                                "m-auto mb-1 h-full w-11/12 bg-gray-light px-2 py-2 text-[16px] md:text-[14px]",
-                              value: n.prompt,
-                              onDrag: (e) => e.stopPropagation(),
-                              onSelect: (e) => {
-                                r(e.target.selectionStart);
-                              },
-                              onChange: (e) => {
-                                s({ ...n, prompt: e.target.value }),
-                                  r(e.target.selectionStart);
-                              },
-                              onKeyDown: (e) => {
-                                "Enter" === e.key && R(),
-                                  "Tab" === e.key &&
-                                    "" === n.prompt &&
-                                    (e.preventDefault(),
-                                    s({
-                                      ...n,
-                                      prompt:
-                                        (null == t ? void 0 : t.prompt) || eY,
-                                    }));
-                              },
-                            }),
-                            (null == x ? void 0 : x.length) && E
-                              ? (0, o.jsx)("div", {
-                                  className:
-                                    "absolute -bottom-1 left-0 flex w-full flex-col items-end",
-                                  children: (0, o.jsx)(eE, {
-                                    containerStyle: "bg-create opacity-75",
-                                    partialTag: a,
-                                    tagList: x,
-                                    addSuggestedTags: (e) => {
-                                      h(e), A();
-                                    },
-                                  }),
-                                })
-                              : null,
-                          ],
-                        }),
-                        (0, o.jsx)(Q.Z, { className: "mb-5 mt-2 px-4" }),
-                        (0, o.jsx)(eD.Z.Scroller, {
-                          ref: S,
-                          children: (0, o.jsx)("div", {
-                            className: "flex justify-between",
-                            children: (0, o.jsxs)("div", {
-                              className: "relative w-full py-4",
-                              children: [
-                                (0, o.jsx)("div", {
-                                  className: "px-4",
-                                  children: (0, o.jsx)(eA, {
-                                    partialTag: a,
-                                    tagPredictions: b,
-                                    settings: n,
-                                    setSettings: s,
-                                    addSuggestedTags: h,
-                                    lyricsType: y,
-                                    setLyricsType: v,
-                                    userApiUsageData: M,
-                                  }),
-                                }),
-                                (0, o.jsx)("div", {
-                                  className: (0, L.cn)(
-                                    "bottom-[10px] left-0 w-full px-4",
-                                    "fixed"
-                                  ),
-                                  children: (0, o.jsx)("div", {
-                                    className:
-                                      "flex flex-row justify-between space-x-4",
-                                    children: (0, o.jsx)(O.z, {
-                                      className:
-                                        "w-full rounded-[4px] bg-brand-accent py-4 text-white disabled:opacity-75",
-                                      variant: "create",
-                                      size: "custom",
-                                      disabled: g || !N,
-                                      onClick: R,
-                                      children: d,
-                                    }),
-                                  }),
-                                }),
-                              ],
-                            }),
+                    (0, o.jsx)(eO.y, {
+                      detent: "full-height",
+                      isOpen: h,
+                      onClose: () => m(!1),
+                      children: (0, o.jsxs)(eO.y.Container, {
+                        style: {
+                          height: "calc(100% - env(safe-area-inset-top))",
+                        },
+                        children: [
+                          (0, o.jsx)(eO.y.Header, {
+                            className: "bg-gray-dark",
                           }),
-                        }),
-                      ],
+                          (0, o.jsxs)(eO.y.Content, {
+                            className: "bg-gray-dark",
+                            children: [
+                              (0, o.jsx)("div", {
+                                className: "absolute left-4 top-2 z-10",
+                                onClick: () => m(!1),
+                                children: (0, o.jsx)(ew.Z, {
+                                  size: 24,
+                                  onClick: () => m(!1),
+                                }),
+                              }),
+                              (0, o.jsx)("div", {
+                                className: "absolute top-2 w-full",
+                                children: (0, o.jsxs)("div", {
+                                  className:
+                                    "flex w-full items-center justify-center",
+                                  children: [
+                                    (0, o.jsx)(ez.Z, {
+                                      className: "mr-2",
+                                      size: 24,
+                                    }),
+                                    "Lyrics Tips",
+                                  ],
+                                }),
+                              }),
+                              (0, o.jsxs)("div", {
+                                className:
+                                  "absolute right-4 top-2 z-10 flex space-x-4",
+                                children: [
+                                  (0, o.jsx)(H.Z, {
+                                    size: 24,
+                                    className: "cursor-pointer",
+                                    onClick: g,
+                                  }),
+                                  (0, o.jsx)(G.Z, {
+                                    size: 24,
+                                    className: "cursor-pointer",
+                                    onClick: d,
+                                  }),
+                                ],
+                              }),
+                              (0, o.jsxs)("div", {
+                                className: "relative top-16 mx-4",
+                                children: [
+                                  (0, o.jsx)("div", {
+                                    className: "text-lg text-white",
+                                    children: F.mW[c],
+                                  }),
+                                  " ",
+                                ],
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    }),
+                    (0, o.jsx)(eO.y.Scroller, {
+                      children: (0, o.jsxs)("div", {
+                        children: [
+                          (0, o.jsx)(eT.g, {
+                            id: "lyric-input",
+                            ref: a,
+                            placeholder:
+                              "Describe your song to generate lyrics, or write your own",
+                            className:
+                              "m-auto mb-2 mt-2 h-[132px] w-11/12 bg-gray-dark px-2 py-2 text-[16px] md:text-[14px]",
+                            style: { minHeight: 150 },
+                            value: s.lyricInput,
+                            onDrag: (e) => e.stopPropagation(),
+                            onFocus: () => l(!0),
+                            onBlur: () => l(!1),
+                            onChange: (e) => {
+                              i({ ...s, lyricInput: e.target.value });
+                            },
+                          }),
+                          (0, I.wb)(s.lyricInput || "") &&
+                            (0, o.jsx)("p", {
+                              className:
+                                "mt-2 px-1 text-sm font-medium text-destructive md:hidden",
+                              children:
+                                "Use less than 350 characters for best results",
+                            }),
+                          (0, o.jsxs)("div", {
+                            className: "relative flex w-full items-center px-4",
+                            children: [
+                              (0, o.jsx)("div", {
+                                className:
+                                  "absolute right-4 top-2 flex items-center space-x-4",
+                                children: (0, o.jsx)("div", {
+                                  className: "rounded-full bg-white p-2",
+                                  onClick: () => n(),
+                                  children: (0, o.jsx)(eQ.Z, {
+                                    size: 24,
+                                    color: "black",
+                                    className:
+                                      "z-10 cursor-pointer rounded-full text-2xl text-black",
+                                  }),
+                                }),
+                              }),
+                              (0, o.jsxs)(q.z, {
+                                onClick: () => m(!0),
+                                variant: "ghost",
+                                className:
+                                  "my-2 flex flex-row items-center px-0 text-base text-white",
+                                children: [
+                                  (0, o.jsx)(ez.Z, {
+                                    className: "mr-2",
+                                    size: 16,
+                                  }),
+                                  "Lyrics Tips",
+                                ],
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
                     }),
                   ],
                 }),
-              }),
-            ],
+              ],
+            }),
+          });
+        },
+        eU = (e) => {
+          let {
+              promptFocus: t,
+              size: a = 20,
+              color: n = "white",
+              className: s,
+              contentClassName: i,
+              onTouchStart: r,
+            } = e,
+            [l, c] = (0, p.useState)(!1),
+            [u, d] = (0, p.useState)(!1),
+            g = (0, p.useCallback)(() => {
+              u ? (d(!1), c(!1)) : t && l ? d(!0) : t || c(!1);
+            }, [l, t, u]),
+            h = (0, p.useCallback)(() => {
+              d(!1), r && r(), c(!l);
+            }, [t, l]);
+          return (0, o.jsx)(ee.pn, {
+            delayDuration: 300,
+            children: (0, o.jsxs)(ee.u, {
+              open: l,
+              onOpenChange: g,
+              children: [
+                (0, o.jsx)(ee.aJ, {
+                  id: "info-tooltip",
+                  onTouchStart: h,
+                  children: (0, o.jsx)(M.Z, {
+                    className: s,
+                    size: a,
+                    color: n,
+                  }),
+                }),
+                (0, o.jsx)(ee._v, {
+                  className: (0, I.cn)(["w-[400px] max-w-[75%]", i]),
+                  children: (0, o.jsx)("div", {
+                    children:
+                      "Manual mode allows you to directly prompt the model without any prompt rewriting. By default, our system rewrites your prompts to improve the average output quality. If you are seeking specific sounds and want to interact directly with the model interface, we recommend using manual mode.",
+                  }),
+                }),
+              ],
+            }),
           });
         };
-      let eO = 16,
-        eY = "a song about...",
-        eW = (e) => {
-          var a;
-          let { drawer: t } = e,
-            n = (0, k.Z)(),
-            [s, i] = (0, p.useState)(!1),
-            [r, b] = (0, p.useState)("infer"),
-            [w, j] = (0, p.useState)(!1),
-            [_, E] = (0, p.useState)(void 0),
-            [M, R] = (0, p.useState)(Date.now()),
-            D = (0, u.cC)("show-quota"),
-            { data: A, refetch: W } = C(D),
+      let eH = 7 / 12;
+      var eG = (e) => {
+          let {
+              partialTag: t = "",
+              tagList: a,
+              addSuggestedTags: n,
+              containerStyle: s,
+            } = e,
+            i = (0, p.useRef)(null),
+            [r, l] = (0, p.useState)(!1),
+            [c, u] = (0, p.useState)(!0),
+            { setShowTagCompletions: d } = (0, Z.F)(),
+            { isMediumDevice: g } = (0, S.Z)(),
+            h = (0, p.useCallback)(() => {
+              if (i.current) {
+                let { scrollWidth: e, clientWidth: t } = i.current;
+                i.current.scrollLeft = Math.min(
+                  i.current.scrollLeft + t * eH,
+                  e - t
+                );
+              }
+            }, []),
+            m = (0, p.useCallback)(() => {
+              i.current &&
+                (i.current.scrollLeft = Math.max(
+                  i.current.scrollLeft - i.current.clientWidth * eH,
+                  0
+                ));
+            }, []);
+          (0, p.useEffect)(() => {
+            let e = () => {
+                if (!i.current) return;
+                let {
+                  scrollLeft: e,
+                  scrollWidth: t,
+                  clientWidth: a,
+                } = i.current;
+                0 === e ? l(!1) : l(!0), e + a === t ? u(!1) : u(!0);
+              },
+              t = i.current;
+            return (
+              null == t || t.addEventListener("scroll", e),
+              () => (null == t ? void 0 : t.removeEventListener("scroll", e))
+            );
+          }, [null == i ? void 0 : i.current]);
+          let f = null == a ? void 0 : a.filter((e) => e.value !== t);
+          return (null == f ? void 0 : f.length)
+            ? (0, o.jsxs)("div", {
+                className: "h-[88px]",
+                children: [
+                  (0, o.jsxs)("div", {
+                    className: "flex gap-x-2 py-2 pr-1",
+                    children: [
+                      (0, o.jsx)(ew.Z, {
+                        size: 28,
+                        fill: "white",
+                        onClick: () => d(!1),
+                      }),
+                      (0, o.jsxs)("div", {
+                        className: "text-base text-[#808080]",
+                        children: [
+                          "Autocompleting for ",
+                          (0, o.jsx)("span", {
+                            className: "text-white",
+                            children: t,
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  (0, o.jsxs)("div", {
+                    className:
+                      "absolute z-10 flex w-[calc(100vw-16px)] items-center overflow-x-auto bg-background pb-1 pr-4",
+                    children: [
+                      (0, o.jsx)("div", {
+                        className: (0, I.cn)([
+                          "absolute -z-10 h-full w-full bg-black/55",
+                          s,
+                        ]),
+                      }),
+                      (0, o.jsxs)("div", {
+                        className:
+                          "relative flex max-w-full flex-grow items-center",
+                        children: [
+                          r
+                            ? (0, o.jsxs)(o.Fragment, {
+                                children: [
+                                  (0, o.jsx)("div", {
+                                    className: (0, I.cn)([
+                                      "pointer-events-none absolute left-0 hidden h-[40px] w-[250px] bg-gradient-to-l from-transparent to-black md:block",
+                                      "transition-opacity duration-500",
+                                      r ? "opacity-100" : "opacity-0",
+                                    ]),
+                                  }),
+                                  (0, o.jsx)("div", {
+                                    className: (0, I.cn)([
+                                      "absolute left-[46px] top-[2px] py-1 pl-1 pr-4",
+                                      "transition-opacity duration-500",
+                                      r ? "opacity-100" : "opacity-0",
+                                    ]),
+                                    children: (0, o.jsx)(V.C, {
+                                      className:
+                                        "mr-2 hidden cursor-pointer rounded-full border border-input bg-black p-1 text-foreground hover:text-muted-foreground md:inline-flex",
+                                      onMouseDown: (e) => {
+                                        e.preventDefault(), m();
+                                      },
+                                      children: (0, o.jsx)(H.Z, { size: 16 }),
+                                    }),
+                                  }),
+                                ],
+                              })
+                            : null,
+                          (0, o.jsx)("div", {
+                            ref: i,
+                            className:
+                              "flex max-h-[40px] w-full items-center gap-y-10 space-x-2 overflow-hidden overflow-x-auto scroll-smooth py-2 ",
+                            style: { scrollbarWidth: "none" },
+                            children: f.slice(0, 10).map((e) =>
+                              (0, o.jsx)(
+                                "button",
+                                {
+                                  className:
+                                    "flex cursor-pointer items-center whitespace-nowrap rounded-full border border-input bg-black/90 px-4 py-1 text-sm text-muted-foreground focus:outline-none",
+                                  onMouseDown: (t) => {
+                                    t.preventDefault(),
+                                      n([e.value]),
+                                      (0, L.L9)("Tag Completion Click", {
+                                        tag: e.value,
+                                      });
+                                  },
+                                  children: e.value.includes(t)
+                                    ? (0, o.jsxs)("span", {
+                                        children: [
+                                          e.value.slice(0, e.value.indexOf(t)),
+                                          " " ===
+                                          e.value[e.value.indexOf(t) - 1]
+                                            ? " "
+                                            : "",
+                                          (0, o.jsx)("span", {
+                                            className: "font-bold underline",
+                                            children: t,
+                                          }),
+                                          " " ===
+                                          e.value[e.value.indexOf(t) + t.length]
+                                            ? " "
+                                            : "",
+                                          e.value.slice(
+                                            e.value.indexOf(t) + t.length
+                                          ),
+                                        ],
+                                      })
+                                    : e.value,
+                                },
+                                e.value
+                              )
+                            ),
+                          }),
+                          c
+                            ? (0, o.jsxs)(o.Fragment, {
+                                children: [
+                                  (0, o.jsx)("div", {
+                                    className: (0, I.cn)([
+                                      "pointer-events-none absolute right-0 hidden h-[40px] w-[200px] bg-gradient-to-r from-transparent to-black md:block",
+                                      "transition-opacity duration-500",
+                                      c ? "opacity-100" : "opacity-0",
+                                    ]),
+                                  }),
+                                  (0, o.jsx)("div", {
+                                    className: (0, I.cn)([
+                                      "absolute right-0 top-[2px] py-1 pl-4 pr-4",
+                                      "transition-opacity duration-500",
+                                      c ? "opacity-100" : "opacity-0",
+                                    ]),
+                                    children: (0, o.jsx)(V.C, {
+                                      className:
+                                        "ml-3 hidden cursor-pointer rounded-full border border-input bg-black p-1 text-foreground hover:text-muted-foreground md:inline-flex",
+                                      onMouseDown: (e) => {
+                                        e.preventDefault(), h();
+                                      },
+                                      children: (0, o.jsx)(G.Z, { size: 16 }),
+                                    }),
+                                  }),
+                                ],
+                              })
+                            : null,
+                        ],
+                      }),
+                    ],
+                  }),
+                ],
+              })
+            : null;
+        },
+        eV = (e) => {
+          let {
+            inputRef: t,
+            promptSuggestion: a,
+            settings: n,
+            samplerOptions: s,
+            promptFocus: i,
+            partialTag: r,
+            showTagCompletions: l,
+            tagCompletions: c,
+            tagPredictions: u,
+            addSuggestedTags: d,
+            setPromptFocus: g,
+            refocusPromptBar: h,
+            setSamplerOptionsItem: m,
+            handleIconTouchStart: b,
+            handlePromptBlur: x,
+            setInputCursorLocation: y,
+            generatePromptSuggestions: v,
+            setSettings: w,
+            isOpen: j,
+            onClose: N,
+            resetAll: k,
+          } = e;
+          return (
+            (0, p.useEffect)(() => {
+              j && t.current && h(300);
+            }, [t, j, h]),
+            (0, o.jsxs)(eO.y, {
+              detent: "full-height",
+              isOpen: j,
+              onClose: N,
+              children: [
+                (0, o.jsxs)(eO.y.Container, {
+                  style: { height: "calc(100% - env(safe-area-inset-top))" },
+                  children: [
+                    (0, o.jsx)(eO.y.Header, { className: "bg-gray-dark" }),
+                    (0, o.jsx)(eO.y.Content, {
+                      className: "bg-gray-dark",
+                      disableDrag: !0,
+                      children: (0, o.jsx)(eO.y.Scroller, {
+                        children: (0, o.jsxs)("div", {
+                          children: [
+                            (0, o.jsx)(eT.g, {
+                              id: "prompt-input",
+                              ref: t,
+                              placeholder:
+                                (null == a ? void 0 : a.prompt) || eX,
+                              className:
+                                "m-auto mb-4 mt-2 h-[132px] w-11/12 bg-gray-dark px-2 py-2 text-[16px] md:text-[14px]",
+                              value: n.prompt,
+                              onFocus: () => g(!0),
+                              onBlur: (e) => x(0, e),
+                              onSelect: (e) => {
+                                y(e.target.selectionStart);
+                              },
+                              onChange: (e) => {
+                                w({ ...n, prompt: e.target.value }),
+                                  y(e.target.selectionStart);
+                              },
+                              onKeyDown: (e) => {
+                                "Tab" === e.key &&
+                                  "" === n.prompt &&
+                                  (e.preventDefault(),
+                                  w({
+                                    ...n,
+                                    prompt:
+                                      (null == a ? void 0 : a.prompt) || eX,
+                                  }));
+                              },
+                            }),
+                            (0, o.jsx)("div", {
+                              children:
+                                i && l && (null == c ? void 0 : c.length)
+                                  ? (null == c ? void 0 : c.length)
+                                    ? (0, o.jsx)("div", {
+                                        className: (0, I.cn)(
+                                          "relative w-full px-4",
+                                          "mb-2"
+                                        ),
+                                        children: (0, o.jsx)("div", {
+                                          className: "mb-2 flex items-center",
+                                          children: (0, o.jsx)(eG, {
+                                            partialTag: r,
+                                            tagList: c,
+                                            addSuggestedTags: (e) => {
+                                              d(e), h(200);
+                                            },
+                                          }),
+                                        }),
+                                      })
+                                    : (0, o.jsx)("div", {
+                                        className: "h-[88px]",
+                                      })
+                                  : null,
+                            }),
+                            (0, o.jsx)("div", {
+                              className: (0, I.cn)(
+                                "relative w-full px-4",
+                                "mb-2"
+                              ),
+                              children: (null == u ? void 0 : u.length)
+                                ? (0, o.jsxs)("div", {
+                                    className: "h-[88px]",
+                                    children: [
+                                      (0, o.jsx)("h1", {
+                                        className:
+                                          "truncate-1-line mb-2 max-w-full text-sm text-muted-foreground",
+                                        children: "Suggested tags",
+                                      }),
+                                      (0, o.jsx)("div", {
+                                        className: "mb-2 flex items-center",
+                                        children: (0, o.jsx)(J, {
+                                          tagType: "Prediction",
+                                          tagList: u,
+                                          addSuggestedTags: d,
+                                        }),
+                                      }),
+                                    ],
+                                  })
+                                : (0, o.jsx)("div", { className: "h-[88px]" }),
+                            }),
+                            (0, o.jsx)("div", {
+                              className:
+                                "relative mt-2 flex w-full flex-row items-center justify-between bg-gray-dark",
+                              children: (0, o.jsxs)("div", {
+                                className:
+                                  "relative flex w-full flex-row items-center justify-between px-4",
+                                children: [
+                                  (0, o.jsxs)("div", {
+                                    className:
+                                      "mb-2 flex w-full items-center space-x-4",
+                                    children: [
+                                      (0, o.jsx)(U, {
+                                        id: "bypass-settings",
+                                        className: s.bypass_prompt_optimization
+                                          ? ""
+                                          : "bg-[#808080]",
+                                        checked: s.bypass_prompt_optimization,
+                                        onClick: (e) => {
+                                          h(0);
+                                        },
+                                        onCheckedChange: (e) => {
+                                          m("bypass_prompt_optimization", e),
+                                            (0, L.L9)("Select Manual Mode", {
+                                              value: e,
+                                            });
+                                        },
+                                      }),
+                                      (0, o.jsxs)("span", {
+                                        id: "bar-inner-container",
+                                        className: "flex items-center gap-x-2",
+                                        children: [
+                                          (0, o.jsx)(eU, {
+                                            promptFocus: i,
+                                            className: "h-7 w-7",
+                                            onTouchStart: b,
+                                          }),
+                                          (0, o.jsx)("label", {
+                                            className: "text-sm text-[#808080]",
+                                            children: "Manual",
+                                          }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                  (0, o.jsxs)("div", {
+                                    className:
+                                      "flex items-center justify-end space-x-8",
+                                    children: [
+                                      (0, o.jsx)("button", {
+                                        className:
+                                          "transition duration-300 ease-in-out hover:rotate-45 hover:scale-105",
+                                        onClick: (e) => {
+                                          e.preventDefault();
+                                          let { prompt: t, tags: a } = v();
+                                          (t = t + ", " + a.join(", ")),
+                                            w({ ...n, prompt: t }),
+                                            (0, L.L9)("Randomize Prompt", {});
+                                        },
+                                        children: (0, o.jsx)(f.Z, {
+                                          className: "h-6 w-6",
+                                        }),
+                                      }),
+                                      (0, o.jsx)(q.z, {
+                                        variant: "ghost",
+                                        onClick: k,
+                                        className:
+                                          "flex flex-row items-center space-x-2 px-0",
+                                        children: (0, o.jsx)(Y.Z, { size: 24 }),
+                                      }),
+                                      (0, o.jsx)("div", {
+                                        className: "rounded-full bg-white p-2",
+                                        onClick: () => N(),
+                                        children: (0, o.jsx)(eQ.Z, {
+                                          size: 24,
+                                          color: "black",
+                                          className:
+                                            "z-10 cursor-pointer rounded-full text-2xl text-black",
+                                        }),
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              }),
+                            }),
+                          ],
+                        }),
+                      }),
+                    }),
+                  ],
+                }),
+                (0, o.jsx)(eO.y.Backdrop, {}),
+              ],
+            })
+          );
+        },
+        eK = (e) => {
+          var t, a;
+          let {
+              partialTag: n,
+              options: s,
+              promptSuggestion: i,
+              settings: r,
+              setSettings: l,
+              setInputCursorLocation: c,
+              handleGenerate: u,
+              generatePromptSuggestions: d,
+              createDisabled: g,
+              addSuggestedTags: h,
+              tagPredictions: m,
+              tagCompletions: b,
+              lyricsType: x,
+              setLyricsType: y,
+              resetAll: v,
+            } = e,
+            { openAuthModal: w } = (0, T.fI)(),
+            j = (0, k.Z)(),
+            N = (0, p.useRef)(null),
+            C = (0, p.useRef)(null),
+            S = (0, p.useRef)(null),
+            [F, P] = (0, p.useState)(!1),
+            [D, E] = (0, p.useState)(0),
+            [M, A] = (0, p.useState)(!1),
+            [R, O] = (0, p.useState)("auto"),
+            [W, B] = (0, p.useState)(!1),
+            [U, H] = (0, p.useState)(!1),
             {
-              mobileDrawerOpen: Q,
-              showOptions: U,
-              setShowOptions: B,
-              setShowTagCompletions: H,
+              mobileDrawerOpen: G,
+              setMobileDrawerOpen: V,
+              lyricsFocus: K,
+              setLyricsFocus: X,
+              showTagCompletions: $,
             } = (0, Z.F)(),
-            G = (0, p.useRef)(!1),
-            K = (0, p.useRef)(null),
-            V = (0, p.useRef)(null),
-            {
-              resetPromptBar: J,
-              generateTrack: X,
-              samplerOptions: $,
-              generationSettings: ee,
-              setGenerationSettings: ea,
-              setSamplerOptions: et,
-            } = (0, z.QY)(),
-            eo = (0, h.NL)(),
-            [en, es] = (0, p.useState)(ee),
-            [ei, er] = (0, p.useState)($),
-            { openAuthModal: el } = (0, T.fI)(),
-            { openWaitlistModal: eu } = (0, T.wc)(),
-            [ec] = (0, d.c)(en, 200),
-            [ed] = (0, d.c)(ei, 200),
-            [eg, eh] = (0, p.useState)(null),
-            [ef] = (0, d.c)(eg, 200),
-            { isMediumDevice: em, isLargeDevice: eb } = (0, S.Z)(),
-            ep = (0, u.cC)("disable-generations"),
-            ex = (0, u.aS)("waitlist-iso-time-stamp-utc", ""),
-            { data: ey } = (0, v.Z)({ enabled: !!(null == n ? void 0 : n.id) }),
-            ev = (0, p.useMemo)(() => {
-              let e = new Date(ex);
-              return (
-                (null == n ? void 0 : n.created_at) &&
-                "Invalid Date" !== e.toString() &&
-                new Date(n.created_at) > e
-              );
-            }, [null == n ? void 0 : n.created_at, ex]),
-            ew = () => (n ? !ev || (eu(), !1) : (el(), !1)),
-            ej = "2.75rem",
-            eN = (0, p.useMemo)(() => {
+            { data: ee } = _(G),
+            { samplerOptions: et, setSamplerOptionsItem: ea } = (0, z.QY)(),
+            eo = (0, p.useMemo)(() => {
               let e;
-              switch (ei.audio_conditioning_type) {
+              switch (s.audio_conditioning_type) {
                 case "continuation":
                 case "precede":
                   e = "Extend";
@@ -3140,23 +3652,482 @@
                   e = "Create";
               }
               return e;
+            }, [s.audio_conditioning_type]),
+            en = (0, p.useMemo)(
+              () =>
+                "continuation" === et.audio_conditioning_type
+                  ? "Extend"
+                  : "variation" === et.audio_conditioning_type
+                    ? "Remix"
+                    : "Create",
+              [et.audio_conditioning_type]
+            ),
+            es = async () => {
+              await u(!0), V(!1);
+            },
+            ei = (0, p.useCallback)(() => {
+              V(!1);
+            }, [V]),
+            er = (e) => {
+              let t = N.current;
+              t &&
+                setTimeout(
+                  () => {
+                    t.focus();
+                  },
+                  e || 0
+                );
+            },
+            el = (e) => {
+              let t = C.current;
+              t &&
+                setTimeout(
+                  () => {
+                    t.focus();
+                  },
+                  e || 0
+                );
+            };
+          return (
+            (0, p.useEffect)(() => {
+              U && C.current && el(300);
+            }, [C, U]),
+            (0, o.jsxs)("div", {
+              className: "md:hidden",
+              children: [
+                (0, o.jsx)("div", {
+                  onClick: () => {
+                    if (!j) {
+                      w();
+                      return;
+                    }
+                    V(!0);
+                  },
+                  className: "flex items-center justify-center",
+                  children: (0, o.jsx)("div", {
+                    className: (0, I.cn)(
+                      "absolute bottom-1 cursor-pointer rounded-full bg-brand-accent p-3",
+                      j ? "" : "opacity-70"
+                    ),
+                    children: (0, o.jsx)("div", {
+                      className: "cursor-pointer",
+                      onClick: () =>
+                        (0, L.L9)("Click Mobile Create Button", {}),
+                      children: (0, o.jsx)(ec.default, {
+                        src: "/icons/create-icon.svg",
+                        width: 32,
+                        height: 32,
+                        alt: "Create",
+                      }),
+                    }),
+                  }),
+                }),
+                (0, o.jsx)(eO.y, {
+                  detent: "full-height",
+                  isOpen: G,
+                  onClose: ei,
+                  children: (0, o.jsxs)(eO.y.Container, {
+                    style: { height: "calc(100% - env(safe-area-inset-top))" },
+                    children: [
+                      (0, o.jsx)(eO.y.Header, { className: "bg-gray-dark" }),
+                      (0, o.jsxs)(eO.y.Content, {
+                        className: "bg-gray-dark",
+                        children: [
+                          (0, o.jsx)(eV, {
+                            inputRef: N,
+                            promptSuggestion: i,
+                            settings: r,
+                            promptFocus: F,
+                            partialTag: n,
+                            showTagCompletions: $,
+                            tagCompletions: b,
+                            tagPredictions: m,
+                            addSuggestedTags: h,
+                            setPromptFocus: P,
+                            handlePromptBlur: (e, t) => {
+                              var a;
+                              let o = N.current,
+                                n =
+                                  null == t
+                                    ? void 0
+                                    : null === (a = t.relatedTarget) ||
+                                        void 0 === a
+                                      ? void 0
+                                      : a.id;
+                              o &&
+                                setTimeout(
+                                  () => {
+                                    console.log("iconTouched", M),
+                                      "info-tooltip" === n || M
+                                        ? (A(!1), er())
+                                        : (o.blur(), P(!1));
+                                  },
+                                  e || 0
+                                );
+                            },
+                            setInputCursorLocation: c,
+                            setSettings: l,
+                            isOpen: W,
+                            onClose: () => B(!1),
+                            refocusPromptBar: er,
+                            handleIconTouchStart: () => {
+                              A(!0);
+                            },
+                            setSamplerOptionsItem: ea,
+                            generatePromptSuggestions: d,
+                            samplerOptions: et,
+                            resetAll: v,
+                          }),
+                          (0, o.jsx)(eB, {
+                            inputRef: C,
+                            isOpen: U,
+                            onClose: () => H(!1),
+                            settings: r,
+                            setSettings: l,
+                            lyricsType: x,
+                          }),
+                          (0, o.jsxs)("div", {
+                            className:
+                              "flex w-full flex-row items-center justify-between bg-gray-dark p-4",
+                            children: [
+                              (0, o.jsxs)("div", {
+                                className: "flex items-center space-x-4",
+                                children: [
+                                  (0, o.jsx)(eA.Z, {
+                                    size: 24,
+                                    onClick: () => V(!1),
+                                    className: "z-10 cursor-pointer",
+                                  }),
+                                  (0, o.jsx)("div", { children: en }),
+                                ],
+                              }),
+                              (0, o.jsxs)("div", {
+                                className:
+                                  "flex flex-row items-center space-x-5",
+                                children: [
+                                  (0, o.jsx)("button", {
+                                    className:
+                                      "ml-4 transition duration-300 ease-in-out hover:rotate-45 hover:scale-105",
+                                    onClick: (e) => {
+                                      e.preventDefault();
+                                      let { prompt: t, tags: a } = d();
+                                      (t = t + ", " + a.join(", ")),
+                                        l({ ...r, prompt: t }),
+                                        (0, L.L9)("Randomize Prompt", {});
+                                    },
+                                    children: (0, o.jsx)(f.Z, {
+                                      className: "h-6 w-6",
+                                    }),
+                                  }),
+                                  (0, o.jsx)(q.z, {
+                                    variant: "ghost",
+                                    onClick: v,
+                                    className:
+                                      "flex flex-row items-center space-x-2 px-0",
+                                    children: (0, o.jsx)(Y.Z, { size: 24 }),
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          (0, o.jsxs)(eO.y.Scroller, {
+                            ref: S,
+                            className: "pb-56",
+                            style: { overflow: F ? "hidden" : R },
+                            children: [
+                              (0, o.jsx)("div", {
+                                className: "relative h-14 w-full",
+                                children: (0, o.jsxs)("div", {
+                                  id: "bar-container",
+                                  className:
+                                    "flex flex-row items-center justify-between bg-gray-dark px-4  py-2",
+                                  children: [
+                                    (0, o.jsx)("span", {
+                                      className: "flex items-center gap-x-2",
+                                      children: (0, o.jsx)("label", {
+                                        htmlFor: "monthly-generations",
+                                        className: "text-sm text-[#808080]",
+                                        children: "Credits",
+                                      }),
+                                    }),
+                                    ee
+                                      ? (0, o.jsxs)("div", {
+                                          className: "flex flex-col items-end",
+                                          children: [
+                                            "free" === ee.tier
+                                              ? (0, o.jsxs)("span", {
+                                                  className: "flex text-xs",
+                                                  children: [
+                                                    ee.daily_used,
+                                                    " /",
+                                                    " ",
+                                                    ee.daily_throttle_limit,
+                                                    " Daily Credits",
+                                                  ],
+                                                })
+                                              : null,
+                                            "standard" === ee.tier ||
+                                            "pro" === ee.tier
+                                              ? (0, o.jsxs)("span", {
+                                                  className: "flex text-xs",
+                                                  children: [
+                                                    ee.monthly_used,
+                                                    " /",
+                                                    " ",
+                                                    ee.monthly_limit,
+                                                    " Monthly Credits",
+                                                  ],
+                                                })
+                                              : null,
+                                            (0, o.jsxs)("span", {
+                                              className: "flex text-xs",
+                                              children: [
+                                                ee.monthly_discretionary ||
+                                                  0 + ee.discretionary ||
+                                                  0,
+                                                " ",
+                                                "Additional Credits",
+                                              ],
+                                            }),
+                                          ],
+                                        })
+                                      : null,
+                                  ],
+                                }),
+                              }),
+                              (0, o.jsx)("div", {
+                                className: "relative mt-2 w-full",
+                                children: (0, o.jsxs)("div", {
+                                  className: "relative",
+                                  children: [
+                                    (0, o.jsx)("div", {
+                                      className: (0, I.cn)([
+                                        "m-auto mb-1 h-[132px] w-11/12 overflow-y-hidden whitespace-pre-wrap rounded-md border border-input bg-gray-dark px-4 py-2 text-[16px] md:text-[14px]",
+                                        (
+                                          null === (t = r.prompt) ||
+                                          void 0 === t
+                                            ? void 0
+                                            : t.length
+                                        )
+                                          ? "text-muted-foreground"
+                                          : "text-gray-4",
+                                      ]),
+                                      onClick: () => B(!0),
+                                      children: (
+                                        null === (a = r.prompt) || void 0 === a
+                                          ? void 0
+                                          : a.length
+                                      )
+                                        ? r.prompt
+                                        : (null == i ? void 0 : i.prompt) || eX,
+                                    }),
+                                    et.bypass_prompt_optimization &&
+                                      (0, o.jsx)(eR.Z, {
+                                        className:
+                                          "absolute bottom-2 right-8 text-[#808080]",
+                                      }),
+                                  ],
+                                }),
+                              }),
+                              (0, o.jsx)("div", {
+                                className: (0, I.cn)("relative w-full px-4"),
+                                children:
+                                  (null == m ? void 0 : m.length) && !F
+                                    ? (0, o.jsxs)("div", {
+                                        className: "h-[88px]",
+                                        children: [
+                                          (0, o.jsx)("h1", {
+                                            className:
+                                              "truncate-1-line mb-3 mt-4 max-w-full text-sm text-muted-foreground",
+                                            children: "Suggested tags",
+                                          }),
+                                          (0, o.jsx)("div", {
+                                            className: "mb-3 flex items-center",
+                                            children: (0, o.jsx)(J, {
+                                              tagType: "Prediction",
+                                              tagList: m,
+                                              addSuggestedTags: h,
+                                            }),
+                                          }),
+                                        ],
+                                      })
+                                    : null,
+                              }),
+                              (0, o.jsx)("div", {
+                                className: "flex justify-between",
+                                children: (0, o.jsxs)("div", {
+                                  className: "relative z-20 w-full py-4",
+                                  children: [
+                                    (0, o.jsx)("div", {
+                                      className: "px-4",
+                                      children: (0, o.jsx)(eY, {
+                                        partialTag: n,
+                                        tagPredictions: m,
+                                        settings: r,
+                                        addSuggestedTags: h,
+                                        lyricsType: x,
+                                        setDrawerLyricsSheetOpen: H,
+                                        setLyricsType: y,
+                                        userApiUsageData: ee,
+                                      }),
+                                    }),
+                                    (0, o.jsx)("div", {
+                                      className: "pb-6 pt-3",
+                                      children: (0, o.jsx)(Q.Z, {}),
+                                    }),
+                                    (0, o.jsx)("div", {
+                                      className: "px-4",
+                                      children: (0, o.jsxs)(q.z, {
+                                        type: "button",
+                                        className:
+                                          "w-full space-x-1 rounded-[4px] bg-opacity-100 py-4 opacity-100 ",
+                                        size: "custom",
+                                        variant: "outline",
+                                        onClick: v,
+                                        children: [
+                                          (0, o.jsx)(Y.Z, {
+                                            className: "mr-2 text-[#808080]",
+                                            size: 20,
+                                          }),
+                                          "Reset All",
+                                        ],
+                                      }),
+                                    }),
+                                    (0, o.jsx)("div", {
+                                      className: (0, I.cn)(
+                                        "fixed left-0 w-full bg-gray-dark",
+                                        (W || U) && "hidden"
+                                      ),
+                                      style: {
+                                        bottom: "".concat(D, "px"),
+                                        transition: "bottom 0.2s ease-out",
+                                      },
+                                      children: (0, o.jsxs)("div", {
+                                        className:
+                                          "relative flex flex-col justify-between space-y-3",
+                                        children: [
+                                          (0, o.jsx)(Q.Z, {
+                                            className: (0, I.cn)(
+                                              (F || K) && "hidden"
+                                            ),
+                                          }),
+                                          (0, o.jsx)("div", {
+                                            className:
+                                              "space-y-3 px-4 pb-4 pt-3",
+                                            children: (0, o.jsx)(q.z, {
+                                              className: (0, I.cn)(
+                                                "w-full rounded-[4px] bg-brand-accent bg-opacity-100 py-4 text-white disabled:opacity-75"
+                                              ),
+                                              variant: "create",
+                                              size: "custom",
+                                              disabled: g || !j,
+                                              onClick: es,
+                                              children: eo,
+                                            }),
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                  ],
+                                }),
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                }),
+              ],
+            })
+          );
+        };
+      let eJ = 16,
+        eX = "a song about...",
+        e$ = (e) => {
+          var t;
+          let { drawer: a } = e,
+            n = (0, k.Z)(),
+            [s, i] = (0, p.useState)(!1),
+            [r, b] = (0, p.useState)("infer"),
+            [w, j] = (0, p.useState)(!1),
+            [C, D] = (0, p.useState)(void 0),
+            [E, M] = (0, p.useState)(Date.now()),
+            A = (0, c.cC)("show-quota"),
+            { data: R, refetch: Y } = _(A),
+            {
+              mobileDrawerOpen: Q,
+              showOptions: B,
+              setShowOptions: U,
+              setShowTagCompletions: H,
+            } = (0, Z.F)(),
+            G = (0, p.useRef)(!1),
+            V = (0, p.useRef)(null),
+            K = (0, p.useRef)(null),
+            {
+              resetPromptBar: J,
+              generateTrack: X,
+              samplerOptions: $,
+              generationSettings: ee,
+              setGenerationSettings: et,
+              setSamplerOptions: ea,
+            } = (0, z.QY)(),
+            eo = (0, h.NL)(),
+            [en, es] = (0, p.useState)(ee),
+            [ei, er] = (0, p.useState)($),
+            { openAuthModal: el } = (0, T.fI)(),
+            { openWaitlistModal: ec } = (0, T.wc)(),
+            [eu] = (0, d.c)(en, 200),
+            [ed] = (0, d.c)(ei, 200),
+            [eg, eh] = (0, p.useState)(null),
+            [em] = (0, d.c)(eg, 200),
+            { isMediumDevice: ef, isLargeDevice: eb } = (0, S.Z)(),
+            ep = (0, c.cC)("disable-generations"),
+            ex = (0, c.aS)("waitlist-iso-time-stamp-utc", ""),
+            { data: ey } = (0, v.Z)({ enabled: !!(null == n ? void 0 : n.id) }),
+            ev = (0, p.useMemo)(() => {
+              let e = new Date(ex);
+              return (
+                (null == n ? void 0 : n.created_at) &&
+                "Invalid Date" !== e.toString() &&
+                new Date(n.created_at) > e
+              );
+            }, [null == n ? void 0 : n.created_at, ex]),
+            ew = () => (n ? !ev || (ec(), !1) : (el(), !1)),
+            ej = (0, p.useMemo)(() => {
+              let e;
+              switch (ei.audio_conditioning_type) {
+                case "continuation":
+                case "precede":
+                  e = "Extend";
+                  break;
+                case "variation":
+                  e = "Remix";
+                  break;
+                case "inpaint":
+                  e = "Inpaint";
+                  break;
+                default:
+                  e = "Create";
+              }
+              return e;
             }, [ei.audio_conditioning_type]),
-            ek = () => {
-              let e = K.current;
+            eN = () => {
+              let e = V.current;
               e &&
                 setTimeout(() => {
                   e.focus();
                 }, 100);
             },
-            e_ = async (e) => {
-              i(!0), B(!1);
+            ek = async (e) => {
+              i(!0), U(!1);
               try {
-                let t = en.prompt;
-                if (!t || "" === t.trim()) {
+                let a = en.prompt;
+                if (!a || "" === a.trim()) {
                   x.toast.error("Please enter a prompt or select tags", F.TQ);
                   return;
                 }
-                let n = (0, L.Ig)(en.lyricInput || "");
+                let n = (0, I.Ig)(en.lyricInput || "");
                 if (
                   "inpaint" === $.audio_conditioning_type &&
                   !n.hasSelector &&
@@ -3180,7 +4151,7 @@
                   );
                   return;
                 }
-                let s = { prompt: t };
+                let s = { prompt: a };
                 if (
                   ("instrumental" === r && (s.lyricInput = ""),
                   "lyricPrompt" === r &&
@@ -3194,10 +4165,10 @@
                     (0, o.jsxs)("div", {
                       children: [
                         Object.entries(s).map((e) => {
-                          let a,
-                            [t, n] = e;
+                          let t,
+                            [a, n] = e;
                           return (
-                            (a =
+                            (t =
                               "string" == typeof n
                                 ? n
                                 : Array.isArray(n)
@@ -3205,7 +4176,7 @@
                                   : "object" == typeof n && null !== n
                                     ? JSON.stringify(n)
                                     : String(n)),
-                            (0, o.jsxs)("p", { children: [t, ": ", a] }, t)
+                            (0, o.jsxs)("p", { children: [a, ": ", t] }, a)
                           );
                         }),
                         (0, o.jsxs)("p", { children: ["Lyrics Type: ", r] }),
@@ -3216,14 +4187,14 @@
                 }
                 let i = "success",
                   l = "Amazing music is seconds away!",
-                  u = !1,
-                  { data: c } = await W();
+                  c = !1,
+                  { data: u } = await Y();
                 if (ep) {
                   x.toast.custom(
                     (e) =>
-                      (0, o.jsx)(q, {
+                      (0, o.jsx)(O, {
                         toastId: e,
-                        userApiUsage: c,
+                        userApiUsage: u,
                         toastType: "error",
                         toastMessage:
                           "Generation is currently under maintenance. Please try again later.",
@@ -3239,10 +4210,10 @@
                           }
                         : {
                             top: "44px",
-                            left: em ? "268px" : "-8px",
+                            left: ef ? "268px" : "-8px",
                             width: eb
                               ? "calc(0.75 * (100vw - 20.85rem))"
-                              : em
+                              : ef
                                 ? "calc(0.6 * (100vw - 19.9rem))"
                                 : "calc((100vw - 1rem))",
                           },
@@ -3251,32 +4222,32 @@
                   return;
                 }
                 let d =
-                    Number((null == c ? void 0 : c.daily_throttle_limit) || 0) -
-                    Number((null == c ? void 0 : c.daily_used) || 0),
+                    Number((null == u ? void 0 : u.daily_throttle_limit) || 0) -
+                    Number((null == u ? void 0 : u.daily_used) || 0),
                   g =
-                    Number((null == c ? void 0 : c.monthly_limit) || 0) -
-                    Number((null == c ? void 0 : c.monthly_used) || 0),
+                    Number((null == u ? void 0 : u.monthly_limit) || 0) -
+                    Number((null == u ? void 0 : u.monthly_used) || 0),
                   h = F.Jw;
                 if (
-                  (c &&
-                    D &&
+                  (u &&
+                    A &&
                     (h > d || h > g) &&
                     Number(
-                      (null == c ? void 0 : c.monthly_discretionary) || 0
+                      (null == u ? void 0 : u.monthly_discretionary) || 0
                     ) < h &&
-                    Number((null == c ? void 0 : c.discretionary) || 0) < h &&
+                    Number((null == u ? void 0 : u.discretionary) || 0) < h &&
                     ((l =
                       "You have reached your creation limits. You can subscribe, purchase more credits, or wait for your credit usage to reset."),
                     (i = "error"),
-                    (u = !0)),
+                    (c = !0)),
                   x.toast.custom(
                     (e) =>
-                      (0, o.jsx)(q, {
+                      (0, o.jsx)(O, {
                         toastId: e,
-                        userApiUsage: c,
+                        userApiUsage: u,
                         toastType: i,
                         toastMessage: l,
-                        showQuotaInfo: D,
+                        showQuotaInfo: A,
                       }),
                     {
                       position: "top-left",
@@ -3289,29 +4260,29 @@
                           }
                         : {
                             top: "44px",
-                            left: em ? "268px" : "-8px",
+                            left: ef ? "268px" : "-8px",
                             width: eb
                               ? "calc(0.75 * (100vw - 20.85rem))"
-                              : em
+                              : ef
                                 ? "calc(0.6 * (100vw - 19.9rem))"
                                 : "calc((100vw - 1rem))",
                           },
                     }
                   ),
-                  u)
+                  c)
                 )
                   return;
                 if (!(null == ey ? void 0 : ey.paidPlan)) {
-                  var a;
+                  var t;
                   let { response: e } =
-                    (await (null == V
+                    (await (null == K
                       ? void 0
-                      : null === (a = V.current) || void 0 === a
+                      : null === (t = K.current) || void 0 === t
                         ? void 0
-                        : a.execute({ async: !0 }))) || {};
+                        : t.execute({ async: !0 }))) || {};
                   s.captchaToken = e;
                 }
-                R(Date.now()),
+                M(Date.now()),
                   await X(s),
                   await eo.invalidateQueries({
                     queryKey: y.YN.currentUserApiUsage(),
@@ -3330,28 +4301,28 @@
             },
             eC = (0, p.useMemo)(
               () =>
-                (function (e, a) {
-                  let t = a || e.length,
+                (function (e, t) {
+                  let a = t || e.length,
                     o = [],
                     n = null,
                     s = 0,
                     i = 0,
                     r = "",
                     l = 0,
-                    u = (e, a) => {
+                    c = (e, t) => {
                       let r = e.length;
                       !",;.".includes(e) &&
                         (o.push(e.trim().toLowerCase()),
-                        a <= t &&
-                          a + r >= t &&
-                          ((n = e.trim().toLowerCase()), (s = a), (i = r)));
+                        t <= a &&
+                          t + r >= a &&
+                          ((n = e.trim().toLowerCase()), (s = t), (i = r)));
                     };
-                  for (let a = 0; a <= e.length; a++) {
-                    let t = e[a] || "";
-                    ",;.".includes(t) || a === e.length
-                      ? ("" !== r && (u(r, l - r.length), (r = "")),
-                        t && u(t, l))
-                      : (r += t),
+                  for (let t = 0; t <= e.length; t++) {
+                    let a = e[t] || "";
+                    ",;.".includes(a) || t === e.length
+                      ? ("" !== r && (c(r, l - r.length), (r = "")),
+                        a && c(a, l))
+                      : (r += a),
                       l++;
                   }
                   return {
@@ -3361,48 +4332,48 @@
                     cursorPartLen: i,
                   };
                 })(en.prompt, eg),
-              [ec.prompt, ef]
+              [eu.prompt, em]
             ),
-            eS = (e) => {
-              let a = en.prompt,
-                t = eC.cursorPart || "",
+            e_ = (e) => {
+              let t = en.prompt,
+                a = eC.cursorPart || "",
                 o = e.join(", ") + ", ";
-              if ("" !== t && e.some((e) => e.includes(t)))
-                eC.cursorPartPos + eC.cursorPartLen < a.length &&
+              if ("" !== a && e.some((e) => e.includes(a)))
+                eC.cursorPartPos + eC.cursorPartLen < t.length &&
                   (o = o.slice(0, -2)),
                   eC.cursorPartPos > 0 && (o = " " + o),
-                  (a =
-                    a.substring(0, eC.cursorPartPos) +
+                  (t =
+                    t.substring(0, eC.cursorPartPos) +
                     o +
-                    a.substring(eC.cursorPartPos + eC.cursorPartLen));
+                    t.substring(eC.cursorPartPos + eC.cursorPartLen));
               else {
-                a.trim().endsWith(",") || "" == a.trim() || (a += ", ");
-                let t = e.filter((e) => !eC.parts.includes(e));
-                t.length > 0 && (a += t.join(", ") + ", ");
+                t.trim().endsWith(",") || "" == t.trim() || (t += ", ");
+                let a = e.filter((e) => !eC.parts.includes(e));
+                a.length > 0 && (t += a.join(", ") + ", ");
               }
-              es({ ...en, prompt: a });
+              es({ ...en, prompt: t });
             },
-            { data: ez } = N({
+            { data: eS } = N({
               partialTag: eC.cursorPart || "",
               currentTags: eC.parts.filter((e) => e !== eC.cursorPart),
             }),
-            eT = async () => {
-              ew() && (await e_());
+            ez = async () => {
+              ew() && (await ek());
             },
-            eZ = (0, p.useCallback)(() => {
+            eT = (0, p.useCallback)(() => {
               J(), b("infer");
             }, [J]);
           (0, p.useEffect)(() => {
-            G.current || (E(l()), (G.current = !0));
+            G.current || (D(l()), (G.current = !0));
           }, []),
             (0, p.useEffect)(() => {
-              ea(ec);
-            }, [ec]),
+              et(eu);
+            }, [eu]),
             (0, p.useEffect)(() => {
               es(ee);
             }, [ee]),
             (0, p.useEffect)(() => {
-              et(ed);
+              ea(ed);
             }, [ed]),
             (0, p.useEffect)(() => {
               er($);
@@ -3412,35 +4383,35 @@
                 "inpaint" === $.audio_conditioning_type && b("lyricInput");
             }, [$.audio_conditioning_type]),
             (0, p.useEffect)(() => {
-              U && ek();
-            }, [U]),
+              B && eN();
+            }, [B]),
             (0, p.useEffect)(() => {
               var e;
-              (null == ez
+              (null == eS
                 ? void 0
-                : null === (e = ez.completions) || void 0 === e
+                : null === (e = eS.completions) || void 0 === e
                   ? void 0
                   : e.length) && H(!0);
-            }, [null == ez ? void 0 : ez.completions]);
-          let eF = (0, p.useMemo)(() => {
-            var e, a, t;
+            }, [null == eS ? void 0 : eS.completions]);
+          let eZ = (0, p.useMemo)(() => {
+            var e, t, a;
             return (
               (!(null === (e = en.prompt) || void 0 === e
                 ? void 0
                 : e.length) &&
-                (U || Q)) ||
+                (B || Q)) ||
               s ||
               ("lyricInput" === r &&
-                !(null === (t = en.lyricInput) || void 0 === t
+                !(null === (a = en.lyricInput) || void 0 === a
                   ? void 0
-                  : null === (a = t.trim()) || void 0 === a
+                  : null === (t = a.trim()) || void 0 === t
                     ? void 0
-                    : a.length))
+                    : t.length))
             );
           }, [
-            null === (a = en.prompt) || void 0 === a ? void 0 : a.length,
+            null === (t = en.prompt) || void 0 === t ? void 0 : t.length,
             en.lyricInput,
-            U,
+            B,
             Q,
             s,
             r,
@@ -3448,9 +4419,9 @@
           return (0, o.jsxs)(o.Fragment, {
             children: [
               (0, o.jsx)("form", {
-                children: (0, o.jsx)(c.Z, {
+                children: (0, o.jsx)(u.Z, {
                   sitekey: "2945592b-1928-43a9-8473-7e7fed3d752e",
-                  ref: V,
+                  ref: K,
                   size: "invisible",
                   theme: "dark",
                   sentry: !1,
@@ -3462,60 +4433,58 @@
                   },
                 }),
               }),
-              t
-                ? (0, o.jsx)(eq, {
+              a
+                ? (0, o.jsx)(eK, {
                     partialTag: eC.cursorPart || "",
-                    createText: eN,
-                    createDisabled: eF,
-                    imageWidth: ej,
-                    promptSuggestion: _,
-                    addSuggestedTags: eS,
-                    tagCompletions: null == ez ? void 0 : ez.completions,
-                    tagPredictions: null == ez ? void 0 : ez.predictions,
+                    options: ei,
+                    createDisabled: eZ,
+                    promptSuggestion: C,
+                    addSuggestedTags: e_,
+                    tagCompletions: null == eS ? void 0 : eS.completions,
+                    tagPredictions: null == eS ? void 0 : eS.predictions,
                     settings: en,
                     setSettings: es,
-                    handleGenerate: e_,
-                    inputCursorLocation: eg,
+                    handleGenerate: ek,
                     setInputCursorLocation: eh,
                     generatePromptSuggestions: l,
                     lyricsType: r,
                     setLyricsType: b,
-                    resetAll: eZ,
+                    resetAll: eT,
                   })
                 : (0, o.jsxs)(o.Fragment, {
                     children: [
-                      (0, o.jsx)(I, {}),
+                      (0, o.jsx)(P, {}),
                       (0, o.jsx)("div", {
                         className: "mr-6 w-full items-center justify-between",
                         children: (0, o.jsxs)("div", {
                           className: "relative h-14 w-full",
                           tabIndex: -1,
                           children: [
-                            (0, o.jsx)(f.Z, {
+                            (0, o.jsx)(m.Z, {
                               fill: "#808080",
                               color: "#808080",
                               size: 24,
                               className:
                                 "absolute left-3 top-1/2 hidden -translate-y-1/2 transform md:block",
                             }),
-                            (0, o.jsx)(Y.I, {
+                            (0, o.jsx)(W.I, {
                               id: "prompt",
                               autoComplete: "off",
-                              ref: K,
+                              ref: V,
                               type: "prompt",
                               placeholder:
-                                (null == _ ? void 0 : _.prompt) || eY,
+                                (null == C ? void 0 : C.prompt) || eX,
                               className:
                                 "h-full border-b border-l border-r border-t border-[#3b82f67f] py-6 pr-[130px] text-[16px] shadow-ring-2 disabled:opacity-50\n          ".concat(
-                                  U &&
+                                  B &&
                                     "rounded-t-md rounded-bl-none rounded-br-none border-[var(--ring)] border-b-transparent ",
                                   "\n          ",
                                   "\n          ring-0 ring-transparent ring-offset-0 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
                                 ),
-                              style: { paddingLeft: ej },
+                              style: { paddingLeft: "2.75rem" },
                               value: en.prompt,
                               onFocus: () => {
-                                ew() && (x.toast.dismiss(), B(!0));
+                                ew() && (x.toast.dismiss(), U(!0));
                               },
                               onSelect: (e) => {
                                 eh(e.target.selectionStart);
@@ -3526,19 +4495,19 @@
                               },
                               onKeyDown: (e) => {
                                 if (
-                                  ("Enter" === e.key && eT(), "Tab" === e.key)
+                                  ("Enter" === e.key && ez(), "Tab" === e.key)
                                 ) {
-                                  var a;
+                                  var t;
                                   if (
-                                    null == ez
+                                    null == eS
                                       ? void 0
-                                      : null === (a = ez.completions) ||
-                                          void 0 === a
+                                      : null === (t = eS.completions) ||
+                                          void 0 === t
                                         ? void 0
-                                        : a.length
+                                        : t.length
                                   ) {
                                     e.preventDefault(),
-                                      eS([ez.completions[0].value]),
+                                      e_([eS.completions[0].value]),
                                       H(!1);
                                     return;
                                   }
@@ -3547,7 +4516,7 @@
                                     es({
                                       ...en,
                                       prompt:
-                                        (null == _ ? void 0 : _.prompt) || eY,
+                                        (null == C ? void 0 : C.prompt) || eX,
                                     }));
                                 }
                               },
@@ -3561,41 +4530,41 @@
                                     "ml-4 transition duration-300  ease-in-out hover:rotate-45 hover:scale-105",
                                   onClick: (e) => {
                                     e.preventDefault();
-                                    let { prompt: a, tags: t } = l();
-                                    (a = a + ", " + t.join(", ")),
-                                      es({ ...en, prompt: a }),
-                                      (0, P.L9)("Randomize Prompt", {});
+                                    let { prompt: t, tags: a } = l();
+                                    (t = t + ", " + a.join(", ")),
+                                      es({ ...en, prompt: t }),
+                                      (0, L.L9)("Randomize Prompt", {});
                                   },
-                                  children: (0, o.jsx)(m.Z, {
+                                  children: (0, o.jsx)(f.Z, {
                                     className: "mr-3 h-5 w-5",
                                   }),
                                 }),
-                                (0, o.jsx)(O.z, {
+                                (0, o.jsx)(q.z, {
                                   className: "w-[75px]",
                                   variant: "create",
-                                  disabled: eF || !n,
-                                  onClick: eT,
-                                  children: eN,
+                                  disabled: eZ || !n,
+                                  onClick: ez,
+                                  children: ej,
                                 }),
                               ],
                             }),
                             (0, o.jsx)(eM, {
-                              refocusPromptBar: ek,
+                              refocusPromptBar: eN,
                               partialTag: eC.cursorPart || "",
-                              resetAll: eZ,
-                              showOptions: U,
+                              resetAll: eT,
+                              showOptions: B,
                               tagPredictions:
-                                null == ez ? void 0 : ez.predictions,
+                                null == eS ? void 0 : eS.predictions,
                               tagCompletions:
-                                null == ez ? void 0 : ez.completions,
+                                null == eS ? void 0 : eS.completions,
                               settings: en,
                               setSettings: es,
                               options: ei,
                               setOptions: er,
-                              addSuggestedTags: eS,
+                              addSuggestedTags: e_,
                               lyricsType: r,
                               setLyricsType: b,
-                              userApiUsageData: A,
+                              userApiUsageData: R,
                             }),
                           ],
                         }),
@@ -3605,26 +4574,26 @@
             ],
           });
         };
-      var eQ = (0, b.default)(() => Promise.resolve(eW), { ssr: !1 });
+      var e0 = (0, b.default)(() => Promise.resolve(e$), { ssr: !1 });
     },
-    14270: function (e, a, t) {
-      var o = t(57437),
-        n = t(41943),
-        s = t(77778),
-        i = t(86210),
-        r = t(43081),
-        l = t(2265),
-        u = t(74332),
-        c = t(78398),
-        d = t(5201),
-        g = t(41100),
-        h = t(1657),
-        f = t(85754);
-      a.Z = (e) => {
+    14270: function (e, t, a) {
+      var o = a(57437),
+        n = a(41943),
+        s = a(77778),
+        i = a(86210),
+        r = a(43081),
+        l = a(2265),
+        c = a(74332),
+        u = a(78398),
+        d = a(5201),
+        g = a(41100),
+        h = a(1657),
+        m = a(85754);
+      t.Z = (e) => {
         let {
-            track: a,
-            useTrim: t = !1,
-            height: m = 100,
+            track: t,
+            useTrim: a = !1,
+            height: f = 100,
             setPoints: b,
             setWorkingRegion: p,
           } = e,
@@ -3632,9 +4601,9 @@
           y = (0, l.useRef)(null),
           [v, w] = (0, l.useState)(2),
           [j, N] = (0, l.useState)(31),
-          [k, _] = (0, l.useState)(null),
-          { isMediumDevice: C } = (0, g.Z)();
-        null == a || a.duration;
+          [k, C] = (0, l.useState)(null),
+          { isMediumDevice: _ } = (0, g.Z)();
+        null == t || t.duration;
         let {
             wavesurfer: S,
             isReady: z,
@@ -3642,10 +4611,10 @@
             currentTime: Z,
           } = (0, n.o)({
             container: x,
-            url: null == a ? void 0 : a.song_path,
+            url: null == t ? void 0 : t.song_path,
             waveColor: "#333",
             progressColor: "#e30b5d",
-            height: m,
+            height: f,
             barWidth: 3,
             barGap: 1,
             barRadius: 2,
@@ -3655,67 +4624,67 @@
           }),
           F = () => {
             let e = x.current,
-              a = null == e ? void 0 : e.firstChild,
-              t = null == a ? void 0 : a.shadowRoot,
+              t = null == e ? void 0 : e.firstChild,
+              a = null == t ? void 0 : t.shadowRoot,
               n =
-                null == t
+                null == a
                   ? void 0
-                  : t.querySelectorAll(
+                  : a.querySelectorAll(
                       '[part="region-handle region-handle-right"]'
                     ),
               i =
-                null == t
+                null == a
                   ? void 0
-                  : t.querySelectorAll(
+                  : a.querySelectorAll(
                       '[part="region-handle region-handle-left"]'
                     );
             if (!n || !i) return;
             let r = document.createElement("style");
             (r.textContent =
               "\n    .icon-container-left {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      position: absolute;\n      top: 50%; \n      left: calc(50% - 4px); /* Adjust this value as needed */\n      transform: translate(-50%, -50%);\n      width: 16px;\n      height: 16px;\n      background-color: white;\n      border-radius: 50%;\n    }\n    \n    .icon-container-right {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      position: absolute;\n      top: 50%; \n      left: calc(50% + 4px); /* Adjust this value as needed */\n      transform: translate(-50%, -50%);\n      width: 16px;\n      height: 16px;\n      background-color: white;\n      border-radius: 50%;\n    }\n\n    .h-full {\n      height: 100%;\n    }\n  "),
-              null == t || t.appendChild(r);
+              null == a || a.appendChild(r);
             let l = function () {
               let e =
                   arguments.length > 0 && void 0 !== arguments[0]
                     ? arguments[0]
                     : "right",
-                a = document.createElement("div");
+                t = document.createElement("div");
               return (
-                (a.className =
+                (t.className =
                   "icon-container" + ("right" === e ? "-right" : "-left")),
-                (a.innerHTML = u.renderToString(
+                (t.innerHTML = c.renderToString(
                   (0, o.jsx)(s.Z, { color: "black", size: 16 })
                 )),
-                a
+                t
               );
             };
             i.forEach((e) => {
               if (e.querySelector(".icon-container")) return;
-              let a = l("left");
-              e.appendChild(a);
+              let t = l("left");
+              e.appendChild(t);
             }),
               n.forEach((e) => {
                 if (e.querySelector(".icon-container")) return;
-                let a = l("right");
-                e.appendChild(a);
+                let t = l("right");
+                e.appendChild(t);
               });
           };
         (0, l.useEffect)(() => {
-          if (S && t) {
+          if (S && a) {
             let e = S.registerPlugin(d.Z.create());
-            S.registerPlugin(c.Z.create()),
-              _(e),
+            S.registerPlugin(u.Z.create()),
+              C(e),
               b && b([0, 15]),
               S.on("decode", () => {
-                let a = e.addRegion({
+                let t = e.addRegion({
                   start: 0,
                   end: 15,
                   content: "",
                   color: "hsla(337, 91%, 47%, 0.4)",
                   resize: !0,
                 });
-                a.on("update", () => {
-                  a.end - a.start < 1 && (a.end = a.start + 1);
+                t.on("update", () => {
+                  t.end - t.start < 1 && (t.end = t.start + 1);
                 }),
                   F();
               }),
@@ -3723,18 +4692,18 @@
               e.on("region-out", (e) => {
                 S.pause();
               }),
-              e.on("region-updated", (a) => {
-                let t = Object.values(e.getRegions()).flatMap((e) => [
+              e.on("region-updated", (t) => {
+                let a = Object.values(e.getRegions()).flatMap((e) => [
                   e.start,
                   e.end,
                 ]);
-                w(a.start), N(a.end), b && b(t);
+                w(t.start), N(t.end), b && b(a);
               });
           }
-        }, [S, t]);
-        let P = Math.min(m / 4, 40);
+        }, [S, a]);
+        let L = Math.min(f / 4, 40);
         return (0, o.jsx)(o.Fragment, {
-          children: a
+          children: t
             ? (0, o.jsxs)("div", {
                 onBlur: () => (null == S ? void 0 : S.pause()),
                 style: { touchAction: "none" },
@@ -3745,21 +4714,21 @@
                       (0, o.jsx)("div", {
                         className: "mr-3",
                         children: (null == S ? void 0 : S.isPlaying())
-                          ? (0, o.jsx)(f.z, {
+                          ? (0, o.jsx)(m.z, {
                               className: "rounded-full p-2",
                               onClick: () => (null == S ? void 0 : S.pause()),
                               size: "custom",
                               children: (0, o.jsx)(i.Z, {
-                                size: P,
+                                size: L,
                                 fill: "black",
                               }),
                             })
-                          : (0, o.jsx)(f.z, {
+                          : (0, o.jsx)(m.z, {
                               className: "rounded-full p-2",
                               onClick: () => (null == S ? void 0 : S.play()),
                               size: "custom",
                               children: (0, o.jsx)(r.Z, {
-                                size: P,
+                                size: L,
                                 className: "translate-x-[2px]",
                                 fill: "black",
                               }),
@@ -3785,7 +4754,7 @@
                       }),
                     ],
                   }),
-                  t &&
+                  a &&
                     (0, o.jsxs)("div", {
                       className:
                         " ml-[50px] mt-1 flex justify-between font-mono text-xs md:text-base",
@@ -3797,7 +4766,7 @@
                               className: "font-bold",
                               children: "Start: ",
                             }),
-                            (0, h.mr)(v, C),
+                            (0, h.mr)(v, _),
                           ],
                         }),
                         (0, o.jsxs)("div", {
@@ -3807,7 +4776,7 @@
                               className: "font-bold",
                               children: "Current: ",
                             }),
-                            (0, h.mr)(Z, C),
+                            (0, h.mr)(Z, _),
                           ],
                         }),
                         (0, o.jsxs)("div", {
@@ -3817,7 +4786,7 @@
                               className: "font-bold",
                               children: "End: ",
                             }),
-                            (0, h.mr)(j, C),
+                            (0, h.mr)(j, _),
                           ],
                         }),
                       ],
@@ -3831,8 +4800,8 @@
         });
       };
     },
-    29691: function (e, a, t) {
-      t.d(a, {
+    29691: function (e, t, a) {
+      a.d(t, {
         Fw: function () {
           return i;
         },
@@ -3843,83 +4812,84 @@
           return n;
         },
       });
-      var o = t(78019);
+      var o = a(78019);
       let n = o.fC,
         s = o.wy,
         i = o.Fw;
     },
-    45179: function (e, a, t) {
-      t.d(a, {
+    45179: function (e, t, a) {
+      a.d(t, {
         I: function () {
           return i;
         },
       });
-      var o = t(57437),
-        n = t(2265),
-        s = t(1657);
-      let i = n.forwardRef((e, a) => {
-        let { className: t, type: n, ...i } = e;
+      var o = a(57437),
+        n = a(2265),
+        s = a(1657);
+      let i = n.forwardRef((e, t) => {
+        let { className: a, type: n, ...i } = e;
         return (0, o.jsx)("input", {
           type: n,
           className: (0, s.cn)(
             "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-            t
+            a
           ),
-          ref: a,
+          ref: t,
           ...i,
         });
       });
       i.displayName = "Input";
     },
-    47934: function (e, a, t) {
-      t.d(a, {
+    47934: function (e, t, a) {
+      a.d(t, {
         Z: function () {
           return r;
         },
       });
-      var o = t(57437),
-        n = t(51014),
-        s = t(2265),
-        i = t(1657);
-      let r = s.forwardRef((e, a) => {
+      var o = a(57437),
+        n = a(51014),
+        s = a(2265),
+        i = a(1657);
+      let r = s.forwardRef((e, t) => {
         let {
-          className: t,
+          className: a,
           orientation: s = "horizontal",
           decorative: r = !0,
           ...l
         } = e;
         return (0, o.jsx)(n.f, {
-          ref: a,
+          ref: t,
           decorative: r,
           orientation: s,
           className: (0, i.cn)(
             "shrink-0 bg-border",
             "horizontal" === s ? "h-[1px] w-full" : "h-full w-[1px]",
-            t
+            a
           ),
           ...l,
         });
       });
       r.displayName = n.f.displayName;
     },
-    23444: function (e, a, t) {
-      t.d(a, {
+    23444: function (e, t, a) {
+      a.d(t, {
         g: function () {
           return i;
         },
       });
-      var o = t(57437),
-        n = t(2265),
-        s = t(1657);
-      let i = n.forwardRef((e, a) => {
-        let { className: t, ...n } = e;
+      var o = a(57437),
+        n = a(2265),
+        s = a(1657);
+      let i = n.forwardRef((e, t) => {
+        let { className: a, children: n, ...i } = e;
         return (0, o.jsx)("textarea", {
           className: (0, s.cn)(
             "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-            t
+            a
           ),
-          ref: a,
-          ...n,
+          ref: t,
+          ...i,
+          children: n,
         });
       });
       i.displayName = "Textarea";

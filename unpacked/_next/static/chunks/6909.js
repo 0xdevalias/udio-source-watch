@@ -1,6 +1,6 @@
 "use strict";
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [4749],
+  [6909],
   {
     98998: function (e, t, n) {
       n.d(t, {
@@ -194,6 +194,22 @@
         ["line", { x1: "14", x2: "14", y1: "15", y2: "9", key: "h65svq" }],
       ]);
     },
+    70094: function (e, t, n) {
+      n.d(t, {
+        Z: function () {
+          return r;
+        },
+      }); /**
+       * @license lucide-react v0.303.0 - ISC
+       *
+       * This source code is licensed under the ISC license.
+       * See the LICENSE file in the root directory of this source tree.
+       */
+      let r = (0, n(87461).Z)("Plus", [
+        ["path", { d: "M5 12h14", key: "1ays0h" }],
+        ["path", { d: "M12 5v14", key: "s699le" }],
+      ]);
+    },
     78798: function (e, t, n) {
       n.d(t, {
         Z: function () {
@@ -341,7 +357,7 @@
         ["line", { x1: "19", x2: "19", y1: "5", y2: "19", key: "futhcm" }],
       ]);
     },
-    49578: function (e, t, n) {
+    70655: function (e, t, n) {
       n.d(t, {
         Z: function () {
           return r;
@@ -352,15 +368,20 @@
        * This source code is licensed under the ISC license.
        * See the LICENSE file in the root directory of this source tree.
        */
-      let r = (0, n(87461).Z)("Undo2", [
-        ["path", { d: "M9 14 4 9l5-5", key: "102s5s" }],
+      let r = (0, n(87461).Z)("ToggleRight", [
         [
-          "path",
+          "rect",
           {
-            d: "M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11",
-            key: "llx8ln",
+            width: "20",
+            height: "12",
+            x: "2",
+            y: "6",
+            rx: "6",
+            ry: "6",
+            key: "f2vt7d",
           },
         ],
+        ["circle", { cx: "16", cy: "12", r: "2", key: "4ma0v8" }],
       ]);
     },
     79251: function (e, t, n) {
@@ -474,7 +495,7 @@
       let d = "Avatar",
         [c, s] = (0, i.b)(d),
         [f, p] = c(d),
-        m = (0, o.forwardRef)((e, t) => {
+        h = (0, o.forwardRef)((e, t) => {
           let { __scopeAvatar: n, ...i } = e,
             [a, l] = (0, o.useState)("idle");
           return (0, o.createElement)(
@@ -483,7 +504,7 @@
             (0, o.createElement)(u.WV.span, (0, r.Z)({}, i, { ref: t }))
           );
         }),
-        h = (0, o.forwardRef)((e, t) => {
+        m = (0, o.forwardRef)((e, t) => {
           let {
               __scopeAvatar: n,
               src: i,
@@ -517,13 +538,13 @@
                 t
               );
             })(i),
-            m = (0, a.W)((e) => {
+            h = (0, a.W)((e) => {
               d(e), s.onImageLoadingStatusChange(e);
             });
           return (
             (0, l.b)(() => {
-              "idle" !== f && m(f);
-            }, [f, m]),
+              "idle" !== f && h(f);
+            }, [f, h]),
             "loaded" === f
               ? (0, o.createElement)(
                   u.WV.img,
@@ -548,23 +569,23 @@
               : null
           );
         }),
-        v = m,
-        k = h,
+        v = h,
+        k = m,
         g = y;
     },
     26579: function (e, t, n) {
       n.d(t, {
         bU: function () {
-          return O;
-        },
-        e6: function () {
-          return j;
-        },
-        fC: function () {
           return U;
         },
-        fQ: function () {
+        e6: function () {
+          return O;
+        },
+        fC: function () {
           return W;
+        },
+        fQ: function () {
+          return j;
         },
       });
       var r = n(14749),
@@ -578,8 +599,8 @@
         s = n(65030),
         f = n(76769),
         p = n(29586),
-        m = n(27533);
-      let h = ["PageUp", "PageDown"],
+        h = n(27533);
+      let m = ["PageUp", "PageDown"],
         y = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
         v = {
           "from-left": ["Home", "PageDown", "ArrowDown", "ArrowLeft"],
@@ -588,9 +609,9 @@
           "from-top": ["Home", "PageDown", "ArrowUp", "ArrowLeft"],
         },
         k = "Slider",
-        [g, w, b] = (0, m.B)(k),
-        [S, E] = (0, u.b)(k, [b]),
-        [x, Z] = S(k),
+        [g, w, b] = (0, h.B)(k),
+        [S, x] = (0, u.b)(k, [b]),
+        [E, Z] = S(k),
         M = (0, o.forwardRef)((e, t) => {
           let {
               name: n,
@@ -599,17 +620,17 @@
               step: s = 1,
               orientation: f = "horizontal",
               disabled: p = !1,
-              minStepsBetweenThumbs: m = 0,
+              minStepsBetweenThumbs: h = 0,
               defaultValue: v = [u],
               value: k,
               onValueChange: w = () => {},
               onValueCommit: b = () => {},
               inverted: S = !1,
-              ...E
+              ...x
             } = e,
             [Z, M] = (0, o.useState)(null),
-            _ = (0, l.e)(t, (e) => M(e)),
-            R = (0, o.useRef)(new Set()),
+            R = (0, l.e)(t, (e) => M(e)),
+            _ = (0, o.useRef)(new Set()),
             P = (0, o.useRef)(0),
             A = "horizontal" === f,
             I = !Z || !!Z.closest("form"),
@@ -618,7 +639,7 @@
               defaultProp: v,
               onChange: (e) => {
                 var t;
-                null === (t = [...R.current][P.current]) ||
+                null === (t = [..._.current][P.current]) ||
                   void 0 === t ||
                   t.focus(),
                   w(e);
@@ -641,7 +662,7 @@
               if (
                 ((r = i),
                 !(
-                  !((o = m * s) > 0) ||
+                  !((o = h * s) > 0) ||
                   Math.min(...r.slice(0, -1).map((e, t) => r[t + 1] - e)) >= o
                 ))
               )
@@ -654,14 +675,14 @@
             });
           }
           return (0, o.createElement)(
-            x,
+            E,
             {
               scope: e.__scopeSlider,
               disabled: p,
               min: u,
               max: c,
               valueIndexToChangeRef: P,
-              thumbs: R.current,
+              thumbs: _.current,
               values: L,
               orientation: f,
             },
@@ -675,10 +696,10 @@
                   A ? C : D,
                   (0, r.Z)(
                     { "aria-disabled": p, "data-disabled": p ? "" : void 0 },
-                    E,
+                    x,
                     {
-                      ref: _,
-                      onPointerDown: (0, a.M)(E.onPointerDown, () => {
+                      ref: R,
+                      onPointerDown: (0, a.M)(x.onPointerDown, () => {
                         p || (H.current = L);
                       }),
                       min: u,
@@ -711,7 +732,7 @@
                       onStepKeyDown: ({ event: e, direction: t }) => {
                         if (!p) {
                           let n =
-                              h.includes(e.key) ||
+                              m.includes(e.key) ||
                               (e.shiftKey && y.includes(e.key)),
                             r = P.current;
                           z(L[r] + s * (n ? 10 : 1) * t, r, { commit: !0 });
@@ -732,7 +753,7 @@
               )
           );
         }),
-        [_, R] = S(k, {
+        [R, _] = S(k, {
           startEdge: "left",
           endEdge: "right",
           size: "width",
@@ -748,21 +769,21 @@
               onSlideMove: s,
               onSlideEnd: f,
               onStepKeyDown: p,
-              ...m
+              ...h
             } = e,
-            [h, y] = (0, o.useState)(null),
+            [m, y] = (0, o.useState)(null),
             k = (0, l.e)(t, (e) => y(e)),
             g = (0, o.useRef)(),
             w = (0, c.gm)(a),
             b = "ltr" === w,
             S = (b && !u) || (!b && u);
-          function E(e) {
-            let t = g.current || h.getBoundingClientRect(),
+          function x(e) {
+            let t = g.current || m.getBoundingClientRect(),
               r = T([0, t.width], S ? [n, i] : [i, n]);
             return (g.current = t), r(e - t.left);
           }
           return (0, o.createElement)(
-            _,
+            R,
             {
               scope: e.__scopeSlider,
               startEdge: S ? "left" : "right",
@@ -772,18 +793,18 @@
             },
             (0, o.createElement)(
               P,
-              (0, r.Z)({ dir: w, "data-orientation": "horizontal" }, m, {
+              (0, r.Z)({ dir: w, "data-orientation": "horizontal" }, h, {
                 ref: k,
                 style: {
-                  ...m.style,
+                  ...h.style,
                   "--radix-slider-thumb-transform": "translateX(-50%)",
                 },
                 onSlideStart: (e) => {
-                  let t = E(e.clientX);
+                  let t = x(e.clientX);
                   null == d || d(t);
                 },
                 onSlideMove: (e) => {
-                  let t = E(e.clientX);
+                  let t = x(e.clientX);
                   null == s || s(t);
                 },
                 onSlideEnd: () => {
@@ -809,16 +830,16 @@
               ...f
             } = e,
             p = (0, o.useRef)(null),
-            m = (0, l.e)(t, p),
-            h = (0, o.useRef)(),
+            h = (0, l.e)(t, p),
+            m = (0, o.useRef)(),
             y = !a;
           function k(e) {
-            let t = h.current || p.current.getBoundingClientRect(),
+            let t = m.current || p.current.getBoundingClientRect(),
               r = T([0, t.height], y ? [i, n] : [n, i]);
-            return (h.current = t), r(e - t.top);
+            return (m.current = t), r(e - t.top);
           }
           return (0, o.createElement)(
-            _,
+            R,
             {
               scope: e.__scopeSlider,
               startEdge: y ? "bottom" : "top",
@@ -829,7 +850,7 @@
             (0, o.createElement)(
               P,
               (0, r.Z)({ "data-orientation": "vertical" }, f, {
-                ref: m,
+                ref: h,
                 style: {
                   ...f.style,
                   "--radix-slider-thumb-transform": "translateY(50%)",
@@ -843,7 +864,7 @@
                   null == d || d(t);
                 },
                 onSlideEnd: () => {
-                  (h.current = void 0), null == c || c();
+                  (m.current = void 0), null == c || c();
                 },
                 onStepKeyDown: (e) => {
                   let t = v[y ? "from-bottom" : "from-top"].includes(e.key);
@@ -864,7 +885,7 @@
               onStepKeyDown: s,
               ...f
             } = e,
-            m = Z(k, n);
+            h = Z(k, n);
           return (0, o.createElement)(
             p.WV.span,
             (0, r.Z)({}, f, {
@@ -874,13 +895,13 @@
                   ? (d(e), e.preventDefault())
                   : "End" === e.key
                     ? (c(e), e.preventDefault())
-                    : h.concat(y).includes(e.key) && (s(e), e.preventDefault());
+                    : m.concat(y).includes(e.key) && (s(e), e.preventDefault());
               }),
               onPointerDown: (0, a.M)(e.onPointerDown, (e) => {
                 let t = e.target;
                 t.setPointerCapture(e.pointerId),
                   e.preventDefault(),
-                  m.thumbs.has(t) ? t.focus() : i(e);
+                  h.thumbs.has(t) ? t.focus() : i(e);
               }),
               onPointerMove: (0, a.M)(e.onPointerMove, (e) => {
                 e.target.hasPointerCapture(e.pointerId) && l(e);
@@ -912,7 +933,7 @@
         L = (0, o.forwardRef)((e, t) => {
           let { __scopeSlider: n, ...i } = e,
             a = Z(I, n),
-            u = R(I, n),
+            u = _(I, n),
             d = (0, o.useRef)(null),
             c = (0, l.e)(t, d),
             s = a.values.length,
@@ -951,10 +972,10 @@
           var n;
           let { __scopeSlider: i, index: u, ...d } = e,
             c = Z(V, i),
-            s = R(V, i),
-            [m, h] = (0, o.useState)(null),
-            y = (0, l.e)(t, (e) => h(e)),
-            v = (0, f.t)(m),
+            s = _(V, i),
+            [h, m] = (0, o.useState)(null),
+            y = (0, l.e)(t, (e) => m(e)),
+            v = (0, f.t)(h),
             k = c.values[u],
             w = void 0 === k ? 0 : K(k, c.min, c.max),
             b =
@@ -964,7 +985,7 @@
                   ? ["Minimum", "Maximum"][u]
                   : void 0,
             S = null == v ? void 0 : v[s.size],
-            E = S
+            x = S
               ? (function (e, t, n) {
                   let r = e / 2,
                     o = T([0, 50], [0, r]);
@@ -973,21 +994,21 @@
               : 0;
           return (
             (0, o.useEffect)(() => {
-              if (m)
+              if (h)
                 return (
-                  c.thumbs.add(m),
+                  c.thumbs.add(h),
                   () => {
-                    c.thumbs.delete(m);
+                    c.thumbs.delete(h);
                   }
                 );
-            }, [m, c.thumbs]),
+            }, [h, c.thumbs]),
             (0, o.createElement)(
               "span",
               {
                 style: {
                   transform: "var(--radix-slider-thumb-transform)",
                   position: "absolute",
-                  [s.startEdge]: `calc(${w}% + ${E}px)`,
+                  [s.startEdge]: `calc(${w}% + ${x}px)`,
                 },
               },
               (0, o.createElement)(
@@ -1056,10 +1077,10 @@
           return t[0] + r * (n - e[0]);
         };
       }
-      let U = M,
-        W = A,
-        j = L,
-        O = H;
+      let W = M,
+        j = A,
+        O = L,
+        U = H;
     },
     94845: function (e, t, n) {
       n.d(t, {
@@ -1080,8 +1101,8 @@
         c = n(76769),
         s = n(29586);
       let f = "Switch",
-        [p, m] = (0, l.b)(f),
-        [h, y] = p(f),
+        [p, h] = (0, l.b)(f),
+        [m, y] = p(f),
         v = (0, o.forwardRef)((e, t) => {
           let {
               __scopeSwitch: n,
@@ -1090,17 +1111,17 @@
               defaultChecked: c,
               required: f,
               disabled: p,
-              value: m = "on",
+              value: h = "on",
               onCheckedChange: y,
               ...v
             } = e,
             [k, b] = (0, o.useState)(null),
             S = (0, a.e)(t, (e) => b(e)),
-            E = (0, o.useRef)(!1),
-            x = !k || !!k.closest("form"),
+            x = (0, o.useRef)(!1),
+            E = !k || !!k.closest("form"),
             [Z = !1, M] = (0, u.T)({ prop: d, defaultProp: c, onChange: y });
           return (0, o.createElement)(
-            h,
+            m,
             { scope: n, checked: Z, disabled: p },
             (0, o.createElement)(
               s.WV.button,
@@ -1113,26 +1134,26 @@
                   "data-state": w(Z),
                   "data-disabled": p ? "" : void 0,
                   disabled: p,
-                  value: m,
+                  value: h,
                 },
                 v,
                 {
                   ref: S,
                   onClick: (0, i.M)(e.onClick, (e) => {
                     M((e) => !e),
-                      x &&
-                        ((E.current = e.isPropagationStopped()),
-                        E.current || e.stopPropagation());
+                      E &&
+                        ((x.current = e.isPropagationStopped()),
+                        x.current || e.stopPropagation());
                   }),
                 }
               )
             ),
-            x &&
+            E &&
               (0, o.createElement)(g, {
                 control: k,
-                bubbles: !E.current,
+                bubbles: !x.current,
                 name: l,
-                value: m,
+                value: h,
                 checked: Z,
                 required: f,
                 disabled: p,

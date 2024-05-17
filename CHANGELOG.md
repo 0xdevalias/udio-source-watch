@@ -15,6 +15,7 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
     https://github.com/naokazuterada/MarkdownTOC/pull/170
 -->
 <!-- TOC start (generated with https://derlin.github.io/bitdowntoc/) -->
+- [2024-05-17Z \(`UX6Ka1WyHK4aiCQDXga4S`\)](#2024-05-17z-ux6ka1wyhk4aicqdxga4s)
 - [2024-05-10Z \(`EWfAQmJwXT3hruIu_VWg8`\)](#2024-05-10z-ewfaqmjwxt3hruiu_vwg8)
 - [2024-05-09Z \(`o1gyhglvcLJ7fzg5w6AaH`\)](#2024-05-09z-o1gyhglvclj7fzg5w6aah)
 - [2024-05-07Z \(`pmsN1K108Cn8QGT0rRiiv`\)](#2024-05-07z-pmsn1k108cn8qgt0rriiv)
@@ -26,6 +27,148 @@ Note that the contents within this CHANGELOG will be kept up to date with the la
 <!-- DISABLEDMarkdownTOC levels="1,2" style="unordered" bullets="-" indent="  " -->
 <!-- TODO: Reinstate this after this bug is fixed: https://github.com/naokazuterada/MarkdownTOC/pull/170 -->
 <!-- /MarkdownTOC -->
+
+## 2024-05-17Z (`UX6Ka1WyHK4aiCQDXga4S`)
+
+### Notes
+
+The following notes are not necessarily comprehensive, but just things of potential interest that I noted while reviewing the diffs. If you want to see everything that changed, you can look at the diffs of the changed files in the `unpacked/` folder:
+
+- **tl;dr**
+  - NOTE: This build's diff was only minimally analysed
+- App release version (Git SHA?): `acb890938e14fc4adee5680080f3bcbee817dcd7`
+  - Extracted with `grep 'SENTRY_RELEASE = ' "unpacked/_next/static/chunks/main-app.js"`
+- `unpacked/_next/static/chunks/7200.js`
+  - ```js
+    children: [
+      (0, o.jsx)("h4", {
+        className: "text-m mt-4",
+        children: "1. Choose a 28s context window",
+      }),
+      (0, o.jsx)("p", {
+        className: "mt-1 text-xs text-muted-foreground",
+        children:
+          "Select a 28-second section of the song where you want to make changes. This is your working area.",
+      }),
+      (0, o.jsx)("div", {
+        ref: u,
+        id: "waveform-minimap",
+        className: "mt-4 h-full w-full",
+      }),
+      (0, o.jsx)("h4", {
+        className: "text-m mt-6",
+        children: "2. Select inpainting regions",
+      }),
+      (0, o.jsx)("p", {
+        className: "mt-1 text-xs text-muted-foreground",
+        children:
+          "Add up to 4 specific regions within the context window to regenerate. Everything outside these regions will stay the same.",
+      }),
+    ```
+  - ```js
+    children: [
+      f,
+      " ",
+      (0, I._6)(f, "region"),
+      " marked for regeneration",
+    ],
+    ```
+  - ```js
+    (0, o.jsx)("h4", {
+      className: "text-m mt-12",
+      children: "3. Highlight corresponding lyrics",
+    }),
+    (0, o.jsx)("p", {
+      className: "mt-1 text-xs text-muted-foreground ",
+      children:
+        "Highlight the lyrics that match the audio in your 28-second context window. This helps the model understand what part of the song you're changing.",
+    }),
+    ```
+  - ```js
+    (0, o.jsx)("p", {
+      className: "mb-3 text-sm",
+      children:
+        "The model uses lyrics to identify your chosen context window. It copies the rest of the song as-is.",
+    }),
+    (0, o.jsxs)("p", {
+      className: "text-sm",
+      children: [
+        "Highlight the corresponding lyrics and press TAB, or use ‘***’ to enclose the lyrics.",
+        " ",
+        (0, o.jsx)("a", {
+          href: "/guide",
+          target: "_blank",
+          className: "font-bold underline",
+          children: "Learn more",
+        }),
+      ],
+    ```
+- `unpacked/_next/static/chunks/8766.js`
+  - ```js
+    u = [
+      "Create Song",
+      "Remix Song",
+      "Extend Song",
+      "Inpaint Song",
+      "Publish Song",
+      "Unpublish Song",
+      "Listen Song",
+      "Complete Song",
+    ];
+    ```
+    - I think `Complete Song` might be new here?
+- `unpacked/_next/static/chunks/app/(app)/layout.js`
+  - ```diff
+    - (0, r.jsx)(i.default, {
+    -   href: "/faq",
+    + (0, c.jsx)("a", {
+    +   href: "https://support.udio.com/hc/en-us/articles/29240819901459-Questions-About-Generated-Content",
+    ```
+  - ```js
+    (0, c.jsx)("a", {
+      href: "https://support.udio.com/hc/en-us/requests/new",
+      target: "_blank",
+      children: (0, c.jsx)(s.Xi, { children: "Contact Us" }),
+    }),
+    ```
+- `unpacked/_next/static/chunks/app/layout.js`
+  - ```js
+    b = async () => {
+      let { data: e, error: t } = await a.auth.signInWithOAuth({
+        provider: "apple",
+        options: { redirectTo: h },
+      });
+      (0, d.L9)("Sign In", { type: "Apple" });
+    },
+    ```
+
+### Not From Build Manifest
+
+#### Archived
+
+```
+https://www.udio.com/_next/static/chunks/1657-1253a912bcba7f1e.js
+https://www.udio.com/_next/static/chunks/1880-78441bd7cd9feccc.js
+https://www.udio.com/_next/static/chunks/2435-60d7205e8c138e43.js
+https://www.udio.com/_next/static/chunks/2687-0d2f6c1f5034ffb0.js
+https://www.udio.com/_next/static/chunks/3855-7d8a52dba883d7a7.js
+https://www.udio.com/_next/static/chunks/4872-80a60b6429e968c6.js
+https://www.udio.com/_next/static/chunks/6144-51c97ed51babc1e8.js
+https://www.udio.com/_next/static/chunks/6463-3d699cf7f29ddd05.js
+https://www.udio.com/_next/static/chunks/6909-25170fdf9575abef.js
+https://www.udio.com/_next/static/chunks/6931-686985ed202a8c73.js
+https://www.udio.com/_next/static/chunks/7200-3261c4d66bd1e35d.js
+https://www.udio.com/_next/static/chunks/8519-dc60b2a8b1d7e4f6.js
+https://www.udio.com/_next/static/chunks/8766-f2357a2f22a413b2.js
+https://www.udio.com/_next/static/chunks/8776-d0acc03a7da2a3b1.js
+https://www.udio.com/_next/static/chunks/app/(app)/(home)/page-98546ad53d2f1e74.js
+https://www.udio.com/_next/static/chunks/app/(app)/layout-8f7f1e6b165fe0b3.js
+https://www.udio.com/_next/static/chunks/app/error-94748fa89ebf47f0.js
+https://www.udio.com/_next/static/chunks/app/global-error-f751e7bdc1e14a6f.js
+https://www.udio.com/_next/static/chunks/app/layout-d369458249c3c819.js
+https://www.udio.com/_next/static/chunks/main-app-6d519aceb8f48106.js
+https://www.udio.com/_next/static/chunks/webpack-6b8a88e3d0a4ca43.js
+```
 
 ## 2024-05-10Z (`EWfAQmJwXT3hruIu_VWg8`)
 

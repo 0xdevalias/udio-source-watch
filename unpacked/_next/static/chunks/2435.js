@@ -51,7 +51,7 @@
       s.r(l),
         s.d(l, {
           default: function () {
-            return eT;
+            return eZ;
           },
         });
       var t = s(57437),
@@ -283,13 +283,13 @@
         },
         z = (0, w.default)(() => Promise.resolve(k), { ssr: !1 });
       var C = s(35005),
-        Z = s(3526),
-        S = s(47907),
-        T = s(6771),
+        S = s(3526),
+        T = s(47907),
+        Z = s(6771),
         P = s(32708),
-        F = s(14178),
+        F = s(77200),
         A = () => {
-          let e = (0, S.usePathname)(),
+          let e = (0, T.usePathname)(),
             { isMediumDevice: l } = (0, a.Z)();
           return l
             ? null
@@ -305,7 +305,7 @@
                           className: "flex items-center justify-center",
                           children: (0, t.jsx)(C.Z, {
                             size: 32,
-                            stroke: "/" === e ? "white" : T.DM.mutedForeground,
+                            stroke: "/" === e ? "white" : Z.DM.mutedForeground,
                           }),
                         }),
                       }),
@@ -319,11 +319,11 @@
                       className: "flex-1 py-2",
                       children: (0, t.jsx)("div", {
                         className: "flex items-center justify-center",
-                        children: (0, t.jsx)(Z.Z, {
+                        children: (0, t.jsx)(S.Z, {
                           stroke:
-                            "/playlists" === e ? "white" : T.DM.mutedForeground,
+                            "/playlists" === e ? "white" : Z.DM.mutedForeground,
                           fill:
-                            "/playlists" === e ? "white" : T.DM.mutedForeground,
+                            "/playlists" === e ? "white" : Z.DM.mutedForeground,
                           size: 32,
                         }),
                       }),
@@ -332,7 +332,7 @@
                 }),
               });
         },
-        L = s(88584),
+        L = s(79584),
         E = s(14522);
       let _ = (0, p.I)();
       var D = () => {
@@ -644,16 +644,16 @@
                   (0, t.jsx)("div", {
                     onClick: () => s(!0),
                     className: "w-full",
-                    children: (0, t.jsx)(Z.Z, { className: "w-30 h-30" }),
+                    children: (0, t.jsx)(S.Z, { className: "w-30 h-30" }),
                   }),
-                  (0, t.jsx)(L.Z, {
+                  (0, t.jsx)(L.y, {
                     isOpen: l,
                     onClose: () => s(!1),
                     detent: "content-height",
-                    children: (0, t.jsxs)(L.Z.Container, {
+                    children: (0, t.jsxs)(L.y.Container, {
                       children: [
-                        (0, t.jsx)(L.Z.Header, { className: "bg-gray-light " }),
-                        (0, t.jsxs)(L.Z.Content, {
+                        (0, t.jsx)(L.y.Header, { className: "bg-gray-light " }),
+                        (0, t.jsxs)(L.y.Content, {
                           className: "h-[75vh] bg-gray-light px-6",
                           disableDrag: !0,
                           children: [
@@ -710,8 +710,8 @@
               toggleLoop: z,
             } = e,
             { data: C } = (0, B.Z)({ id: null == a ? void 0 : a.user_id }),
-            [Z, S] = (0, n.useState)(!1),
-            [T, P] = (0, n.useState)(!0),
+            [S, T] = (0, n.useState)(!1),
+            [Z, P] = (0, n.useState)(!0),
             F = (0, n.useRef)(null),
             { getTrackLikes: A } = (0, I.u)(),
             [L, E] = (0, n.useState)(!1),
@@ -741,7 +741,7 @@
                   scrollHeight: l,
                   clientHeight: s,
                 } = F.current;
-                0 === F.current.scrollTop ? S(!1) : S(!0),
+                0 === F.current.scrollTop ? T(!1) : T(!0),
                   e + s === l ? P(!1) : P(!0);
               },
               l = F.current;
@@ -799,7 +799,7 @@
                             className: "relative aspect-square w-full shrink-0",
                             children: [
                               L &&
-                                Z &&
+                                S &&
                                 (0, t.jsx)("div", {
                                   className:
                                     "absolute left-1/2 top-0 z-10 flex h-8 w-fit -translate-x-1/2 transform cursor-pointer flex-row justify-center bg-transparent",
@@ -818,7 +818,7 @@
                                     onMouseEnter: (e) => e.stopPropagation(),
                                     onMouseLeave: (e) => e.stopPropagation(),
                                     className:
-                                      "absolute inset-0 flex cursor-pointer items-center justify-center rounded-lg bg-black opacity-65 transition-opacity",
+                                      "absolute inset-0 flex cursor-pointer items-center justify-center rounded-lg",
                                     onClick: () => {
                                       E(!1);
                                     },
@@ -880,7 +880,7 @@
                                 ],
                               }),
                               L &&
-                                T &&
+                                Z &&
                                 (0, t.jsx)("div", {
                                   className:
                                     "absolute bottom-0 left-1/2 z-10 flex h-8 w-fit -translate-x-1/2 transform cursor-pointer flex-row justify-center bg-transparent",
@@ -1092,16 +1092,16 @@
                       }),
                     }),
                   }),
-                  (0, t.jsx)(L.Z, {
+                  (0, t.jsx)(L.y, {
                     isOpen: y,
                     onClose: () => {
                       N(!1);
                     },
                     detent: "content-height",
-                    children: (0, t.jsxs)(L.Z.Container, {
+                    children: (0, t.jsxs)(L.y.Container, {
                       children: [
-                        (0, t.jsx)(L.Z.Header, { className: "bg-darkaccent" }),
-                        (0, t.jsx)(L.Z.Content, {
+                        (0, t.jsx)(L.y.Header, { className: "bg-darkaccent" }),
+                        (0, t.jsx)(L.y.Content, {
                           className: "bg-darkaccent px-6",
                           disableDrag: !0,
                           children: (0, t.jsx)(eu, {
@@ -1316,7 +1316,7 @@
                     variant: "ghost",
                     size: "sm",
                     title: "View play queue",
-                    children: (0, t.jsx)(Z.Z, { color: "white", size: l }),
+                    children: (0, t.jsx)(S.Z, { color: "white", size: l }),
                   }),
                 }),
                 (0, t.jsx)(H.AW, {
@@ -1365,7 +1365,7 @@
         },
         ez = s(5892),
         eC = s(45722),
-        eZ = (e) => {
+        eS = (e) => {
           let { track: l, size: s = 25, className: r } = e,
             { setShareModalTrack: n, openShareModal: i } = (0, eC.K8)();
           return (0, t.jsx)(t.Fragment, {
@@ -1383,7 +1383,7 @@
               }),
           });
         },
-        eS = (e) => {
+        eT = (e) => {
           let { audioPlayer: l } = e,
             {
               activeTrack: s,
@@ -1415,7 +1415,7 @@
                   children: [
                     (0, t.jsx)(M.Z, { size: 20, track: h, className: "" }),
                     (0, t.jsx)(eN.Z, { size: 20, track: s }),
-                    (0, t.jsx)(eZ, { size: 20, track: s }),
+                    (0, t.jsx)(eS, { size: 20, track: s }),
                     (0, t.jsx)(ek, { size: 20 }),
                   ],
                 }),
@@ -1452,7 +1452,7 @@
             })
           );
         },
-        eT = (e) => {
+        eZ = (e) => {
           let { embeddedSong: l } = e,
             [s, h] = (0, n.useState)(!1),
             [v, j] = (0, n.useState)(0),
@@ -1461,8 +1461,8 @@
             { isMediumDevice: N } = (0, a.Z)(),
             [w, b] = (0, n.useState)(void 0),
             [k, C] = (0, n.useState)(void 0),
-            [Z, S] = (0, n.useState)(0),
-            [T, P] = (0, n.useState)(!1),
+            [S, T] = (0, n.useState)(0),
+            [Z, P] = (0, n.useState)(!1),
             F = (0, n.useRef)(null),
             L = (0, n.useRef)(null),
             E = (0, n.useRef)(!1),
@@ -1544,7 +1544,7 @@
                   (p.current.currentTime = l),
                   null !== y.current &&
                     (y.current.pause(), (y.current.currentTime = l)),
-                  S(l),
+                  T(l),
                   C(l),
                   s &&
                     setTimeout(() => {
@@ -1592,7 +1592,7 @@
               p.current.pause(),
                 null === (l = y.current) || void 0 === l || l.pause(),
                 ee(),
-                S(0),
+                T(0),
                 j(0),
                 C(0),
                 (p.current.currentTime = 0),
@@ -1691,18 +1691,18 @@
             []
           ),
           (0, n.useEffect)(() => {
-            !T &&
-              (k || 0) - Z > 10 &&
+            !Z &&
+              (k || 0) - S > 10 &&
               (null == D ? void 0 : D.id) &&
               ((0, x.L9)("Listen Song", { songId: D.id }),
               (0, d.jU)(D),
               er(),
               P(!0));
-          }, [k, Z, T, null == D ? void 0 : D.id]),
+          }, [k, S, Z, null == D ? void 0 : D.id]),
           (0, n.useEffect)(() => {
             null !== p &&
               null !== p.current &&
-              (R ? (el(), S(k || 0)) : (p.current.pause(), ee()));
+              (R ? (el(), T(k || 0)) : (p.current.pause(), ee()));
           }, [R]),
           (0, n.useEffect)(() => {
             null !== p && null !== p.current && (p.current.volume = W);
@@ -1768,7 +1768,7 @@
                           playProgress: v,
                           duration: w,
                           currentTime: k,
-                          startTime: Z,
+                          startTime: S,
                           onPlayPause: et,
                         }),
                       ],
@@ -1850,7 +1850,7 @@
                                     }),
                                     (0, t.jsx)("div", {
                                       className: "relative w-1/4",
-                                      children: (0, t.jsx)(eS, {
+                                      children: (0, t.jsx)(eT, {
                                         audioPlayer: p,
                                       }),
                                     }),

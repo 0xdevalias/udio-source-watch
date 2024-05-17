@@ -151,7 +151,7 @@
     51880: function (e, t, s) {
       s.d(t, {
         AY: function () {
-          return tH;
+          return tG;
         },
       });
       let r = (e) => {
@@ -1257,13 +1257,13 @@
           let i = t.find((t) => t.name === e),
             n = null == i ? void 0 : i.type,
             a = s[e];
-          return n && !r.includes(n) ? H(n, a) : G(a);
+          return n && !r.includes(n) ? G(n, a) : H(a);
         },
-        H = (e, t) => {
+        G = (e, t) => {
           if ("_" === e.charAt(0)) return X(t, e.slice(1, e.length));
           switch (e) {
             case m.bool:
-              return V(t);
+              return W(t);
             case m.float4:
             case m.float8:
             case m.int2:
@@ -1271,7 +1271,7 @@
             case m.int8:
             case m.numeric:
             case m.oid:
-              return W(t);
+              return V(t);
             case m.json:
             case m.jsonb:
               return Y(t);
@@ -1291,11 +1291,11 @@
             case m.tsrange:
             case m.tstzrange:
             default:
-              return G(t);
+              return H(t);
           }
         },
-        G = (e) => e,
-        V = (e) => {
+        H = (e) => e,
+        W = (e) => {
           switch (e) {
             case "t":
               return !0;
@@ -1305,7 +1305,7 @@
               return e;
           }
         },
-        W = (e) => {
+        V = (e) => {
           if ("string" == typeof e) {
             let t = parseFloat(e);
             if (!Number.isNaN(t)) return t;
@@ -1333,7 +1333,7 @@
             } catch (e) {
               r = i ? i.split(",") : [];
             }
-            return r.map((e) => H(t, e));
+            return r.map((e) => G(t, e));
           }
           return e;
         },
@@ -2816,7 +2816,7 @@
                 "ReactNative" === navigator.product
               ? "react-native"
               : "node";
-      let eO = { headers: { "X-Client-Info": `supabase-js-${eE}/2.43.0` } },
+      let eO = { headers: { "X-Client-Info": `supabase-js-${eE}/2.43.1` } },
         e$ = { schema: "public" },
         eP = {
           autoRefreshToken: !0,
@@ -2884,7 +2884,7 @@
             );
           };
         },
-        eI = "2.64.1",
+        eI = "2.64.2",
         eL = { "X-Client-Info": `gotrue-js/${eI}` },
         eU = "X-Supabase-Api-Version",
         eN = {
@@ -2963,17 +2963,17 @@
             return s;
           }
         },
-        eH = async (e, t) => {
+        eG = async (e, t) => {
           await e.removeItem(t);
         };
-      class eG {
+      class eH {
         constructor() {
-          this.promise = new eG.promiseConstructor((e, t) => {
+          this.promise = new eH.promiseConstructor((e, t) => {
             (this.resolve = e), (this.reject = t);
           });
         }
       }
-      function eV(e) {
+      function eW(e) {
         let t = e.split(".");
         if (3 !== t.length)
           throw Error("JWT is not valid: not a JWT structure");
@@ -3005,7 +3005,7 @@
           })(t[1])
         );
       }
-      async function eW(e) {
+      async function eV(e) {
         return await new Promise((t) => {
           setTimeout(() => t(null), e);
         });
@@ -3053,7 +3053,7 @@
           a = r === n ? "plain" : "s256";
         return [n, a];
       }
-      eG.promiseConstructor = Promise;
+      eH.promiseConstructor = Promise;
       let e0 = /^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/i;
       class e1 extends Error {
         constructor(e, t, s) {
@@ -3737,6 +3737,7 @@
             (this.initializePromise = null),
             (this.detectSessionInUrl = !0),
             (this.hasCustomAuthorizationHeader = !1),
+            (this.suppressGetSessionWarning = !1),
             (this.lockAcquired = !1),
             (this.pendingInLock = []),
             (this.broadcastChannel = null),
@@ -4124,7 +4125,7 @@
                 xform: tu,
               }
             );
-          return (await eH(this.storage, `${this.storageKey}-code-verifier`), n)
+          return (await eG(this.storage, `${this.storageKey}-code-verifier`), n)
             ? {
                 data: { user: null, session: null, redirectType: null },
                 error: n,
@@ -4563,20 +4564,22 @@
                 e.expires_at
               ),
               !s)
-            )
-              return (
-                this.storage.isServer &&
-                  (e = new Proxy(e, {
-                    get: (e, t, s) => (
-                      "user" === t &&
-                        console.warn(
-                          "Using the user object as returned from supabase.auth.getSession() or from some supabase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and many not be authentic. Use supabase.auth.getUser() instead which authenticates the data by contacting the Supabase Auth server."
-                        ),
-                      Reflect.get(e, t, s)
-                    ),
-                  })),
-                { data: { session: e }, error: null }
-              );
+            ) {
+              if (this.storage.isServer) {
+                let t = this.suppressGetSessionWarning;
+                e = new Proxy(e, {
+                  get: (e, s, r) => (
+                    t ||
+                      "user" !== s ||
+                      console.warn(
+                        "Using the user object as returned from supabase.auth.getSession() or from some supabase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and many not be authentic. Use supabase.auth.getUser() instead which authenticates the data by contacting the Supabase Auth server."
+                      ),
+                    Reflect.get(e, s, r)
+                  ),
+                });
+              }
+              return { data: { session: e }, error: null };
+            }
             let { session: r, error: i } = await this._callRefreshToken(
               e.refresh_token
             );
@@ -4676,7 +4679,7 @@
           }
         }
         _decodeJWT(e) {
-          return eV(e);
+          return eW(e);
         }
         async setSession(e) {
           return (
@@ -4691,7 +4694,7 @@
               s = t,
               r = !0,
               i = null,
-              n = eV(e.access_token);
+              n = eW(e.access_token);
             if ((n.exp && (r = (s = n.exp) <= t), r)) {
               let { session: t, error: s } = await this._callRefreshToken(
                 e.refresh_token
@@ -4881,7 +4884,7 @@
                 !(
                   e2(t) &&
                   "AuthApiError" === t.name &&
-                  (404 === t.status || 401 === t.status)
+                  (404 === t.status || 401 === t.status || 403 === t.status)
                 )
               )
                 return { error: t };
@@ -4889,7 +4892,7 @@
             return (
               "others" !== e &&
                 (await this._removeSession(),
-                await eH(this.storage, `${this.storageKey}-code-verifier`),
+                await eG(this.storage, `${this.storageKey}-code-verifier`),
                 await this._notifyAllSubscribers("SIGNED_OUT", null)),
               { error: null }
             );
@@ -5084,7 +5087,7 @@
             var s, r;
             let i = Date.now();
             return await ((s = async (s) => (
-              s > 0 && (await eW(200 * Math.pow(2, s - 1))),
+              s > 0 && (await eV(200 * Math.pow(2, s - 1))),
               this._debug(t, "refreshing attempt", s),
               await th(
                 this.fetch,
@@ -5203,7 +5206,7 @@
           let r = `#_callRefreshToken(${e.substring(0, 5)}...)`;
           this._debug(r, "begin");
           try {
-            this.refreshingDeferred = new eG();
+            this.refreshingDeferred = new eH();
             let { data: t, error: s } = await this._refreshAccessToken(e);
             if (s) throw s;
             if (!t.session) throw new e9();
@@ -5261,11 +5264,12 @@
         }
         async _saveSession(e) {
           this._debug("#_saveSession()", e),
+            (this.suppressGetSessionWarning = !0),
             await eJ(this.storage, this.storageKey, e);
         }
         async _removeSession() {
           this._debug("#_removeSession()"),
-            await eH(this.storage, this.storageKey);
+            await eG(this.storage, this.storageKey);
         }
         _removeVisibilityChangedCallback() {
           this._debug("#_removeVisibilityChangedCallback()");
@@ -5982,7 +5986,7 @@
           await s(i);
         }
       }
-      function tH(e, t, s) {
+      function tG(e, t, s) {
         let r, i;
         if (!e || !t)
           throw Error(`Your project's URL and Key are required to create a Supabase client!
